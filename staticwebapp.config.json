@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "route": "/tenant-scan",
+      "rewrite": "/tenant-scan.html"
+    },
+    {
+      "route": "/executive-briefing",
+      "rewrite": "/executive-briefing.html"
+    },
+    {
+      "route": "/migration-playbook",
+      "rewrite": "/migration-playbook.html"
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["*.{css,js,png,jpg,jpeg,gif,svg,ico,woff,woff2,ttf,eot}"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}
