@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Fabric Migration Playbook | PowerMates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080F1C; --card: #0d1628; --cyan: #2ee8d3; --text: #e8edf5;
+      --muted: #7a8ba0; --border: #1a2740; --cyan-dim: #1a4a45;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-serif; line-height: 1.6; }
+    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+    .cyan { color: var(--cyan); }
+    nav { position: sticky; top: 0; z-index: 100; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; background: rgba(8,15,28,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo span:first-child { color: var(--text); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
+    .logo span:last-child { color: var(--cyan); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--cyan); }
+    .nav-cta { background: var(--cyan); color: var(--bg) !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; }
+    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .hero { padding: 8rem 2rem; text-align: center; }
+    .badge { display: inline-block; background: var(--cyan-dim); color: var(--cyan); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+    .subtitle { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin: 0 auto 2.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; font-family: 'Syne', sans-serif; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .btn-primary { background: var(--cyan); color: var(--bg); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-block; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-block; margin-left: 1rem; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .step { text-align: center; padding: 2rem; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--cyan); color: var(--bg); font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step h3 { font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; }
+    .step .step-label { color: var(--cyan); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step p { color: var(--muted); font-size: 0.9rem; }
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 2rem 0; }
+    .trust-badge { background: var(--card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; color: var(--muted); }
+    .chips { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .chip { color: var(--muted); font-size: 0.85rem; }
+    .chip::before { content: "✓ "; color: var(--cyan); }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .seo-content { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+    .seo-content p { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+    .seo-content p:last-child { margin-bottom: 0; }
+    footer { background: #050b14; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-copy { color: var(--muted); font-size: 0.85rem; margin-top: 1rem; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 768px) { nav ul { display: none; } h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <span>POWER</span><span>MATES</span>
+    </div>
+    <ul>
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#deliverable">What You Get</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#proof">Why Us</a></li>
+      <li><a href="/">Migration Playbook</a></li>
+    </ul>
+    <a href="https://tally.so/r/Y5ZxQB" class="nav-cta">Get Your Playbook →</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="badge">New Offering</div>
+    <h1>Still Running on Legacy?<br><span class="cyan">There's a Playbook for That.</span></h1>
+    <p class="subtitle">A tailored, phased migration playbook for Microsoft Fabric — mapped to your source systems, your workloads, and your team's capacity to execute.</p>
+    <div style="margin-top: 2rem;">
+      <a href="https://tally.so/r/Y5ZxQB" class="btn-primary">Request Your Playbook →</a>
+    </div>
+    <div class="chips">
+      <div class="chip">No cost</div>
+      <div class="chip">No obligation</div>
+      <div class="chip">Built by MVPs who've done it</div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="section-header">
+      <h2>The Three Walls Every <span class="cyan">Migration</span> Hits</h2>
+      <p class="subtitle">Each one adds cost, risk, and technical debt — but they're all navigable with the right plan</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon">🧠</div>
+        <h3>Platform Sprawl</h3>
+        <p>SQL DW, Synapse, SSIS, on-prem BI — each one adds cost, risk, and cognitive overhead. Every quarter you wait is another quarter of compounding migration complexity.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🗺️</div>
+        <h3>No Clear Path Forward</h3>
+        <p>Fabric is attractive but your team lacks a staged, risk-aware plan. Proof-of-concepts stall because there's no roadmap from current state to production-ready Fabric.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🤝</div>
+        <h3>Stakeholder Friction</h3>
+        <p>Architecture, delivery, and business teams disagree on scope, timelines, and what 'done' looks like. The migration stalls before it starts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="deliverable">
+    <div class="section-header">
+      <h2>What You'll <span class="cyan">Receive</span></h2>
+      <p class="subtitle">Three concrete assets your team can execute against immediately</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon">📋</div>
+        <h3>Tailored Migration Playbook</h3>
+        <p>15–20 pages built around your specific source systems and target architecture. Not a generic whitepaper — a document your delivery team can act on.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📝️</div>
+        <h3>60–90 Day Phased Roadmap</h3>
+        <p>Milestones, decision gates, and workload prioritization. Designed so your architecture and delivery teams agree on what happens in what order.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🔄</div>
+        <h3>Pattern Catalog</h3>
+        <p>Documented migration patterns for your exact paths — SQL DW → Fabric, Synapse → Fabric, SSIS → Fabric Pipelines. With known risks and mitigations for each.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-header">
+      <h2>How It <span class="cyan">Works</span></h2>
+      <p class="subtitle">Three steps. Zero internal resource drain.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Intake</h3>
+        <div class="step-label">Share your stack & constraints</div>
+        <p>Tell us about your current infrastructure, workload priorities, and migration constraints. A 30-minute conversation or a written brief.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Analysis</h3>
+        <div class="step-label">AI-powered pattern matching</div>
+        <p>We combine 15+ years of enterprise migration experience with AI-accelerated pattern matching. Every recommendation is grounded in patterns we've seen work at scale.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Delivery</h3>
+        <div class="step-label">5–7 business days</div>
+        <p>Your complete playbook — ready to hand to your delivery teams. No follow-up cycles. Actionable from day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="section-header">
+      <h2>Why <span class="cyan">PowerMates</span></h2>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-badge">🏅 Microsoft MVP</div>
+      <div class="trust-badge">📊 15+ Years Enterprise</div>
+      <div class="trust-badge">🏢 Fortune 500</div>
+      <div class="trust-badge">▶️ 7,300+ YouTube Community</div>
+    </div>
+    <div class="seo-content">
+      <p>A Microsoft Fabric migration plan isn't just about moving data — it's about aligning your architecture, your governance model, and your team's execution capacity with where Fabric is heading. That's what we build.</p>
+      <p>Whether you're migrating from SQL DW to Fabric, moving workloads from Synapse, or modernizing legacy BI, the challenge is always the same: getting from a fragmented current state to a production-ready, governed Fabric environment — without burning your team out in the process.</p>
+      <p>A Synapse migration assessment typically reveals technical debt that's been deferred — unused resources, inconsistent schemas, undocumented dependencies. Our playbooks are designed to surface and address this debt as part of the migration, not after it.</p>
+      <p>Legacy BI modernization in the Fabric era means more than lifting-and-shifting reports. It means re-architecting for the semantic layer, aligning with Microsoft's Fabric roadmap, and building governance that scales.</p>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="section-header">
+      <h2>Request Your <span class="cyan">Migration Playbook</span></h2>
+      <p class="subtitle">No cost. No obligation. Built by the people who've done this at scale.</p>
+    </div>
+    <div style="text-align: center;">
+      <a href="https://tally.so/r/Y5ZxQB" class="btn-primary">Request Your Playbook</a>
+    </div>
+    <div class="chips">
+      <div class="chip">No cost</div>
+      <div class="chip">No obligation</div>
+      <div class="chip">Built by MVPs who've done it</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><span style="color: var(--text);">POWER</span><span style="color: var(--cyan);">MATES</span></div>
+    <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
