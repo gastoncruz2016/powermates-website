@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Briefing on Microsoft Fabric & AI | PowerMates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080F1C; --card: #0d1628; --cyan: #2ee8d3; --text: #e8edf5;
+      --muted: #7a8ba0; --border: #1a2740; --cyan-dim: #1a4a45;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-serif; line-height: 1.6; }
+    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+    .cyan { color: var(--cyan); }
+    nav { position: sticky; top: 0; z-index: 100; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; background: rgba(8,15,28,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo span:first-child { color: var(--text); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
+    .logo span:last-child { color: var(--cyan); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover { color: var(--cyan); }
+    .nav-cta { background: var(--cyan); color: var(--bg) !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; }
+    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .hero { padding: 8rem 2rem; text-align: center; }
+    .badge { display: inline-block; background: var(--cyan-dim); color: var(--cyan); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+    .subtitle { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin: 0 auto 2.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; font-family: 'Syne', sans-serif; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .btn-primary { background: var(--cyan); color: var(--bg); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-block; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-block; margin-left: 1rem; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .step { text-align: center; padding: 2rem; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--cyan); color: var(--bg); font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step h3 { font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; }
+    .step .step-label { color: var(--cyan); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step p { color: var(--muted); font-size: 0.9rem; }
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 2rem 0; }
+    .trust-badge { background: var(--card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; color: var(--muted); }
+    .chips { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .chip { color: var(--muted); font-size: 0.85rem; }
+    .chip::before { content: "✓ "; color: var(--cyan); }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .stat-chips { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .stat-chip { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .stat-num { color: var(--cyan); font-size: 1.8rem; font-weight: 800; font-family: 'Syne', sans-serif; }
+    .stat-label { color: var(--muted); font-size: 0.85rem; }
+    .testimonial { font-style: italic; color: var(--muted); margin: 2rem 0; padding: 1.5rem; border-left: 3px solid var(--cyan); }
+    footer { background: #050b14; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-copy { color: var(--muted); font-size: 0.85rem; margin-top: 1rem; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 768px) { nav ul { display: none; } h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <span>POWER</span><span>MATES</span>
+    </div>
+    <ul>
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#deliverable">What You Get</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#proof">Why Us</a></li>
+    </ul>
+    <a href="https://tally.so/r/YOUR_FORM_ID" class="nav-cta">Request Your Briefing</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="badge">Complimentary Executive Briefing</div>
+    <h1>Your Board Wants a Fabric Strategy.<br><span class="cyan">You Don't Have One Yet.</span></h1>
+    <p class="subtitle">A tailored, board-ready executive briefing pack on Microsoft Fabric & AI — built for your industry, your audience, and your timeline.</p>
+    <div style="margin-top: 2rem;">
+      <a href="https://tally.so/r/YOUR_FORM_ID" class="btn-primary">Request Your Briefing</a>
+      <a href="/sample-briefing.pdf" class="btn-secondary">See a Sample</a>
+    </div>
+    <div class="stat-chips">
+      <div class="stat-chip">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years Enterprise</div>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-num">F500</div>
+        <div class="stat-label">Experience</div>
+      </div>
+      <div class="stat-chip">
+        <div class="stat-num">7,300+</div>
+        <div class="stat-label">YouTube Community</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="section-header">
+      <h2>You've Probably <span class="cyan">Seen This</span></h2>
+      <p class="subtitle">Three patterns that keep data leaders from getting executive buy-in on Fabric</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <h3>Fragmented Narratives</h3>
+        <p>Every team has a different version of the data strategy. Engineering talks infrastructure. Analytics talks dashboards. Nobody's telling the same story to leadership.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Executive Misalignment</h3>
+        <p>Your CIO sees a platform migration. Your CDO sees a governance overhaul. Your business sponsors see a cost center. No shared language, no shared decision.</p>
+      </div>
+      <div class="card reveal">
+        <h3>No Single Story</h3>
+        <p>When it's time to present to the board, there's no single, credible, externally validated artifact that ties the strategy together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="deliverable">
+    <div class="section-header">
+      <h2>What You <span class="cyan">Get</span></h2>
+      <p class="subtitle">Three assets designed to align your leadership team and accelerate decisions</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon">📊</div>
+        <h3>Tailored Executive Deck</h3>
+        <p>20–25 slides built around your industry, your current data estate, and your leadership's priorities.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📄</div>
+        <h3>One-Page Leadership Briefs</h3>
+        <p>Three separate briefs — one each for CIO/CDO, Head of Data & BI, and Business Sponsor — so every stakeholder gets what they need.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🗺️</div>
+        <h3>90-Day Starting View</h3>
+        <p>A clear, prioritized view of where to begin with Fabric and AI. Not a project plan — a strategic starting point.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-header">
+      <h2>How It <span class="cyan">Works</span></h2>
+      <p class="subtitle">Three steps. Zero disruption to your team.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Intake</h3>
+        <div class="step-label">30–45 minutes</div>
+        <p>Share your context: industry, current data stack, leadership audience, and what's driving the briefing.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Assembly</h3>
+        <div class="step-label">AI-Powered</div>
+        <p>We combine 15+ years of enterprise pattern recognition with AI-accelerated assembly. No generic templates. Every slide is built for your context.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Delivery</h3>
+        <div class="step-label">3–5 Business Days</div>
+        <p>You receive the complete pack within the agreed window. Ready to present. Ready to circulate. No revision cycles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="section-header">
+      <h2>Why <span class="cyan">PowerMates</span></h2>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-badge">🏅 Microsoft MVP</div>
+      <div class="trust-badge">📊 15+ Years Enterprise Data & AI</div>
+      <div class="trust-badge">🏢 Fortune 500 Experience</div>
+      <div class="trust-badge">▶️ 7,300+ YouTube Community</div>
+    </div>
+    <div class="testimonial">
+      Client quote will go here after first 3 deliveries. Replace this placeholder with a real testimonial.
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="section-header">
+      <h2>Get a Board-Ready Fabric Narrative<br>in Days, Not Months</h2>
+      <p class="subtitle">One briefing pack. Three stakeholder views. Zero internal resource drain.</p>
+    </div>
+    <div style="text-align: center;">
+      <a href="https://tally.so/r/YOUR_FORM_ID" class="btn-primary">Request Your Briefing</a>
+    </div>
+    <div class="chips">
+      <div class="chip">No cost</div>
+      <div class="chip">No obligation</div>
+      <div class="chip">Clear external point of view</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><span style="color: var(--text);">POWER</span><span style="color: var(--cyan);">MATES</span></div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@PowerMatesMS">YouTube</a>
+      <a href="https://www.linkedin.com/company/91438424">LinkedIn</a>
+    </div>
+    <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
