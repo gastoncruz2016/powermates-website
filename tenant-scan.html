@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI & Fabric Tenant Scan | PowerMates</title>
+  <meta name="description" content="Get a comprehensive Fabric migration readiness assessment with a scored methodology, complexity heatmap, and phased roadmap. Starter at $2,500. Built by Microsoft MVPs." />
+  <meta name="keywords" content="Microsoft Fabric tenant scan, Power BI governance assessment, Fabric migration readiness, tenant health check, Fabric readiness score, Power BI audit" />
+  <meta property="og:title" content="Power BI & Fabric Tenant Scan | PowerMates" />
+  <meta property="og:description" content="A data-driven migration readiness assessment for your Power BI and Fabric tenant â scored methodology, phased roadmap, governance findings. Built by Microsoft MVPs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/tenant-scan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    /* ââ NAV ââ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ââ PARTICLES CANVAS ââ */
+    #particles-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ââ HERO ââ */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.08) 0%, transparent 70%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--cyan); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: 1px solid var(--cyan-border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-trust span::before { content: 'â '; color: var(--cyan); }
+
+    /* ââ SECTION BASICS ââ */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* ââ RISKS GRID ââ */
+    .risks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .risk-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .risk-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .risk-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .risk-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .risk-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ââ DELIVERABLES ââ */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .deliverable-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .deliverable-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .deliverable-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .deliverable-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ââ PRICING SECTION ââ */
+    .pricing-section { background: var(--bg2); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+
+    .pricing-card.recommended {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 1px var(--cyan), 0 0 32px rgba(46, 232, 211, 0.15);
+      transform: scale(1.02);
+      background: var(--card2);
+    }
+    .pricing-card.recommended:hover { transform: scale(1.02) translateY(-4px); }
+
+    .recommended-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cyan);
+      color: var(--bg);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-tier {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.6rem;
+    }
+
+    .pricing-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .pricing-price .price-note {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'Figtree', sans-serif;
+    }
+
+    .pricing-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .pricing-features li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .pricing-features li::before {
+      content: 'â';
+      color: var(--cyan);
+      font-weight: 700;
+  2   flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      font-family: 'Figtree', sans-serif;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .pricing-cta.primary {
+      background: var(--cyan);
+      color: var(--bg);
+    }
+    .pricing-cta.primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .pricing-cta.outline {
+      background: transparent;
+      color: var(--cyan);
+      border: 1px solid var(--cyan-border);
+    }
+    .pricing-cta.outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+    .pricing-note a { color: var(--cyan); }
+
+    /* ââ HOW IT WORKS (PAID) ââ */
+    .how-it-works-paid { background: var(--bg3); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+   ,  font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--cyan);
+   ,  margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ââ REPORT MOCKUP ââ */
+    .report-section { background: var(--bg2); }
+
+    .report-mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .report-mockup-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+     .padding: 1.5rem;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s;
+    }
+    .report-mockup-card:hover { border-color: var(--cyan-border); }
+
+    .mockup-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+    . letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .mockup-title { font-size: 0.875rem; font-weight: 700; color: #fff; }
+
+    /* Score gauge mockup */
+    .gauge-mock {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .gauge-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+     .border: 3px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--cyan);
+      flex-shrink: 0;
+      background: var(--cyan-dim);
+    }
+    .gauge-text { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    /* Heatmap mockup */
+    .heatmap-mock {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+    .heatmap-cell {
+      height: 20px;
+      border-radius: 3px;
+    }
+    .heat-1 { background: rgba(46, 232, 211, 0.15); }
+    .heat-2 { background: rgba(46, 232, 211, 0.35); }
+    .heat-3 { background: rgba(255, 180, 50, 0.4); }
+    .heat-4 { background: rgba(255, 80, 80, 0.4); }
+    .heat-5 { background: rgba(255, 80, 80, 0.6); }
+
+    /* Matrix mockup */
+    .matrix-mock {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .matrix-cell {
+      background: var(--bg3);
+      border-radius: 4px;
+      padding: 6px 8px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      border-left: 2px solid var(--cyan-border);
+    }
+
+    /* Timeline mockup */
+    .timeline-mock {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .timeline-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .timeline-phase-label { font-size: 0.7rem; color: var(--muted); width: 42px; flex-shrink: 0; }
+    .timeline-bar { height: 10px; background: var(--cyan-dim); border-radius: 3px; flex: 1; overflow: hidden; }
+    .timeline-bar-fill { height: 100%; background: var(--cyan); border-radius: 3px; }
+
+    /* Cost table mockup */
+    .cost-mock {
+      display: flex;
+ .    flex-direction: column;
+      gap: 5px;
+    }
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cost-row:last-child { border-bottom: none; }
+    .cost-label { color: var(--muted); }
+    .cost-value { color: var(--cyan); font-weight: 700; }
+
+    /* ââ FAQ ââ */
+    .faq-section { background: var(--bg); }
+
+ .  .faq-list { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+  .   transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: var(--cyan-border); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: #fff;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .faq-chevron {
+      width: 20px;
+     .height: 20px;
+      flex-shrink: 0;
+      color: var(--cyan);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    .faq-answer p {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ââ TRUST SIGNALS ââ */
+    .trust-row {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .trust-icon {
+      font-size: 1.4rem;
+    }
+
+    .trust-item p { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .trust-item span { font-size: 0.78rem; color: var(--muted); }
+
+    /* ââ WHY POWERMATES ââ */
+    .why-section { background: var(--bg3); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ââ FREE SCAN CTA ââ */
+    .free-scan-banner {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      max-width: 760px;
+      margin: 3rem auto 0;
+    }
+
+   ..free-scan-banner p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .free-scan-banner strong { color: var(--text); }
+
+    /* ââ FINAL CTA SECTION ââ */
+    .final-cta {
+      text-align: center;
+     .background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%);
+    }
+
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+
+    .final-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ââ FOOTER ââ */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+     .font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+    /* ââ REVEAL ANIMATION ââ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ââ RESPONSIVE ââ */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .pricing-card.recommended { transform: scale(1); }
+      .pricing-card.recommended:hover { transform: translateY(-4px); }
+      .why-grid { grid-template-columns: 1fr; }
+      .free-scan-banner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ââ NAV ââ -->
+  <nav>
+    <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <ul class="nav-links">
+      <li><a href="https://thepowermates.com">Home</a></li>
+      <li><a href="https://thepowermates.com/executive-briefing">Executive Briefing</a></li>
+      <li><a href="https://thepowermates.com/migration-playbook">Migration Playbook</a></li>
+      <li><a href="#">Tenant Scan</a></li>
+    </ul>
+    <!-- TODO: Replace with Stripe Starter link after Stripe setup -->
+    <a href="#pricing" class="nav-cta">Get Your Scan â</a>
+  </nav>
+
+  <!-- ââ HERO ââ -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">Migration Readiness Assessment</div>
+      <h1>Your Tenant Is Telling You<br /><span>Something. Let's Listen.</span></h1>
+      <p>A structured, scored assessment of your Power BI and Fabric tenant â governance findings, migration readiness score, and a phased roadmap. Delivered in days.</p>
+      <div class="hero-cta-group">
+        <a href="#pricing" class="btn-primary">View Assessment Tiers â</a>
+        <a href="#how-it-works-paid" class="btn-outline">How It Works</a>
+      </div>
+      <div class="hero-trust">
+        <span>Microsoft MVP</span>
+        <span>15+ Years Enterprise</span>
+        <span>Fortune 500 Clients</span>
+        <span>7,300+ YouTube Community</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ RISKS ââ -->
+  <section id="problem">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Why This Matters</div>
+        <h2 class="section-title">The Three Risks Hiding in Your Tenant</h2>
+        <p class="section-sub">Silent governance gaps that only surface under audit pressure â or when a security incident forces your hand.</p>
+      </div>
+      <div class="risks-grid">
+        <div class="risk-card reveal">
+          <div class="risk-icon">ð</div>
+          <h3>Workspace Sprawl</h3>
+          <p>Ownership and lineage become opaque as workspaces multiply. Nobody knows who owns what, which datasets are authoritative, or where the real risk lives.</p>
+        </div>
+        <div class="risk-card reveal">
+          <div class="risk-icon">ð</div>
+          <h3>Access Pattern Drift</h3>
+          <p>The access you granted two years ago no longer matches your org structure or risk posture. Former team members, legacy service accounts, and over-permissioned workspaces create silent exposure.</p>
+        </div>
+        <div class="risk-card reveal">
+          <div class="risk-icon">ð</div>
+          <h3>Missed Opportunities</h3>
+          <p>Consolidation candidates, Fabric landing zone readiness, and capacity optimization â all sitting in your tenant data, invisible without a structured scan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ DELIVERABLES ââ -->
+  <section id="deliverable" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What You'll Receive</div>
+        <h2 class="section-title">Three Concrete Assets. Immediate Governance Improvement.</h2>
+        <p class="section-sub">Designed for data leaders who need findings they can act on â not a 50-page report nobody reads.</p>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-card reveal">
+          <div class="icon">ð</div>
+          <h3>Tenant Risk &amp; Opportunity Report</h3>
+          <p>10â15 pages of findings specific to your environment. Governance gaps, workspace health, access anomalies, and capacity utilization â documented with severity ratings.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">ð¡ï¸</div>
+          <h3>Governance Findings</h3>
+          <p>Workspace ownership mapping, access pattern analysis, capacity usage trends, and lineage gap identification. Each finding includes impact rating and remediation guidance.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">â</div>
+          <h3>Next 5 Actions List</h3>
+          <p>A prioritized, 90-day action list. Not a generic roadmap â five specific, high-impact moves your team can execute immediately to reduce risk and unlock opportunity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ PRICING ââ -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Assessment Tiers</div>
+        <h2 class="section-title">Choose Your Assessment Level</h2>
+        <p class="section-sub">Every tier uses the same structured methodology. The scope and advisory depth scale with your environment's complexity.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- STARTER -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-price">$2,500</div>
+          <div class="pricing-tagline">Single environment. Scored output. Fast turnaround.</div>
+          <ul class="pricing-features">
+            <li>Single environment scan</li>
+            <li>Fabric Readiness Score (0â100)</li>
+            <li>10â15 page assessment report</li>
+            <li>Governance findings with severity ratings</li>
+            <li>Next 5 Actions prioritized list</li>
+            <li>3â5 business day delivery</li>
+          </ul>
+          <!-- TODO: Replace with Stripe Payment Link after Stripe setup -->
+          <a href="mailto:gaston@thepowermates.com?subject=Starter Scan â Purchase Request" class="pricing-cta outline">Get Starter Scan â</a>
+        </div>
+
+        <!-- PROFESSIONAL (Recommended) -->
+        <div class="pricing-card recommended reveal">
+          <div class="recommended-badge">Recommended</div>
+          <div class="pricing-tier">Professional</div>
+          <div class="pricing-price">$7,500</div>
+          <div class="pricing-tagline">Multi-environment. Advisory call. Custom roadmap.</div>
+          <ul class="pricing-features">
+            <li>Multi-environment scan</li>
+            <li>Everything in Starter, plus:</li>
+            <li>1-hour advisory call with Microsoft MVP</li>
+            <li>Custom migration roadmap</li>
+            <li>Governance deep-dive findings</li>
+            <li>Executive summary slide deck</li>
+            <li>3â5 business day delivery</li>
+          </ul>
+          <!-- TODO: Replace with Stripe Payment Link after Stripe setup -->
+          <a href="mailto:gaston@thepowermates.com?subject=Professional Scan â Purchase Request" class="pricing-cta primary">Get Professional Scan â</a>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-price">$15,000<span class="price-note">+</span></div>
+          <div class="pricing-tagline">Full enterprise assessment. Ongoing advisory included.</div>
+          <ul class="pricing-features">
+            <li>Full enterprise assessment</li>
+            <li>Everything in Professional, plus:</li>
+            <li>Quarterly advisory sessions</li>
+            <li>Migration planning &amp; pattern catalog</li>
+            <li>Stakeholder-specific executive summaries</li>
+            <li>Priority delivery scheduling</li>
+          </ul>
+          <a href="mailto:gaston@thepowermates.com?subject=Enterprise Scan â Inquiry" class="pricing-cta outline">Contact Us â</a>
+        </div>
+
+      </div>
+
+      <p class="pricing-note reveal">
+        Starter customers can upgrade to Professional by paying the difference. Questions? <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ââ HOW IT WORKS (PAID) ââ -->
+  <section id="how-it-works-paid" class="how-it-works-paid">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three steps. No systems access required upfront. Zero internal resource drain.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Choose Your Tier &amp; Complete Payment</h3>
+          <p>Select the tier that matches your environment complexity. Secure payment processed via Stripe. You'll receive a confirmation and next-steps email within the hour.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Complete the Assessment Questionnaire</h3>
+          <p>A structured 15-minute questionnaire about your data estate â SQL instances, BI tools, governance maturity, and migration context. No tenant access required.</p>
+          <!-- TODO: Replace with Microsoft Form link after form creation -->
+          <p style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--cyan);">â Assessment form sent after payment confirmation</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+    0     <h3>Receive Your Fabric Readiness Report</h3>
+          <p>Your complete assessment â scored, prioritized, and ready to act on â delivered in 3â5 business days. Professional and Enterprise tiers include your advisory call scheduling link.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ REPORT MOCKUP ââ -->
+  <section id="report-preview" class="report-section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">What's in the Report</div>
+        <h2 class="section-title">Five Components. One Clear Picture.</h2>
+        <p class="section-sub">Every report delivers these five components â structured so your data team and leadership can act from the same source of truth.</p>
+      </div>
+      <div class="report-mockup-grid">
+
+        <div class="report-mockup-card reveal">
+          <div class="mockup-label">Component 1</div>
+          <div class="mockup-title">Fabric Readiness Score</div>
+          <div class="gauge-mock">
+            <div class="gauge-circle">74</div>
+            <div class="gauge-text">Scored 0â100 across governance, complexity, and migration readiness dimensions</div>
+          </div>
+        </div>
+
+        <div class="report-mockup-card reveal">
+          <div class="mockup-label">Component 2</div>
+          <div class="mockup-title">Environment Complexity Heatmap</div>
+          <div class="heatmap-mock">
+            <div class="heatmap-cell heat-1"></div>
+            <div class="heatmap-cell heat-3"></div>
+            <div class="heatmap-cell heat-5"></div>
+            <div class="heatmap-cell heat-2"></div>
+            <div class="heatmap-cell heat-4"></div>
+            <div class="heatmap-cell heat-2"></div>
+            <div class="heatmap-cell heat-1"></div>
+            <div class="heatmap-cell heat-3"></div>
+            <div class="heatmap-cell heat-5"></div>
+            <div class="heatmap-cell heat-4"></div>
+            <div class="heatmap-cell heat-2"></div>
+            <div class="heatmap-cell heat-1"></div>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem;">Workspace-level risk surface by workload type</p>
+        </div>
+
+        <div class="report-mockup-card reveal">
+          <div class="mockup-label">Component 3</div>
+          <div class="mockup-title">Workload Migration Priority Matrix</div>
+          <div class="matrix-mock">
+            <div class="matrix-cell">P1 â Core DW</div>
+            <div class="matrix-cell">P2 â SSAS Models</div>
+            <div class="matrix-cell">P3 â SSIS Pipelines</div>
+            <div class="matrix-cell">P4 â Legacy SSRS</div>
+          </div>
+        </div>
+
+        <div class="report-mockup-card reveal">
+          <div class="mockup-label">Component 4</div>
+          <div class="mockup-title">Cost Comparison Table</div>
+          <div class="cost-mock">
+            <div class="cost-row"><span class="cost-label">Current Annual Spend</span><span class="cost-value">Yr 0</span></div>
+            <div class="cost-row"><span class="cost-label">Fabric Migration Cost</span><span class="cost-value">Yr 1</span></div>
+            <div class="cost-row"><span class="cost-label">Projected Savings</span><span class="cost-value">Yr 2+</span></div>
+          </div>
+        </div>
+
+        <div class="report-mockup-card reveal">
+          <div class="mockup-label">Component 5</div>
+          <div class="mockup-title">Phased Roadmap Timeline</div>
+          <div class="timeline-mock">
+            <div class="timeline-bar-wrap">
+              <div class="timeline-phase-label" style="font-size:0.68rem;">Phase 1</div>
+              <div class="timeline-bar"><div class="timeline-bar-fill" style="width: 35%;"></div></div>
+            </div>
+            <div class="timeline-bar-wrap">
+              <div class="timeline-phase-label" style="font-size:0.68rem;">Phase 2</div>
+              <div class="timeline-bar"><div class="timeline-bar-fill" style="width: 65%;"></div></div>
+            </div>
+            <div class="timeline-bar-wrap">
+              <div class="timeline-phase-label" style="font-size:0.68rem;">Phase 3</div>
+              <div class="timeline-bar"><div class="timeline-bar-fill" style="width: 100%;"></div></div>
+            </div>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem;">60â90 day milestone view with decision gates</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ FAQ ââ -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What data do I need to provide?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No access to your systems required. You answer a structured questionnaire about your data estate â SQL instances, BI tools, data volumes, governance maturity, and migration context. It takes about 15 minutes. We never connect to your tenant or require admin credentials.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Is my data secure?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We never access your tenant directly. All information is provided by you through a secure Microsoft Form. We use it solely to produce your assessment â it's not stored beyond the engagement or shared with any third party.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How is this different from a free consulting estimate?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>This is a structured, data-driven assessment with a scored methodology â not a sales pitch. You get a quantified readiness score, a complexity heatmap, and a phased roadmap with effort estimates. Every finding is severity-rated with a specific remediation action. A consulting estimate tells you what to buy. This tells you what you actually have and what it will take to move.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What if I need help after the assessment?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Professional and Enterprise tiers include advisory sessions. You can also add the Migration Playbook ($5Kâ$10K) â a detailed, phased execution plan built directly from your scan findings. Customers who complete the scan get priority access to the Playbook.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Can I upgrade tiers after purchasing?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svf>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Starter customers can upgrade to Professional by paying the difference. Contact <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a> and we'll extend your engagement scope.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Do you still offer the free governance scan?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. The complimentary Quick Governance Scan is still available for teams exploring their options. It provides a high-level view of your governance posture. The paid Tenant Scan delivers a comprehensive migration readiness assessment with a scored methodology, roadmap, and advisory â a different scope and output entirely.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FREE SCAN BANNER -->
+      <div class="free-scan-banner reveal">
+        <div>
+          <p><strong>Not ready for a full assessment?</strong></p>
+          <p>Start with our complimentary Quick Governance Scan â a high-level view of your governance posture at no cost.</p>
+        </div>
+        <a href="https://tally.so/r/rjlkGL" class="btn-outline" style="white-space: nowrap; flex-shrink: 0;">Request Free Scan â</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ââ TRUST / WHY POWERMATES ââ -->
+  <section id="proof" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Why PowerMates</div>
+        <h2 class="section-title">Built by People Who've Done This at Scale</h2>
+      </div>
+      <div class="trust-row reveal" style="margin-bottom: 3rem;">
+        <div class="trust-item">
+          <div class="trust-icon">ð</div>
+          <div>
+            <p>Microsoft MVP</p>
+            <span>Data &amp; AI</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">ð</div>
+          <div>
+            <p>15+ Years Enterprise</p>
+            <span>Data platform architecture</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">ð¢</div>
+          <div>
+            <p>Fortune 500</p>
+            <span>Migration experience</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">â¶ï¸</div>
+          <div>
+            <p>7,300+ Community</p>
+            <span>YouTube subscribers</span>
+          </div>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <p>A Power BI tenant governance scan isn't just an audit â it's a structured conversation between your data platform and your risk posture. Most organizations run their tenants reactively, discovering gaps only when compliance calls or an access incident forces action. A comprehensive tenant scan changes that: it gives you the map you've been missing â which workspaces own what, where access has drifted from reality, and what's actually ready for Fabric adoption.</p>
+        </div>
+        <div class="why-card reveal">
+          <p>The real value of a migration readiness assessment is actionability. You don't need a 50-page report that documents every workspace and dataset. You need five specific moves your delivery team can execute in the next 90 days to reduce risk and unlock opportunity. That's what the Tenant Scan delivers â the findings that matter, prioritized by impact, with concrete remediation steps and a scored baseline you can measure against over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ FINAL CTA ââ -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Ready to See What Your Tenant Is Telling You?</h2>
+        <p>Choose a tier, complete the questionnaire, and get your Fabric Readiness Report in 3â5 business days.</p>
+        <div class="final-cta-group">
+          <a href="#pricing" class="btn-primary">View Pricing â</a>
+          <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
+        </div>
+        <div class="hero-trust">
+          <span>No tenant access required</span>
+          <span>Secure Microsoft Form intake</span>
+          <span>3â5 business day delivery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ââ FOOTER ââ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="footer-copy">Â© 2026 PowerMates LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ââ PARTICLES ââ -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- ââ SCROLL REVEAL ââ -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- ââ FAQ ACCORDION ââ -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
