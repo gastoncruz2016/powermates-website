@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PowerMates â Microsoft Power Platform & Fabric</title>
-  <meta name="description" content="PowerMates â Real-world Microsoft Power Platform and Fabric content. Executive briefings, deep-dive videos, and practical insights for enterprise data leaders. Join 7,300+ subscribers.">
-  <meta property="og:title" content="PowerMates â Microsoft Power Platform & Fabric">
+  <title>PowerMates — Microsoft Power Platform & Fabric</title>
+  <meta name="description" content="PowerMates — Real-world Microsoft Power Platform and Fabric content. Executive briefings, deep-dive videos, and practical insights for enterprise data leaders. Join 7,300+ subscribers.">
+  <meta property="og:title" content="PowerMates — Microsoft Power Platform & Fabric">
   <meta property="og:description" content="Real-world implementations, executive briefings, and deep-dive videos on Microsoft Power Platform and Fabric. Free resources for enterprise data leaders.">
   <meta property="og:url" content="https://www.thepowermates.com/">
   <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
     h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
     .cyan { color: var(--cyan); }
 
-    /* NAV â FIX 1: gap was "1.rem" (invalid), corrected to "1.5rem" */
+    /* NAV — FIX 1: gap was "1.rem" (invalid), corrected to "1.5rem" */
     nav { position: sticky; top: 0; z-index: 100; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; background: rgba(8,15,28,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .logo span:first-child { color: var(--text); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
     .logo span:last-child { color: var(--cyan); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
@@ -68,7 +68,7 @@
     /* STEPS */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
     .step { text-align: center; padding: 2rem; }
-    /* FIX 2: .step-num was in CSS but missing from HTML â re-added in both */
+    /* FIX 2: .step-num was in CSS but missing from HTML — re-added in both */
     .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--cyan); color: var(--bg); font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
     .step h3 { font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; }
     .step .step-label { color: var(--cyan); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -78,14 +78,14 @@
     .trust-badge { background: var(--card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; color: var(--muted); }
     .chips { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
     .chip { color: var(--muted); font-size: 0.85rem; }
-    .chip::before { content: "â "; color: var(--cyan); }
+    .chip::before { content: "✓ "; color: var(--cyan); }
     .section-header { text-align: center; margin-bottom: 3rem; }
     .stat-counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; text-align: center; }
     .stat { color: var(--cyan); }
     .stat-number { font-size: 2.5rem; font-weight: 900; font-family: 'Syne', sans-serif; }
     .stat-label { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
 
-    /* FIX 4: topic-grid changed to repeat(3, 1fr) â prevents 5+1 orphan on wide viewports */
+    /* FIX 4: topic-grid changed to repeat(3, 1fr) — prevents 5+1 orphan on wide viewports */
     .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
     .topic-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; text-align: center; }
     .topic-icon { font-size: 2.5rem; margin-bottom: 1rem; }
@@ -100,7 +100,7 @@
     .news-card p { color: var(--muted); margin-bottom: 1.5rem; }
     .news-highlights { list-style: none; margin-bottom: 1.5rem; }
     .news-highlights li { color: var(--muted); font-size: 0.9rem; padding: 0.5rem 0; }
-    .news-highlights li::before { content: "â "; color: var(--cyan); margin-right: 0.5rem; }
+    .news-highlights li::before { content: "→ "; color: var(--cyan); margin-right: 0.5rem; }
     .news-card a { color: var(--cyan); text-decoration: none; font-weight: 600; }
     .newsletter { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 3rem 2rem; text-align: center; }
     .newsletter h2 { margin-bottom: 1rem; }
@@ -120,7 +120,7 @@
       nav ul { display: none; position: fixed; top: 57px; left: 0; right: 0; background: rgba(8,15,28,0.98); backdrop-filter: blur(12px); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid var(--border); z-index: 99; }
       nav ul.open { display: flex; }
       h1 { font-size: 2rem; }
-      /* FIX 4b: topic-grid responsive â 2 cols on tablet, 1 on mobile */
+      /* FIX 4b: topic-grid responsive — 2 cols on tablet, 1 on mobile */
       .topic-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
@@ -141,7 +141,7 @@
       <li><a href="#featured">Videos</a></li>
       <li><a href="#fabric-news">Fabric News</a></li>
     </ul>
-    <a href="https://tally.so/r/xXd9lG" class="nav-cta">Get Your Briefing â</a>
+    <a href="https://tally.so/r/xXd9lG" class="nav-cta">Get Your Briefing →</a>
     <button class="hamburger" aria-label="Toggle navigation" id="hamburger">
       <span></span><span></span><span></span>
     </button>
@@ -150,7 +150,7 @@
   <section class="hero" id="hero">
     <canvas class="canvas-hero" id="particleCanvas"></canvas>
     <div class="hero-content">
-      <div class="banner"><a href="#briefing">ð Free Executive Briefing Pack â Request Yours</a></div>
+      <div class="banner"><a href="#briefing">📊 Free Executive Briefing Pack — Request Yours</a></div>
       <div class="badge">Microsoft Power Platform & Fabric</div>
       <h1><span>POWER</span><span class="cyan">MATES</span></h1>
       <p class="subtitle">Real-world implementations, cutting-edge insights, and mind-blowing innovations around <strong>Microsoft Power Platform</strong> and <strong>Microsoft Fabric</strong></p>
@@ -171,13 +171,13 @@
     <div class="section-header">
       <div class="badge">NEW OFFERING</div>
       <h2>Your Board Wants a Fabric Strategy.<br><span class="cyan">We'll Build It.</span></h2>
-      <p class="subtitle">A tailored, board-ready executive briefing pack on Microsoft Fabric & AI â built for your industry, your audience, and your timeline.</p>
+      <p class="subtitle">A tailored, board-ready executive briefing pack on Microsoft Fabric & AI — built for your industry, your audience, and your timeline.</p>
     </div>
     <h3 style="text-align: center; margin: 2rem 0;">What You'll Get</h3>
     <div class="grid-3">
-      <div class="card reveal"><div class="card-icon">ð</div><h3>Tailored Executive Deck</h3><p>20â25 slides built around your industry, your current data estate, and your leadership's priorities.</p></div>
-      <div class="card reveal"><div class="card-icon">ð</div><h3>One-Page Leadership Briefs</h3><p>Three separate briefs â one each for CIO/CDO, Head of Data & BI, and Business Sponsor â so every stakeholder gets what they need.</p></div>
-      <div class="card reveal"><div class="card-icon">ðºï¸</div><h3>90-Day Starting View</h3><p>A clear, prioritized view of where to begin with Fabric and AI. Not a project plan â a strategic starting point.</p></div>
+      <div class="card reveal"><div class="card-icon">📊</div><h3>Tailored Executive Deck</h3><p>20–25 slides built around your industry, your current data estate, and your leadership's priorities.</p></div>
+      <div class="card reveal"><div class="card-icon">📄</div><h3>One-Page Leadership Briefs</h3><p>Three separate briefs — one each for CIO/CDO, Head of Data & BI, and Business Sponsor — so every stakeholder gets what they need.</p></div>
+      <div class="card reveal"><div class="card-icon">🗺️</div><h3>90-Day Starting View</h3><p>A clear, prioritized view of where to begin with Fabric and AI. Not a project plan — a strategic starting point.</p></div>
     </div>
     <h3 style="text-align: center; margin: 2rem 0 1rem;">How It Works</h3>
     <!-- FIX 2: restored .step-num numbered circle elements (1, 2, 3) -->
@@ -197,18 +197,18 @@
       <div class="step reveal">
         <div class="step-num">3</div>
         <h3>Delivery</h3>
-        <div class="step-label">3â5 business days</div>
+        <div class="step-label">3–5 business days</div>
         <p>You receive the complete pack within the agreed window. Ready to present. No revision cycles.</p>
       </div>
     </div>
     <div style="text-align: center; margin-top: 2rem;">
       <div class="trust-badges">
-        <div class="trust-badge">ð Microsoft MVP</div>
-        <div class="trust-badge">ð 15+ Years Enterprise</div>
-        <div class="trust-badge">ð¢ Fortune 500</div>
-        <div class="trust-badge">â¶ï¸ 7,300+ YouTube Community</div>
+        <div class="trust-badge">🏅 Microsoft MVP</div>
+        <div class="trust-badge">📊 15+ Years Enterprise</div>
+        <div class="trust-badge">🏢 Fortune 500</div>
+        <div class="trust-badge">▶️ 7,300+ YouTube Community</div>
       </div>
-      <a href="https://tally.so/r/xXd9lG" class="btn-primary" style="margin-top: 1.5rem;">Request Your Briefing â</a>
+      <a href="https://tally.so/r/xXd9lG" class="btn-primary" style="margin-top: 1.5rem;">Request Your Briefing →</a>
       <div class="chips"><div class="chip">No cost</div><div class="chip">No obligation</div><div class="chip">Clear external point of view</div></div>
     </div>
   </section>
@@ -216,28 +216,28 @@
   <section id="featured">
     <div class="section-header" id="content">
       <h2>See Us <span class="cyan">In Action</span></h2>
-      <p class="subtitle">Real-world implementations, live demos, and deep dives â straight from our YouTube channel</p>
+      <p class="subtitle">Real-world implementations, live demos, and deep dives — straight from our YouTube channel</p>
     </div>
     <div class="grid-3" style="margin-top: 2rem;">
       <div class="card reveal">
         <h3>Composite Models in Microsoft Fabric</h3>
         <p>9 days ago</p>
-        <a href="https://www.youtube.com/watch?v=O890phQYvEs">Watch â</a>
+        <a href="https://www.youtube.com/watch?v=O890phQYvEs">Watch →</a>
       </div>
       <div class="card reveal">
         <h3>Copy M365 Copilot to Copilot Studio</h3>
         <p>2 weeks ago</p>
-        <a href="https://www.youtube.com/watch?v=CCZOkXn8tI4">Watch â</a>
+        <a href="https://www.youtube.com/watch?v=CCZOkXn8tI4">Watch →</a>
       </div>
       <div class="card reveal">
         <h3>New Power Apps Experience: Live Demo</h3>
         <p>1 month ago</p>
-        <a href="https://www.youtube.com/watch?v=ibVjASN_e-c">Watch â</a>
+        <a href="https://www.youtube.com/watch?v=ibVjASN_e-c">Watch →</a>
       </div>
     </div>
     <!-- FIX 3: added class="section-link" for proper cyan styling -->
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="https://www.youtube.com/@PowerMatesMS" class="section-link">View All Videos on YouTube â</a>
+      <a href="https://www.youtube.com/@PowerMatesMS" class="section-link">View All Videos on YouTube →</a>
     </div>
   </section>
 
@@ -245,14 +245,14 @@
     <div class="section-header">
       <h2>What We <span class="cyan">Cover</span></h2>
     </div>
-    <!-- FIX 4: grid is now repeat(3,1fr) â ensures 2+3 even layout -->
+    <!-- FIX 4: grid is now repeat(3,1fr) — ensures 2+3 even layout -->
     <div class="topic-grid">
-      <div class="topic-card reveal"><div class="topic-icon">â¡</div><h3>Power Automate</h3><p>Workflows, integrations, and automation patterns</p></div>
-      <div class="topic-card reveal"><div class="topic-icon">ð±</div><h3>Power Apps</h3><p>Canvas, model-driven, and code-first applications</p></div>
-      <div class="topic-card reveal"><div class="topic-icon">ð§</div><h3>Microsoft Fabric</h3><p>Data engineering, analytics, and real-time intelligence</p></div>
-      <div class="topic-card reveal"><div class="topic-icon">ð</div><h3>Power BI</h3><p>Dashboards, semantic models, and insights</p></div>
-      <div class="topic-card reveal"><div class="topic-icon">ð¤</div><h3>Copilot Studio</h3><p>AI agents and copilot customization</p></div>
-      <div class="topic-card reveal"><div class="topic-icon">ð¥</div><h3>Community</h3><p>Best practices, tips, and community insights</p></div>
+      <div class="topic-card reveal"><div class="topic-icon">⚡</div><h3>Power Automate</h3><p>Workflows, integrations, and automation patterns</p></div>
+      <div class="topic-card reveal"><div class="topic-icon">📱</div><h3>Power Apps</h3><p>Canvas, model-driven, and code-first applications</p></div>
+      <div class="topic-card reveal"><div class="topic-icon">🔧</div><h3>Microsoft Fabric</h3><p>Data engineering, analytics, and real-time intelligence</p></div>
+      <div class="topic-card reveal"><div class="topic-icon">📊</div><h3>Power BI</h3><p>Dashboards, semantic models, and insights</p></div>
+      <div class="topic-card reveal"><div class="topic-icon">🤖</div><h3>Copilot Studio</h3><p>AI agents and copilot customization</p></div>
+      <div class="topic-card reveal"><div class="topic-icon">👥</div><h3>Community</h3><p>Best practices, tips, and community insights</p></div>
     </div>
   </section>
 
@@ -275,24 +275,24 @@
     <div class="section-header">
       <div class="badge">Live Event</div>
       <h2>Power Mates at <span class="cyan">FabCon Atlanta</span></h2>
-      <p class="subtitle">March 16â20, 2026 Â· Atlanta, Georgia</p>
+      <p class="subtitle">March 16–20, 2026 · Atlanta, Georgia</p>
     </div>
     <div class="grid-2">
       <div class="card reveal">
         <h3>Session 1</h3>
         <p><strong>Building Next-Gen Apps with Power Platform and SQL Server 2025</strong></p>
         <p>Discover how to combine the power of Power Platform with SQL Server 2025 to build enterprise-grade next-generation applications.</p>
-        <a href="https://fabriccon.com/program/agenda">View Session â</a>
+        <a href="https://fabriccon.com/program/agenda">View Session →</a>
       </div>
       <div class="card reveal">
         <h3>Session 2</h3>
         <p><strong>The Instant Insights Pipeline: OneLake Shortcuts + Dataverse + Power Apps</strong></p>
         <p>Learn how to build a real-time insights pipeline by connecting OneLake Shortcuts, Dataverse, and Power Apps.</p>
-        <a href="https://fabriccon.com/program/agenda">View Session â</a>
+        <a href="https://fabriccon.com/program/agenda">View Session →</a>
       </div>
     </div>
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="https://fabriccon.com/" class="section-link">Explore FabCon 2026 â</a>
+      <a href="https://fabriccon.com/" class="section-link">Explore FabCon 2026 →</a>
     </div>
   </section>
 
@@ -305,13 +305,13 @@
         <div class="news-category">Power Platform</div>
         <div class="news-date">February 28, 2026</div>
         <h3>Power Platform February 2026 Feature Update</h3>
-        <p>A massive month for Power Platform â Code Apps hit GA, Copilot lands inside model-driven apps, and the Power Apps MCP Server enters public preview.</p>
+        <p>A massive month for Power Platform — Code Apps hit GA, Copilot lands inside model-driven apps, and the Power Apps MCP Server enters public preview.</p>
         <ul class="news-highlights">
-          <li>Code Apps â Now Generally Available</li>
+          <li>Code Apps — Now Generally Available</li>
           <li>M365 Copilot Chat in Model-Driven Apps</li>
-          <li>Power Apps MCP Server â Public Preview</li>
+          <li>Power Apps MCP Server — Public Preview</li>
         </ul>
-        <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-february-2026-feature-update/">Read the full February 2026 update â</a>
+        <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-february-2026-feature-update/">Read the full February 2026 update →</a>
       </div>
       <div class="news-card reveal">
         <div class="news-category">AI & Agents</div>
@@ -323,7 +323,7 @@
           <li>Business Users as Solution Shapers</li>
           <li>Copilot Studio + Power Apps + Dataverse</li>
         </ul>
-        <a href="https://www.microsoft.com/en-us/power-platform/blog/2026/02/24/the-shift-reshaping-enterprise-applications/">Read the full article â</a>
+        <a href="https://www.microsoft.com/en-us/power-platform/blog/2026/02/24/the-shift-reshaping-enterprise-applications/">Read the full article →</a>
       </div>
       <div class="news-card reveal">
         <div class="news-category">Microsoft Fabric</div>
@@ -331,11 +331,11 @@
         <h3>Fabric February 2026 Feature Summary</h3>
         <p>A wide range of enhancements land across the Fabric platform this month...</p>
         <ul class="news-highlights">
-          <li>ð OneLake Catalog</li>
-          <li>Data Engineering â New ODBC Driver</li>
+          <li>📂 OneLake Catalog</li>
+          <li>Data Engineering — New ODBC Driver</li>
           <li>Real-Time Intelligence & Data Factory</li>
         </ul>
-        <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-february-2026-feature-summary/">Read the full summary â</a>
+        <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-february-2026-feature-summary/">Read the full summary →</a>
       </div>
     </div>
     <div style="text-align: center; margin-top: 2rem;">
@@ -351,7 +351,7 @@
       <p class="subtitle">Join thousands of professionals mastering Microsoft Power Platform. Subscribe now and never miss an update.</p>
     </div>
     <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="https://www.youtube.com/@PowerMatesMS" class="btn-primary">Subscribe on YouTube â</a>
+      <a href="https://www.youtube.com/@PowerMatesMS" class="btn-primary">Subscribe on YouTube →</a>
       <a href="https://tally.so/r/xXd9lG" class="btn-secondary">Get Free Briefing</a>
     </div>
   </section>
@@ -372,7 +372,7 @@
       <span style="color: var(--muted);"> | </span>
       <a href="https://www.linkedin.com/in/alexrostan/" style="color: var(--cyan);">Alex Rostan</a>
     </div>
-    <div class="footer-copy">Â© 2026 PowerMates LLC. All rights reserved.</div>
+    <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
   </footer>
 
   <script>
