@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Assisted Tenant Scan — $12,500 | PowerMates</title>
+  <meta name="description" content="AI-powered deep Fabric tenant analysis using FabricAdmin agent skills + live 2-hour working session with a Dual Microsoft MVP. $12,500 one-time." />
+  <meta name="keywords" content="AI Fabric scan, FabricAdmin agent, tenant governance score, Fabric readiness, RBAC audit, semantic model health, Power BI migration" />
+  <meta property="og:title" content="AI-Assisted Tenant Scan — $12,500 | PowerMates" />
+  <meta property="og:description" content="AI-powered deep Fabric tenant analysis using FabricAdmin agent skills + live 2-hour working session with a Dual Microsoft MVP. $12,500 one-time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/tenant-scan-ai-assisted" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    /* -- NAV -- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown > a {
+      cursor: pointer;
+    }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0;
+      min-width: 200px;
+      z-index: 200;
+      margin-top: 0.5rem;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      display: block;
+    }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-menu a:hover {
+      background: var(--cyan-dim);
+      color: var(--text);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* -- PARTICLES CANVAS -- */
+    #particles-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* -- HERO -- */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.08) 0%, transparent 70%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--cyan); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 1.25rem;
+      line-height: 1.7;
+    }
+
+    .hero-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+    }
+    .hero-price small {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: 1px solid var(--cyan-border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-trust span::before { content: '\2713  '; color: var(--cyan); }
+
+    /* -- SECTION BASICS -- */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* -- FEATURE CARDS GRID -- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- COMPARISON TABLE -- */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .comparison-table th {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--bg2);
+    }
+    .comparison-table td:first-child {
+      font-weight: 600;
+      color: var(--text);
+      width: 20%;
+      white-space: nowrap;
+    }
+    .comparison-table td:nth-child(2) {
+      color: var(--muted);
+      width: 40%;
+    }
+    .comparison-table td:nth-child(3) {
+      color: var(--text);
+      width: 40%;
+    }
+    .comparison-table .highlight-col {
+      background: rgba(46, 232, 211, 0.04);
+      border-left: 2px solid var(--cyan-border);
+    }
+
+    /* -- STEPS -- */
+    .how-it-works-paid { background: var(--bg3); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- PROOF STRIP -- */
+    .proof-strip { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .proof-stat { text-align: center; }
+    .proof-stat .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--cyan); }
+    .proof-stat .stat-desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* -- SECURITY STRIP -- */
+    .security-strip { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 1.25rem 2rem; font-size: 0.78rem; color: var(--muted); }
+    .security-strip span::before { content: '\1F512 '; }
+
+    /* -- SECURITY SECTION -- */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+    .security-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .security-card:hover { border-color: var(--cyan-border); }
+    .security-card .sec-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .security-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* -- PRICING CARD -- */
+    .pricing-card {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--card2);
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 48px rgba(46, 232, 211, 0.12);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .pricing-card .price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 0.25rem;
+    }
+    .pricing-card .price-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card .includes-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+    .pricing-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .pricing-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .pricing-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    /* -- FAQ -- */
+    .faq-list {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    .faq-q {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: var(--cyan);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q::after {
+      content: '\2212';
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-top: 1rem;
+    }
+
+    /* -- FINAL CTA -- */
+    .final-cta {
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%);
+    }
+
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+
+    .final-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    /* -- FOOTER -- */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+    /* -- REVEAL ANIMATION -- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -- FOCUS STATES -- */
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+    /* -- RESPONSIVE (TABLET) -- */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .security-grid { grid-template-columns: 1fr 1fr; }
+      .comparison-table td:first-child { white-space: normal; }
+    }
+
+    /* -- RESPONSIVE (MOBILE) -- */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .proof-strip { gap: 1.5rem; }
+
+      .comparison-table,
+      .comparison-table thead,
+      .comparison-table tbody,
+      .comparison-table th,
+      .comparison-table td,
+      .comparison-table tr {
+        display: block;
+      }
+      .comparison-table thead { display: none; }
+      .comparison-table tr {
+        margin-bottom: 1.5rem;
+        background: var(--card);
+        border-radius: 10px;
+        padding: 1rem;
+        border: 1px solid var(--border);
+      }
+      .comparison-table td {
+        border-bottom: none;
+        padding: 0.5rem 0;
+        width: 100% !important;
+      }
+      .comparison-table td:first-child {
+        color: var(--cyan);
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .comparison-table td:nth-child(2)::before {
+        content: 'Traditional: ';
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .comparison-table td:nth-child(3)::before {
+        content: 'AI-Assisted: ';
+        font-weight: 600;
+        color: var(--cyan);
+      }
+      .comparison-table .highlight-col {
+        border-left: none;
+        border-top: 1px solid var(--cyan-border);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <ul class="nav-links">
+      <li><a href="tenant-scan.html">Tenant Scan</a></li>
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true">Tiers &#9662;</a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="tenant-scan-starter.html" role="menuitem">Starter &mdash; $2,500</a>
+          <a href="tenant-scan-professional.html" role="menuitem">Professional &mdash; $5,000</a>
+          <a href="tenant-scan-enterprise.html" role="menuitem">Enterprise &mdash; $7,500</a>
+          <a href="tenant-scan-ai-assisted.html" role="menuitem" style="color: var(--cyan); font-weight: 600;">AI-Assisted &mdash; $12,500</a>
+        </div>
+      </li>
+    </ul>
+    <a href="mailto:gaston@thepowermates.com?subject=AI-Assisted%20Tenant%20Scan%20%E2%80%94%20%2412%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20AI-Assisted%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="nav-cta">Get AI-Assisted Scan &rarr;</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">NEW &mdash; AI-Powered Deep Analysis</div>
+      <h1>Your Tenant. <span>Scanned by AI.</span><br>Interpreted by an MVP.</h1>
+      <p>We connect directly to your Fabric tenant using Microsoft's own FabricAdmin agent skills. AI scans every workspace, capacity, role assignment, shortcut, and semantic model &mdash; then a Dual Microsoft MVP interprets the findings in a live working session.</p>
+      <div class="hero-price">$12,500 <small>one-time</small></div>
+      <div class="hero-cta-group">
+        <a href="mailto:gaston@thepowermates.com?subject=AI-Assisted%20Tenant%20Scan%20%E2%80%94%20%2412%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20AI-Assisted%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="btn-primary">Get AI-Assisted Scan &rarr;</a>
+        <a href="tenant-scan.html#pricing" class="btn-outline">Compare All Tiers &rarr;</a>
+      </div>
+      <div class="hero-trust">
+        <span>Microsoft MVP</span>
+        <span>Fabric REST API</span>
+        <span>Zero Tenant Access Risk</span>
+        <span>Live Working Session</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <div class="proof-strip">
+    <div class="proof-stat"><div class="stat-num">500+</div><div class="stat-desc">Workspaces Scanned</div></div>
+    <div class="proof-stat"><div class="stat-num">47/100</div><div class="stat-desc">Governance Score Avg</div></div>
+    <div class="proof-stat"><div class="stat-num">30&ndash;45%</div><div class="stat-desc">License Savings Identified</div></div>
+    <div class="proof-stat"><div class="stat-num">skills-for-fabric</div><div class="stat-desc">Built on Microsoft's Agent Skills</div></div>
+  </div>
+
+  <!-- WHAT'S DIFFERENT -->
+  <section id="comparison" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">What's Different</div>
+        <h2 class="section-title">Traditional vs. AI-Assisted</h2>
+        <p class="section-sub">Side-by-side: see why AI-Assisted is the deepest tenant analysis available.</p>
+      </div>
+      <div class="reveal" style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Traditional Tenant Scan</th>
+              <th class="highlight-col">AI-Assisted Tenant Scan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Data Collection</td>
+              <td>Point-in-time snapshot via Power BI Admin APIs</td>
+              <td class="highlight-col">Live analysis using Fabric REST APIs + FabricAdmin agent &mdash; covers workspaces, Lakehouses, Warehouses, Notebooks, Pipelines, KQL DBs, Eventstreams, Semantic Models, Shortcuts, RBAC, Capacity utilization</td>
+            </tr>
+            <tr>
+              <td>Output</td>
+              <td>Static governance report</td>
+              <td class="highlight-col">Scored governance posture (0&ndash;100) with Fabric Readiness Score, RBAC Posture, Data Freshness Rating</td>
+            </tr>
+            <tr>
+              <td>Recommendations</td>
+              <td>Recommendations list</td>
+              <td class="highlight-col">AI-generated recommendations with priority, effort, and impact ratings + live discussion</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">What You Get</div>
+        <h2 class="section-title">Eight Deliverables. Zero Guesswork.</h2>
+        <p class="section-sub">Every engagement includes the full suite &mdash; scan, scores, audit, live session, reports, and follow-up.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F50D;</div>
+          <h3>Deep Fabric Scan</h3>
+          <p>Every workspace, every item type, every role assignment, every shortcut. Nothing hidden.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F4CA;</div>
+          <h3>Governance Score</h3>
+          <p>Weighted 0&ndash;100 score across naming, RBAC, capacity, refresh hygiene, DLP coverage, sensitivity labels.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x26A1;</div>
+          <h3>Fabric Readiness Score</h3>
+          <p>Percentage of your workloads on Fabric-native items vs legacy Power BI. Know exactly where you stand.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F6E1;&#xFE0F;</div>
+          <h3>RBAC Security Audit</h3>
+          <p>Full role assignment audit across all workspaces. Flags excessive Admin/Member roles, recommends least-privilege.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F9E0;</div>
+          <h3>Semantic Model Health</h3>
+          <p>Refresh schedule coverage, stale model detection, Direct Lake migration candidates.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F3A5;</div>
+          <h3>Live Working Session</h3>
+          <p>2-hour session with a Dual Microsoft MVP. We connect to your tenant, run the scan live, and walk through findings together.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F4DD;</div>
+          <h3>Executive Report Package</h3>
+          <p>Markdown + PDF reports: Executive Summary, Workspace Inventory, Item Catalog, Security Posture, Recommendations.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F4C5;</div>
+          <h3>30-Day Follow-Up</h3>
+          <p>Check-in call 30 days after delivery to review progress on recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="how-it-works-paid">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three steps. Read-only access. Done in a week.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Discovery Call</h3>
+          <p>15-min call to understand your tenant scope and goals. We provide a secure checklist for granting read-only API access.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>AI Scan + Analysis</h3>
+          <p>We run the FabricAdmin scanner against your tenant. AI analyzes every workspace, item, role, and shortcut. Takes 15&ndash;45 minutes depending on tenant size.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Live Session + Delivery</h3>
+          <p>2-hour working session: we walk through findings, answer questions, and prioritize recommendations together. Reports delivered same day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section id="security" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Security &amp; Trust</div>
+        <h2 class="section-title">Your Tenant, Your Control</h2>
+        <p class="section-sub">We take security as seriously as you do. Here's how we protect your environment.</p>
+      </div>
+      <div class="security-grid reveal">
+        <div class="security-card">
+          <div class="sec-icon">&#x1F512;</div>
+          <p>Read-only API access &mdash; we never modify your tenant</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-icon">&#x1F511;</div>
+          <p>Service principal with minimal scopes</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-icon">&#x1F6E1;&#xFE0F;</div>
+          <p>Data never leaves your tenant boundary</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-icon">&#x1F4DD;</div>
+          <p>NDA available on request</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-icon">&#x2705;</div>
+          <p>SOC 2 compliant practices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">One Price. Everything Included.</h2>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="price">$12,500</div>
+        <div class="price-sub">One-time engagement</div>
+        <div class="includes-label">Everything in Enterprise ($7,500) plus:</div>
+        <ul class="pricing-list">
+          <li>Live Fabric REST API scan</li>
+          <li>AI-powered governance scoring</li>
+          <li>Fabric Readiness Score</li>
+          <li>Full RBAC security audit</li>
+          <li>Semantic model health analysis</li>
+          <li>2-hour live working session</li>
+          <li>30-day follow-up call</li>
+        </ul>
+        <a href="mailto:gaston@thepowermates.com?subject=AI-Assisted%20Tenant%20Scan%20%E2%80%94%20%2412%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20AI-Assisted%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="btn-primary" style="width: 100%; text-align: center;">Get AI-Assisted Scan &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">How is this different from the $7,500 Enterprise tier?</div>
+          <div class="faq-a">Enterprise uses Power BI Admin APIs for a comprehensive but static analysis. AI-Assisted connects directly to Fabric REST APIs using Microsoft's FabricAdmin agent skills, scanning item types that Admin APIs don't cover (Lakehouses, Warehouses, Notebooks, Pipelines, KQL databases, Eventstreams). Plus you get a live 2-hour working session instead of a report walkthrough.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">Do you need admin access to my tenant?</div>
+          <div class="faq-a">We need a service principal with read-only Fabric API permissions. We provide a step-by-step setup guide. The principal has zero write access.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">How long does the scan take?</div>
+          <div class="faq-a">The automated scan runs 15&ndash;45 minutes depending on tenant size. The full engagement (discovery + scan + live session + report delivery) is typically completed within one week.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">What if I already bought a lower tier?</div>
+          <div class="faq-a">You can upgrade by paying the difference. Contact <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Ready for the Deepest Tenant Analysis Available?</h2>
+        <p>AI-powered scan. Live working session. Dual Microsoft MVP. One engagement.</p>
+        <div class="final-cta-group">
+          <a href="mailto:gaston@thepowermates.com?subject=AI-Assisted%20Tenant%20Scan%20%E2%80%94%20%2412%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20AI-Assisted%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="btn-primary">Get AI-Assisted Scan &mdash; $12,500 &rarr;</a>
+          <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
+        </div>
+        <div class="hero-trust">
+          <span>Read-only access only</span>
+          <span>Reports delivered same day</span>
+          <span>30-day follow-up included</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- PARTICLES -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- FAQ TOGGLE -->
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        q.setAttribute('aria-expanded', !isOpen);
+      });
+      q.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          q.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

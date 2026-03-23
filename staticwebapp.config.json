@@ -17,6 +17,10 @@
       "rewrite": "/tenant-scan-enterprise.html"
     },
     {
+      "route": "/tenant-scan-ai-assisted",
+      "rewrite": "/tenant-scan-ai-assisted.html"
+    },
+    {
       "route": "/executive-briefing",
       "rewrite": "/executive-briefing.html"
     },
