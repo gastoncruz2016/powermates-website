@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Tenant Scan — $5,000 | PowerMates</title>
+  <meta name="description" content="Multi-environment Power BI scan with 1-hour MVP advisory call, Copilot readiness, migration roadmap, and executive deck. $5,000, delivered in 3–5 days." />
+  <meta property="og:title" content="Professional Tenant Scan — $5,000 | PowerMates" />
+  <meta property="og:description" content="Multi-environment Power BI scan with 1-hour MVP advisory call, Copilot readiness, migration roadmap, and executive deck. $5,000, delivered in 3–5 days." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/tenant-scan-professional" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ── PARTICLES CANVAS ── */
+    #particles-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.08) 0%, transparent 70%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-popular {
+      background: var(--cyan);
+      color: var(--bg);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--cyan); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: 1px solid var(--cyan-border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-trust span::before { content: '✓ '; color: var(--cyan); }
+
+    /* ── SECTION BASICS ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* ── STARTER INCLUDES CARD ── */
+    .starter-includes {
+      background: var(--card2);
+      border: 1px solid var(--cyan-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      box-shadow: 0 0 24px rgba(46, 232, 211, 0.08);
+    }
+
+    .starter-includes .starter-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .starter-includes h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+
+    .starter-includes p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .starter-includes .starter-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-top: 0.5rem;
+      list-style: none;
+    }
+
+    .starter-includes .starter-features li {
+      font-size: 0.82rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .starter-includes .starter-features li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── ADVISORY SECTION ── */
+    .advisory-section { background: var(--bg2); }
+
+    .advisory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .advisory-detail {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .advisory-detail h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .advisory-detail p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .advisory-detail .detail-icon {
+      font-size: 1.25rem;
+    }
+
+    .advisory-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .advisory-flow-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .advisory-flow-item:hover { border-color: var(--cyan-border); }
+
+    .flow-number {
+      width: 32px;
+      height: 32px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .advisory-flow-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .advisory-flow-item p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works { background: var(--bg3); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── COMPARISON STRIP ── */
+    .comparison-strip { background: var(--bg); }
+
+    .comparison-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .comparison-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .comparison-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .comparison-card .tier-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .comparison-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparison-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .comparison-link {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    /* ── TRUST SIGNALS ── */
+    .trust-section { background: var(--bg2); }
+
+    .trust-row {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .trust-icon { font-size: 1.4rem; }
+
+    .trust-item p { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .trust-item span { font-size: 0.78rem; color: var(--muted); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── FINAL CTA SECTION ── */
+    .final-cta {
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%);
+    }
+
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+
+    .final-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── FOCUS STATES ── */
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+    /* ── SECURITY STRIP ── */
+    .security-strip { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 1.25rem 2rem; font-size: 0.78rem; color: var(--muted); }
+    .security-strip span::before { content: '🔒 '; }
+
+    /* ── PROOF STRIP ── */
+    .proof-strip { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .proof-stat { text-align: center; }
+    .proof-stat .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--cyan); }
+    .proof-stat .stat-desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .features-grid, .comparison-cards { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .advisory-grid { grid-template-columns: 1fr; }
+      .comparison-cards { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .starter-includes { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <ul class="nav-links">
+      <li><a href="https://thepowermates.com">Home</a></li>
+      <li><a href="https://thepowermates.com/executive-briefing">Executive Briefing</a></li>
+      <li><a href="https://thepowermates.com/migration-playbook">Migration Playbook</a></li>
+      <li><a href="tenant-scan.html">Tenant Scan</a></li>
+    </ul>
+    <a href="https://buy.stripe.com/6oUbJ31IVaKi64S0Lf8AE03" class="nav-cta">Get Professional Scan →</a>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">
+        <span class="badge-popular">Best for Multi-Team Migrations</span>
+        Professional Assessment · $5,000
+      </div>
+      <h1>Turn Findings Into Action.<br /><span>With a Microsoft MVP at Your Side.</span></h1>
+      <p>Multi-environment scan with a 1-hour advisory call. You'll walk away with a Copilot readiness assessment, custom Fabric migration roadmap, executive deck, and a data quality review — all built from your actual environment data.</p>
+      <div class="hero-cta-group">
+        <a href="https://buy.stripe.com/6oUbJ31IVaKi64S0Lf8AE03" class="btn-primary">Get Professional Scan →</a>
+        <a href="tenant-scan.html#pricing" class="btn-outline">Compare All Tiers →</a>
+      </div>
+      <div class="hero-trust">
+        <span>Microsoft MVP</span>
+        <span>15+ Years Enterprise</span>
+        <span>Fortune 500 Clients</span>
+        <span>7,300+ YouTube Community</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROOF STRIP ── -->
+  <div class="proof-strip">
+    <div class="proof-stat"><div class="stat-num">500+</div><div class="stat-desc">Workspaces Scanned</div></div>
+    <div class="proof-stat"><div class="stat-num">40%</div><div class="stat-desc">Avg. Orphaned Access Found</div></div>
+    <div class="proof-stat"><div class="stat-num">30–45%</div><div class="stat-desc">License Savings Identified</div></div>
+    <div class="proof-stat"><div class="stat-num">3–5 Days</div><div class="stat-desc">Report Delivery</div></div>
+  </div>
+
+  <!-- ── EVERYTHING IN STARTER + MORE ── -->
+  <section id="features" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What's Included</div>
+        <h2 class="section-title">Everything in Starter + More</h2>
+        <p class="section-sub">The Professional tier builds on the Starter foundation with multi-environment coverage, advisory access, and migration-ready deliverables.</p>
+      </div>
+
+      <div class="starter-includes reveal">
+        <div class="starter-icon">📦</div>
+        <div>
+          <h3>Includes everything from Starter ($2,500)</h3>
+          <p>Fabric Readiness Score, governance findings, license &amp; cost analysis, Next 5 Actions list, and PDF &amp; HTML report.</p>
+          <ul class="starter-features">
+            <li>Fabric Readiness Score (0–100)</li>
+            <li>Governance findings with severity ratings</li>
+            <li>License &amp; cost analysis</li>
+            <li>Next 5 Actions prioritized list</li>
+            <li>PDF &amp; HTML report</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🌐</div>
+          <h3>Multi-Environment Scan (Up to 3)</h3>
+          <p>Assess up to three Power BI environments in a single engagement — dev, test, production, or any combination that reflects your real footprint.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📞</div>
+          <h3>1-Hour Advisory Call with Microsoft MVP</h3>
+          <p>A live session with a Microsoft MVP to walk through your findings, answer questions, prioritize actions, and discuss your migration approach.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🗺️</div>
+          <h3>Custom Fabric Migration Roadmap</h3>
+          <p>Per-workspace migration readiness scored 0–100. Storage mode compatibility, gateway dependencies, and Copilot prerequisites mapped with a clear path forward.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🤖</div>
+          <h3>Copilot Readiness Assessment</h3>
+          <p>Evaluate your tenant's readiness for Microsoft Copilot adoption — data quality, model structure, and governance prerequisites scored and documented.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📊</div>
+          <h3>Executive Summary Slide Deck (PPTX)</h3>
+          <p>A polished presentation-ready deck for leadership — key findings, risk summary, migration roadmap, and recommended next steps in a format your stakeholders expect.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🛡️</div>
+          <h3>Data Quality &amp; Compliance Review</h3>
+          <p>Know your PII exposure, sensitivity label gaps, and data hygiene score. Duplicate datasets, unowned assets, and naming inconsistencies identified with remediation guidance.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📋</div>
+          <h3>Excel Workbook with Full Inventory</h3>
+          <p>Complete workspace, dataset, and report inventory in a structured Excel workbook — sortable, filterable, and ready for your team to use as a working document.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">⚡</div>
+          <h3>3–5 Business Day Delivery</h3>
+          <p>From questionnaire completion to full deliverable package — your assessment, roadmap, executive deck, and advisory call scheduling link, all within 3–5 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ADVISORY CALL DETAILS ── -->
+  <section id="advisory" class="advisory-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Advisory Call</div>
+        <h2 class="section-title">Your 1-Hour Advisory Session</h2>
+        <p class="section-sub">More than a readout — a working session where we turn findings into action together.</p>
+      </div>
+
+      <div class="advisory-grid">
+        <div class="advisory-detail reveal">
+          <h3><span class="detail-icon">🎯</span> What to Expect</h3>
+          <p>This isn't a readout — it's a working session. In 60 minutes, we review your findings together, answer every question, and collaboratively rank your top actions by impact and feasibility. You'll leave with a concrete 90-day plan your team can execute immediately.</p>
+          <p style="margin-top: 1rem;">The call is scheduled after your report is delivered, so you'll have time to review findings with your team and come prepared with questions.</p>
+        </div>
+
+        <div class="advisory-flow reveal">
+          <div class="advisory-flow-item">
+            <div class="flow-number">1</div>
+            <div>
+              <h4>Review Findings Together</h4>
+              <p>Walk through your Fabric Readiness Score, governance gaps, and the complexity heatmap — with context your team needs to act.</p>
+            </div>
+          </div>
+          <div class="advisory-flow-item">
+            <div class="flow-number">2</div>
+            <div>
+              <h4>Answer Your Questions</h4>
+              <p>Bring anything — migration concerns, licensing questions, Copilot readiness, capacity planning. No topic is off limits.</p>
+            </div>
+          </div>
+          <div class="advisory-flow-item">
+            <div class="flow-number">3</div>
+            <div>
+              <h4>Prioritize Actions</h4>
+              <p>Collaboratively rank your Next 5 Actions based on impact, effort, and organizational readiness — so your team knows exactly where to start.</p>
+            </div>
+          </div>
+          <div class="advisory-flow-item">
+            <div class="flow-number">4</div>
+            <div>
+              <h4>Discuss Migration Approach</h4>
+              <p>Review your custom Fabric migration roadmap, discuss phasing options, and align on a realistic timeline for your first wave.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECURITY STRIP ── -->
+  <div class="security-strip reveal">
+    <span>No tenant access required</span>
+    <span>Data never stored or shared</span>
+    <span>Secure Microsoft Form intake</span>
+    <span>NDA available on request</span>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three steps. No systems access required upfront. Zero internal resource drain.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Purchase &amp; Get Confirmed</h3>
+          <p>Select the Professional tier and complete secure payment via Stripe. You'll receive a confirmation and next-steps email within the hour.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Complete the Assessment Questionnaire</h3>
+          <p>A structured 15-minute questionnaire about your data estate — SQL instances, BI tools, governance maturity, and migration context. No tenant access required.</p>
+          <p style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--cyan);">→ Assessment form sent after payment confirmation</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Receive Report + Schedule Advisory Call</h3>
+          <p>Your complete assessment — scored, prioritized, with executive deck and migration roadmap — delivered in 3–5 business days. Your advisory call scheduling link is included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON STRIP ── -->
+  <section class="comparison-strip">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Compare Tiers</div>
+        <h2 class="section-title">Find the Right Fit</h2>
+      </div>
+      <div class="comparison-cards">
+        <div class="comparison-card reveal">
+          <div class="tier-label">Simpler</div>
+          <h3>Starter — $2,500</h3>
+          <p>Single-environment scan with Fabric Readiness Score, governance findings, and a prioritized Next 5 Actions list. Great for teams exploring their migration readiness.</p>
+          <a href="tenant-scan-starter.html" class="comparison-link">View Starter →</a>
+        </div>
+        <div class="comparison-card reveal">
+          <div class="tier-label">Full Suite</div>
+          <h3>Enterprise — $7,500</h3>
+          <p>Everything in Professional plus unlimited environments, ROI &amp; TCO modeling, compliance framework mapping, 30/60/90-day executive roadmap, and 2 follow-up advisory sessions.</p>
+          <a href="tenant-scan-enterprise.html" class="comparison-link">View Enterprise →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST / WHY POWERMATES ── -->
+  <section id="proof" class="trust-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Why PowerMates</div>
+        <h2 class="section-title">Built by People Who've Done This at Scale</h2>
+      </div>
+      <div class="trust-row reveal" style="margin-bottom: 3rem;">
+        <div class="trust-item">
+          <div class="trust-icon">🏅</div>
+          <div>
+            <p>Microsoft MVP</p>
+            <span>Data &amp; AI</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📊</div>
+          <div>
+            <p>15+ Years Enterprise</p>
+            <span>Data platform architecture</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🏢</div>
+          <div>
+            <p>Fortune 500</p>
+            <span>Migration experience</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">▶️</div>
+          <div>
+            <p>7,300+ Community</p>
+            <span>YouTube subscribers</span>
+          </div>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <p>A Power BI tenant governance scan isn't just an audit — it's a structured conversation between your data platform and your risk posture. Most organizations run their tenants reactively, discovering gaps only when compliance calls or an access incident forces action. A comprehensive tenant scan changes that: it gives you the map you've been missing — which workspaces own what, where access has drifted from reality, and what's actually ready for Fabric adoption.</p>
+        </div>
+        <div class="why-card reveal">
+          <p>The real value of a migration readiness assessment is actionability. You don't need a 50-page report that documents every workspace and dataset. You need five specific moves your delivery team can execute in the next 90 days to reduce risk and unlock opportunity. That's what the Tenant Scan delivers — the findings that matter, prioritized by impact, with concrete remediation steps and a scored baseline you can measure against over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Ready for Your Advisory Assessment?</h2>
+        <p>Multi-environment scan, migration roadmap, executive deck, and a 1-hour advisory call — delivered in 3–5 business days.</p>
+        <div class="final-cta-group">
+          <a href="https://buy.stripe.com/6oUbJ31IVaKi64S0Lf8AE03" class="btn-primary">Get Professional Scan — $5,000 →</a>
+          <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
+        </div>
+        <div class="hero-trust">
+          <span>No tenant access required</span>
+          <span>Secure Microsoft Form intake</span>
+          <span>3–5 business day delivery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ── PARTICLES ── -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- ── SCROLL REVEAL ── -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

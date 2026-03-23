@@ -5,6 +5,18 @@
       "rewrite": "/tenant-scan.html"
     },
     {
+      "route": "/tenant-scan-starter",
+      "rewrite": "/tenant-scan-starter.html"
+    },
+    {
+      "route": "/tenant-scan-professional",
+      "rewrite": "/tenant-scan-professional.html"
+    },
+    {
+      "route": "/tenant-scan-enterprise",
+      "rewrite": "/tenant-scan-enterprise.html"
+    },
+    {
       "route": "/executive-briefing",
       "rewrite": "/executive-briefing.html"
     },

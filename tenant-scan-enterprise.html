@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise Tenant Scan — $7,500 | PowerMates</title>
+  <meta name="description" content="Full enterprise assessment with ROI modeling, compliance mapping (SOX/GDPR/HIPAA), migration waves, Copilot projections, and 30/60/90-day roadmap. $7,500." />
+  <meta name="keywords" content="Enterprise Fabric assessment, ROI TCO modeling, compliance framework mapping, migration wave planning, Copilot impact projection, Power BI enterprise scan" />
+  <meta property="og:title" content="Enterprise Tenant Scan — $7,500 | PowerMates" />
+  <meta property="og:description" content="Full enterprise assessment with ROI modeling, compliance mapping (SOX/GDPR/HIPAA), migration waves, Copilot projections, and 30/60/90-day roadmap. $7,500." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/tenant-scan-enterprise" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ── PARTICLES CANVAS ── */
+    #particles-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.08) 0%, transparent 70%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--cyan); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: 1px solid var(--cyan-border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-trust span::before { content: '✓ '; color: var(--cyan); }
+
+    /* ── SECTION BASICS ── */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* ── FEATURE CARDS GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── INCLUDED CARD (highlighted) ── */
+    .included-card {
+      background: var(--card2);
+      border: 1px solid var(--cyan);
+      box-shadow: 0 0 32px rgba(46, 232, 211, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .included-card .icon { font-size: 2rem; }
+    .included-card h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+    .included-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .included-card .included-link {
+      margin-left: auto;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      white-space: nowrap;
+    }
+
+    /* ── ROI STATS GRID ── */
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .roi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .roi-card:hover { border-color: var(--cyan-border); }
+
+    .roi-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 0.4rem;
+    }
+
+    .roi-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .roi-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--cyan);
+      align-self: center;
+    }
+
+    /* ── COMPLIANCE CARDS ── */
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .compliance-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .compliance-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .compliance-badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .compliance-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .compliance-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    .compliance-controls {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    /* ── STEPS ── */
+    .how-it-works-paid { background: var(--bg3); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── COMPARISON STRIP ── */
+    .comparison-strip {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .comparison-strip p {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .comparison-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .comparison-link {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .comparison-link:hover { border-color: var(--cyan-border); transform: translateY(-2px); color: var(--text); }
+    .comparison-link span { color: var(--cyan); }
+
+    /* ── TRUST ── */
+    .trust-row {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .trust-icon { font-size: 1.4rem; }
+
+    .trust-item p { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .trust-item span { font-size: 0.78rem; color: var(--muted); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%);
+    }
+
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+
+    .final-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── FOCUS STATES ── */
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+    /* ── SECURITY STRIP ── */
+    .security-strip { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 1.25rem 2rem; font-size: 0.78rem; color: var(--muted); }
+    .security-strip span::before { content: '🔒 '; }
+
+    /* ── PROOF STRIP ── */
+    .proof-strip { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .proof-stat { text-align: center; }
+    .proof-stat .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--cyan); }
+    .proof-stat .stat-desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── RESPONSIVE (TABLET) ── */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .compliance-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .included-card { flex-direction: column; text-align: center; }
+      .included-card .included-link { margin-left: 0; }
+      .roi-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <ul class="nav-links">
+      <li><a href="https://thepowermates.com">Home</a></li>
+      <li><a href="https://thepowermates.com/executive-briefing">Executive Briefing</a></li>
+      <li><a href="https://thepowermates.com/migration-playbook">Migration Playbook</a></li>
+      <li><a href="tenant-scan.html">Tenant Scan</a></li>
+    </ul>
+    <a href="mailto:gaston@thepowermates.com?subject=Enterprise%20Tenant%20Scan%20%E2%80%94%20%247%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Enterprise%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="nav-cta">Get Enterprise Scan →</a>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">Enterprise Assessment · $7,500</div>
+      <h1>The Complete Migration<br><span>Intelligence Suite.</span></h1>
+      <p>Everything you need to move forward — compliance-mapped, ROI-justified, wave-planned, and board-ready. Unlimited environments. Two follow-up advisory sessions. Priority delivery.</p>
+      <div class="hero-cta-group">
+        <a href="mailto:gaston@thepowermates.com?subject=Enterprise%20Tenant%20Scan%20%E2%80%94%20%247%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Enterprise%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="btn-primary">Get Enterprise Scan →</a>
+        <a href="tenant-scan.html#pricing" class="btn-outline">Compare All Tiers →</a>
+      </div>
+      <div class="hero-trust">
+        <span>Microsoft MVP</span>
+        <span>15+ Years Enterprise</span>
+        <span>Fortune 500 Clients</span>
+        <span>7,300+ YouTube Community</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROOF STRIP ── -->
+  <div class="proof-strip">
+    <div class="proof-stat"><div class="stat-num">500+</div><div class="stat-desc">Workspaces Scanned</div></div>
+    <div class="proof-stat"><div class="stat-num">30–45%</div><div class="stat-desc">License Savings Identified</div></div>
+    <div class="proof-stat"><div class="stat-num">4 Frameworks</div><div class="stat-desc">SOX · GDPR · HIPAA · ISO 27001</div></div>
+    <div class="proof-stat"><div class="stat-num">90 Days</div><div class="stat-desc">Executive Roadmap</div></div>
+  </div>
+
+  <!-- ── EVERYTHING IN PROFESSIONAL + MORE ── -->
+  <section id="features" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Enterprise Exclusives</div>
+        <h2 class="section-title">Everything in Professional + More</h2>
+        <p class="section-sub">Enterprise builds on the full Professional assessment and adds the depth enterprise teams need for confident, board-ready migration decisions.</p>
+      </div>
+
+      <!-- Included Professional highlight -->
+      <div class="included-card reveal">
+        <div class="icon">✅</div>
+        <div>
+          <h3>Includes everything from Professional ($5,000)</h3>
+          <p>Multi-environment scan, advisory call with Microsoft MVP, custom migration roadmap, Copilot readiness, executive slide deck, data quality &amp; compliance review.</p>
+        </div>
+        <a href="tenant-scan-professional.html" class="included-link">See Professional details →</a>
+      </div>
+
+      <!-- Enterprise-exclusive features -->
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🌐</div>
+          <h3>Unlimited Environments</h3>
+          <p>No cap on the number of Power BI and Fabric environments we scan. Dev, test, prod, regional tenants — everything gets assessed under one engagement.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📈</div>
+          <h3>ROI &amp; TCO Migration Modeling</h3>
+          <p>Current state vs. Fabric target state. License costs, capacity spend, migration labor, training investment — with payback period and 3-year ROI projection.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🛡️</div>
+          <h3>Compliance Framework Mapping</h3>
+          <p>Your tenant posture mapped against SOX, GDPR, HIPAA, and ISO 27001 — 20 controls assessed with gap identification and remediation recommendations.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🗺️</div>
+          <h3>Migration Wave Planning</h3>
+          <p>5 prioritized migration waves with timelines, workload groupings, dependency mapping, and rollback strategies. Ready to hand to your delivery team.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🤖</div>
+          <h3>Copilot Impact &amp; Value Projection</h3>
+          <p>Productivity gain estimates by user segment — analysts, report consumers, data engineers. Quantified value projection to build your Copilot business case.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📋</div>
+          <h3>30/60/90-Day Executive Roadmap</h3>
+          <p>A phased migration plan with specific actions, named owners, effort estimates, and measurable success criteria. Built so your CTO can present it to the board as-is.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎯</div>
+          <h3>2 Follow-Up Advisory Sessions</h3>
+          <p>Two 1-hour sessions with a Microsoft MVP to review findings, adjust priorities, and troubleshoot implementation challenges as you execute.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">⚡</div>
+          <h3>Priority Delivery Scheduling</h3>
+          <p>Enterprise engagements get priority scheduling in our delivery queue. Your assessment moves to the front of the line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROI PREVIEW ── -->
+  <section id="roi-preview" style="background: var(--bg3);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">ROI Analysis Preview</div>
+        <h2 class="section-title">See Your Real Numbers</h2>
+        <p class="section-sub">Your Enterprise report includes a detailed ROI model built from your actual environment. Here's a preview of what it covers.</p>
+      </div>
+      <div class="roi-grid reveal">
+        <div class="roi-card">
+          <div class="roi-value">$842K</div>
+          <div class="roi-label">Current Annual Cost</div>
+        </div>
+        <div class="roi-arrow">→</div>
+        <div class="roi-card">
+          <div class="roi-value">$514K</div>
+          <div class="roi-label">Target Annual Cost</div>
+        </div>
+        <div class="roi-arrow">→</div>
+        <div class="roi-card">
+          <div class="roi-value">$328K</div>
+          <div class="roi-label">Annual Savings</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-value">8 mo</div>
+          <div class="roi-label">Payback Period</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-value">247%</div>
+          <div class="roi-label">3-Year ROI</div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--muted);" class="reveal">* Illustrative example. Your model is built from your actual environment data and licensing.</p>
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.92rem; color: var(--muted); max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.7;" class="reveal">Built from your actual environment data — not generic benchmarks. Most teams discover 30–45% in license savings and a 12–18 month payback on their Fabric investment.</p>
+    </div>
+  </section>
+
+  <!-- ── COMPLIANCE FRAMEWORKS ── -->
+  <section id="compliance" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Compliance Mapping</div>
+        <h2 class="section-title">Four Frameworks. Twenty Controls Assessed.</h2>
+        <p class="section-sub">Your scan results mapped against 20 controls across four regulatory frameworks. Each control assessed as Pass, Partial, or Fail — with specific remediation steps for every gap. Take this to your compliance team on day one.</p>
+      </div>
+      <div class="compliance-grid">
+        <div class="compliance-card reveal">
+          <div class="compliance-badge">SOX</div>
+          <h3>Sarbanes-Oxley</h3>
+          <p>Financial reporting data lineage, access controls on sensitive workspaces, audit trail completeness, and segregation of duties in your BI layer.</p>
+          <div class="compliance-controls">5 controls assessed</div>
+        </div>
+        <div class="compliance-card reveal">
+          <div class="compliance-badge">GDPR</div>
+          <h3>General Data Protection</h3>
+          <p>PII exposure in datasets and reports, data retention policies, cross-border data flow in shared workspaces, and right-to-erasure readiness.</p>
+          <div class="compliance-controls">5 controls assessed</div>
+        </div>
+        <div class="compliance-card reveal">
+          <div class="compliance-badge">HIPAA</div>
+          <h3>Health Insurance Portability</h3>
+          <p>PHI handling in Power BI datasets, workspace access restrictions, encryption at rest and in transit, and breach notification readiness for BI assets.</p>
+          <div class="compliance-controls">5 controls assessed</div>
+        </div>
+        <div class="compliance-card reveal">
+          <div class="compliance-badge">ISO 27001</div>
+          <h3>Information Security Management</h3>
+          <p>Access management policies, data classification in workspaces, incident response coverage for BI environments, and third-party sharing controls.</p>
+          <div class="compliance-controls">5 controls assessed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECURITY STRIP ── -->
+  <div class="security-strip reveal">
+    <span>No tenant access required</span>
+    <span>Data never stored or shared</span>
+    <span>NDA available on request</span>
+    <span>SOC 2 compliant process</span>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section id="how-it-works" class="how-it-works-paid">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three steps. No systems access required upfront. Zero internal resource drain.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Choose Enterprise &amp; Complete Payment</h3>
+          <p>Secure payment processed via Stripe. You'll receive a confirmation and next-steps email within the hour. Enterprise engagements get priority scheduling.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Complete the Assessment Questionnaire</h3>
+          <p>A structured 15-minute questionnaire about your data estate — SQL instances, BI tools, governance maturity, compliance requirements, and migration context.</p>
+          <p style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--cyan);">→ Assessment form sent after payment confirmation</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Receive Your Complete Assessment</h3>
+          <p>Your full Enterprise assessment — scored, modeled, compliance-mapped, and roadmapped. Delivered with priority scheduling. 2 follow-up advisory sessions included to review findings and adjust your plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON STRIP ── -->
+  <div class="comparison-strip">
+    <p class="reveal">Looking for something simpler?</p>
+    <div class="comparison-links reveal">
+      <a href="tenant-scan-starter.html" class="comparison-link">Starter — <span>$2,500</span></a>
+      <a href="tenant-scan-professional.html" class="comparison-link">Professional — <span>$5,000</span></a>
+    </div>
+  </div>
+
+  <!-- ── TRUST / WHY POWERMATES ── -->
+  <section id="proof" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Why PowerMates</div>
+        <h2 class="section-title">Built by People Who've Done This at Scale</h2>
+      </div>
+      <div class="trust-row reveal" style="margin-bottom: 3rem;">
+        <div class="trust-item">
+          <div class="trust-icon">🏅</div>
+          <div>
+            <p>Microsoft MVP</p>
+            <span>Data &amp; AI</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📊</div>
+          <div>
+            <p>15+ Years Enterprise</p>
+            <span>Data platform architecture</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🏢</div>
+          <div>
+            <p>Fortune 500</p>
+            <span>Migration experience</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">▶️</div>
+          <div>
+            <p>7,300+ Community</p>
+            <span>YouTube subscribers</span>
+          </div>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <p>We've seen what happens when organizations migrate without a plan: stalled projects, budget overruns, and compliance findings that could have been caught in week one. The Enterprise tier exists because we've done this at Fortune 500 scale and know which problems are predictable — and preventable.</p>
+        </div>
+        <div class="why-card reveal">
+          <p>The 30/60/90-day roadmap isn't a generic template — it's built from your actual environment complexity, team capacity, and business constraints. Combined with two follow-up advisory sessions, you get not just a plan but a partner who knows your specific situation and can help you course-correct as reality unfolds. That's the difference between a report and a relationship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Ready for Your Enterprise Assessment?</h2>
+        <p>Get the complete migration intelligence suite — ROI modeling, compliance mapping, wave planning, and a 30/60/90-day roadmap with two advisory sessions.</p>
+        <div class="final-cta-group">
+          <a href="mailto:gaston@thepowermates.com?subject=Enterprise%20Tenant%20Scan%20%E2%80%94%20%247%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Enterprise%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="btn-primary">Get Enterprise Scan — $7,500 →</a>
+          <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
+        </div>
+        <div class="hero-trust">
+          <span>No tenant access required</span>
+          <span>Secure Microsoft Form intake</span>
+          <span>Priority delivery scheduling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ── PARTICLES ── -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- ── SCROLL REVEAL ── -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

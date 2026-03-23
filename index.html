@@ -137,7 +137,7 @@
       <li><a href="/tenant-scan">Tenant Scan</a></li>
       <li><a href="#topics">Topics</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#fabcon">FabCon 2026</a></li>
+      <li><a href="#fabcon">FabCon Recap</a></li>
       <li><a href="#featured">Videos</a></li>
       <li><a href="#fabric-news">Fabric News</a></li>
     </ul>
@@ -273,26 +273,60 @@
 
   <section id="fabcon">
     <div class="section-header">
-      <div class="badge">Live Event</div>
+      <div class="badge">FabCon 2026 Recap</div>
       <h2>Power Mates at <span class="cyan">FabCon Atlanta</span></h2>
-      <p class="subtitle">March 16–20, 2026 · Atlanta, Georgia</p>
+      <p class="subtitle">March 16–20, 2026 · Georgia World Congress Center · Co-located with SQLCon for the first time</p>
     </div>
+
     <div class="grid-2">
       <div class="card reveal">
-        <h3>Session 1</h3>
+        <h3>Session 1 ✓</h3>
         <p><strong>Building Next-Gen Apps with Power Platform and SQL Server 2025</strong></p>
-        <p>Discover how to combine the power of Power Platform with SQL Server 2025 to build enterprise-grade next-generation applications.</p>
-        <a href="https://fabriccon.com/program/agenda">View Session →</a>
+        <p>Demonstrated how Power Apps, Dataverse, and Fabric work together for real-time enterprise applications. Covered Code Apps (now GA), Copilot in model-driven apps, and the Power Apps MCP Server.</p>
       </div>
       <div class="card reveal">
-        <h3>Session 2</h3>
+        <h3>Session 2 ✓</h3>
         <p><strong>The Instant Insights Pipeline: OneLake Shortcuts + Dataverse + Power Apps</strong></p>
-        <p>Learn how to build a real-time insights pipeline by connecting OneLake Shortcuts, Dataverse, and Power Apps.</p>
-        <a href="https://fabriccon.com/program/agenda">View Session →</a>
+        <p>Live demo of a zero-ETL pipeline using OneLake shortcuts to stream Dataverse data into Fabric — with a Power Apps front-end for instant business insights.</p>
       </div>
     </div>
+
+    <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem; font-family: 'Syne', sans-serif; font-size: 1.3rem;">Key <span class="cyan">Announcements</span></h3>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon">🤖</div>
+        <h3>AI Agents Go Native</h3>
+        <p>Fabric Data Agents hit GA. Fabric Remote MCP lets AI agents perform authenticated actions in Fabric. The agent era for data platforms is here.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🔗</div>
+        <h3>OneLake Becomes the Hub</h3>
+        <p>Databricks Unity Catalog reads OneLake natively (preview). Snowflake interop is GA. OneLake security with row + column level controls goes GA in weeks.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📊</div>
+        <h3>35M+ Power BI Users</h3>
+        <p>Microsoft confirmed 35+ million active Power BI users and 31,000+ Fabric customers. Fabric is the fastest-growing data platform in Microsoft's history.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">⚡</div>
+        <h3>Runtime 2.0 & Spark 4</h3>
+        <p>Next-gen compute: Apache Spark 4.x, Delta Lake 4.x, custom live pools, resource profiles, and Z-Order support — all GA. Materialized lake views also GA.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🏗️</div>
+        <h3>Git & DevOps Overhaul</h3>
+        <p>Branched workspaces, selective branching, code comparison, and Fabric CLI v1.5 for CI/CD. Deploy a workspace in a single terminal command.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🔄</div>
+        <h3>Mirroring Everywhere</h3>
+        <p>Oracle and SAP mirroring hit GA. SharePoint lists, MySQL, and Dremio in preview. 1,000+ table support. Change Data Feed and Snowflake view support added.</p>
+      </div>
+    </div>
+
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="https://fabriccon.com/" class="section-link">Explore FabCon 2026 →</a>
+      <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-march-2026-feature-summary/" class="section-link" target="_blank" rel="noopener">Full Fabric March 2026 Summary →</a>
     </div>
   </section>
 
@@ -302,40 +336,43 @@
     </div>
     <div class="news-grid">
       <div class="news-card reveal">
+        <div class="news-category">Microsoft Fabric</div>
+        <div class="news-date">March 18, 2026</div>
+        <h3>Fabric March 2026 Feature Summary — FabCon Edition</h3>
+        <p>The biggest Fabric update yet — 100+ features launched at FabCon Atlanta. Data Agents GA, Runtime 2.0, OneLake security, and the Fabric MCP for AI agents.</p>
+        <ul class="news-highlights">
+          <li>Fabric Data Agents — Generally Available</li>
+          <li>OneLake Catalog + Workspace Tags for Governance</li>
+          <li>Fabric Remote MCP — AI Agents Act in Fabric</li>
+          <li>Runtime 2.0 with Spark 4.x (Preview)</li>
+          <li>Direct Lake on OneLake — GA</li>
+        </ul>
+        <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-march-2026-feature-summary/" target="_blank" rel="noopener">Read the full March 2026 update →</a>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-category">FabCon 2026</div>
+        <div class="news-date">March 17, 2026</div>
+        <h3>FabCon & SQLCon 2026: Databases + Fabric on One Platform</h3>
+        <p>For the first time, FabCon co-located with SQLCon. Microsoft announced Database Hub, 35% savings plans for databases, and migration assistants for ADF, Synapse, and Azure SQL.</p>
+        <ul class="news-highlights">
+          <li>Database Hub — Unified Management</li>
+          <li>Databricks Unity Catalog ↔ OneLake (Preview)</li>
+          <li>Snowflake Interoperability — GA</li>
+          <li>31,000+ Fabric Customers Confirmed</li>
+        </ul>
+        <a href="https://azure.microsoft.com/en-us/blog/fabcon-and-sqlcon-2026-unifying-databases-and-fabric-on-a-single-data-platform/" target="_blank" rel="noopener">Read the FabCon announcement →</a>
+      </div>
+      <div class="news-card reveal">
         <div class="news-category">Power Platform</div>
         <div class="news-date">February 28, 2026</div>
         <h3>Power Platform February 2026 Feature Update</h3>
-        <p>A massive month for Power Platform — Code Apps hit GA, Copilot lands inside model-driven apps, and the Power Apps MCP Server enters public preview.</p>
+        <p>Code Apps hit GA, Copilot lands inside model-driven apps, and the Power Apps MCP Server enters public preview — a massive month for makers.</p>
         <ul class="news-highlights">
           <li>Code Apps — Now Generally Available</li>
           <li>M365 Copilot Chat in Model-Driven Apps</li>
           <li>Power Apps MCP Server — Public Preview</li>
         </ul>
-        <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-february-2026-feature-update/">Read the full February 2026 update →</a>
-      </div>
-      <div class="news-card reveal">
-        <div class="news-category">AI & Agents</div>
-        <div class="news-date">February 24, 2026</div>
-        <h3>The Shift Reshaping Enterprise Applications: Agent-First Solutions</h3>
-        <p>Microsoft outlines the dramatic expansion in what's possible to build with AI and agents...</p>
-        <ul class="news-highlights">
-          <li>Agent-First, Not Code-First</li>
-          <li>Business Users as Solution Shapers</li>
-          <li>Copilot Studio + Power Apps + Dataverse</li>
-        </ul>
-        <a href="https://www.microsoft.com/en-us/power-platform/blog/2026/02/24/the-shift-reshaping-enterprise-applications/">Read the full article →</a>
-      </div>
-      <div class="news-card reveal">
-        <div class="news-category">Microsoft Fabric</div>
-        <div class="news-date">February 25, 2026</div>
-        <h3>Fabric February 2026 Feature Summary</h3>
-        <p>A wide range of enhancements land across the Fabric platform this month...</p>
-        <ul class="news-highlights">
-          <li>📂 OneLake Catalog</li>
-          <li>Data Engineering — New ODBC Driver</li>
-          <li>Real-Time Intelligence & Data Factory</li>
-        </ul>
-        <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-february-2026-feature-summary/">Read the full summary →</a>
+        <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-february-2026-feature-update/" target="_blank" rel="noopener">Read the full February 2026 update →</a>
       </div>
     </div>
     <div style="text-align: center; margin-top: 2rem;">
