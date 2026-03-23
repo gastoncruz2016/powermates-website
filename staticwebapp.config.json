@@ -25,6 +25,10 @@
       "rewrite": "/fabric-architecture-accelerator.html"
     },
     {
+      "route": "/semantic-model-audit",
+      "rewrite": "/semantic-model-audit.html"
+    },
+    {
       "route": "/executive-briefing",
       "rewrite": "/executive-briefing.html"
     },

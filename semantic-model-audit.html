@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI Semantic Model Audit — $2,500 | PowerMates</title>
+  <meta name="description" content="AI-powered deep audit of your Power BI semantic models. Schema analysis, DAX optimization, refresh health, storage efficiency, and actionable recommendations. $2,500 one-time." />
+  <meta name="keywords" content="Power BI audit, semantic model optimization, DAX review, Power BI performance, model health, PowerMates" />
+  <meta property="og:title" content="Power BI Semantic Model Audit — $2,500 | PowerMates" />
+  <meta property="og:description" content="Know exactly what's wrong with your Power BI models — and how to fix it. AI scans every table, measure, relationship, and refresh. A Dual Microsoft MVP delivers the recommendations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/semantic-model-audit" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    /* -- NAV -- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* -- HERO -- */
+    .hero {
+      position: relative;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--cyan-dim) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--cyan-border);
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+      background: var(--cyan-dim);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--cyan);
+      color: var(--bg);
+      font-weight: 700;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      transition: opacity 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.85; }
+
+    /* -- SECTION LAYOUT -- */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-alt { background: var(--bg2); }
+    .section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section h2 span { color: var(--cyan); }
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* -- CARDS GRID -- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+    .card:hover { border-color: var(--cyan-border); }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* -- COMPARISON TABLE -- */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+    .compare-table th, .compare-table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table th {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .compare-table td:first-child {
+      font-weight: 600;
+    }
+    .compare-table .highlight {
+      background: var(--cyan-dim);
+    }
+    .compare-table .checkmark { color: var(--cyan); font-weight: 700; }
+    .compare-table .x-mark { color: #555; }
+
+    /* -- PROCESS STEPS -- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      counter-reset: step;
+    }
+    .step {
+      text-align: center;
+      counter-increment: step;
+      position: relative;
+    }
+    .step::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      background: var(--cyan-dim);
+      border: 2px solid var(--cyan-border);
+      border-radius: 50%;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--cyan);
+      margin: 0 auto 1rem;
+    }
+    .step h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .step p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* -- HEALTH SCORE VISUAL -- */
+    .score-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .score-ring {
+      width: 180px;
+      height: 180px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-ring svg {
+      position: absolute;
+      width: 100%; height: 100%;
+      transform: rotate(-90deg);
+    }
+    .score-ring circle {
+      fill: none;
+      stroke-width: 8;
+    }
+    .score-ring .bg-ring { stroke: var(--border); }
+    .score-ring .fg-ring {
+      stroke: var(--cyan);
+      stroke-linecap: round;
+      stroke-dasharray: 440;
+      stroke-dashoffset: 88;
+    }
+    .score-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .score-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .score-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .score-cat {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .score-bar-bg {
+      width: 160px;
+      height: 8px;
+      background: var(--bg3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      background: var(--cyan);
+      border-radius: 4px;
+    }
+    .score-cat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      min-width: 140px;
+    }
+
+    /* -- PROOF STRIP -- */
+    .proof {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 2rem 0;
+    }
+    .proof-item {
+      text-align: center;
+    }
+    .proof-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .proof-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* -- PRICING -- */
+    .pricing-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 2px solid var(--cyan-border);
+      border-radius: 18px;
+      padding: 3rem;
+      text-align: center;
+      box-shadow: 0 0 60px var(--cyan-dim);
+    }
+    .pricing-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-amount {
+      font-family: 'Syne', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin: 1rem 0;
+    }
+    .pricing-amount small {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin: 2rem 0;
+    }
+    .pricing-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .pricing-features li::before {
+      content: '✓ ';
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    .pricing-cta {
+      display: inline-block;
+      width: 100%;
+      padding: 16px;
+      background: var(--cyan);
+      color: var(--bg);
+      font-weight: 700;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: opacity 0.2s;
+    }
+    .pricing-cta:hover { opacity: 0.85; }
+
+    /* -- BUNDLE -- */
+    .bundle-card {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .bundle-card h4 { margin-bottom: 0.5rem; }
+    .bundle-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .bundle-card p { color: var(--muted); font-size: 0.92rem; }
+
+    /* -- FAQ -- */
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    .faq-q {
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q::after {
+      content: '+';
+      color: var(--cyan);
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 0.92rem;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-top: 0.75rem;
+    }
+
+    /* -- FOOTER -- */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* -- RESPONSIVE -- */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .section { padding: 3rem 1.5rem; }
+      .score-visual { flex-direction: column; }
+      .proof { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/tenant-scan">Tenant Scan</a></li>
+    <li><a href="/fabric-architecture-accelerator">Architecture Accelerator</a></li>
+    <li><a href="/semantic-model-audit" class="active">Model Audit</a></li>
+    <li><a href="#pricing" class="nav-cta">Get Your Audit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">NEW — AI-Powered Analysis</div>
+  <h1>Know exactly what's wrong with your <span>Power BI models</span></h1>
+  <p>AI scans every table, measure, relationship, and refresh pattern. A Dual Microsoft MVP delivers the fix-it plan. One report, zero guesswork.</p>
+  <a href="#pricing" class="hero-cta">Get Your Audit — $2,500</a>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="section-alt">
+  <div class="section" style="padding: 2.5rem 2rem;">
+    <div class="proof">
+      <div class="proof-item">
+        <div class="proof-num">7</div>
+        <div class="proof-label">Audit Dimensions</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">30+</div>
+        <div class="proof-label">DAX INFO Functions</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">100</div>
+        <div class="proof-label">Health Score (0-100)</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">48hr</div>
+        <div class="proof-label">Report Turnaround</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <h2>What the <span>audit covers</span></h2>
+  <p class="section-sub">We scan seven dimensions of model health using DAX metadata functions and REST APIs — then translate findings into a prioritized action plan.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Schema Quality</h3>
+      <p>Table inventory, wide table detection, calculated table overhead, storage mode validation, hidden item audit.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧮</div>
+      <h3>Measure Analysis</h3>
+      <p>DAX complexity scoring, missing format strings, display folder organization, naming convention consistency.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Relationship Health</h3>
+      <p>Cardinality validation, bidirectional filter audit, inactive relationship review, many-to-many detection.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💾</div>
+      <h3>Storage Efficiency</h3>
+      <p>Column segment analysis, dictionary overhead, table row counts, storage mode optimization opportunities.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <h3>Refresh Reliability</h3>
+      <p>Failure rate tracking, duration trends, schedule coverage, incremental refresh candidates.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔒</div>
+      <h3>Security Posture</h3>
+      <p>RLS role inventory, table permission audit, filter expression review, security filtering behavior.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>Model Configuration</h3>
+      <p>Culture settings, collation, Direct Lake behavior, default mode validation, metadata hygiene.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Prioritized Action Plan</h3>
+      <p>Every finding ranked by impact. Critical fixes first, quick wins highlighted, long-term optimization roadmap included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH SCORE VISUAL -->
+<div class="section-alt">
+  <section class="section">
+    <h2>Your model gets a <span>health score</span></h2>
+    <p class="section-sub">A weighted 0-100 score across seven dimensions, so you know exactly where to focus.</p>
+
+    <div class="score-visual">
+      <div class="score-ring">
+        <svg viewBox="0 0 160 160">
+          <circle class="bg-ring" cx="80" cy="80" r="70" />
+          <circle class="fg-ring" cx="80" cy="80" r="70" />
+        </svg>
+        <div style="text-align:center">
+          <div class="score-number">82</div>
+          <div class="score-label">Sample Score</div>
+        </div>
+      </div>
+
+      <div class="score-categories">
+        <div class="score-cat">
+          <span class="score-cat-label">Schema Quality</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="score-cat">
+          <span class="score-cat-label">Measure Quality</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="score-cat">
+          <span class="score-cat-label">Relationships</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="score-cat">
+          <span class="score-cat-label">Storage Efficiency</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="score-cat">
+          <span class="score-cat-label">Refresh Reliability</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="score-cat">
+          <span class="score-cat-label">Security Posture</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="score-cat">
+          <span class="score-cat-label">Configuration</span>
+          <div class="score-bar-bg"><div class="score-bar-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <h2>How it <span>works</span></h2>
+  <p class="section-sub">Three steps. 48-hour turnaround. No disruption to your environment.</p>
+
+  <div class="steps">
+    <div class="step">
+      <h4>Connect</h4>
+      <p>Share read-only access to your Power BI workspace. We use service principal or delegated auth — your data never leaves your tenant.</p>
+    </div>
+    <div class="step">
+      <h4>Scan</h4>
+      <p>AI runs 30+ DAX INFO queries and REST API checks across every semantic model. Schema, measures, relationships, storage, refresh, security.</p>
+    </div>
+    <div class="step">
+      <h4>Deliver</h4>
+      <p>You get a detailed report with health scores, findings by severity, and a prioritized action plan. Plus a 30-min walkthrough call with an MVP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIY vs AUDIT COMPARISON -->
+<div class="section-alt">
+  <section class="section">
+    <h2>DIY review vs. <span>Model Audit</span></h2>
+    <p class="section-sub">What you'd need to do manually versus what you get from us.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>DIY Manual Review</th>
+          <th class="highlight">PowerMates Model Audit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Schema inventory</td>
+          <td>Open each model in Desktop</td>
+          <td class="highlight"><span class="checkmark">Automated across all models</span></td>
+        </tr>
+        <tr>
+          <td>DAX complexity analysis</td>
+          <td>Read every measure by hand</td>
+          <td class="highlight"><span class="checkmark">AI-scored by expression length</span></td>
+        </tr>
+        <tr>
+          <td>Relationship validation</td>
+          <td>Check diagram manually</td>
+          <td class="highlight"><span class="checkmark">M:M, bidirectional, inactive detected</span></td>
+        </tr>
+        <tr>
+          <td>Storage internals</td>
+          <td>Requires VertiPaq Analyzer</td>
+          <td class="highlight"><span class="checkmark">Column segments + dictionary via DAX</span></td>
+        </tr>
+        <tr>
+          <td>Refresh health tracking</td>
+          <td>Check each model's history</td>
+          <td class="highlight"><span class="checkmark">Failure rates + duration trends</span></td>
+        </tr>
+        <tr>
+          <td>RLS role audit</td>
+          <td>Open Model view per model</td>
+          <td class="highlight"><span class="checkmark">Automated role + permission scan</span></td>
+        </tr>
+        <tr>
+          <td>Prioritized action plan</td>
+          <td>You figure it out</td>
+          <td class="highlight"><span class="checkmark">Findings ranked by impact</span></td>
+        </tr>
+        <tr>
+          <td>Time required</td>
+          <td>2-4 days per model</td>
+          <td class="highlight"><span class="checkmark">48 hours for all models</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <h2>Simple <span>pricing</span></h2>
+  <p class="section-sub">One flat fee. All models in one workspace. No hourly billing.</p>
+
+  <div class="pricing-card">
+    <h3>Semantic Model Audit</h3>
+    <div class="pricing-amount">$2,500 <small>one-time</small></div>
+    <ul class="pricing-features">
+      <li>All semantic models in one workspace</li>
+      <li>7-dimension health score (0-100)</li>
+      <li>Schema, measures, relationships deep scan</li>
+      <li>Storage internals + dictionary analysis</li>
+      <li>Refresh history + failure rate tracking</li>
+      <li>RLS role and permission audit</li>
+      <li>Prioritized findings with severity levels</li>
+      <li>Actionable optimization recommendations</li>
+      <li>Detailed markdown + JSON report</li>
+      <li>30-minute walkthrough call with MVP</li>
+    </ul>
+    <a href="mailto:gaston@thepowermates.com?subject=Semantic%20Model%20Audit%20—%20$2,500&body=Hi%20Gastón,%0A%0AI'm%20interested%20in%20the%20Power%20BI%20Semantic%20Model%20Audit.%0A%0AWorkspace%20name:%20%0ANumber%20of%20semantic%20models:%20%0AKey%20concern:%20%0A%0AThanks!" class="pricing-cta">Request Your Audit</a>
+  </div>
+
+  <div class="bundle-card">
+    <h4>Bundle & Save</h4>
+    <p>Combine with AI-Assisted Tenant Scan for a complete governance + model health picture.</p>
+    <div class="bundle-price">$13,500 <small style="font-size:0.9rem;color:var(--muted);font-weight:400;">instead of $15,000</small></div>
+    <p style="margin-top:0.5rem;">Tenant Scan ($12,500) + Model Audit ($2,500) = Save $1,500</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="section-alt">
+  <section class="section">
+    <h2>Frequently asked <span>questions</span></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What access do you need?</div>
+        <div class="faq-a">Read-only access to your Power BI workspace. We use a service principal with Viewer permissions or delegated read-only auth. We never modify your models.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How many models can you audit?</div>
+        <div class="faq-a">The $2,500 price covers all semantic models in one workspace. Need multiple workspaces? Contact us for volume pricing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does my data leave my tenant?</div>
+        <div class="faq-a">No. We query metadata only (schema, measures, relationships, refresh history). We don't extract, download, or store any of your actual data.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's in the report?</div>
+        <div class="faq-a">A detailed markdown document with health scores per model, findings by severity (critical, warning, info), schema stats, measure complexity analysis, relationship topology, storage sizes, refresh trends, and a prioritized action plan. Plus a machine-readable JSON export.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is this different from Performance Analyzer?</div>
+        <div class="faq-a">Performance Analyzer measures query execution time for individual visuals. Our audit scans the model structure itself — schema design, DAX patterns, relationship topology, storage internals, and governance posture. They're complementary: we find the structural issues, Performance Analyzer validates the fix.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you also fix what you find?</div>
+        <div class="faq-a">The audit is read-only and recommendations-focused. If you need hands-on optimization, we offer follow-up engagements starting at $5,000 — or bundle with our Fabric Architecture Accelerator for a full rebuild.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<section class="section" style="text-align:center;">
+  <h2>Stop guessing. <span>Start knowing.</span></h2>
+  <p class="section-sub">Your Power BI models are either helping or hiding problems. Find out which — in 48 hours.</p>
+  <a href="mailto:gaston@thepowermates.com?subject=Semantic%20Model%20Audit%20—%20$2,500&body=Hi%20Gastón,%0A%0AI'm%20interested%20in%20the%20Power%20BI%20Semantic%20Model%20Audit.%0A%0AWorkspace%20name:%20%0ANumber%20of%20semantic%20models:%20%0AKey%20concern:%20%0A%0AThanks!" class="hero-cta">Request Your Audit — $2,500</a>
+</section>
+
+<footer>
+  &copy; 2026 The Power Mates. Dual Microsoft MVPs. All rights reserved.
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
