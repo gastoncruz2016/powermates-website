@@ -29,6 +29,10 @@
       "rewrite": "/semantic-model-audit.html"
     },
     {
+      "route": "/realtime-analytics-accelerator",
+      "rewrite": "/realtime-analytics-accelerator.html"
+    },
+    {
       "route": "/executive-briefing",
       "rewrite": "/executive-briefing.html"
     },
