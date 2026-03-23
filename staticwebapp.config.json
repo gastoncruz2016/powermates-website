@@ -21,6 +21,10 @@
       "rewrite": "/tenant-scan-ai-assisted.html"
     },
     {
+      "route": "/fabric-architecture-accelerator",
+      "rewrite": "/fabric-architecture-accelerator.html"
+    },
+    {
       "route": "/executive-briefing",
       "rewrite": "/executive-briefing.html"
     },
