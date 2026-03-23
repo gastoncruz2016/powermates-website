@@ -901,7 +901,35 @@
           <strong>Add-on: Tenant Scan</strong> <span class="addon-price">($2,500&ndash;$12,500)</span><br />
           Scan your existing tenant first, then build the medallion architecture informed by the findings.
         </div>
-        <a href="mailto:gaston@thepowermates.com?subject=Fabric%20Architecture%20Accelerator%20%E2%80%94%20%2415%2C000&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Fabric%20Architecture%20Accelerator.%20Please%20send%20details.%0A%0AThanks!" class="pricing-cta">Get Started &rarr;</a>
+        <div id="intake-form" style="margin-top:2rem; text-align:left;">
+          <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
+            <input type="hidden" name="_subject" value="Fabric Architecture Accelerator — $15,000 Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.thepowermates.com/fabric-architecture-accelerator#thanks">
+            <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
+            <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
+            <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
+            <input type="text" name="data_sources" placeholder="Primary data sources (e.g. SQL Server, Azure, S3)" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
+            <select name="current_state" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
+              <option value="" disabled selected>Current Fabric state</option>
+              <option value="greenfield">Greenfield — no Fabric yet</option>
+              <option value="poc">PoC / trial capacity</option>
+              <option value="existing">Existing workspaces, need restructuring</option>
+              <option value="migration">Migrating from Synapse / Databricks</option>
+            </select>
+            <select name="priority" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
+              <option value="" disabled selected>Primary goal</option>
+              <option value="medallion">Build medallion architecture</option>
+              <option value="direct-lake">Enable Direct Lake reporting</option>
+              <option value="migration">Migrate existing pipelines</option>
+              <option value="best-practices">Establish best practices</option>
+              <option value="other">Other</option>
+            </select>
+            <textarea name="details" placeholder="Anything else? (optional)" rows="3" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;resize:vertical;"></textarea>
+            <button type="submit" class="pricing-cta" style="border:none;cursor:pointer;font-family:inherit;">Get Started — $15,000 &rarr;</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -952,8 +980,8 @@
       <h2 class="reveal">Ready to Build Your Lakehouse in a Day?</h2>
       <p class="reveal">Stop building from scratch. Get a production-ready medallion architecture deployed by a Microsoft MVP.</p>
       <div class="final-cta-group reveal">
-        <a href="mailto:gaston@thepowermates.com?subject=Fabric%20Architecture%20Accelerator%20%E2%80%94%20%2415%2C000&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Fabric%20Architecture%20Accelerator.%20Please%20send%20details.%0A%0AThanks!" class="btn-primary">Get Started &rarr;</a>
-        <a href="mailto:gaston@thepowermates.com?subject=Fabric%20Architecture%20Accelerator%20%E2%80%94%20Question" class="btn-outline">Talk to Gaston</a>
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+        <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
       </div>
     </div>
   </section>

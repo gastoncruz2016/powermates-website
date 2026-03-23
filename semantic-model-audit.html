@@ -729,7 +729,30 @@
       <li>Detailed markdown + JSON report</li>
       <li>30-minute walkthrough call with MVP</li>
     </ul>
-    <a href="mailto:gaston@thepowermates.com?subject=Semantic%20Model%20Audit%20—%20$2,500&body=Hi%20Gastón,%0A%0AI'm%20interested%20in%20the%20Power%20BI%20Semantic%20Model%20Audit.%0A%0AWorkspace%20name:%20%0ANumber%20of%20semantic%20models:%20%0AKey%20concern:%20%0A%0AThanks!" class="pricing-cta">Request Your Audit</a>
+    <div id="intake-form" style="margin-top:2rem; text-align:left;">
+      <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
+        <input type="hidden" name="_subject" value="Semantic Model Audit — $2,500 Inquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.thepowermates.com/semantic-model-audit#thanks">
+        <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;">
+        <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;">
+        <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;">
+        <input type="text" name="workspace" placeholder="Power BI workspace name" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;">
+        <input type="text" name="model_count" placeholder="Approx. number of semantic models" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;">
+        <select name="concern" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;">
+          <option value="" disabled selected>Primary concern</option>
+          <option value="performance">Slow report performance</option>
+          <option value="refresh">Refresh failures</option>
+          <option value="governance">Governance / best practices</option>
+          <option value="migration">Preparing for Fabric migration</option>
+          <option value="optimization">General optimization</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name="details" placeholder="Anything else we should know? (optional)" rows="3" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:0.95rem;font-family:inherit;resize:vertical;"></textarea>
+        <button type="submit" class="pricing-cta" style="border:none;cursor:pointer;font-family:inherit;">Request Your Audit — $2,500</button>
+      </form>
+    </div>
   </div>
 
   <div class="bundle-card">
@@ -778,7 +801,7 @@
 <section class="section" style="text-align:center;">
   <h2>Stop guessing. <span>Start knowing.</span></h2>
   <p class="section-sub">Your Power BI models are either helping or hiding problems. Find out which — in 48 hours.</p>
-  <a href="mailto:gaston@thepowermates.com?subject=Semantic%20Model%20Audit%20—%20$2,500&body=Hi%20Gastón,%0A%0AI'm%20interested%20in%20the%20Power%20BI%20Semantic%20Model%20Audit.%0A%0AWorkspace%20name:%20%0ANumber%20of%20semantic%20models:%20%0AKey%20concern:%20%0A%0AThanks!" class="hero-cta">Request Your Audit — $2,500</a>
+  <a href="#pricing" class="hero-cta">Request Your Audit — $2,500</a>
 </section>
 
 <footer>
