@@ -1,218 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Microsoft Fabric Migration Playbook | PowerMates</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Warehouse Migration Playbook — $12,000 | PowerMates</title>
+  <meta name="description" content="Migrate from Synapse Analytics or Azure SQL DW to Microsoft Fabric Warehouse. AI assesses compatibility, remaps data types, generates migration scripts. MVP delivers in 2 days. $12,000." />
+  <meta name="keywords" content="Microsoft Fabric Warehouse, Synapse migration, SQL Data Warehouse, Fabric migration, T-SQL, COPY INTO, PowerMates" />
+  <meta property="og:title" content="SQL Warehouse Migration Playbook — $12,000 | PowerMates" />
+  <meta property="og:description" content="AI-powered migration from Synapse/SQL DW to Fabric Warehouse. Compatibility audit, type remapping, script generation, and MVP-guided deployment. $12,000 flat fee." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/migration-playbook" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #080F1C; --card: #0d1628; --cyan: #2ee8d3; --text: #e8edf5;
-      --muted: #7a8ba0; --border: #1a2740; --cyan-dim: #1a4a45;
+      --bg: #080F1C; --bg2: #0d1628; --bg3: #111d35;
+      --card: #0f1b2d; --card2: #141e30;
+      --text: #e8edf5; --muted: #7a8ba0;
+      --cyan: #2ee8d3; --cyan-dim: rgba(46,232,211,0.12);
+      --cyan-border: rgba(46,232,211,0.3); --cyan-glow: rgba(46,232,211,0.5);
+      --border: rgba(255,255,255,0.08);
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Figtree', sans-serif; line-height: 1.6; }
-    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
-    .cyan { color: var(--cyan); }
-    nav { position: sticky; top: 0; z-index: 100; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; background: rgba(8,15,28,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .logo span:first-child { color: var(--text); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
-    .logo span:last-child { color: var(--cyan); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 1.4rem; }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-    nav a:hover { color: var(--cyan); }
-    .nav-cta { background: var(--cyan); color: var(--bg) !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; }
-    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .hero { padding: 8rem 2rem; text-align: center; }
-    .badge { display: inline-block; background: var(--cyan-dim); color: var(--cyan); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
-    .subtitle { color: var(--muted); font-size: 1.15rem; max-width: 640px; margin: 0 auto 2.5rem; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
-    .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; font-family: 'Syne', sans-serif; }
-    .card p { color: var(--muted); font-size: 0.95rem; }
-    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .btn-primary { background: var(--cyan); color: var(--bg); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-block; transition: opacity 0.2s; }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-secondary { border: 1px solid var(--border); color: var(--text); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-block; margin-left: 1rem; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .step { text-align: center; padding: 2rem; }
-    .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--cyan); color: var(--bg); font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
-    .step h3 { font-family: 'Syne', sans-serif; margin-bottom: 0.5rem; }
-    .step .step-label { color: var(--cyan); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .step p { color: var(--muted); font-size: 0.9rem; }
-    .trust-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin: 2rem 0; }
-    .trust-badge { background: var(--card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; color: var(--muted); }
-    .chips { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
-    .chip { color: var(--muted); font-size: 0.85rem; }
-    .chip::before { content: "✓ "; color: var(--cyan); }
-    .section-header { text-align: center; margin-bottom: 3rem; }
-    .seo-content { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
-    .seo-content p { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
-    .seo-content p:last-child { margin-bottom: 0; }
-    footer { background: #050b14; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
-    .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
-    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--cyan); }
-    .footer-copy { color: var(--muted); font-size: 0.85rem; margin-top: 1rem; }
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
-    .reveal.visible { opacity: 1; transform: none; }
-    @media (max-width: 768px) { nav ul { display: none; } h1 { font-size: 2rem; } }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif}
+    a{color:var(--cyan);text-decoration:none}a:hover{opacity:.85}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em}.nav-logo span{color:var(--cyan)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}
+    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--cyan)}
+    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem!important;transition:opacity .2s!important}.nav-cta:hover{opacity:.85!important}
+
+    .hero{position:relative;padding:6rem 2rem 4rem;text-align:center;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--cyan-dim) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{display:inline-block;padding:6px 16px;border:1px solid var(--cyan-border);border-radius:99px;font-size:.8rem;font-weight:600;color:var(--cyan);margin-bottom:1.5rem;background:var(--cyan-dim)}
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;max-width:800px;margin:0 auto 1rem}.hero h1 span{color:var(--cyan)}
+    .hero p{max-width:620px;margin:0 auto 2rem;color:var(--muted);font-size:1.1rem}
+    .hero-cta{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.05rem;transition:opacity .2s}.hero-cta:hover{opacity:.85}
+
+    .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}.section-alt{background:var(--bg2)}
+    .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}.section h2 span{color:var(--cyan)}
+    .section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s}.card:hover{border-color:var(--cyan-border)}
+    .card-icon{font-size:2rem;margin-bottom:1rem}.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}.card p{color:var(--muted);font-size:.92rem}
+
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
+    .step{text-align:center;counter-increment:step;position:relative}
+    .step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--cyan-dim);border:2px solid var(--cyan-border);border-radius:50%;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);margin:0 auto 1rem}
+    .step h4{font-size:1rem;margin-bottom:.5rem}.step p{color:var(--muted);font-size:.88rem}
+
+    .proof{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0}
+    .proof-item{text-align:center}.proof-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--cyan)}.proof-label{font-size:.82rem;color:var(--muted)}
+
+    .pricing-card{max-width:520px;margin:0 auto;background:var(--card);border:2px solid var(--cyan-border);border-radius:18px;padding:3rem;text-align:center;box-shadow:0 0 60px var(--cyan-dim)}
+    .pricing-card h3{font-size:1.6rem;margin-bottom:.5rem}
+    .pricing-amount{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--cyan);margin:1rem 0}.pricing-amount small{font-size:1rem;color:var(--muted);font-weight:400}
+    .pricing-features{list-style:none;text-align:left;margin:2rem 0}.pricing-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.95rem}.pricing-features li::before{content:'✓ ';color:var(--cyan);font-weight:700}
+    .pricing-cta{display:inline-block;width:100%;padding:16px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.1rem;transition:opacity .2s;border:none;cursor:pointer;font-family:inherit}.pricing-cta:hover{opacity:.85}
+
+    .bundle-card{max-width:700px;margin:2rem auto 0;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center}
+    .bundle-card h4{margin-bottom:.5rem}.bundle-price{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--cyan)}.bundle-card p{color:var(--muted);font-size:.92rem}
+
+    .compat-table{width:100%;border-collapse:collapse;margin:2rem auto;max-width:800px}
+    .compat-table th,.compat-table td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--border);font-size:.9rem}
+    .compat-table th{color:var(--cyan);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+    .compat-table td:first-child{font-family:monospace;color:var(--text)}.compat-table td:nth-child(2){font-family:monospace;color:var(--cyan)}
+    .compat-table td:last-child{color:var(--muted);font-size:.85rem}
+
+    .flow-diagram{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;font-family:monospace;font-size:.85rem;line-height:1.8;overflow-x:auto;max-width:800px;margin:0 auto 2rem}
+    .flow-diagram .highlight{color:var(--cyan);font-weight:700}
+
+    .faq-list{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
+    .faq-q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:'+';color:var(--cyan);font-size:1.4rem;font-weight:300}.faq-item.open .faq-q::after{content:'−'}
+    .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding-top:.75rem}
+
+    footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border)}
+
+    @media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.hero{padding:4rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.proof{gap:2rem}.compat-table{font-size:.8rem}}
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">
-      <span>POWER</span><span>MATES</span>
-    </div>
-    <ul>
-      <li><a href="#problem">The Problem</a></li>
-      <li><a href="#deliverable">What You Get</a></li>
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#proof">Why Us</a></li>
-      <li><a href="/">Home</a></li>
-    </ul>
-    <a href="https://tally.so/r/Y5ZxQB" class="nav-cta">Get Your Playbook →</a>
-  </nav>
 
-  <section class="hero" id="hero">
-    <div class="badge">New Offering</div>
-    <h1>Still Running on Legacy?<br><span class="cyan">There's a Playbook for That.</span></h1>
-    <p class="subtitle">A tailored, phased migration playbook for Microsoft Fabric — mapped to your source systems, your workloads, and your team's capacity to execute.</p>
-    <div style="margin-top: 2rem;">
-      <a href="https://tally.so/r/Y5ZxQB" class="btn-primary">Request Your Playbook →</a>
+<nav>
+  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/tenant-scan">Tenant Scan</a></li>
+    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+    <li><a href="/semantic-model-audit">Model Audit</a></li>
+    <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+    <li><a href="/migration-playbook" class="active">Migration</a></li>
+    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">NEW — Synapse → Fabric in 2 Days</div>
+  <h1>Migrate your warehouse to <span>Fabric</span></h1>
+  <p>AI audits your Synapse/SQL DW for compatibility, remaps data types, generates migration scripts. A Dual Microsoft MVP deploys it with you. Flat fee, no surprises.</p>
+  <a href="#pricing" class="hero-cta">Get Started — $12,000</a>
+</section>
+
+<div class="section-alt">
+  <div class="section" style="padding:2.5rem 2rem;">
+    <div class="proof">
+      <div class="proof-item"><div class="proof-num">16</div><div class="proof-label">Type Remappings</div></div>
+      <div class="proof-item"><div class="proof-num">7</div><div class="proof-label">Migration Scripts</div></div>
+      <div class="proof-item"><div class="proof-num">2 days</div><div class="proof-label">Delivery Time</div></div>
+      <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Compatibility Audit</div></div>
     </div>
-    <div class="chips">
-      <div class="chip">No cost</div>
-      <div class="chip">No obligation</div>
-      <div class="chip">Built by MVPs who've done it</div>
-    </div>
+  </div>
+</div>
+
+<!-- MIGRATION FLOW -->
+<section class="section">
+  <h2>The <span>migration pipeline</span> we build</h2>
+  <p class="section-sub">From assessment through deployment — every step scripted, documented, and version-controlled.</p>
+
+  <div class="flow-diagram">
+    <span class="highlight">Source Assessment</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Compatibility</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Fabric Warehouse</span><br>
+    ┌───────────────┐ &nbsp;&nbsp;&nbsp;&nbsp; ┌──────────────────┐ &nbsp;&nbsp;&nbsp;&nbsp; ┌──────────────────┐<br>
+    │ Tables &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Type Remapping &nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ CREATE TABLE &nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ Views &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│────▶│ Feature Audit &nbsp;&nbsp;&nbsp;&nbsp;│────▶│ COPY INTO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    │ Procedures &nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Security Check &nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ ETL Procedures &nbsp;&nbsp;│<br>
+    │ Functions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Volume Estimate &nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ RLS / CLS / DDM &nbsp;│<br>
+    │ Security &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Score: 0-100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Monitoring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+    └───────────────┘ &nbsp;&nbsp;&nbsp;&nbsp; └──────────────────┘ &nbsp;&nbsp;&nbsp;&nbsp; └────────┬─────────┘<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▼<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Migration Runbook</span>
+  </div>
+</section>
+
+<!-- TYPE COMPATIBILITY -->
+<div class="section-alt">
+  <section class="section">
+    <h2>Data type <span>remapping</span></h2>
+    <p class="section-sub">Fabric Warehouse doesn't support every SQL Server type. We handle all 16 remappings automatically.</p>
+
+    <table class="compat-table">
+      <thead><tr><th>Source Type</th><th>Fabric Type</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>nvarchar</td><td>varchar</td><td>UTF-8 native — no perf difference</td></tr>
+        <tr><td>datetime</td><td>datetime2</td><td>Higher precision, same usage</td></tr>
+        <tr><td>money</td><td>decimal(19,4)</td><td>Exact same precision</td></tr>
+        <tr><td>ntext / text</td><td>varchar(max)</td><td>Deprecated types modernized</td></tr>
+        <tr><td>xml</td><td>varchar(max)</td><td>Store as string, parse in queries</td></tr>
+        <tr><td>image</td><td>varbinary(max)</td><td>Binary storage preserved</td></tr>
+        <tr><td>geometry / geography</td><td>varchar(max)</td><td>WKT string representation</td></tr>
+        <tr><td>hierarchyid</td><td>varchar(900)</td><td>String path representation</td></tr>
+      </tbody>
+    </table>
+    <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:1rem">+ 8 more type conversions handled automatically by our migration engine</p>
   </section>
+</div>
 
-  <section id="problem">
-    <div class="section-header">
-      <h2>The Three Walls Every <span class="cyan">Migration</span> Hits</h2>
-      <p class="subtitle">Each one adds cost, risk, and technical debt — but they're all navigable with the right plan</p>
-    </div>
-    <div class="grid-3">
-      <div class="card reveal">
-        <div class="card-icon">🧠</div>
-        <h3>Platform Sprawl</h3>
-        <p>SQL DW, Synapse, SSIS, on-prem BI — each one adds cost, risk, and cognitive overhead. Every quarter you wait is another quarter of compounding migration complexity.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🗺️</div>
-        <h3>No Clear Path Forward</h3>
-        <p>Fabric is attractive but your team lacks a staged, risk-aware plan. Proof-of-concepts stall because there's no roadmap from current state to production-ready Fabric.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🤝</div>
-        <h3>Stakeholder Friction</h3>
-        <p>Architecture, delivery, and business teams disagree on scope, timelines, and what 'done' looks like. The migration stalls before it starts.</p>
-      </div>
-    </div>
-  </section>
+<!-- WHAT YOU GET -->
+<section class="section">
+  <h2>What's <span>included</span></h2>
+  <p class="section-sub">Everything you need to move from Synapse/SQL DW to Fabric Warehouse with confidence.</p>
 
-  <section id="deliverable">
-    <div class="section-header">
-      <h2>What You'll <span class="cyan">Receive</span></h2>
-      <p class="subtitle">Three concrete assets your team can execute against immediately</p>
-    </div>
-    <div class="grid-3">
-      <div class="card reveal">
-        <div class="card-icon">📋</div>
-        <h3>Tailored Migration Playbook</h3>
-        <p>15–20 pages built around your specific source systems and target architecture. Not a generic whitepaper — a document your delivery team can act on.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">📝️</div>
-        <h3>60–90 Day Phased Roadmap</h3>
-        <p>Milestones, decision gates, and workload prioritization. Designed so your architecture and delivery teams agree on what happens in what order.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🔄</div>
-        <h3>Pattern Catalog</h3>
-        <p>Documented migration patterns for your exact paths — SQL DW → Fabric, Synapse → Fabric, SSIS → Fabric Pipelines. With known risks and mitigations for each.</p>
-      </div>
-    </div>
-  </section>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🔍</div><h3>Source Assessment</h3><p>Full inventory of tables, views, procedures, functions, security roles, and data volumes from your existing warehouse.</p></div>
+    <div class="card"><div class="card-icon">📋</div><h3>Compatibility Audit</h3><p>Scored 0-100 across 6 dimensions: schema, types, features, security, volume, and procedure complexity.</p></div>
+    <div class="card"><div class="card-icon">🔄</div><h3>Type Remapping</h3><p>All 16 unsupported data types automatically converted to Fabric equivalents. No manual find-and-replace.</p></div>
+    <div class="card"><div class="card-icon">📄</div><h3>Migration Scripts</h3><p>CREATE TABLE, COPY INTO ingestion, ETL procedures (MERGE/upsert + CTAS), security policies — all generated.</p></div>
+    <div class="card"><div class="card-icon">🔒</div><h3>Security Migration</h3><p>Row-Level Security, Column-Level Security, and Dynamic Data Masking policies ported to Fabric syntax.</p></div>
+    <div class="card"><div class="card-icon">📊</div><h3>Monitoring Setup</h3><p>Query insights, long-running query detection, storage tracking, and connection monitoring queries pre-built.</p></div>
+    <div class="card"><div class="card-icon">📖</div><h3>Migration Runbook</h3><p>Step-by-step deployment guide with pre-flight checks, rollback procedures, and validation queries.</p></div>
+    <div class="card"><div class="card-icon">🤝</div><h3>MVP Working Sessions</h3><p>Two 4-hour sessions with a Dual Microsoft MVP: Day 1 assessment + scripts, Day 2 deployment + validation.</p></div>
+  </div>
+</section>
 
-  <section id="process">
-    <div class="section-header">
-      <h2>How It <span class="cyan">Works</span></h2>
-      <p class="subtitle">Three steps. Zero internal resource drain.</p>
-    </div>
+<!-- HOW IT WORKS -->
+<div class="section-alt">
+  <section class="section">
+    <h2>How it <span>works</span></h2>
+    <p class="section-sub">Five phases. Two days. Production-ready warehouse.</p>
+
     <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <h3>Intake</h3>
-        <div class="step-label">Share your stack & constraints</div>
-        <p>Tell us about your current infrastructure, workload priorities, and migration constraints. A 30-minute conversation or a written brief.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">2</div>
-        <h3>Analysis</h3>
-        <div class="step-label">AI-powered pattern matching</div>
-        <p>We combine 15+ years of enterprise migration experience with AI-accelerated pattern matching. Every recommendation is grounded in patterns we've seen work at scale.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">3</div>
-        <h3>Delivery</h3>
-        <div class="step-label">5–7 business days</div>
-        <p>Your complete playbook — ready to hand to your delivery teams. No follow-up cycles. Actionable from day one.</p>
-      </div>
+      <div class="step"><h4>Assess</h4><p>Connect to your source. Inventory every object, flag compatibility issues, score migration readiness.</p></div>
+      <div class="step"><h4>Remap</h4><p>Auto-convert unsupported types and features. Generate clean CREATE TABLE scripts for Fabric Warehouse.</p></div>
+      <div class="step"><h4>Script</h4><p>COPY INTO ingestion, ETL procedures with MERGE/upsert, CTAS optimization, security policies — all generated.</p></div>
+      <div class="step"><h4>Deploy</h4><p>Provision Fabric Warehouse, run migration scripts, load data, validate row counts and query results.</p></div>
+      <div class="step"><h4>Validate</h4><p>Run parallel queries on source and target. Confirm data integrity. Deliver runbook and monitoring setup.</p></div>
     </div>
   </section>
+</div>
 
-  <section id="proof">
-    <div class="section-header">
-      <h2>Why <span class="cyan">PowerMates</span></h2>
+<!-- DIY vs ACCELERATOR -->
+<section class="section">
+  <h2><span>DIY</span> vs Migration Playbook</h2>
+  <p class="section-sub">You could do this yourself. Here's what that looks like.</p>
+
+  <table class="compat-table">
+    <thead><tr><th>Task</th><th>DIY</th><th>Playbook</th></tr></thead>
+    <tbody>
+      <tr><td>Source inventory</td><td style="color:var(--muted)">Manual SQL queries</td><td style="color:var(--cyan)">Automated scan</td></tr>
+      <tr><td>Type compatibility</td><td style="color:var(--muted)">Read docs, hope you got them all</td><td style="color:var(--cyan)">16 types remapped automatically</td></tr>
+      <tr><td>Feature audit</td><td style="color:var(--muted)">Trial and error at deploy time</td><td style="color:var(--cyan)">Pre-flight compatibility score</td></tr>
+      <tr><td>CREATE TABLE scripts</td><td style="color:var(--muted)">Rewrite by hand</td><td style="color:var(--cyan)">Generated with correct types</td></tr>
+      <tr><td>ETL procedures</td><td style="color:var(--muted)">Months of T-SQL rewriting</td><td style="color:var(--cyan)">MERGE + CTAS patterns scaffolded</td></tr>
+      <tr><td>Security migration</td><td style="color:var(--muted)">Easy to miss policies</td><td style="color:var(--cyan)">RLS/CLS/DDM ported systematically</td></tr>
+      <tr><td>Monitoring</td><td style="color:var(--muted)">Build from scratch</td><td style="color:var(--cyan)">6 monitoring queries pre-built</td></tr>
+      <tr><td>Time to production</td><td style="color:var(--muted)">4-8 weeks</td><td style="color:var(--cyan)">2 days</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PRICING -->
+<div class="section-alt">
+  <section class="section" id="pricing">
+    <h2>Simple <span>pricing</span></h2>
+    <p class="section-sub">One warehouse migration, fully scripted. No hourly billing.</p>
+
+    <div class="pricing-card">
+      <h3>SQL Warehouse Migration Playbook</h3>
+      <div class="pricing-amount">$12,000 <small>one-time</small></div>
+      <ul class="pricing-features">
+        <li>Full source assessment (tables, views, procs, security)</li>
+        <li>Compatibility audit scored across 6 dimensions</li>
+        <li>16 data type remappings handled automatically</li>
+        <li>Unsupported feature detection + workarounds</li>
+        <li>CREATE TABLE scripts with correct Fabric types</li>
+        <li>COPY INTO ingestion scripts</li>
+        <li>ETL procedures (MERGE/upsert + CTAS swap)</li>
+        <li>Security migration (RLS, CLS, DDM)</li>
+        <li>Monitoring + query insights setup</li>
+        <li>Migration runbook with rollback procedures</li>
+        <li>Two 4-hour working sessions with MVP</li>
+        <li>30-day support (2 follow-up calls)</li>
+      </ul>
+      <div id="intake-form" style="margin-top:2rem;text-align:left;">
+        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
+          <input type="hidden" name="_subject" value="SQL Warehouse Migration Playbook — $12,000 Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.thepowermates.com/migration-playbook#thanks">
+          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <select name="source_platform" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Current platform?</option>
+            <option value="synapse-dedicated">Synapse Analytics (Dedicated Pool)</option>
+            <option value="synapse-serverless">Synapse Analytics (Serverless)</option>
+            <option value="azure-sql-dw">Azure SQL Data Warehouse</option>
+            <option value="sql-server">SQL Server on-prem</option>
+            <option value="other">Other / Not sure</option>
+          </select>
+          <select name="table_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Approximate table count?</option>
+            <option value="1-50">1 – 50 tables</option>
+            <option value="51-200">51 – 200 tables</option>
+            <option value="201-500">201 – 500 tables</option>
+            <option value="500+">500+ tables</option>
+          </select>
+          <textarea name="details" rows="3" placeholder="Any specific concerns? (stored procs, security, data volume...)" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;resize:vertical"></textarea>
+          <button type="submit" class="pricing-cta">Request Migration Assessment</button>
+        </form>
+      </div>
+      <p id="thanks" style="display:none;color:var(--cyan);margin-top:1rem;font-weight:600">Thanks! We'll get back to you within 24 hours.</p>
     </div>
-    <div class="trust-badges">
-      <div class="trust-badge">🏅 Microsoft MVP</div>
-      <div class="trust-badge">📊 15+ Years Enterprise</div>
-      <div class="trust-badge">🏢 Fortune 500</div>
-      <div class="trust-badge">▶️ 7,300+ YouTube Community</div>
-    </div>
-    <div class="seo-content">
-      <p>A Microsoft Fabric migration plan isn't just about moving data — it's about aligning your architecture, your governance model, and your team's execution capacity with where Fabric is heading. That's what we build.</p>
-      <p>Whether you're migrating from SQL DW to Fabric, moving workloads from Synapse, or modernizing legacy BI, the challenge is always the same: getting from a fragmented current state to a production-ready, governed Fabric environment — without burning your team out in the process.</p>
-      <p>A Synapse migration assessment typically reveals technical debt that's been deferred — unused resources, inconsistent schemas, undocumented dependencies. Our playbooks are designed to surface and address this debt as part of the migration, not after it.</p>
-      <p>Legacy BI modernization in the Fabric era means more than lifting-and-shifting reports. It means re-architecting for the semantic layer, aligning with Microsoft's Fabric roadmap, and building governance that scales.</p>
+
+    <div class="bundle-card">
+      <h4>Bundle & Save</h4>
+      <p>Tenant Scan ($12,500) + Migration Playbook ($12,000)</p>
+      <div class="bundle-price">$22,000 <small style="font-size:.9rem;color:var(--muted);font-weight:400">save $2,500</small></div>
+      <p style="margin-top:.5rem">Audit your tenant first, then migrate with confidence.</p>
     </div>
   </section>
+</div>
 
-  <section id="start">
-    <div class="section-header">
-      <h2>Request Your <span class="cyan">Migration Playbook</span></h2>
-      <p class="subtitle">No cost. No obligation. Built by the people who've done this at scale.</p>
-    </div>
-    <div style="text-align: center;">
-      <a href="https://tally.so/r/Y5ZxQB" class="btn-primary">Request Your Playbook</a>
-    </div>
-    <div class="chips">
-      <div class="chip">No cost</div>
-      <div class="chip">No obligation</div>
-      <div class="chip">Built by MVPs who've done it</div>
-    </div>
-  </section>
+<!-- FAQ -->
+<section class="section">
+  <h2>Common <span>questions</span></h2>
 
-  <footer>
-    <div class="footer-logo"><span style="color: var(--text);">POWER</span><span style="color: var(--cyan);">MATES</span></div>
-    <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
-  </footer>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">What source platforms do you support?</div>
+      <div class="faq-a">Azure Synapse Analytics (dedicated and serverless pools), Azure SQL Data Warehouse, and SQL Server. We can also assess other T-SQL-based platforms on a case-by-case basis.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need Fabric capacity before we start?</div>
+      <div class="faq-a">Yes — you need an active Fabric capacity (F2+ SKU) with Warehouse workload enabled. We'll help verify during the discovery call.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What about stored procedures with unsupported T-SQL?</div>
+      <div class="faq-a">Our compatibility audit flags every unsupported feature with a workaround recommendation. During the working session, we rewrite the critical procedures together using Fabric-compatible patterns (MERGE, CTAS, incremental load).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will my security policies carry over?</div>
+      <div class="faq-a">Yes. We systematically port Row-Level Security, Column-Level Security, and Dynamic Data Masking. The assessment identifies every security policy in your source so nothing gets missed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I have more than 500 tables?</div>
+      <div class="faq-a">The engine handles any size. For very large schemas (500+ tables), we may recommend splitting into priority waves. The assessment scores each table so you know what to migrate first.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I run the assessment before committing?</div>
+      <div class="faq-a">We offer an assess-only mode. Contact us to discuss a lighter-weight assessment engagement before the full migration.</div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if(e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
+<footer>
+  &copy; 2026 The Power Mates &middot; Microsoft MVPs in Data Platform &amp; AI
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+  if (location.hash === '#thanks') {
+    const ty = document.getElementById('thanks');
+    if (ty) { ty.style.display = 'block'; }
+  }
+</script>
+
 </body>
 </html>
