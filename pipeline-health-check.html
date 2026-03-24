@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Pipeline Health Check — $4,000 | PowerMates</title>
+  <meta name="description" content="Audit your Fabric data pipelines for orchestration gaps, missing error handling, scheduling conflicts, and reliability issues. MVP delivers fixes. $4,000 flat fee." />
+  <meta name="keywords" content="Microsoft Fabric pipelines, data pipeline audit, orchestration, error handling, scheduling, pipeline monitoring, PowerMates" />
+  <meta property="og:title" content="Data Pipeline Health Check — $4,000 | PowerMates" />
+  <meta property="og:description" content="AI audits your Fabric pipelines for error handling gaps, reliability issues, and scheduling conflicts. A Dual Microsoft MVP delivers the fix plan. $4,000." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/pipeline-health-check" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C; --bg2: #0d1628; --bg3: #111d35;
+      --card: #0f1b2d; --card2: #141e30;
+      --text: #e8edf5; --muted: #7a8ba0;
+      --cyan: #2ee8d3; --cyan-dim: rgba(46,232,211,0.12);
+      --cyan-border: rgba(46,232,211,0.3); --cyan-glow: rgba(46,232,211,0.5);
+      --border: rgba(255,255,255,0.08);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif}
+    a{color:var(--cyan);text-decoration:none}a:hover{opacity:.85}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em}.nav-logo span{color:var(--cyan)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}
+    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--cyan)}
+    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem!important;transition:opacity .2s!important}.nav-cta:hover{opacity:.85!important}
+
+    .hero{position:relative;padding:6rem 2rem 4rem;text-align:center;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--cyan-dim) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{display:inline-block;padding:6px 16px;border:1px solid var(--cyan-border);border-radius:99px;font-size:.8rem;font-weight:600;color:var(--cyan);margin-bottom:1.5rem;background:var(--cyan-dim)}
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;max-width:800px;margin:0 auto 1rem}.hero h1 span{color:var(--cyan)}
+    .hero p{max-width:620px;margin:0 auto 2rem;color:var(--muted);font-size:1.1rem}
+    .hero-cta{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.05rem;transition:opacity .2s}.hero-cta:hover{opacity:.85}
+
+    .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}.section-alt{background:var(--bg2)}
+    .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}.section h2 span{color:var(--cyan)}
+    .section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s}.card:hover{border-color:var(--cyan-border)}
+    .card-icon{font-size:2rem;margin-bottom:1rem}.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}.card p{color:var(--muted);font-size:.92rem}
+
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
+    .step{text-align:center;counter-increment:step;position:relative}
+    .step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--cyan-dim);border:2px solid var(--cyan-border);border-radius:50%;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);margin:0 auto 1rem}
+    .step h4{font-size:1rem;margin-bottom:.5rem}.step p{color:var(--muted);font-size:.88rem}
+
+    .proof{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0}
+    .proof-item{text-align:center}.proof-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--cyan)}.proof-label{font-size:.82rem;color:var(--muted)}
+
+    .pricing-card{max-width:520px;margin:0 auto;background:var(--card);border:2px solid var(--cyan-border);border-radius:18px;padding:3rem;text-align:center;box-shadow:0 0 60px var(--cyan-dim)}
+    .pricing-card h3{font-size:1.6rem;margin-bottom:.5rem}
+    .pricing-amount{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--cyan);margin:1rem 0}.pricing-amount small{font-size:1rem;color:var(--muted);font-weight:400}
+    .pricing-features{list-style:none;text-align:left;margin:2rem 0}.pricing-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.95rem}.pricing-features li::before{content:'✓ ';color:var(--cyan);font-weight:700}
+    .pricing-cta{display:inline-block;width:100%;padding:16px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.1rem;transition:opacity .2s;border:none;cursor:pointer;font-family:inherit}.pricing-cta:hover{opacity:.85}
+
+    .bundle-card{max-width:700px;margin:2rem auto 0;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center}
+    .bundle-card h4{margin-bottom:.5rem}.bundle-price{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--cyan)}.bundle-card p{color:var(--muted);font-size:.92rem}
+
+    .checklist{max-width:700px;margin:0 auto}
+    .check-item{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+    .check-icon{color:var(--cyan);font-size:1.2rem;flex-shrink:0;margin-top:2px}
+    .check-fail{color:#ff4d4d}
+    .check-item h4{font-size:.95rem;margin-bottom:.25rem}.check-item p{color:var(--muted);font-size:.85rem}
+
+    .faq-list{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
+    .faq-q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:'+';color:var(--cyan);font-size:1.4rem;font-weight:300}.faq-item.open .faq-q::after{content:'−'}
+    .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding-top:.75rem}
+
+    footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border)}
+
+    @media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.hero{padding:4rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.proof{gap:2rem}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/tenant-scan">Tenant Scan</a></li>
+    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+    <li><a href="/migration-playbook">Migration</a></li>
+    <li><a href="/spark-optimization">Spark</a></li>
+    <li><a href="/pipeline-health-check" class="active">Pipelines</a></li>
+    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">NEW — Find the Silent Failures</div>
+  <h1>Your pipelines are failing <span>and you don't know it</span></h1>
+  <p>AI scans every pipeline for missing error handling, broken retry policies, scheduling gaps, and reliability blind spots. An MVP walks you through the fixes.</p>
+  <a href="#pricing" class="hero-cta">Get Started — $4,000</a>
+</section>
+
+<div class="section-alt">
+  <div class="section" style="padding:2.5rem 2rem;">
+    <div class="proof">
+      <div class="proof-item"><div class="proof-num">8</div><div class="proof-label">Anti-Patterns Detected</div></div>
+      <div class="proof-item"><div class="proof-num">5</div><div class="proof-label">Score Dimensions</div></div>
+      <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Job History Analyzed</div></div>
+      <div class="proof-item"><div class="proof-num">½ day</div><div class="proof-label">Delivery Time</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE CHECK -->
+<section class="section">
+  <h2>What we <span>audit</span></h2>
+  <p class="section-sub">Five dimensions scored 0-100. Every finding comes with a specific fix — not just a red flag.</p>
+
+  <div class="cards">
+    <div class="card"><div class="card-icon">🚨</div><h3>Error Handling</h3><p>Does every critical activity have a failure path? Are there notification activities for pipeline failures? We check every dependency chain.</p></div>
+    <div class="card"><div class="card-icon">📈</div><h3>Reliability</h3><p>Job history analysis: success rates, failure patterns, duration trends, SLA compliance. We spot degradation before it becomes an outage.</p></div>
+    <div class="card"><div class="card-icon">⚙️</div><h3>Configuration</h3><p>Retry policies, timeouts, ForEach batch counts, parameterization. Every activity checked against Microsoft best practices.</p></div>
+    <div class="card"><div class="card-icon">📅</div><h3>Scheduling</h3><p>Overlapping schedules, disabled schedules, gaps between pipeline runs. We map your entire orchestration timeline.</p></div>
+    <div class="card"><div class="card-icon">🏗️</div><h3>Architecture</h3><p>Quality gates between layers, pipeline parameterization, dependency chain depth, notification coverage.</p></div>
+  </div>
+</section>
+
+<!-- WHAT WE CATCH -->
+<div class="section-alt">
+  <section class="section">
+    <h2>The silent killers in <span>your pipelines</span></h2>
+    <p class="section-sub">These are the issues that don't crash your pipeline — they just quietly corrupt your data or waste your capacity.</p>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-icon check-fail">✗</div>
+        <div><h4>No failure path on critical activities</h4><p>Pipeline stops silently on error. No alert fires. Downstream dashboards show stale data for hours before anyone notices.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon check-fail">✗</div>
+        <div><h4>Zero retry policy</h4><p>A single transient 429 or timeout kills the entire pipeline. Adding 2 retries with 30s backoff catches 90% of these.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon check-fail">✗</div>
+        <div><h4>No timeout on notebook activities</h4><p>A Spark session hangs, the activity runs forever, consuming capacity. Nobody knows until the bill arrives.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon check-fail">✗</div>
+        <div><h4>No quality gate between layers</h4><p>Bronze loads fine but writes zero rows. Silver transforms nothing. Gold serves empty dashboards. Everyone blames the data source.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon check-fail">✗</div>
+        <div><h4>No notification on failure</h4><p>Pipeline fails at 2am. The team finds out at 10am when the CEO asks why the dashboard is wrong.</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon check-fail">✗</div>
+        <div><h4>Hardcoded paths and dates</h4><p>Works in dev, breaks in prod. Pipeline parameters and expressions prevent environment-specific failures.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <h2>How it <span>works</span></h2>
+  <p class="section-sub">Three steps. Half a day. Clear action plan.</p>
+
+  <div class="steps">
+    <div class="step"><h4>Connect</h4><p>15-min call. We get read access to your workspace and understand which pipelines are business-critical.</p></div>
+    <div class="step"><h4>Scan</h4><p>AI reads every pipeline definition, analyzes activity configurations, pulls full job history, and maps schedules.</p></div>
+    <div class="step"><h4>Deliver</h4><p>Scored report with prioritized fixes, monitoring query templates, and a 2-hour walkthrough call with an MVP.</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="section-alt">
+  <section class="section" id="pricing">
+    <h2>Simple <span>pricing</span></h2>
+    <p class="section-sub">Every pipeline in your workspace, audited. One flat fee.</p>
+
+    <div class="pricing-card">
+      <h3>Data Pipeline Health Check</h3>
+      <div class="pricing-amount">$4,000 <small>one-time</small></div>
+      <ul class="pricing-features">
+        <li>All pipelines in workspace scanned</li>
+        <li>Activity-level configuration audit</li>
+        <li>Error handling & failure path analysis</li>
+        <li>Full job history reliability analysis</li>
+        <li>Schedule conflict detection</li>
+        <li>Quality gate assessment</li>
+        <li>Scored report (0-100 across 5 dimensions)</li>
+        <li>Monitoring query templates</li>
+        <li>Prioritized fix list with implementation steps</li>
+        <li>2-hour walkthrough with MVP</li>
+        <li>30-day support (1 follow-up call)</li>
+      </ul>
+      <div id="intake-form" style="margin-top:2rem;text-align:left;">
+        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
+          <input type="hidden" name="_subject" value="Data Pipeline Health Check — $4,000 Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.thepowermates.com/pipeline-health-check#thanks">
+          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <select name="pipeline_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Approximate pipeline count?</option>
+            <option value="1-5">1 – 5 pipelines</option>
+            <option value="6-15">6 – 15 pipelines</option>
+            <option value="16-30">16 – 30 pipelines</option>
+            <option value="30+">30+ pipelines</option>
+          </select>
+          <select name="main_concern" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Primary concern?</option>
+            <option value="silent-failures">Silent failures / stale data</option>
+            <option value="reliability">Low reliability / frequent failures</option>
+            <option value="scheduling">Scheduling conflicts</option>
+            <option value="performance">Slow pipeline runs</option>
+            <option value="best-practices">Want to follow best practices</option>
+          </select>
+          <textarea name="details" rows="3" placeholder="Any specific pipelines or issues you want us to focus on?" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;resize:vertical"></textarea>
+          <button type="submit" class="pricing-cta">Request Pipeline Health Check</button>
+        </form>
+      </div>
+      <p id="thanks" style="display:none;color:var(--cyan);margin-top:1rem;font-weight:600">Thanks! We'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="bundle-card">
+      <h4>Bundle & Save</h4>
+      <p>Spark Optimization ($3,500) + Pipeline Health Check ($4,000)</p>
+      <div class="bundle-price">$6,500 <small style="font-size:.9rem;color:var(--muted);font-weight:400">save $1,000</small></div>
+      <p style="margin-top:.5rem">Audit your notebooks and the pipelines that run them.</p>
+    </div>
+  </section>
+</div>
+
+<!-- FAQ -->
+<section class="section">
+  <h2>Common <span>questions</span></h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">How is this different from the Spark Optimization Audit?</div>
+      <div class="faq-a">The Spark audit focuses on notebook code and Spark configs — what runs inside the compute engine. This pipeline audit focuses on orchestration — how activities are chained, how errors propagate, how schedules align. Different layers, both critical.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you need write access?</div>
+      <div class="faq-a">No — read-only access is enough. We read pipeline definitions and job history via the Fabric REST API. We never modify your pipelines.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if my pipelines use ADF instead of Fabric?</div>
+      <div class="faq-a">This audit is for Fabric Data Pipelines. If you're running Azure Data Factory, the patterns overlap significantly — reach out and we'll scope a custom engagement.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What job history do you analyze?</div>
+      <div class="faq-a">We pull all available job execution history from the Fabric API — typically the last 30 days. We analyze success rates, duration trends, failure patterns, and schedule adherence.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will you fix the issues or just report them?</div>
+      <div class="faq-a">The report includes specific fixes for every finding. During the 2-hour walkthrough, we implement the highest-impact fixes together — adding retry policies, failure paths, and notification activities.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 The Power Mates &middot; Microsoft MVPs in Data Platform &amp; AI
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+  if (location.hash === '#thanks') {
+    const ty = document.getElementById('thanks');
+    if (ty) { ty.style.display = 'block'; }
+  }
+</script>
+
+</body>
+</html>

@@ -43,6 +43,10 @@
     {
       "route": "/spark-optimization",
       "rewrite": "/spark-optimization.html"
+    },
+    {
+      "route": "/pipeline-health-check",
+      "rewrite": "/pipeline-health-check.html"
     }
   ],
   "navigationFallback": {
