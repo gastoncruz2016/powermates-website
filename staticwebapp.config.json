@@ -47,6 +47,34 @@
     {
       "route": "/pipeline-health-check",
       "rewrite": "/pipeline-health-check.html"
+    },
+    {
+      "route": "/bi-performance-pack",
+      "rewrite": "/bi-performance-pack.html"
+    },
+    {
+      "route": "/data-engineering-pack",
+      "rewrite": "/data-engineering-pack.html"
+    },
+    {
+      "route": "/governance-performance",
+      "rewrite": "/governance-performance.html"
+    },
+    {
+      "route": "/migration-governance",
+      "rewrite": "/migration-governance.html"
+    },
+    {
+      "route": "/architecture-realtime",
+      "rewrite": "/architecture-realtime.html"
+    },
+    {
+      "route": "/full-data-platform-audit",
+      "rewrite": "/full-data-platform-audit.html"
+    },
+    {
+      "route": "/enterprise-transformation",
+      "rewrite": "/enterprise-transformation.html"
     }
   ],
   "navigationFallback": {
