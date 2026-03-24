@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance + Performance â The Power Mates</title>
+  <meta name="description" content="Governance first, then optimize. $13,500 (save $1,500). Fixed-fee Fabric consulting by Dual Microsoft MVPs." />
+  <meta property="og:title" content="Governance + Performance â The Power Mates" />
+  <meta property="og:description" content="Governance first, then optimize. $13,500 bundle price." />
+  <meta property="og:url" content="https://www.thepowermates.com/governance-performance" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#080F1C;--bg2:#0d1929;--card:#111d2e;--border:#1a2332;--cyan:#2ee8d3;--text:#f0f0f0;--muted:#8a9bb5}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--cyan);text-decoration:none}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;text-decoration:none}
+    .nav-logo span{color:var(--cyan)}
+    .nav-links{display:flex;list-style:none;gap:1.5rem;align-items:center}
+    .nav-links a{color:var(--muted);font-size:.9rem;text-decoration:none;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--cyan)}
+    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.9rem}
+    .hero{text-align:center;padding:5rem 2rem 3rem;max-width:800px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(46,232,211,.1);color:var(--cyan);padding:6px 16px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(46,232,211,.2)}
+    h1{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;line-height:1.15;margin-bottom:1rem}
+    h1 span{color:var(--cyan)}
+    .hero p{font-size:1.15rem;color:var(--muted);max-width:650px;margin:0 auto 2rem}
+    .hero-price{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+    .hero-price .bundle{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--cyan)}
+    .hero-price .list{font-size:1.2rem;color:var(--muted);text-decoration:line-through}
+    .hero-price .save-badge{background:rgba(46,232,211,.15);color:var(--cyan);padding:6px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
+    .hero-cta{display:inline-block;background:var(--cyan);color:var(--bg);padding:14px 32px;border-radius:10px;font-weight:700;font-size:1.05rem;transition:transform .2s}
+    .hero-cta:hover{transform:translateY(-2px)}
+    .section{max-width:800px;margin:0 auto;padding:3rem 2rem}
+    .section-alt{background:var(--bg2)}
+    h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:1.5rem}
+    h2 span{color:var(--cyan)}
+    .included-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;transition:border-color .2s}
+    .included-item:hover{border-color:var(--cyan)}
+    .included-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+    .included-name{font-weight:600;font-size:1.05rem;color:var(--text)}
+    .included-name:hover{color:var(--cyan)}
+    .included-price{color:var(--cyan);font-weight:700;font-family:'Syne',sans-serif}
+    .included-detail{color:var(--muted);font-size:.9rem}
+    .why-list{list-style:none;padding:0}
+    .why-list li{padding:.75rem 0 .75rem 2rem;position:relative;color:var(--muted)}
+    .why-list li::before{content:"â";position:absolute;left:0;color:var(--cyan);font-weight:700}
+    .timeline-bar{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin:2rem 0}
+    .timeline-bar .label{color:var(--muted);font-size:.9rem}
+    .timeline-bar .value{color:var(--cyan);font-weight:700;font-family:'Syne',sans-serif;font-size:1.2rem}
+    #pricing{max-width:800px;margin:0 auto;padding:3rem 2rem}
+    .pricing-card{background:var(--card);border:2px solid var(--cyan);border-radius:16px;padding:2rem}
+    .pricing-card h3{font-family:'Syne',sans-serif;font-size:1.4rem;color:var(--cyan);margin-bottom:.5rem}
+    .pricing-amount{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;margin-bottom:.25rem}
+    .pricing-amount small{font-size:.9rem;color:var(--muted);font-weight:400;text-decoration:line-through;margin-left:.75rem}
+    .pricing-cta{display:block;text-align:center;background:var(--cyan);color:var(--bg);padding:14px;border-radius:10px;font-weight:700;font-size:1rem;border:none;cursor:pointer;width:100%;font-family:inherit;margin-top:1rem;transition:transform .2s}
+    .pricing-cta:hover{transform:translateY(-2px)}
+    footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+    /* Hamburger */
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    @media(max-width:768px){
+      .hamburger{display:block}
+      .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
+      .nav-links.open{display:flex!important}
+      .nav-links li{list-style:none}
+      .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
+      .nav-links a.active{color:#2ee8d3}
+      .nav-links .nav-cta{background:#2ee8d3;color:#080f1c;padding:12px 28px;border-radius:8px;font-weight:600;margin-top:1rem}
+      .hero{padding:3rem 1.5rem 2rem}
+      h1{font-size:2rem}
+      .hero-price{flex-wrap:wrap}
+      .section{padding:2rem 1.5rem}
+      #pricing{padding:2rem 1.5rem}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/tenant-scan">Tenant Scan</a></li>
+    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+    <li><a href="/semantic-model-audit">Model Audit</a></li>
+    <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+    <li><a href="/migration-playbook">Migration</a></li>
+    <li><a href="/spark-optimization">Spark</a></li>
+    <li><a href="/pipeline-health-check">Pipelines</a></li>
+    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">BUNDLE â Save $1,500</div>
+  <h1>Governance + <span>Performance</span></h1>
+  <p>Know what's in your tenant. Then fix the models that matter most.</p>
+  <div class="hero-price">
+    <span class="bundle">$13,500</span>
+    <span class="list">$15,000</span>
+    <span class="save-badge">Save $1,500</span>
+  </div>
+  <a href="#pricing" class="hero-cta">Get Started â $13,500</a>
+</section>
+
+<div class="section-alt">
+  <div class="section">
+    <h2>What's <span>Included</span></h2>
+    
+      <div class="included-item">
+        <div class="included-header">
+          <a href="/tenant-scan-ai-assisted" class="included-name">AI-Assisted Tenant Scan</a>
+          <span class="included-price">$12,500</span>
+        </div>
+        <p class="included-detail">Live Fabric API scan, AI governance scoring, 2-hour working session with MVP</p>
+      </div>
+      <div class="included-item">
+        <div class="included-header">
+          <a href="/semantic-model-audit" class="included-name">Power BI Semantic Model Audit</a>
+          <span class="included-price">$2,500</span>
+        </div>
+        <p class="included-detail">7-dimension health score, DAX optimization, refresh analysis</p>
+      </div>
+    <div class="timeline-bar">
+      <span class="label">Total timeline:</span>
+      <span class="value">2â3 days total</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Why <span>Bundle?</span></h2>
+  <ul class="why-list">
+        <li>Tenant scan reveals which workspaces and models need attention first</li>
+        <li>Model audit targets the specific datasets identified by governance findings</li>
+        <li>Combined output: governance roadmap + performance fix list in one engagement</li>
+  </ul>
+</div>
+
+<section id="pricing">
+  <div class="pricing-card">
+    <h3>Governance + Performance</h3>
+    <div class="pricing-amount">$13,500 <small>$15,000</small></div>
+    <p style="color:var(--muted);margin-bottom:1.5rem;">Fixed fee. 2 engagements. 2â3 days total. 30-day support included.</p>
+    <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
+      <input type="hidden" name="_subject" value="Governance + Performance â $13,500 Inquiry">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://www.thepowermates.com/governance-performance#thanks">
+      <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <select name="workspace_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Approximate workspace count?</option>
+            <option value="1-10">1 â 10</option>
+            <option value="11-50">11 â 50</option>
+            <option value="50+">50+</option>
+          </select>
+      <button type="submit" class="pricing-cta">Request Governance + Performance</button>
+    </form>
+    <div id="thanks" style="display:none;background:var(--bg2);border:2px solid var(--cyan);border-radius:12px;padding:2rem;margin-top:1rem;text-align:center;">
+      <h3 style="color:var(--cyan);margin-bottom:.5rem;">Request received!</h3>
+      <p>GastÃ³n will reach out within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 The Power Mates. Dual Microsoft MVPs. All rights reserved.
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
+  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>
