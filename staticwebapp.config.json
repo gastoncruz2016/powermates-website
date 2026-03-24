@@ -39,6 +39,10 @@
     {
       "route": "/migration-playbook",
       "rewrite": "/migration-playbook.html"
+    },
+    {
+      "route": "/spark-optimization",
+      "rewrite": "/spark-optimization.html"
     }
   ],
   "navigationFallback": {

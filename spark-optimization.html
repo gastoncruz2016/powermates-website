@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spark Job Optimization Audit — $3,500 | PowerMates</title>
+  <meta name="description" content="Audit your Fabric Spark notebooks for performance bottlenecks. AI scans configs, code anti-patterns, Delta Lake health, and resource usage. MVP delivers actionable fixes. $3,500." />
+  <meta name="keywords" content="Microsoft Fabric Spark, PySpark optimization, Spark tuning, Delta Lake, notebook performance, Lakehouse, PowerMates" />
+  <meta property="og:title" content="Spark Job Optimization Audit — $3,500 | PowerMates" />
+  <meta property="og:description" content="AI audits your Spark notebooks for config gaps, code anti-patterns, and Delta Lake issues. A Dual Microsoft MVP delivers the fix plan. $3,500 flat fee." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/spark-optimization" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080F1C; --bg2: #0d1628; --bg3: #111d35;
+      --card: #0f1b2d; --card2: #141e30;
+      --text: #e8edf5; --muted: #7a8ba0;
+      --cyan: #2ee8d3; --cyan-dim: rgba(46,232,211,0.12);
+      --cyan-border: rgba(46,232,211,0.3); --cyan-glow: rgba(46,232,211,0.5);
+      --border: rgba(255,255,255,0.08);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif}
+    a{color:var(--cyan);text-decoration:none}a:hover{opacity:.85}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em}.nav-logo span{color:var(--cyan)}
+    .nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}
+    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--cyan)}
+    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem!important;transition:opacity .2s!important}.nav-cta:hover{opacity:.85!important}
+
+    .hero{position:relative;padding:6rem 2rem 4rem;text-align:center;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--cyan-dim) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{display:inline-block;padding:6px 16px;border:1px solid var(--cyan-border);border-radius:99px;font-size:.8rem;font-weight:600;color:var(--cyan);margin-bottom:1.5rem;background:var(--cyan-dim)}
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;max-width:800px;margin:0 auto 1rem}.hero h1 span{color:var(--cyan)}
+    .hero p{max-width:620px;margin:0 auto 2rem;color:var(--muted);font-size:1.1rem}
+    .hero-cta{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.05rem;transition:opacity .2s}.hero-cta:hover{opacity:.85}
+
+    .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}.section-alt{background:var(--bg2)}
+    .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}.section h2 span{color:var(--cyan)}
+    .section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s}.card:hover{border-color:var(--cyan-border)}
+    .card-icon{font-size:2rem;margin-bottom:1rem}.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}.card p{color:var(--muted);font-size:.92rem}
+
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
+    .step{text-align:center;counter-increment:step;position:relative}
+    .step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--cyan-dim);border:2px solid var(--cyan-border);border-radius:50%;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);margin:0 auto 1rem}
+    .step h4{font-size:1rem;margin-bottom:.5rem}.step p{color:var(--muted);font-size:.88rem}
+
+    .proof{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0}
+    .proof-item{text-align:center}.proof-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--cyan)}.proof-label{font-size:.82rem;color:var(--muted)}
+
+    .pricing-card{max-width:520px;margin:0 auto;background:var(--card);border:2px solid var(--cyan-border);border-radius:18px;padding:3rem;text-align:center;box-shadow:0 0 60px var(--cyan-dim)}
+    .pricing-card h3{font-size:1.6rem;margin-bottom:.5rem}
+    .pricing-amount{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--cyan);margin:1rem 0}.pricing-amount small{font-size:1rem;color:var(--muted);font-weight:400}
+    .pricing-features{list-style:none;text-align:left;margin:2rem 0}.pricing-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.95rem}.pricing-features li::before{content:'✓ ';color:var(--cyan);font-weight:700}
+    .pricing-cta{display:inline-block;width:100%;padding:16px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.1rem;transition:opacity .2s;border:none;cursor:pointer;font-family:inherit}.pricing-cta:hover{opacity:.85}
+
+    .bundle-card{max-width:700px;margin:2rem auto 0;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center}
+    .bundle-card h4{margin-bottom:.5rem}.bundle-price{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--cyan)}.bundle-card p{color:var(--muted);font-size:.92rem}
+
+    .antipatterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .antipattern{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+    .antipattern:hover{border-color:var(--cyan-border)}
+    .antipattern h3{font-size:1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+    .antipattern .severity{font-size:.7rem;padding:2px 8px;border-radius:4px;font-weight:700;text-transform:uppercase}
+    .sev-high{background:rgba(255,77,77,.15);color:#ff4d4d}.sev-med{background:rgba(255,170,51,.15);color:#ffaa33}.sev-low{background:rgba(46,232,211,.15);color:var(--cyan)}
+    .antipattern code{font-size:.82rem;color:var(--cyan);background:var(--bg3);padding:2px 6px;border-radius:4px}
+    .antipattern p{color:var(--muted);font-size:.88rem;margin-top:.5rem}
+
+    .faq-list{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
+    .faq-q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:'+';color:var(--cyan);font-size:1.4rem;font-weight:300}.faq-item.open .faq-q::after{content:'−'}
+    .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding-top:.75rem}
+
+    footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border)}
+
+    @media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.hero{padding:4rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.proof{gap:2rem}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/tenant-scan">Tenant Scan</a></li>
+    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+    <li><a href="/semantic-model-audit">Model Audit</a></li>
+    <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+    <li><a href="/migration-playbook">Migration</a></li>
+    <li><a href="/spark-optimization" class="active">Spark</a></li>
+    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">NEW — Know Exactly What's Slowing You Down</div>
+  <h1>Your Spark jobs are leaving <span>performance on the table</span></h1>
+  <p>AI scans your notebooks for config gaps, code anti-patterns, and Delta Lake issues. A Dual Microsoft MVP delivers the fix plan. One audit, one price.</p>
+  <a href="#pricing" class="hero-cta">Get Started — $3,500</a>
+</section>
+
+<div class="section-alt">
+  <div class="section" style="padding:2.5rem 2rem;">
+    <div class="proof">
+      <div class="proof-item"><div class="proof-num">10</div><div class="proof-label">Anti-Patterns Scanned</div></div>
+      <div class="proof-item"><div class="proof-num">5</div><div class="proof-label">Score Dimensions</div></div>
+      <div class="proof-item"><div class="proof-num">3</div><div class="proof-label">Workload Profiles</div></div>
+      <div class="proof-item"><div class="proof-num">½ day</div><div class="proof-label">Delivery Time</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE SCAN -->
+<section class="section">
+  <h2>What we <span>audit</span></h2>
+  <p class="section-sub">Five dimensions scored 0-100. Every finding comes with a specific fix, not just a warning.</p>
+
+  <div class="cards">
+    <div class="card"><div class="card-icon">⚙️</div><h3>Spark Configuration</h3><p>We compare your spark.conf.set() calls against Microsoft's recommended configs for write-heavy, balanced, and read-heavy workloads.</p></div>
+    <div class="card"><div class="card-icon">🔍</div><h3>Code Quality</h3><p>10 anti-pattern detectors scan every code cell: .collect(), blind repartitions, cross joins, schema inference, missing write modes, and more.</p></div>
+    <div class="card"><div class="card-icon">📊</div><h3>Delta Lake Health</h3><p>OPTIMIZE/VACUUM frequency, partition strategy, Z-Ordering on filtered columns, small file consolidation, and table statistics.</p></div>
+    <div class="card"><div class="card-icon">💰</div><h3>Resource Efficiency</h3><p>Idle Livy sessions, driver/executor memory sizing, pool type (Starter vs Workspace), and capacity utilization.</p></div>
+    <div class="card"><div class="card-icon">🏗️</div><h3>Architecture</h3><p>Medallion layer detection, error handling coverage, logging practices, Variable Library usage, and lakehouse binding.</p></div>
+  </div>
+</section>
+
+<!-- ANTI-PATTERNS -->
+<div class="section-alt">
+  <section class="section">
+    <h2>Anti-patterns we <span>catch</span></h2>
+    <p class="section-sub">These are the performance killers hiding in your notebooks. We find every instance and tell you how to fix it.</p>
+
+    <div class="antipatterns">
+      <div class="antipattern">
+        <h3><span class="severity sev-high">HIGH</span> .collect() on DataFrame</h3>
+        <p>Pulls entire dataset to driver memory. Use <code>.take(N)</code> or <code>.limit(N).toPandas()</code> instead.</p>
+      </div>
+      <div class="antipattern">
+        <h3><span class="severity sev-high">HIGH</span> Cross Join</h3>
+        <p>Cartesian products explode row counts. We verify intent and suggest bounded alternatives.</p>
+      </div>
+      <div class="antipattern">
+        <h3><span class="severity sev-med">MEDIUM</span> Python UDFs</h3>
+        <p>Row-by-row Python execution kills parallelism. We identify replacements with built-in Spark SQL functions.</p>
+      </div>
+      <div class="antipattern">
+        <h3><span class="severity sev-med">MEDIUM</span> Schema Inference</h3>
+        <p><code>inferSchema=True</code> triggers an extra scan pass. We generate explicit StructType schemas from your data.</p>
+      </div>
+      <div class="antipattern">
+        <h3><span class="severity sev-med">MEDIUM</span> Hardcoded ABFSS Paths</h3>
+        <p>Breaks across environments. We convert to 3-part naming or Variable Library parameterization.</p>
+      </div>
+      <div class="antipattern">
+        <h3><span class="severity sev-med">MEDIUM</span> Blind Repartition</h3>
+        <p>Fixed partition counts waste resources. We recommend <code>.coalesce()</code> or adaptive execution instead.</p>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:1.5rem">+ 4 more patterns including .toPandas() on large frames, missing write modes, .cache() without reuse, and broadcast join opportunities</p>
+  </section>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <h2>How it <span>works</span></h2>
+  <p class="section-sub">Three steps. Half a day. Clear action plan.</p>
+
+  <div class="steps">
+    <div class="step"><h4>Connect</h4><p>15-min call. We get read access to your workspace and understand which notebooks matter most.</p></div>
+    <div class="step"><h4>Scan</h4><p>AI reads every notebook via Fabric REST API. Inspects Spark configs, scans code cells, checks lakehouse structure.</p></div>
+    <div class="step"><h4>Deliver</h4><p>Scored report with prioritized fixes, recommended Spark configs per notebook, and a 2-hour walkthrough call with an MVP.</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="section-alt">
+  <section class="section" id="pricing">
+    <h2>Simple <span>pricing</span></h2>
+    <p class="section-sub">Every notebook in your workspace, audited. One flat fee.</p>
+
+    <div class="pricing-card">
+      <h3>Spark Job Optimization Audit</h3>
+      <div class="pricing-amount">$3,500 <small>one-time</small></div>
+      <ul class="pricing-features">
+        <li>All notebooks in workspace scanned</li>
+        <li>Spark config audit per workload type</li>
+        <li>10 code anti-pattern detectors</li>
+        <li>Delta Lake health check</li>
+        <li>Resource efficiency analysis</li>
+        <li>Architecture & best practices review</li>
+        <li>Scored report (0-100 across 5 dimensions)</li>
+        <li>Recommended Spark configs per notebook</li>
+        <li>Prioritized fix list with code examples</li>
+        <li>2-hour walkthrough with MVP</li>
+        <li>30-day support (1 follow-up call)</li>
+      </ul>
+      <div id="intake-form" style="margin-top:2rem;text-align:left;">
+        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
+          <input type="hidden" name="_subject" value="Spark Job Optimization Audit — $3,500 Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.thepowermates.com/spark-optimization#thanks">
+          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+          <select name="notebook_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Approximate notebook count?</option>
+            <option value="1-10">1 – 10 notebooks</option>
+            <option value="11-30">11 – 30 notebooks</option>
+            <option value="31-50">31 – 50 notebooks</option>
+            <option value="50+">50+ notebooks</option>
+          </select>
+          <select name="main_concern" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Primary concern?</option>
+            <option value="slow-jobs">Jobs running too slow</option>
+            <option value="capacity-cost">Capacity costs too high</option>
+            <option value="failures">Frequent job failures / OOM</option>
+            <option value="best-practices">Want to follow best practices</option>
+            <option value="migration">Migrating from Databricks / HDInsight</option>
+          </select>
+          <textarea name="details" rows="3" placeholder="Any specific notebooks or issues you want us to focus on?" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;resize:vertical"></textarea>
+          <button type="submit" class="pricing-cta">Request Spark Audit</button>
+        </form>
+      </div>
+      <p id="thanks" style="display:none;color:var(--cyan);margin-top:1rem;font-weight:600">Thanks! We'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="bundle-card">
+      <h4>Bundle & Save</h4>
+      <p>Semantic Model Audit ($2,500) + Spark Optimization ($3,500)</p>
+      <div class="bundle-price">$5,000 <small style="font-size:.9rem;color:var(--muted);font-weight:400">save $1,000</small></div>
+      <p style="margin-top:.5rem">Audit your Power BI models and Spark notebooks together.</p>
+    </div>
+  </section>
+</div>
+
+<!-- FAQ -->
+<section class="section">
+  <h2>Common <span>questions</span></h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">How many notebooks can you audit?</div>
+      <div class="faq-a">No limit. We scan every notebook in the workspace you point us at. For large workspaces (50+ notebooks), we prioritize by execution frequency and job duration.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you need write access to my workspace?</div>
+      <div class="faq-a">No — read-only access is sufficient for the audit. We use the Fabric REST API to read notebook content and Livy session metadata. We never modify your notebooks.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I'm using Databricks, not Fabric Spark?</div>
+      <div class="faq-a">This audit is specifically for Microsoft Fabric Spark (notebooks, Lakehouses, Livy sessions). If you're migrating from Databricks, we can assess your notebooks for Fabric compatibility as part of the engagement.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will you actually fix the issues or just report them?</div>
+      <div class="faq-a">The audit includes a scored report with specific code fixes for every finding. During the 2-hour walkthrough, we implement the highest-impact fixes together. For larger remediation, we offer follow-up engagements.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the difference between this and the Semantic Model Audit?</div>
+      <div class="faq-a">The Semantic Model Audit ($2,500) focuses on Power BI datasets — DAX measures, relationships, storage. This Spark audit focuses on PySpark notebooks — code patterns, Spark configs, Delta Lake. Different layers of the stack, both important.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 The Power Mates &middot; Microsoft MVPs in Data Platform &amp; AI
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+  if (location.hash === '#thanks') {
+    const ty = document.getElementById('thanks');
+    if (ty) { ty.style.display = 'block'; }
+  }
+</script>
+
+</body>
+</html>
