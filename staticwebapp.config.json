@@ -80,6 +80,10 @@
       "rewrite": "/enterprise-transformation.html"
     },
     {
+      "route": "/iq-mcp-integration",
+      "rewrite": "/iq-mcp-integration.html"
+    },
+    {
       "route": "/services",
       "rewrite": "/services.html"
     },
