@@ -75,6 +75,10 @@
     {
       "route": "/enterprise-transformation",
       "rewrite": "/enterprise-transformation.html"
+    },
+    {
+      "route": "/iq-mcp-integration",
+      "rewrite": "/iq-mcp-integration.html"
     }
   ],
   "navigationFallback": {
