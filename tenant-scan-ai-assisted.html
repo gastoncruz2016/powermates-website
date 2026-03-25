@@ -655,7 +655,9 @@
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 @media(max-width:768px){      .nav-dropdown-menu{position: static !important;opacity:1 !important;visibility:visible !important;background:transparent !important;border:none !important;min-width:auto;margin-top:0;padding:0; box-shadow: none !important; }.nav-dropdown:hover .nav-dropdown-menu{display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:.5rem 0;font-size:1rem;color:#fff}.nav-dropdown-toggle::after{display:none}
   .hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background: #080f1c;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index: 9999;padding:2rem; overflow-y: auto; }
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0; width: 100vw; height: 100vh;background: #080f1c;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index: 9999;padding:2rem; overflow-y: auto; }
+  body.nav-open { overflow: hidden; }
+  nav { position: static; }
   .nav-links.open{display:flex!important}
   .nav-links li{list-style:none}
   .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
@@ -1101,8 +1103,8 @@
 <script>
 (function(){
   var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
-  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
-  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');document.body.classList.toggle('nav-open');});}
+  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');document.body.classList.remove('nav-open');});
         var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
   if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}});
 })();

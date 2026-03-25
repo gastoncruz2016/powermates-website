@@ -160,7 +160,8 @@
 
     /* ── Mobile Nav ── */
     @media (max-width: 968px) {
-      .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #080f1c; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 9999; padding: 2rem; overflow-y: auto; }
+      .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: #080f1c; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 9999; padding: 2rem; overflow-y: auto; }
+      body.nav-open { overflow: hidden; }
       .nav-links.open { display: flex !important; }
       .nav-links li { list-style: none; }
       .nav-links a { font-size: 1.2rem; color: #fff; text-decoration: none; }
@@ -980,6 +981,7 @@
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+      document.body.classList.toggle('nav-open');
       hamburger.classList.toggle('active');
     });
 
