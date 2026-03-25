@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <title>PowerMates Services — Microsoft Fabric & Power Platform</title>
   <meta name="description" content="8 specialized Microsoft Fabric and Power Platform consulting services. Governance audits, data engineering, architecture accelerators, and AI integrations. $2,500–$18,000. Built by Dual Microsoft MVPs." />
   <meta property="og:title" content="PowerMates Services — Microsoft Fabric & Power Platform" />
@@ -12,6 +13,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="PowerMates Services — Microsoft Fabric & Power Platform" />
   <meta name="twitter:description" content="8 specialized offerings backed by 20+ years of enterprise experience, dual Microsoft MVP recognition, and real-world Fabric implementations." />
+  <meta property="og:image" content="https://thepowermates.com/images/og-default.png">
+  <meta name="twitter:image" content="https://thepowermates.com/images/og-default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -702,6 +705,7 @@
       nav { padding: 0 20px; }
 
       .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(8,15,28,0.98); backdrop-filter: blur(14px); padding: 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border); z-index: 1000; }
       .hamburger { display: flex; }
 
       .hero { padding: 130px 20px 80px; }
@@ -760,6 +764,9 @@
       }
     }
   </style>
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 <body>
 
@@ -1029,6 +1036,8 @@
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="https://www.youtube.com/@PowerMatesMS">Content</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1086,6 +1095,15 @@
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 })();
 </script>
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
+})();
+</script>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"PowerMates Services — Microsoft Fabric & Power Platform","description":"8 specialized Microsoft Fabric and Power Platform consulting services. Governance audits, data engineering, architecture accelerators, and AI integrations. $2,500–$18,000. Built by Dual Microsoft MVPs.","url":"https://thepowermates.com/services","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"}}
+</script>
 </body>
 </html>

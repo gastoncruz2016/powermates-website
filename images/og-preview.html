@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OG Image Preview — Screenshot this at 1200x630</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #1a1a2e;
+      font-family: sans-serif;
+    }
+    .og-card {
+      width: 1200px;
+      height: 630px;
+      background: #080f1c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle gradient glow behind text */
+    .og-card::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(46, 232, 211, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Top accent line */
+    .accent-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent 10%, #2ee8d3 50%, transparent 90%);
+    }
+    .title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 72px;
+      color: #ffffff;
+      letter-spacing: 4px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .subtitle {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #2ee8d3;
+      margin-top: 16px;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    .url {
+      position: absolute;
+      bottom: 36px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 1px;
+    }
+    /* Corner accents */
+    .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-color: #2ee8d3;
+      border-style: solid;
+      border-width: 0;
+      opacity: 0.4;
+    }
+    .corner.tl { top: 24px; left: 24px; border-top-width: 2px; border-left-width: 2px; }
+    .corner.tr { top: 24px; right: 24px; border-top-width: 2px; border-right-width: 2px; }
+    .corner.bl { bottom: 24px; left: 24px; border-bottom-width: 2px; border-left-width: 2px; }
+    .corner.br { bottom: 24px; right: 24px; border-bottom-width: 2px; border-right-width: 2px; }
+  </style>
+</head>
+<body>
+  <div class="og-card">
+    <div class="accent-line"></div>
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+    <div class="title">THE POWER MATES</div>
+    <div class="subtitle">Data & AI Consulting</div>
+    <div class="url">thepowermates.com</div>
+  </div>
+</body>
+</html>

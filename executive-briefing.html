@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <title>Executive Briefing on Microsoft Fabric & AI | PowerMates</title>
+  <meta property="og:image" content="https://thepowermates.com/images/og-default.png">
+  <meta name="twitter:image" content="https://thepowermates.com/images/og-default.png">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -60,21 +63,30 @@
     .footer-copy { color: var(--muted); font-size: 0.85rem; margin-top: 1rem; }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
     .reveal.visible { opacity: 1; transform: none; }
-    @media (max-width: 768px) { nav ul { display: none; } h1 { font-size: 2rem; } }
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(8,15,28,0.98); backdrop-filter: blur(14px); padding: 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border); z-index: 1000; } .hamburger { display: block; } h1 { font-size: 2rem; } }
   </style>
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 <body>
   <nav>
     <div class="logo">
       <span>POWER</span><span>MATES</span>
     </div>
-    <ul>
+    <ul class="nav-links">
       <li><a href="#problem">The Problem</a></li>
       <li><a href="#deliverable">What You Get</a></li>
       <li><a href="#process">How It Works</a></li>
       <li><a href="#proof">Why Us</a></li>
+      <li><a href="https://tally.so/r/xXd9lG" class="nav-cta">Request Your Briefing</a></li>
     </ul>
-    <a href="https://tally.so/r/xXd9lG" class="nav-cta">Request Your Briefing</a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
   <section class="hero" id="hero">
@@ -209,7 +221,7 @@
       <a href="https://www.youtube.com/@PowerMatesMS">YouTube</a>
       <a href="https://www.linkedin.com/company/91438424">LinkedIn</a>
     </div>
-    <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</div>
+    <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved. · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></div>
   </footer>
 
   <script>
@@ -223,5 +235,14 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Executive Briefing on Microsoft Fabric & AI","description":"A tailored, board-ready executive briefing pack on Microsoft Fabric and AI — built for your industry, your audience, and your timeline. Complimentary.","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://thepowermates.com/executive-briefing"}
+</script>
 </body>
 </html>

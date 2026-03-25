@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <title>About — Enterprise Data & AI Leaders | PowerMates</title>
-  <meta name="description" content="Meet the team behind PowerMates — Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders with 20+ years experience in Microsoft Fabric & Power Platform.">
-  <meta property="og:title" content="About — Enterprise Data & AI Leaders | PowerMates">
-  <meta property="og:description" content="Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders. 20+ years of hands-on Microsoft Fabric & Power Platform experience.">
-  <meta property="og:url" content="https://www.thepowermates.com/about">
+  <title>Terms of Service — PowerMates</title>
+  <meta name="description" content="Terms of Service for The Power Mates enterprise data and AI consulting services. Review our service terms, payment policies, and legal obligations.">
+  <meta property="og:title" content="Terms of Service — PowerMates">
+  <meta property="og:description" content="Terms of Service for The Power Mates consulting services.">
+  <meta property="og:url" content="https://www.thepowermates.com/terms">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PowerMates">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ThePowerMates">
-  <meta name="twitter:title" content="About — Enterprise Data & AI Leaders | PowerMates">
-  <meta name="twitter:description" content="Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders with 20+ years experience.">
+  <meta name="twitter:title" content="Terms of Service — PowerMates">
+  <meta name="twitter:description" content="Terms of Service for The Power Mates consulting services.">
   <meta property="og:image" content="https://thepowermates.com/images/og-default.png">
   <meta name="twitter:image" content="https://thepowermates.com/images/og-default.png">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -191,8 +191,6 @@
 
     /* ── Sections ── */
     section { max-width: 1140px; margin: 0 auto; padding: 5rem 2rem; }
-    .section-alt { background: var(--bg2); }
-    .section-full { max-width: none; }
 
     /* ── Hero ── */
     .hero {
@@ -230,311 +228,55 @@
       line-height: 1.8;
     }
 
-    /* ── Founders Grid ── */
-    .founders-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 768px) {
-      .founders-grid { grid-template-columns: 1fr; }
-    }
-    .founder-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .founder-card:hover {
-      border-color: var(--cyan-border);
-      box-shadow: 0 0 40px rgba(46,232,211,0.08);
-    }
-    .founder-header {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-    .founder-avatar {
-      width: 120px;
-      height: 120px;
-      min-width: 120px;
-      border-radius: 16px;
-      border: 2px solid var(--cyan-border);
-      overflow: hidden;
-      background: var(--bg3);
-    }
-    .founder-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .founder-meta h3 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
-    }
-    .founder-title {
-      color: var(--cyan);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .founder-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.75;
-      margin-bottom: 1rem;
-    }
-    .founder-credentials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-    }
-    .credential-badge {
-      background: rgba(46,232,211,0.08);
-      border: 1px solid var(--cyan-border);
-      color: var(--cyan);
-      padding: 0.3rem 0.85rem;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    /* ── Credentials Bar ── */
-    .credentials-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 3rem 2rem;
-    }
-    .cred-chip {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 0.75rem 1.5rem;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #e8edf3;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .cred-chip:hover {
-      border-color: var(--cyan-border);
-      box-shadow: 0 0 20px rgba(46,232,211,0.08);
-    }
-    .cred-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--cyan);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ── Pillars (What We Do) ── */
-    .section-header { text-align: center; margin-bottom: 3rem; }
-    .section-header h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-    .section-header p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 600px;
+    /* ── Legal Content ── */
+    .legal-content {
+      max-width: 800px;
       margin: 0 auto;
     }
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    @media (max-width: 768px) {
-      .pillars-grid { grid-template-columns: 1fr; }
-    }
-    .pillar-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2.25rem;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    }
-    .pillar-card:hover {
-      border-color: var(--cyan-border);
-      box-shadow: 0 0 40px rgba(46,232,211,0.08);
-      transform: translateY(-4px);
-    }
-    .pillar-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(46,232,211,0.08);
-      border: 1px solid var(--cyan-border);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-    .pillar-card h3 {
+    .legal-content h2 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .legal-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-top: 2rem;
       margin-bottom: 0.75rem;
     }
-    .pillar-card p {
+    .legal-content p {
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.75;
-      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
     }
-    .pillar-link {
-      color: var(--cyan);
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: gap 0.2s;
-    }
-    .pillar-link:hover { gap: 0.6rem; }
-
-    /* ── Timeline ── */
-    .timeline-section { padding-bottom: 3rem; }
-    .timeline {
-      position: relative;
-      margin-top: 3rem;
-      padding-left: 2.5rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--cyan), rgba(46,232,211,0.15));
-      border-radius: 2px;
-    }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 2.5rem;
-    }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.5rem;
-      top: 6px;
-      width: 16px;
-      height: 16px;
-      background: var(--bg);
-      border: 3px solid var(--cyan);
-      border-radius: 50%;
-      z-index: 1;
-    }
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      left: calc(-2.5rem + 4px);
-      top: 10px;
-      width: 8px;
-      height: 8px;
-      background: var(--cyan);
-      border-radius: 50%;
-      z-index: 2;
-      box-shadow: 0 0 12px rgba(46,232,211,0.5);
-    }
-    .timeline-year {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--cyan);
-      margin-bottom: 0.35rem;
-    }
-    .timeline-item h3 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.25rem;
-    }
-    .timeline-item .tl-location {
+    .legal-content ul {
       color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
     }
-    .timeline-item .tl-detail {
+    .legal-content li {
+      margin-bottom: 0.5rem;
+    }
+    .legal-content a {
+      color: var(--cyan);
+      transition: color 0.15s;
+    }
+    .legal-content a:hover {
+      color: var(--cyan-dim);
+    }
+    .legal-updated {
       color: var(--muted);
       font-size: 0.85rem;
       font-style: italic;
-      line-height: 1.6;
+      margin-top: 0.5rem;
     }
-
-    /* ── CTA Section ── */
-    .cta-section {
-      text-align: center;
-      padding: 5rem 2rem;
-    }
-    .cta-section h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    .cta-section p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 520px;
-      margin: 0 auto 2rem;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--cyan);
-      color: #080f1c;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 10px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--cyan-dim); transform: translateY(-2px); }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--cyan);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 10px;
-      border: 1px solid var(--cyan-border);
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
-    }
-    .btn-secondary:hover { background: rgba(46,232,211,0.06); border-color: var(--cyan); transform: translateY(-2px); }
 
     /* ── Footer ── */
     .site-footer {
@@ -652,6 +394,7 @@
       gap: 1rem;
     }
     .footer-copy { color: var(--muted); font-size: 0.8rem; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
     .footer-bottom-links a { color: var(--muted); font-size: 0.8rem; transition: color 0.15s; }
     .footer-bottom-links a:hover { color: var(--cyan); }
 
@@ -689,12 +432,6 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 <body>
-<!-- Thank-you banner (shown on #thanks) -->
-<div id="thanks-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:10000;background:#2ee8d3;color:#080F1C;text-align:center;padding:1rem 1.5rem;font-family:'Figtree',sans-serif;font-weight:600;font-size:1.05rem;box-shadow:0 2px 12px rgba(46,232,211,0.3);transform:translateY(-100%);transition:transform 0.4s ease;">
-  Thanks! We received your inquiry and will get back to you within 24 hours.
-  <button onclick="document.getElementById('thanks-banner').style.transform='translateY(-100%)';setTimeout(function(){document.getElementById('thanks-banner').style.display='none'},400)" style="background:none;border:none;color:#080F1C;font-size:1.3rem;cursor:pointer;margin-left:1rem;vertical-align:middle;font-weight:700;line-height:1;" aria-label="Close">&times;</button>
-</div>
-
 
   <!-- ═══════════════ NAV ═══════════════ -->
   <nav class="site-nav">
@@ -734,7 +471,7 @@
       </li>
       <li><a href="/services">Services</a></li>
       <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/about">About</a></li>
       <li><a href="https://www.youtube.com/@PowerMatesMS">Content</a></li>
     </ul>
     <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
@@ -745,138 +482,115 @@
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero glow-bg">
-    <div class="eyebrow">ABOUT US</div>
-    <h1>Enterprise Data Leaders Who<br>Share <span class="cyan">Everything</span> We Learn</h1>
-    <p class="subtitle">PowerMates sits at the intersection of deep Microsoft expertise, real-world enterprise implementation, and community education.</p>
+    <div class="eyebrow">LEGAL</div>
+    <h1>Terms of <span class="cyan">Service</span></h1>
+    <p class="subtitle">The terms that govern our consulting engagements and use of this website.</p>
+    <p class="legal-updated">Last updated: March 25, 2026</p>
   </section>
 
-  <!-- ═══════════════ FOUNDERS ═══════════════ -->
+  <!-- ═══════════════ CONTENT ═══════════════ -->
   <section>
-    <div class="section-header">
-      <div class="eyebrow" style="margin-bottom: 1rem;">THE TEAM</div>
-      <h2>Meet the <span class="cyan">Founders</span></h2>
-    </div>
-    <div class="founders-grid">
+    <div class="legal-content reveal">
 
-      <!-- Gaston -->
-      <div class="founder-card reveal">
-        <div class="founder-header">
-          <div class="founder-avatar"><img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" loading="lazy"></div>
-          <div class="founder-meta">
-            <h3>Gast&oacute;n Cruz</h3>
-            <div class="founder-title">Co-Founder &amp; Principal Consultant</div>
-          </div>
-        </div>
-        <p>Gast&oacute;n brings two decades of hands-on experience designing and implementing enterprise data platforms. As a dual Microsoft MVP, he bridges the gap between cutting-edge Microsoft technology and real-world business outcomes.</p>
-        <p>His work spans Power Platform, Microsoft Fabric, Azure data services, and AI integration &mdash; delivering solutions that scale for the enterprise while staying grounded in practical, measurable results.</p>
-        <div class="founder-credentials">
-          <span class="credential-badge">Microsoft MVP &mdash; Data Platform</span>
-          <span class="credential-badge">Microsoft MVP &mdash; AI</span>
-          <span class="credential-badge">Enterprise Data &amp; AI Leader</span>
-          <span class="credential-badge">20+ Years Enterprise</span>
-        </div>
-      </div>
+      <h2>1. Agreement to Terms</h2>
+      <p>By accessing or using the website at <a href="https://www.thepowermates.com">thepowermates.com</a> or engaging The Power Mates ("we," "us," or "our") for consulting services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
 
-      <!-- Alex -->
-      <div class="founder-card reveal">
-        <div class="founder-header">
-          <div class="founder-avatar"><img src="/images/alex-rostan.jpg" alt="Alex Rostan" loading="lazy"></div>
-          <div class="founder-meta">
-            <h3>Alex Rostan</h3>
-            <div class="founder-title">Co-Founder &amp; Content Lead</div>
-          </div>
-        </div>
-        <p>Alex co-hosts The Power Mates YouTube channel, bringing technical depth and clarity to complex Microsoft topics. Together with Gast&oacute;n, he creates content that helps enterprise teams navigate the rapidly evolving data and AI landscape.</p>
-        <p>From deep-dive tutorials to executive-level briefings, Alex ensures every piece of content is actionable, honest, and worth your time.</p>
-        <div class="founder-credentials">
-          <span class="credential-badge">Content Strategy</span>
-          <span class="credential-badge">YouTube &mdash; 7,300+ Subs</span>
-          <span class="credential-badge">Technical Education</span>
-        </div>
-      </div>
+      <h2>2. Services Description</h2>
+      <p>The Power Mates provides enterprise data and AI consulting services, including but not limited to:</p>
+      <ul>
+        <li>Microsoft Fabric architecture, optimization, and migration consulting</li>
+        <li>Power Platform implementation and governance advisory</li>
+        <li>Tenant scanning and environment health assessments</li>
+        <li>Semantic model audits and performance optimization</li>
+        <li>Data pipeline design, health checks, and Spark job optimization</li>
+        <li>Executive briefings and strategic advisory sessions</li>
+      </ul>
+      <p>Specific deliverables, timelines, and scope are defined in individual Statements of Work (SOW) or engagement agreements provided prior to each project.</p>
 
-    </div>
-  </section>
+      <h2>3. Engagement Process</h2>
+      <p>All consulting engagements begin with a scoping conversation. No work is commenced until both parties agree to a written scope, timeline, and fee structure. Engagement terms may be documented via a Statement of Work, proposal acceptance, or email confirmation.</p>
 
-  <!-- ═══════════════ CREDENTIALS BAR ═══════════════ -->
-  <div class="section-alt">
-    <div style="max-width: 1140px; margin: 0 auto;">
-      <div class="credentials-bar">
-        <div class="cred-chip reveal"><span class="cred-dot"></span>Microsoft MVP &mdash; Data Platform</div>
-        <div class="cred-chip reveal"><span class="cred-dot"></span>Microsoft MVP &mdash; AI</div>
-        <div class="cred-chip reveal"><span class="cred-dot"></span>FabCon 2025 Speaker</div>
-        <div class="cred-chip reveal"><span class="cred-dot"></span>FabCon 2026 Speaker</div>
-        <div class="cred-chip reveal"><span class="cred-dot"></span>7,300+ YouTube Subscribers</div>
-        <div class="cred-chip reveal"><span class="cred-dot"></span>Enterprise Data &amp; AI Leader</div>
-      </div>
-    </div>
-  </div>
+      <h2>4. Payment Terms</h2>
+      <ul>
+        <li>Fees for services are as quoted on our website or in a custom proposal.</li>
+        <li>Payment is due according to the schedule specified in the engagement agreement. Standard terms are 50% upfront and 50% upon delivery, unless otherwise agreed.</li>
+        <li>Payments are processed via Stripe or bank transfer (ACH/wire).</li>
+        <li>All fees are in US Dollars (USD) unless otherwise stated.</li>
+        <li>Late payments may incur a fee of 1.5% per month on the outstanding balance.</li>
+        <li>Refunds are handled on a case-by-case basis. If we are unable to deliver the agreed scope, we will issue a pro-rated refund for undelivered work.</li>
+      </ul>
 
-  <!-- ═══════════════ WHAT WE DO ═══════════════ -->
-  <section>
-    <div class="section-header">
-      <div class="eyebrow" style="margin-bottom: 1rem;">WHAT WE DO</div>
-      <h2>Three Pillars of <span class="cyan">Impact</span></h2>
-      <p>We operate across consulting, content, and community to help enterprise teams succeed with Microsoft data and AI.</p>
-    </div>
-    <div class="pillars-grid">
+      <h2>5. Client Responsibilities</h2>
+      <p>To ensure successful delivery, clients agree to:</p>
+      <ul>
+        <li>Provide timely access to required environments, data, and stakeholders</li>
+        <li>Designate a primary point of contact for the engagement</li>
+        <li>Review and provide feedback on deliverables within agreed timelines</li>
+        <li>Ensure necessary permissions and licenses are in place for tools and platforms involved</li>
+      </ul>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-icon">&#x1f4cb;</div>
-        <h3>Consulting</h3>
-        <p>8 specialized Fabric offerings from $2,500 to $18,000. Hands-on audits, architecture design, and migration support &mdash; delivered by practitioners, not slide decks.</p>
-        <a href="/services" class="pillar-link">Explore Services &rarr;</a>
-      </div>
+      <h2>6. Intellectual Property</h2>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-icon">&#x1f3ac;</div>
-        <h3>Content</h3>
-        <p>Deep-dive videos, executive briefings, and technical walkthroughs on YouTube, LinkedIn, TikTok, and more. Honest takes on the tools and techniques that matter.</p>
-        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener" class="pillar-link">Watch on YouTube &rarr;</a>
-      </div>
+      <h3>Client Materials</h3>
+      <p>You retain all ownership rights to your data, configurations, and proprietary business information shared during an engagement.</p>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-icon">&#x1f310;</div>
-        <h3>Community</h3>
-        <p>Conference speaking, open-source tools, and sharing everything we learn with the global data community. We believe knowledge scales when it's free.</p>
-        <a href="https://www.youtube.com/@PowerMatesMS" class="pillar-link">Join the Community &rarr;</a>
-      </div>
+      <h3>Our Deliverables</h3>
+      <p>Upon full payment, clients receive a perpetual, non-exclusive license to use all deliverables created specifically for their engagement (reports, code, documentation, recommendations).</p>
 
-    </div>
-  </section>
+      <h3>Our Methods and Tools</h3>
+      <p>We retain ownership of our proprietary methodologies, frameworks, templates, and tools that existed prior to or were developed independently of any engagement. These may be reused across clients.</p>
 
-  <!-- ═══════════════ TIMELINE ═══════════════ -->
-  <section class="section-alt section-full">
-    <div style="max-width: 1140px; margin: 0 auto;">
-      <div class="section-header">
-        <div class="eyebrow" style="margin-bottom: 1rem;">CONFERENCE CIRCUIT</div>
-        <h2>Where We've <span class="cyan">Been</span></h2>
-        <p>Sharing real-world insights on stage and in the community.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-year">March 2025</div>
-          <h3>FabCon 2025</h3>
-          <div class="tl-location">Las Vegas, NV</div>
-          <div class="tl-detail">Conference speaker &mdash; sharing enterprise Fabric implementation insights with the global Microsoft data community.</div>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-year">March 2026</div>
-          <h3>FabCon 2026</h3>
-          <div class="tl-location">Atlanta, GA</div>
-          <div class="tl-detail">"The Instant Insights Pipeline: OneLake shortcuts + Dataverse + Power Apps" &mdash; live demo of end-to-end real-time data integration.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h3>Website Content</h3>
+      <p>All content on thepowermates.com (text, graphics, logos, code) is owned by The Power Mates and protected by copyright. You may not reproduce, distribute, or create derivative works without written permission.</p>
 
-  <!-- ═══════════════ CTA ═══════════════ -->
-  <section class="cta-section glow-bg">
-    <h2>Ready to <span class="cyan">Work With Us</span>?</h2>
-    <p>Whether you need hands-on consulting or want to learn from our content, we're here to help your team move faster with Microsoft data and AI.</p>
-    <div class="cta-buttons">
-      <a href="/services" class="btn-primary">Explore Services &rarr;</a>
-      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener" class="btn-secondary">Watch Our Content &rarr;</a>
+      <h2>7. Confidentiality</h2>
+      <p>Both parties agree to keep confidential any proprietary or sensitive information disclosed during an engagement. This obligation survives the termination of any agreement. We will never share your data, findings, or business details with third parties without your explicit written consent.</p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law:</p>
+      <ul>
+        <li>Our total liability for any claim arising from an engagement shall not exceed the fees paid by the client for that specific engagement.</li>
+        <li>We are not liable for indirect, incidental, consequential, or punitive damages, including lost profits, data loss, or business interruption.</li>
+        <li>Our consulting services provide recommendations and guidance. Implementation decisions and outcomes remain the client's responsibility.</li>
+        <li>We are not liable for issues arising from third-party platforms (Microsoft, Azure, etc.) or client-side environment changes made outside our engagement scope.</li>
+      </ul>
+
+      <h2>9. Warranty Disclaimer</h2>
+      <p>Our services are provided "as is" and "as available." While we strive for excellence and stand behind our work, we make no warranties, express or implied, regarding the results of our consulting services. We do not guarantee specific business outcomes, performance improvements, or ROI figures.</p>
+
+      <h2>10. Termination</h2>
+      <p>Either party may terminate an engagement with 14 days written notice. In the event of termination:</p>
+      <ul>
+        <li>Client is responsible for payment for all work completed through the termination date.</li>
+        <li>We will deliver all work-in-progress and documentation completed to that point.</li>
+        <li>Pre-paid fees for undelivered work will be refunded on a pro-rated basis.</li>
+      </ul>
+
+      <h2>11. Governing Law</h2>
+      <p>These Terms of Service are governed by and construed in accordance with the laws of the State of Washington, United States. Any disputes arising from these terms or our services shall be resolved in the courts of King County, Washington.</p>
+
+      <h2>12. Website Use</h2>
+      <p>When using our website, you agree not to:</p>
+      <ul>
+        <li>Submit false or misleading information through our forms</li>
+        <li>Attempt to access restricted areas or interfere with site functionality</li>
+        <li>Scrape, copy, or redistribute our content without permission</li>
+        <li>Use the site for any unlawful purpose</li>
+      </ul>
+
+      <h2>13. Third-Party Links</h2>
+      <p>Our website may contain links to third-party websites (YouTube, LinkedIn, etc.). We are not responsible for the content, privacy practices, or terms of those external sites.</p>
+
+      <h2>14. Changes to These Terms</h2>
+      <p>We reserve the right to update these Terms of Service at any time. Changes take effect upon posting to this page. Continued use of our website or services after changes constitutes acceptance of the updated terms.</p>
+
+      <h2>15. Contact</h2>
+      <p>For questions about these Terms of Service, contact us at:</p>
+      <p>
+        <strong>The Power Mates</strong><br>
+        Email: <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a>
+      </p>
+
     </div>
   </section>
 
@@ -962,7 +676,7 @@
           <input type="email" name="email" placeholder="you@company.com" required>
           <input type="hidden" name="_subject" value="New Newsletter Subscriber">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://www.thepowermates.com/about#thanks">
+          <input type="hidden" name="_next" value="https://www.thepowermates.com/terms#thanks">
           <button type="submit">Subscribe</button>
         </form>
       </div>
@@ -971,9 +685,9 @@
       <div class="footer-bottom">
         <span class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</span>
         <div class="footer-bottom-links">
-          <a href="mailto:info@thepowermates.com">Contact</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>
+          <a href="mailto:info@thepowermates.com">Contact</a>
         </div>
       </div>
     </div>
@@ -1021,24 +735,5 @@
     });
   </script>
 
-
-<!-- Thank-you banner script -->
-<script>
-(function(){
-  if(window.location.hash==='#thanks'){
-    var banner=document.getElementById('thanks-banner');
-    if(banner){
-      banner.style.display='block';
-      setTimeout(function(){banner.style.transform='translateY(0)'},50);
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-    var inline=document.getElementById('thanks');
-    if(inline) inline.style.display='block';
-  }
-})();
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"About — Enterprise Data & AI Leaders","description":"Meet the team behind PowerMates — Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders with 20+ years experience in Microsoft Fabric & Power Platform.","url":"https://thepowermates.com/about","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"}}
-</script>
 </body>
 </html>

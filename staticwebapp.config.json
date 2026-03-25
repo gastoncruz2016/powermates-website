@@ -94,15 +94,23 @@
     {
       "route": "/about",
       "rewrite": "/about.html"
+    },
+    {
+      "route": "/privacy",
+      "rewrite": "/privacy.html"
+    },
+    {
+      "route": "/terms",
+      "rewrite": "/terms.html"
     }
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["*.{css,js,png,jpg,jpeg,gif,svg,ico,woff,woff2,ttf,eot}"]
+    "exclude": ["*.{css,js,png,jpg,jpeg,gif,svg,ico,woff,woff2,ttf,eot,xml,txt}"]
   },
   "responseOverrides": {
     "404": {
-      "rewrite": "/index.html"
+      "rewrite": "/404.html"
     }
   }
 }

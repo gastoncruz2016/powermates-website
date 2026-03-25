@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | PowerMates</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to PowerMates for enterprise data and AI consulting services.">
+  <meta property="og:title" content="404 — Page Not Found | PowerMates">
+  <meta property="og:description" content="The page you're looking for doesn't exist.">
+  <meta property="og:url" content="https://www.thepowermates.com/404">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PowerMates">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ThePowerMates">
+  <meta name="twitter:title" content="404 — Page Not Found | PowerMates">
+  <meta name="twitter:description" content="The page you're looking for doesn't exist.">
+  <meta property="og:image" content="https://thepowermates.com/images/og-default.png">
+  <meta name="twitter:image" content="https://thepowermates.com/images/og-default.png">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080f1c;
+      --bg2: #0c1525;
+      --bg3: #111e33;
+      --card: #0f1b2e;
+      --cyan: #2ee8d3;
+      --cyan-dim: #1abfad;
+      --muted: #7a91aa;
+      --border: rgba(255,255,255,0.06);
+      --cyan-border: rgba(46,232,211,0.2);
+      --radius: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: #e8edf3;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 72px;
+      background: rgba(8,15,28,0.75);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
+    .logo-power { color: #fff; }
+    .logo-mates { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.25rem;
+      align-items: center;
+    }
+    .nav-links li a,
+    .nav-dropdown-trigger {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Figtree', sans-serif;
+    }
+    .nav-links li a:hover,
+    .nav-dropdown-trigger:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .nav-links li a.active { color: var(--cyan); }
+
+    .chevron {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      margin-left: 4px;
+      vertical-align: middle;
+      transition: transform 0.2s;
+    }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 320px;
+      background: rgba(15,27,46,0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.5rem;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown:hover .chevron { transform: rotate(180deg); }
+    .nav-dropdown-menu a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-dropdown-menu a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .dropdown-price { color: var(--cyan); font-weight: 600; font-size: 0.8rem; margin-left: 1rem; white-space: nowrap; }
+    .dropdown-divider { height: 1px; background: var(--border); margin: 0.35rem 0.5rem; }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #080f1c;
+      background: var(--cyan);
+      padding: 0.55rem 1.25rem;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: 0.2s; }
+
+    /* ── Mobile Nav ── */
+    @media (max-width: 968px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(8,15,28,0.98);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        gap: 0.5rem;
+      }
+      .nav-links.open li a,
+      .nav-links.open .nav-dropdown-trigger { padding: 0.75rem 1rem; font-size: 1rem; }
+      .nav-dropdown-menu {
+        position: static;
+        min-width: auto;
+        box-shadow: none;
+        border: none;
+        background: rgba(255,255,255,0.03);
+        margin-top: 0.25rem;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    }
+
+    .cyan { color: var(--cyan); }
+
+    /* ── 404 Content ── */
+    .error-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      padding-top: 72px;
+      position: relative;
+    }
+    .error-page::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(46,232,211,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+    .error-code {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(8rem, 20vw, 14rem);
+      line-height: 1;
+      color: var(--cyan);
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 80px rgba(46,232,211,0.2);
+    }
+    .error-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .error-message {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #080f1c;
+      background: var(--cyan);
+      padding: 0.75rem 1.75rem;
+      border-radius: 10px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--cyan-dim); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cyan);
+      background: transparent;
+      padding: 0.75rem 1.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--cyan-border);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { background: rgba(46,232,211,0.06); border-color: var(--cyan); transform: translateY(-2px); }
+
+    /* ── Minimal Footer ── */
+    .error-footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .error-footer-copy {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .error-footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 0.75rem;
+    }
+    .error-footer-links a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      transition: color 0.15s;
+    }
+    .error-footer-links a:hover { color: var(--cyan); }
+  </style>
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-power">POWER</span><span class="logo-mates">MATES</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Services <span class="chevron"></span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/tenant-scan">Tenant Scan<span class="dropdown-price">$12,500</span></a>
+          <a href="/fabric-architecture-accelerator">Fabric Architecture Accelerator<span class="dropdown-price">$15,000</span></a>
+          <a href="/semantic-model-audit">Semantic Model Audit<span class="dropdown-price">$2,500</span></a>
+          <a href="/realtime-analytics-accelerator">Real-Time Analytics Accelerator<span class="dropdown-price">$8,000</span></a>
+          <a href="/migration-playbook">SQL Warehouse Migration Playbook<span class="dropdown-price">$12,000</span></a>
+          <a href="/spark-optimization">Spark Job Optimization Audit<span class="dropdown-price">$3,500</span></a>
+          <a href="/pipeline-health-check">Data Pipeline Health Check<span class="dropdown-price">$4,000</span></a>
+          <a href="/iq-mcp-integration">IQ MCP Integration Accelerator<span class="dropdown-price">$18,000</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/services">View All Services &rarr;</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Bundles <span class="chevron"></span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/bi-performance-pack">BI Performance Pack<span class="dropdown-price">$9,500</span></a>
+          <a href="/data-engineering-pack">Data Engineering Pack<span class="dropdown-price">$6,500</span></a>
+          <a href="/governance-performance">Governance + Performance<span class="dropdown-price">$14,000</span></a>
+          <a href="/migration-governance">Migration + Governance<span class="dropdown-price">$23,500</span></a>
+          <a href="/architecture-realtime">Architecture + Real-Time<span class="dropdown-price">$22,000</span></a>
+          <a href="/full-data-platform-audit">Full Data Platform Audit<span class="dropdown-price">$21,500</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/enterprise-transformation">Enterprise Transformation &mdash; All 8<span class="dropdown-price">$63,000</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/pricing">Compare All Pricing &rarr;</a>
+        </div>
+      </li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="https://www.youtube.com/@PowerMatesMS">Content</a></li>
+    </ul>
+    <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════ 404 CONTENT ═══════════════ -->
+  <main class="error-page">
+    <div class="error-content">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page not found</h1>
+      <p class="error-message">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+      <div class="error-actions">
+        <a href="/" class="btn-primary">Back to Home &rarr;</a>
+        <a href="/services" class="btn-secondary">View Services</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════ MINIMAL FOOTER ═══════════════ -->
+  <footer class="error-footer">
+    <span class="error-footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</span>
+    <div class="error-footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="mailto:info@thepowermates.com">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script>
+    // ── Mobile Nav Toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // ── Mobile Dropdown Toggle ──
+    if (window.innerWidth <= 968) {
+      document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.closest('.nav-dropdown').classList.toggle('open');
+        });
+      });
+    }
+
+    // ── Nav Scroll Effect ──
+    const nav = document.querySelector('.site-nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(8,15,28,0.92)'
+        : 'rgba(8,15,28,0.75)';
+    });
+  </script>
+
+</body>
+</html>
