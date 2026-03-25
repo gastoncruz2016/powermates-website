@@ -704,9 +704,12 @@
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
 
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(8,15,28,0.98); backdrop-filter: blur(14px); padding: 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border); z-index: 1000; }
-      .hamburger { display: flex; }
+      .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #080f1c; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 9999; padding: 2rem; overflow-y: auto; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { list-style: none; }
+      .nav-links a { font-size: 1.2rem; color: #fff; text-decoration: none; }
+      .nav-dropdown-menu { position: static !important; opacity: 1 !important; visibility: visible !important; background: transparent !important; border: none !important; box-shadow: none !important; min-width: auto; margin-top: 0; padding: 0; }
+      .hamburger { display: flex; z-index: 10000; }
 
       .hero { padding: 130px 20px 80px; }
       .hero h1 { font-size: 36px; }

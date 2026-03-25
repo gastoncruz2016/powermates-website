@@ -454,9 +454,21 @@
       .features-grid { grid-template-columns: 1fr 1fr; }
     }
 
+    /* -- HAMBURGER -- */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 10000; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
-      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #080f1c; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 9999; padding: 2rem; overflow-y: auto; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { list-style: none; }
+      .nav-links a { font-size: 1.2rem; color: #fff; text-decoration: none; }
+      .nav-dropdown-menu { position: static !important; opacity: 1 !important; visibility: visible !important; background: transparent !important; border: none !important; box-shadow: none !important; min-width: auto; margin-top: 0; padding: 0; }
       section { padding: 3.5rem 1.25rem; }
       .comparison-strip { padding: 2rem 1.25rem; }
       .comparison-inner { flex-direction: column; }
@@ -473,6 +485,7 @@
   <!-- ── NAV ── -->
   <nav>
     <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="https://thepowermates.com">Home</a></li>
       <li><a href="https://thepowermates.com/executive-briefing">Executive Briefing</a></li>
@@ -738,6 +751,17 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script>
+  (function(){
+    var btn = document.querySelector('.hamburger'), nav = document.querySelector('.nav-links');
+    if (btn && nav) {
+      btn.addEventListener('click', function(){ btn.classList.toggle('open'); nav.classList.toggle('open'); });
+    }
+    if (nav) nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ if(btn) btn.classList.remove('open'); nav.classList.remove('open'); });
+    });
+  })();
   </script>
 
 </body>

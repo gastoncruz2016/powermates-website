@@ -690,10 +690,22 @@
   .reveal-d5 { transition-delay: .33s; }
   .reveal-d6 { transition-delay: .40s; }
 
+  /* -- HAMBURGER -- */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 10000; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
   /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
-    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #080f1c; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 9999; padding: 2rem; overflow-y: auto; }
+    .nav-links.open { display: flex !important; }
+    .nav-links li { list-style: none; }
+    .nav-links a { font-size: 1.2rem; color: #fff; text-decoration: none; }
+    .nav-dropdown-menu { position: static !important; opacity: 1 !important; visibility: visible !important; background: transparent !important; border: none !important; box-shadow: none !important; min-width: auto; margin-top: 0; padding: 0; }
     .hero-stats { gap: 32px; }
     .topics-grid { grid-template-columns: 1fr; }
     .services-preview-grid { grid-template-columns: 1fr !important; }
@@ -864,6 +876,7 @@
 <!-- ─── NAVBAR ────────────────────────────────────────────────────────── -->
 <nav>
   <a href="/" class="logo"><span>POWER</span> <span>MATES</span></a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/pricing">Pricing</a></li>
@@ -1675,6 +1688,17 @@ window.addEventListener('scroll', () => {
     }
   ]
 }
+</script>
+<script>
+(function(){
+  var btn = document.querySelector('.hamburger'), nav = document.querySelector('.nav-links');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){ btn.classList.toggle('open'); nav.classList.toggle('open'); });
+  }
+  if (nav) nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ if(btn) btn.classList.remove('open'); nav.classList.remove('open'); });
+  });
+})();
 </script>
 
 </body></html>
