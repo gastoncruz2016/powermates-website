@@ -4,234 +4,1339 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IQ MCP Integration Accelerator — $18,000 | PowerMates</title>
-  <meta name="description" content="Bridge Foundry IQ and Fabric IQ via MCP Servers. AI agents that reason over your enterprise ontology and knowledge bases. Custom MCP server deployed in 3 days. $18,000." />
-  <meta name="keywords" content="Foundry IQ, Fabric IQ, MCP Server, Model Context Protocol, Microsoft Fabric, Azure AI Search, enterprise AI agents, PowerMates" />
+  <meta name="description" content="Bridge Foundry IQ and Fabric IQ through a custom MCP Server. 6 typed tools, 3-day delivery, production-ready TypeScript. AI agents that reason over your enterprise ontology and knowledge bases. $18,000." />
+  <meta name="keywords" content="Foundry IQ, Fabric IQ, MCP Server, Model Context Protocol, Microsoft Fabric, Azure AI Search, enterprise AI agents, knowledge graph, ontology, PowerMates" />
   <meta property="og:title" content="IQ MCP Integration Accelerator — $18,000 | PowerMates" />
-  <meta property="og:description" content="Custom MCP Server connecting Foundry IQ knowledge retrieval with Fabric IQ semantic ontologies. AI agents that understand your business. $18,000 flat fee." />
+  <meta property="og:description" content="Custom MCP Server connecting Foundry IQ knowledge retrieval with Fabric IQ semantic ontologies. 6 tools, 3-day delivery. AI agents that understand your business." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thepowermates.com/iq-mcp-integration" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IQ MCP Integration Accelerator — $18,000 | PowerMates" />
+  <meta name="twitter:description" content="Custom MCP Server bridging Foundry IQ + Fabric IQ. 6 typed tools. AI agents that reason over your enterprise knowledge. $18,000 flat fee." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#080F1C;--bg2:#0d1628;--bg3:#111d35;--card:#0f1b2d;--text:#e8edf5;--muted:#7a8ba0;--cyan:#2ee8d3;--cyan-dim:rgba(46,232,211,0.12);--cyan-border:rgba(46,232,211,0.3);--border:rgba(255,255,255,0.08)}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
-    h1,h2,h3,h4{font-family:'Syne',sans-serif}a{color:var(--cyan);text-decoration:none}a:hover{opacity:.85}
-    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em}.nav-logo span{color:var(--cyan)}
-    .nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}.nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--cyan)}
-    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem!important;transition:opacity .2s!important}.nav-cta:hover{opacity:.85!important}
-    .hero{position:relative;padding:6rem 2rem 4rem;text-align:center;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--cyan-dim) 0%,transparent 70%);pointer-events:none}
-    .hero-badge{display:inline-block;padding:6px 16px;border:1px solid var(--cyan-border);border-radius:99px;font-size:.8rem;font-weight:600;color:var(--cyan);margin-bottom:1.5rem;background:var(--cyan-dim)}
-    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;max-width:800px;margin:0 auto 1rem}.hero h1 span{color:var(--cyan)}
-    .hero p{max-width:620px;margin:0 auto 2rem;color:var(--muted);font-size:1.1rem}
-    .hero-cta{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.05rem;transition:opacity .2s}.hero-cta:hover{opacity:.85}
-    .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}.section-alt{background:var(--bg2)}
-    .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}.section h2 span{color:var(--cyan)}
-    .section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s}.card:hover{border-color:var(--cyan-border)}
-    .card-icon{font-size:2rem;margin-bottom:1rem}.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}.card p{color:var(--muted);font-size:.92rem}
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
-    .step{text-align:center;counter-increment:step}.step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--cyan-dim);border:2px solid var(--cyan-border);border-radius:50%;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);margin:0 auto 1rem}
-    .step h4{font-size:1rem;margin-bottom:.5rem}.step p{color:var(--muted);font-size:.88rem}
-    .proof{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0}
-    .proof-item{text-align:center}.proof-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--cyan)}.proof-label{font-size:.82rem;color:var(--muted)}
-    .pricing-card{max-width:520px;margin:0 auto;background:var(--card);border:2px solid var(--cyan-border);border-radius:18px;padding:3rem;text-align:center;box-shadow:0 0 60px var(--cyan-dim)}
-    .pricing-card h3{font-size:1.6rem;margin-bottom:.5rem}
-    .pricing-amount{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--cyan);margin:1rem 0}.pricing-amount small{font-size:1rem;color:var(--muted);font-weight:400}
-    .pricing-features{list-style:none;text-align:left;margin:2rem 0}.pricing-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.95rem}.pricing-features li::before{content:'✓ ';color:var(--cyan);font-weight:700}
-    .pricing-cta{display:inline-block;width:100%;padding:16px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.1rem;transition:opacity .2s;border:none;cursor:pointer;font-family:inherit}.pricing-cta:hover{opacity:.85}
-    .bundle-card{max-width:700px;margin:2rem auto 0;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center}
-    .bundle-card h4{margin-bottom:.5rem}.bundle-price{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--cyan)}.bundle-card p{color:var(--muted);font-size:.92rem}
-    .flow-diagram{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;font-family:monospace;font-size:.85rem;line-height:1.8;overflow-x:auto;max-width:800px;margin:0 auto 2rem}
-    .flow-diagram .highlight{color:var(--cyan);font-weight:700}
-    .faq-list{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
-    .faq-q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:'+';color:var(--cyan);font-size:1.4rem;font-weight:300}.faq-item.open .faq-q::after{content:'−'}
-    .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding-top:.75rem}
-    footer{text-align:center;padding:3rem 2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border)}
-    @media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.hero{padding:4rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.proof{gap:2rem}}
+    :root {
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    /* -- NAV -- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* -- PARTICLES CANVAS -- */
+    #particles-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* -- BREADCRUMB -- */
+    .breadcrumb {
+      padding: 1rem 2rem 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .breadcrumb a { color: var(--cyan); font-weight: 500; }
+
+    /* -- HERO -- */
+    .hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.1) 0%, transparent 70%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+
+    .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--cyan); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+    }
+    .hero-price .price-note {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'Figtree', sans-serif;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: 1px solid var(--cyan-border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-trust span::before { content: '\2713 '; color: var(--cyan); }
+
+    /* -- SECTION BASICS -- */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* -- ARCHITECTURE FLOW DIAGRAM -- */
+    .arch-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 0;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .arch-column {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .arch-column:hover { border-color: var(--cyan-border); }
+    .arch-column h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .arch-column ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .arch-column li {
+      font-size: 0.82rem;
+      color: var(--text);
+      background: var(--bg3);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 0 0.5rem;
+    }
+
+    /* -- MCP EXPLAINER -- */
+    .mcp-explainer {
+      background: var(--card);
+      border: 1px solid var(--cyan-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 0 40px var(--cyan-dim);
+    }
+    .mcp-explainer h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .mcp-explainer .analogy {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin: 1rem 0;
+    }
+    .mcp-explainer p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* -- TOOL CARDS -- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tool-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .tool-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .tool-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+    .tool-card .tool-name {
+      font-family: monospace;
+      font-size: 0.72rem;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .tool-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- DELIVERABLES -- */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .deliverable-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .deliverable-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+    .deliverable-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .deliverable-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .deliverable-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- HOW IT WORKS -- */
+    .how-it-works { background: var(--bg3); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- WHO THIS IS FOR -- */
+    .audience-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 760px;
+    }
+    .audience-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      line-height: 1.6;
+      transition: border-color 0.2s;
+    }
+    .audience-list li:hover { border-color: var(--cyan-border); }
+    .audience-list li::before {
+      content: '\2192';
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* -- PRICING SECTION -- */
+    .pricing-section { background: var(--bg2); }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--cyan);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 580px;
+      margin: 0 auto;
+      box-shadow: 0 0 0 1px var(--cyan), 0 0 40px rgba(46, 232, 211, 0.15);
+    }
+
+    .pricing-tier {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.6rem;
+    }
+
+    .pricing-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .pricing-price .price-note {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'Figtree', sans-serif;
+    }
+
+    .pricing-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .pricing-features li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+    .pricing-features li::before {
+      content: '\2713';
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      transition: opacity 0.2s, transform 0.2s;
+      background: var(--cyan);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+    }
+    .pricing-cta:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    /* -- BUNDLE CARD -- */
+    .bundle-card {
+      max-width: 700px;
+      margin: 2.5rem auto 0;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .bundle-card:hover { border-color: var(--cyan-border); }
+    .bundle-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
+    .bundle-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .bundle-card p { color: var(--muted); font-size: 0.92rem; margin-top: 0.25rem; }
+
+    /* -- FAQ -- */
+    .faq-section { background: var(--bg); }
+
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: var(--cyan-border); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: #fff;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--cyan);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    .faq-answer p {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* -- FINAL CTA -- */
+    .final-cta {
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%);
+    }
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+
+    .final-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    /* -- FOOTER -- */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand p { font-size: 0.82rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.6; }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col a { color: var(--muted); font-size: 0.82rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cyan); }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* -- REVEAL ANIMATION -- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -- FOCUS STATES -- */
+    a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-outline:focus-visible, .pricing-cta:focus-visible, .nav-cta:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+
+    /* -- FORM INPUTS -- */
+    .form-input {
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--cyan-border);
+    }
+    .form-input::placeholder { color: var(--muted); }
+
+    /* -- HAMBURGER -- */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* -- DROPDOWN -- */
+    .nav-dropdown-toggle { position: relative; cursor: pointer; color: var(--muted); font-size: .875rem; text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: .4rem; }
+    .nav-dropdown-toggle:hover { color: var(--cyan); }
+    .nav-dropdown-toggle::after { content: "\25BC"; font-size: .55rem; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; min-width: 240px; list-style: none; padding: .75rem 0; margin-top: .5rem; opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 1000; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a { display: block; padding: .75rem 1.5rem; color: var(--muted); font-size: .85rem; transition: color .2s, background .2s; }
+    .nav-dropdown-menu a:hover { background: rgba(46, 232, 211, .1); color: var(--cyan); }
+
+    /* -- RESPONSIVE -- */
+    @media (max-width: 1024px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .arch-flow { grid-template-columns: 1fr; gap: 1rem; }
+      .arch-arrow { transform: rotate(90deg); padding: 0.25rem 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(8, 15, 28, .97); flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 1000; padding: 2rem; }
+      .nav-links.open { display: flex !important; }
+      .nav-links a { font-size: 1.2rem; color: #fff; }
+      .nav-links a.active { color: var(--cyan); }
+      .nav-links .nav-cta { background: var(--cyan); color: var(--bg); padding: 12px 28px; border-radius: 8px; font-weight: 600; margin-top: 1rem; }
+      .hamburger { display: block; }
+      section { padding: 3.5rem 1.25rem; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .pricing-card { padding: 2rem; }
+      .hero-price { font-size: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-dropdown-menu { position: static; opacity: 1; visibility: visible; background: transparent; border: none; min-width: auto; margin-top: 0; padding: 0; }
+      .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-toggle::after { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/tenant-scan">Tenant Scan</a></li>
-    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
-    <li><a href="/migration-playbook">Migration</a></li>
-    <li><a href="/spark-optimization">Spark</a></li>
-    <li><a href="/pipeline-health-check">Pipelines</a></li>
-    <li><a href="/iq-mcp-integration" class="active">IQ + MCP</a></li>
-    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/tenant-scan">Tenant Scan</a></li>
+      <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+      <li><a href="/semantic-model-audit">Model Audit</a></li>
+      <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+      <li><a href="/migration-playbook">Migration</a></li>
+      <li><a href="/spark-optimization">Spark</a></li>
+      <li><a href="/pipeline-health-check">Pipelines</a></li>
+      <li><a href="/iq-mcp-integration" class="active">IQ + MCP</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-dropdown-toggle">Bundles</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+          <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+        </ul>
+      </li>
+      <li><a href="#pricing" class="nav-cta">Get Started &rarr;</a></li>
+    </ul>
+  </nav>
 
-<section class="hero">
-  <div class="hero-badge">NEW — AI Agents That Understand Your Business</div>
-  <h1>Connect <span>Foundry IQ + Fabric IQ</span> via MCP</h1>
-  <p>We build a custom MCP Server that bridges Foundry IQ knowledge retrieval with Fabric IQ semantic ontologies. Your AI agents get business context, not just data access.</p>
-  <a href="#pricing" class="hero-cta">Get Started — $18,000</a>
-</section>
-
-<div class="section-alt">
-  <div class="section" style="padding:2.5rem 2rem;">
-    <div class="proof">
-      <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">MCP Tools Exposed</div></div>
-      <div class="proof-item"><div class="proof-num">4</div><div class="proof-label">Data Source Types</div></div>
-      <div class="proof-item"><div class="proof-num">3 days</div><div class="proof-label">Delivery Time</div></div>
-      <div class="proof-item"><div class="proof-num">∞</div><div class="proof-label">Agent Compatibility</div></div>
-    </div>
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/">&larr; Home</a> &nbsp;/&nbsp; <a href="/#services">Services</a> &nbsp;/&nbsp; IQ MCP Integration
   </div>
-</div>
 
-<!-- ARCHITECTURE -->
-<section class="section">
-  <h2>The <span>integration</span> we build</h2>
-  <p class="section-sub">One MCP Server that gives any AI agent — Claude, Copilot, or custom — access to your enterprise's semantic knowledge layer.</p>
-
-  <div class="flow-diagram">
-    <span class="highlight">AI Agents</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">MCP Server</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Microsoft IQ</span><br>
-    ┌──────────────┐ &nbsp;&nbsp;&nbsp;&nbsp; ┌────────────────────┐ &nbsp;&nbsp;&nbsp;&nbsp; ┌───────────────────┐<br>
-    │ Claude &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ <span class="highlight">Fabric IQ</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    │ Copilot &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│────▶│ Ontology Discovery &nbsp;│────▶│ Ontology + Graph &nbsp;│<br>
-    │ Custom Agent &nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Graph Navigation &nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Planning Data &nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│────▶│ Knowledge Search &nbsp;&nbsp;│────▶│ <span class="highlight">Foundry IQ</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Unified Query &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ Knowledge Bases &nbsp;&nbsp;│<br>
-    └──────────────┘ &nbsp;&nbsp;&nbsp;&nbsp; └────────────────────┘ &nbsp;&nbsp;&nbsp;&nbsp; │ Azure AI Search &nbsp;&nbsp;│<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └───────────────────┘
-  </div>
-</section>
-
-<!-- MCP TOOLS -->
-<div class="section-alt">
-  <section class="section">
-    <h2>6 MCP tools, <span>one server</span></h2>
-    <p class="section-sub">Every tool is callable by any MCP-compatible agent. Typed schemas, auth built in, source attribution on every response.</p>
-
-    <div class="cards">
-      <div class="card"><div class="card-icon">🔍</div><h3>Discover Ontology</h3><p>Entity types, properties, relationships, and business rules from Fabric IQ. Your agent understands the vocabulary before querying.</p></div>
-      <div class="card"><div class="card-icon">🕸️</div><h3>Query Graph</h3><p>Navigate multi-hop entity relationships in the Fabric IQ knowledge graph. "Show me all products connected to this supplier."</p></div>
-      <div class="card"><div class="card-icon">📚</div><h3>Search Knowledge Bases</h3><p>Foundry IQ agentic retrieval — query decomposition, parallel search, semantic reranking, and synthesis with citations.</p></div>
-      <div class="card"><div class="card-icon">📋</div><h3>List Knowledge Bases</h3><p>Discover available knowledge bases, their topics, and data sources. Agents self-select the right KB for each query.</p></div>
-      <div class="card"><div class="card-icon">🧠</div><h3>Unified Business Query</h3><p>Combined semantic context from Fabric IQ + grounded answers from Foundry IQ. One call, full business intelligence.</p></div>
-      <div class="card"><div class="card-icon">📊</div><h3>Get Planning Data</h3><p>Budgets, forecasts, and scenario analysis from Fabric IQ planning. Forward-looking intelligence for agent reasoning.</p></div>
-    </div>
-  </section>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="section">
-  <h2>How it <span>works</span></h2>
-  <p class="section-sub">Three days. Full MCP server deployed. Agents reasoning over your business.</p>
-
-  <div class="steps">
-    <div class="step"><h4>Assess</h4><p>We scan your Fabric workspace — lakehouses, semantic models, eventhouses. Map what's available for Fabric IQ and Foundry IQ.</p></div>
-    <div class="step"><h4>Build</h4><p>AI scaffolds the MCP server with your workspace config. We customize tools, wire data sources, and configure auth.</p></div>
-    <div class="step"><h4>Wire</h4><p>Connect Foundry IQ knowledge bases to your OneLake, SharePoint, and Eventhouse sources. Configure retrieval reasoning.</p></div>
-    <div class="step"><h4>Deploy</h4><p>MCP server deployed locally or to Azure Container Apps. Connected to Claude Desktop, Copilot, or your agent framework.</p></div>
-    <div class="step"><h4>Validate</h4><p>Test every tool with real business queries. Verify source attribution, permission enforcement, and response quality.</p></div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<div class="section-alt">
-  <section class="section" id="pricing">
-    <h2>Simple <span>pricing</span></h2>
-    <p class="section-sub">Custom MCP server connecting your IQ stack. No hourly billing.</p>
-
-    <div class="pricing-card">
-      <h3>IQ MCP Integration Accelerator</h3>
-      <div class="pricing-amount">$18,000 <small>one-time</small></div>
-      <ul class="pricing-features">
-        <li>Workspace assessment (lakehouses, models, eventhouses)</li>
-        <li>Custom MCP server (TypeScript, production-ready)</li>
-        <li>6 MCP tools with typed schemas</li>
-        <li>Fabric IQ ontology + graph integration</li>
-        <li>Foundry IQ knowledge base configuration</li>
-        <li>Data source wiring (OneLake, SharePoint, Eventhouse)</li>
-        <li>Entra ID authentication + per-user permissions</li>
-        <li>Docker + Azure Container Apps deployment</li>
-        <li>Claude Desktop + Copilot configuration</li>
-        <li>Architecture documentation + README</li>
-        <li>Three 4-hour working sessions with MVP</li>
-        <li>60-day support (4 follow-up calls)</li>
-      </ul>
-      <div id="intake-form" style="margin-top:2rem;text-align:left;">
-        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
-          <input type="hidden" name="_subject" value="IQ MCP Integration Accelerator — $18,000 Inquiry">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://www.thepowermates.com/iq-mcp-integration#thanks">
-          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <select name="current_state" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-            <option value="" disabled selected>Current Fabric IQ / Foundry IQ state?</option>
-            <option value="exploring">Exploring — haven't set up yet</option>
-            <option value="fabric-iq-only">Have Fabric IQ, need Foundry IQ</option>
-            <option value="foundry-iq-only">Have Foundry IQ, need Fabric IQ</option>
-            <option value="both-need-mcp">Have both, need MCP integration</option>
-          </select>
-          <select name="agent_target" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-            <option value="" disabled selected>Primary agent target?</option>
-            <option value="claude">Claude (Desktop or API)</option>
-            <option value="copilot">Microsoft Copilot</option>
-            <option value="custom">Custom agent framework</option>
-            <option value="multiple">Multiple agents</option>
-          </select>
-          <textarea name="details" rows="3" placeholder="What business questions should your agents be able to answer?" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;resize:vertical"></textarea>
-          <button type="submit" class="pricing-cta">Request IQ Integration Assessment</button>
-        </form>
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">Flagship Offering &mdash; Premium Tier</div>
+      <h1>Your AI Agents Deserve<br /><span>Enterprise Intelligence.</span></h1>
+      <p>We build a custom MCP Server that bridges Foundry IQ knowledge retrieval with Fabric IQ semantic ontologies. Six typed tools. One server. Any agent &mdash; Claude, Copilot, or custom &mdash; gets business context, not just data access.</p>
+      <div class="hero-price">$18,000 <span class="price-note">one-time</span></div>
+      <div class="hero-cta-group">
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+        <a href="#architecture" class="btn-outline">See the Architecture</a>
       </div>
-      <p id="thanks" style="display:none;color:var(--cyan);margin-top:1rem;font-weight:600">Thanks! We'll get back to you within 24 hours.</p>
-    </div>
-
-    <div class="bundle-card">
-      <h4>Bundle & Save</h4>
-      <p>Architecture Accelerator ($15,000) + IQ MCP Integration ($18,000)</p>
-      <div class="bundle-price">$29,000 <small style="font-size:.9rem;color:var(--muted);font-weight:400">save $4,000</small></div>
-      <p style="margin-top:.5rem">Design the data platform, then wire the intelligence layer.</p>
+      <div class="hero-trust">
+        <span>Dual Microsoft MVP</span>
+        <span>6 MCP Tools</span>
+        <span>3-Day Delivery</span>
+        <span>Production TypeScript</span>
+      </div>
     </div>
   </section>
-</div>
 
-<!-- FAQ -->
-<section class="section">
-  <h2>Common <span>questions</span></h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q">What is MCP?</div>
-      <div class="faq-a">Model Context Protocol is an open standard for connecting AI agents to external tools and data. Think of it as USB-C for AI — one interface, any agent. Claude, Copilot, and custom frameworks all speak MCP.</div>
+  <!-- WHAT IS MCP -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">The Protocol</div>
+        <h2 class="section-title">What is MCP?</h2>
+      </div>
+      <div class="mcp-explainer reveal">
+        <h3>Model Context Protocol</h3>
+        <div class="analogy">"USB-C for AI"</div>
+        <p>MCP is an open standard that lets AI agents connect to external tools and data through a single interface. Instead of building custom integrations for every agent, you build one MCP server &mdash; and Claude, Copilot, and any framework that speaks the protocol can use it. One plug, every agent.</p>
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Do I need Fabric IQ and Foundry IQ already set up?</div>
-      <div class="faq-a">No. We help configure both during the engagement. You need a Fabric workspace with semantic models or lakehouses (for Fabric IQ) and an Azure AI Search instance (for Foundry IQ). We handle the rest.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Which agents can use the MCP server?</div>
-      <div class="faq-a">Any MCP-compatible agent: Claude Desktop, Claude Code, Microsoft Copilot (via Foundry Agent Service), or any custom agent using the MCP SDK. The server exposes tools over stdio or SSE transport.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How is this different from just using Fabric's built-in MCP server?</div>
-      <div class="faq-a">Microsoft's Fabric MCP server is local-first and doesn't connect to live data. Our server connects to your actual Fabric IQ ontology and Foundry IQ knowledge bases — live enterprise data, not just API specs.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is the data secure?</div>
-      <div class="faq-a">Yes. The server uses Entra ID authentication and respects per-user permissions. Agents only see what the authenticated user has access to. All traffic is encrypted, and the server can run entirely within your Azure tenant.</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<footer>&copy; 2026 The Power Mates &middot; Microsoft MVPs in Data Platform &amp; AI</footer>
+  <!-- ARCHITECTURE FLOW -->
+  <section id="architecture">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">The Integration We Build</h2>
+        <p class="section-sub">One MCP Server that gives any AI agent access to your enterprise's full semantic and knowledge layer.</p>
+      </div>
+      <div class="arch-flow reveal">
+        <div class="arch-column">
+          <h3>AI Agents</h3>
+          <ul>
+            <li>Claude Desktop / Code</li>
+            <li>Microsoft Copilot</li>
+            <li>Custom Agent Framework</li>
+            <li>Foundry Agent Service</li>
+          </ul>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-column" style="border-color: var(--cyan-border); box-shadow: 0 0 30px var(--cyan-dim);">
+          <h3>MCP Server (TypeScript)</h3>
+          <ul>
+            <li>fabric_iq_discover_ontology</li>
+            <li>fabric_iq_query_graph</li>
+            <li>foundry_iq_search</li>
+            <li>foundry_iq_list_knowledge_bases</li>
+            <li>unified_business_query</li>
+            <li>fabric_iq_get_plan</li>
+          </ul>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-column">
+          <h3>Microsoft IQ Stack</h3>
+          <ul>
+            <li>Fabric IQ &mdash; Ontology + Graph</li>
+            <li>Fabric IQ &mdash; Planning Data</li>
+            <li>Foundry IQ &mdash; Knowledge Bases</li>
+            <li>Azure AI Search</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
-  if (location.hash === '#thanks') { const ty = document.getElementById('thanks'); if (ty) ty.style.display = 'block'; }
-</script>
+  <!-- 6 MCP TOOLS -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Capabilities</div>
+        <h2 class="section-title">6 Tools. One Server. Any Agent.</h2>
+        <p class="section-sub">Every tool is callable by any MCP-compatible agent. Typed schemas, auth built in, source attribution on every response.</p>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-card reveal">
+          <div class="icon">&#x1F50D;</div>
+          <h3>Discover Ontology</h3>
+          <div class="tool-name">fabric_iq_discover_ontology</div>
+          <p>Entity types, properties, relationships, and business rules from Fabric IQ. Your agent understands the vocabulary before it queries anything.</p>
+        </div>
+        <div class="tool-card reveal">
+          <div class="icon">&#x1F578;</div>
+          <h3>Query Knowledge Graph</h3>
+          <div class="tool-name">fabric_iq_query_graph</div>
+          <p>Navigate multi-hop entity relationships in the Fabric IQ knowledge graph. "Show me all products connected to this supplier through two hops."</p>
+        </div>
+        <div class="tool-card reveal">
+          <div class="icon">&#x1F4DA;</div>
+          <h3>Search Knowledge Bases</h3>
+          <div class="tool-name">foundry_iq_search</div>
+          <p>Foundry IQ agentic retrieval &mdash; query decomposition, parallel search, semantic reranking, and synthesis with full citations.</p>
+        </div>
+        <div class="tool-card reveal">
+          <div class="icon">&#x1F4CB;</div>
+          <h3>List Knowledge Bases</h3>
+          <div class="tool-name">foundry_iq_list_knowledge_bases</div>
+          <p>Discover available knowledge bases, their topics, and data sources. Agents self-select the right KB for each query automatically.</p>
+        </div>
+        <div class="tool-card reveal">
+          <div class="icon">&#x1F9E0;</div>
+          <h3>Unified Business Query</h3>
+          <div class="tool-name">unified_business_query</div>
+          <p>Semantic context from Fabric IQ combined with grounded answers from Foundry IQ. One call delivers full business intelligence.</p>
+        </div>
+        <div class="tool-card reveal">
+          <div class="icon">&#x1F4C8;</div>
+          <h3>Get Planning Data</h3>
+          <div class="tool-name">fabric_iq_get_plan</div>
+          <p>Budgets, forecasts, and scenario analysis from Fabric IQ planning. Forward-looking intelligence for agent reasoning and decision support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section id="deliverables">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">What You Get</div>
+        <h2 class="section-title">Everything. Deployed in 3 Days.</h2>
+        <p class="section-sub">Assessment, scaffold, deployment, documentation, and agent configuration &mdash; all included.</p>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F50E;</div>
+          <h3>Workspace Assessment</h3>
+          <p>We scan your Fabric workspace &mdash; lakehouses, semantic models, eventhouses &mdash; and map what's available for Fabric IQ and Foundry IQ integration.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x2699;</div>
+          <h3>MCP Server Scaffold</h3>
+          <p>Production-ready TypeScript project with all 6 tools, typed schemas, error handling, and logging. Not a prototype &mdash; real code for real workloads.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F512;</div>
+          <h3>Auth + Permissions</h3>
+          <p>Entra ID authentication wired in. Per-user permissions enforced across every tool call. Agents only see what the authenticated user has access to.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4E6;</div>
+          <h3>Data Source Wiring</h3>
+          <p>Foundry IQ knowledge bases connected to your OneLake, SharePoint, and Eventhouse sources. Retrieval reasoning configured for your domain.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F680;</div>
+          <h3>Deployment</h3>
+          <p>Docker container ready for Azure Container Apps, or local deployment via stdio transport. Your infrastructure, your choice.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4BB;</div>
+          <h3>Agent Configuration</h3>
+          <p>Claude Desktop config file, Copilot integration via Foundry Agent Service, and documentation for connecting custom agent frameworks.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4C4;</div>
+          <h3>Architecture Documentation</h3>
+          <p>Full docs: architecture diagram, tool schemas, auth flow, deployment guide, and troubleshooting playbook. Your team can maintain it.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F91D;</div>
+          <h3>Three Working Sessions</h3>
+          <p>Three 4-hour hands-on sessions with a Dual Microsoft MVP. We customize, deploy, and validate together &mdash; not a handoff, a partnership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">Three Days. Full Intelligence Layer.</h2>
+        <p class="section-sub">From assessment to agents reasoning over your business.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Assess</h3>
+          <p>We scan your Fabric workspace &mdash; lakehouses, semantic models, eventhouses. Map what's available for Fabric IQ and Foundry IQ. Identify data sources and auth requirements.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Build</h3>
+          <p>AI scaffolds the MCP server with your workspace config. We customize tool schemas, wire data sources, configure Entra ID auth, and add error handling.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Wire</h3>
+          <p>Connect Foundry IQ knowledge bases to your OneLake, SharePoint, and Eventhouse sources. Configure retrieval reasoning and test semantic queries.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">4</div>
+          <h3>Deploy</h3>
+          <p>MCP server deployed to Azure Container Apps or locally. Connected to Claude Desktop, Copilot, or your agent framework of choice.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">5</div>
+          <h3>Validate</h3>
+          <p>Test every tool with real business queries. Verify source attribution, permission enforcement, response quality, and agent reasoning chains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Who This Is For</div>
+        <h2 class="section-title">Is This Right for You?</h2>
+      </div>
+      <ul class="audience-list">
+        <li class="reveal">Organizations using Microsoft Fabric who want AI agents that understand their business data &mdash; not just query it</li>
+        <li class="reveal">Teams already exploring Foundry IQ or Fabric IQ who need them connected through a single, agent-friendly interface</li>
+        <li class="reveal">AI/ML teams building custom agents (Claude, Copilot, or internal) who need enterprise knowledge grounding</li>
+        <li class="reveal">Data leaders who want to leapfrog from "AI demo" to "AI in production" with real security and attribution</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">Premium Intelligence. One Price.</h2>
+        <p class="section-sub">The full IQ stack integrated and deployed. No hourly billing, no scope creep.</p>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">IQ MCP Integration Accelerator</div>
+        <div class="pricing-price">$18,000 <span class="price-note">one-time</span></div>
+        <div class="pricing-tagline">Custom MCP server connecting your entire IQ stack to any AI agent. Delivered in 3 days.</div>
+        <ul class="pricing-features">
+          <li>Workspace assessment (lakehouses, models, eventhouses)</li>
+          <li>Custom MCP server (TypeScript, production-ready)</li>
+          <li>6 MCP tools with typed schemas and error handling</li>
+          <li>Fabric IQ ontology + knowledge graph integration</li>
+          <li>Foundry IQ knowledge base configuration</li>
+          <li>Data source wiring (OneLake, SharePoint, Eventhouse)</li>
+          <li>Entra ID authentication + per-user permissions</li>
+          <li>Docker + Azure Container Apps deployment</li>
+          <li>Claude Desktop + Copilot configuration</li>
+          <li>Architecture documentation + README</li>
+          <li>Three 4-hour working sessions with Dual MVP</li>
+          <li>60-day support (4 follow-up calls)</li>
+        </ul>
+
+        <!-- INTAKE FORM -->
+        <div id="intake-form" style="margin-top: 2rem; text-align: left;">
+          <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <input type="hidden" name="_subject" value="IQ MCP Integration Accelerator — $18,000 Inquiry" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://www.thepowermates.com/iq-mcp-integration#thanks" />
+            <input type="text" name="name" placeholder="Your name" required class="form-input" />
+            <input type="email" name="email" placeholder="Work email" required class="form-input" />
+            <input type="text" name="company" placeholder="Company" required class="form-input" />
+            <select name="current_state" class="form-input">
+              <option value="" disabled selected>Current Fabric IQ / Foundry IQ state?</option>
+              <option value="exploring">Exploring &mdash; haven't set up yet</option>
+              <option value="fabric-iq-only">Have Fabric IQ, need Foundry IQ</option>
+              <option value="foundry-iq-only">Have Foundry IQ, need Fabric IQ</option>
+              <option value="both-need-mcp">Have both, need MCP integration</option>
+            </select>
+            <select name="agent_target" class="form-input">
+              <option value="" disabled selected>Primary agent target?</option>
+              <option value="claude">Claude (Desktop or API)</option>
+              <option value="copilot">Microsoft Copilot</option>
+              <option value="custom">Custom agent framework</option>
+              <option value="multiple">Multiple agents</option>
+            </select>
+            <textarea name="details" rows="3" placeholder="What business questions should your agents be able to answer?" class="form-input" style="resize: vertical;"></textarea>
+            <button type="submit" class="pricing-cta">Request IQ Integration Assessment</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="thanks" style="display: none; background: var(--card); border: 2px solid var(--cyan); border-radius: 12px; padding: 2rem; margin: 2rem auto; max-width: 600px; text-align: center;">
+        <h3 style="color: var(--cyan); margin-bottom: 0.5rem;">Request received!</h3>
+        <p style="color: #fff;">We'll reach out within 24 hours. Check your inbox.</p>
+      </div>
+
+      <!-- BUNDLE -->
+      <div class="bundle-card reveal">
+        <h4>Enterprise Transformation Bundle</h4>
+        <p>Architecture Accelerator + IQ MCP Integration + Tenant Scan + every offering in one engagement.</p>
+        <div class="bundle-price">$63,000</div>
+        <p style="margin-top: 0.5rem;"><a href="/enterprise-transformation">View the full bundle &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What is MCP (Model Context Protocol)?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>MCP is an open standard for connecting AI agents to external tools and data. Think of it as USB-C for AI &mdash; one interface, any agent. Claude, Copilot, and custom frameworks all speak MCP natively. You build one server, every agent can use it.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What is Foundry IQ?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Foundry IQ (formerly Microsoft 365 Agents SDK knowledge) is an enterprise knowledge retrieval system powered by Azure AI Search. It lets you create knowledge bases from OneLake, SharePoint, Eventhouse, and other sources &mdash; then uses agentic retrieval (query decomposition, parallel search, semantic reranking) to deliver grounded answers with citations.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What is Fabric IQ?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Fabric IQ adds a semantic intelligence layer to Microsoft Fabric. It includes ontologies (business vocabulary and rules), knowledge graphs (entity relationships you can traverse), and planning data (budgets, forecasts, scenarios). It turns raw data into business meaning that AI agents can reason over.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Do I need both Fabric IQ and Foundry IQ already set up?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>No. We help configure both during the engagement. You need a Fabric workspace with semantic models or lakehouses (for Fabric IQ) and an Azure AI Search instance (for Foundry IQ). We handle the rest &mdash; ontology setup, knowledge base creation, and MCP wiring.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Which agents can use the MCP server?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Any MCP-compatible agent: Claude Desktop, Claude Code, Microsoft Copilot (via Foundry Agent Service), or any custom agent using the MCP SDK. The server exposes tools over stdio or SSE transport &mdash; your choice based on deployment model.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How is this different from Microsoft's built-in Fabric MCP server?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Microsoft's Fabric MCP server is local-first and focuses on API specs, not live data. Our server connects to your actual Fabric IQ ontology and Foundry IQ knowledge bases &mdash; live enterprise data with real authentication, real permissions, and real source attribution.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Is the data secure?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Yes. The server uses Entra ID authentication and respects per-user permissions. Agents only see what the authenticated user has access to. All traffic is encrypted, and the server can run entirely within your Azure tenant. NDA available on request.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="reveal">Ready to Give Your Agents Enterprise Intelligence?</h2>
+      <p class="reveal">Stop building one-off integrations. Get a production MCP server that connects your entire IQ stack to any AI agent.</p>
+      <div class="final-cta-group reveal">
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+        <a href="#intake-form" class="btn-outline">Talk to Gaston</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+        <p>Dual Microsoft MVPs in Data Platform &amp; AI. We help organizations get more from Microsoft Fabric, Power BI, and the intelligent data stack.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/tenant-scan">Tenant Scan</a></li>
+          <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+          <li><a href="/semantic-model-audit">Model Audit</a></li>
+          <li><a href="/iq-mcp-integration">IQ + MCP</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="/migration-playbook">Migration</a></li>
+          <li><a href="/spark-optimization">Spark</a></li>
+          <li><a href="/pipeline-health-check">Pipelines</a></li>
+          <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 PowerMates LLC. All rights reserved.</div>
+  </footer>
+
+  <!-- PARTICLES -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- FAQ ACCORDION -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+  <!-- HAMBURGER + DROPDOWN -->
+  <script>
+    (function () {
+      var btn = document.querySelector('.hamburger'), nav = document.querySelector('.nav-links');
+      if (btn && nav) {
+        btn.addEventListener('click', function () { btn.classList.toggle('open'); nav.classList.toggle('open'); });
+        nav.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () { btn.classList.remove('open'); nav.classList.remove('open'); });
+        });
+      }
+      var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector('.nav-dropdown').classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+
+  <!-- THANKS HASH -->
+  <script>
+    if (location.hash === '#thanks') {
+      var ty = document.getElementById('thanks');
+      if (ty) ty.style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>

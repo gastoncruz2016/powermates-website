@@ -4,333 +4,1324 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Pipeline Health Check — $4,000 | PowerMates</title>
-  <meta name="description" content="Audit your Fabric data pipelines for orchestration gaps, missing error handling, scheduling conflicts, and reliability issues. MVP delivers fixes. $4,000 flat fee." />
-  <meta name="keywords" content="Microsoft Fabric pipelines, data pipeline audit, orchestration, error handling, scheduling, pipeline monitoring, PowerMates" />
+  <meta name="description" content="Audit your Fabric Data Pipelines for 8 reliability anti-patterns: missing error paths, no retry policies, no timeouts, hardcoded values, and more. Scored report with fixes from a Dual Microsoft MVP. $4,000 flat fee." />
+  <meta name="keywords" content="Microsoft Fabric pipelines, data pipeline audit, pipeline health check, error handling, retry policy, orchestration, pipeline monitoring, PowerMates" />
   <meta property="og:title" content="Data Pipeline Health Check — $4,000 | PowerMates" />
-  <meta property="og:description" content="AI audits your Fabric pipelines for error handling gaps, reliability issues, and scheduling conflicts. A Dual Microsoft MVP delivers the fix plan. $4,000." />
+  <meta property="og:description" content="AI scans every Fabric pipeline for 8 silent-failure anti-patterns. A Dual Microsoft MVP delivers a scored report with prioritized fixes. $4,000 one-time." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thepowermates.com/pipeline-health-check" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Data Pipeline Health Check — $4,000 | PowerMates" />
+  <meta name="twitter:description" content="AI scans every Fabric pipeline for 8 silent-failure anti-patterns. Scored report with fixes from a Dual Microsoft MVP." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #080F1C; --bg2: #0d1628; --bg3: #111d35;
-      --card: #0f1b2d; --card2: #141e30;
-      --text: #e8edf5; --muted: #7a8ba0;
-      --cyan: #2ee8d3; --cyan-dim: rgba(46,232,211,0.12);
-      --cyan-border: rgba(46,232,211,0.3); --cyan-glow: rgba(46,232,211,0.5);
-      --border: rgba(255,255,255,0.08);
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+      --red: #ff4d4d;
+      --orange: #ff9f43;
+      --yellow: #ffd32a;
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
-    h1,h2,h3,h4{font-family:'Syne',sans-serif}
-    a{color:var(--cyan);text-decoration:none}a:hover{opacity:.85}
 
-    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em}.nav-logo span{color:var(--cyan)}
-    .nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}
-    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--cyan)}
-    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem!important;transition:opacity .2s!important}.nav-cta:hover{opacity:.85!important}
-    .nav-dropdown-toggle{position:relative;cursor:pointer;color:var(--muted);font-size:.875rem;font-weight:500;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.5rem}.nav-dropdown-toggle:hover{color:var(--text)}.nav-dropdown-toggle::after{content:"▼";font-size:.6rem}.nav-dropdown-menu{position:absolute;top:100%;left:0;background:rgba(8,15,28,.98);border:1px solid var(--border);border-radius:8px;min-width:240px;list-style:none;padding:.75rem 0;margin-top:.5rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:1000}.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}.nav-dropdown-menu li{list-style:none}.nav-dropdown-menu a{display:block;padding:.75rem 1.5rem;color:var(--muted);font-size:.85rem;font-weight:500;transition:color .2s,background .2s}.nav-dropdown-menu a:hover{background:rgba(46,232,211,.1);color:var(--text)}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-    .hero{position:relative;padding:6rem 2rem 4rem;text-align:center;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--cyan-dim) 0%,transparent 70%);pointer-events:none}
-    .hero-badge{display:inline-block;padding:6px 16px;border:1px solid var(--cyan-border);border-radius:99px;font-size:.8rem;font-weight:600;color:var(--cyan);margin-bottom:1.5rem;background:var(--cyan-dim)}
-    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;max-width:800px;margin:0 auto 1rem}.hero h1 span{color:var(--cyan)}
-    .hero p{max-width:620px;margin:0 auto 2rem;color:var(--muted);font-size:1.1rem}
-    .hero-cta{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.05rem;transition:opacity .2s}.hero-cta:hover{opacity:.85}
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
 
-    .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}.section-alt{background:var(--bg2)}
-    .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}.section h2 span{color:var(--cyan)}
-    .section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto}
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
 
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s}.card:hover{border-color:var(--cyan-border)}
-    .card-icon{font-size:2rem;margin-bottom:1rem}.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}.card p{color:var(--muted);font-size:.92rem}
+    /* -- NAV -- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
-    .step{text-align:center;counter-increment:step;position:relative}
-    .step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--cyan-dim);border:2px solid var(--cyan-border);border-radius:50%;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);margin:0 auto 1rem}
-    .step h4{font-size:1rem;margin-bottom:.5rem}.step p{color:var(--muted);font-size:.88rem}
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo span { color: var(--cyan); }
 
-    .proof{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0}
-    .proof-item{text-align:center}.proof-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--cyan)}.proof-label{font-size:.82rem;color:var(--muted)}
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); }
 
-    .pricing-card{max-width:520px;margin:0 auto;background:var(--card);border:2px solid var(--cyan-border);border-radius:18px;padding:3rem;text-align:center;box-shadow:0 0 60px var(--cyan-dim)}
-    .pricing-card h3{font-size:1.6rem;margin-bottom:.5rem}
-    .pricing-amount{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--cyan);margin:1rem 0}.pricing-amount small{font-size:1rem;color:var(--muted);font-weight:400}
-    .pricing-features{list-style:none;text-align:left;margin:2rem 0}.pricing-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.95rem}.pricing-features li::before{content:'✓ ';color:var(--cyan);font-weight:700}
-    .pricing-cta{display:inline-block;width:100%;padding:16px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.1rem;transition:opacity .2s;border:none;cursor:pointer;font-family:inherit}.pricing-cta:hover{opacity:.85}
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
 
-    .bundle-card{max-width:700px;margin:2rem auto 0;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center}
-    .bundle-card h4{margin-bottom:.5rem}.bundle-price{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--cyan)}.bundle-card p{color:var(--muted);font-size:.92rem}
+    /* -- PARTICLES CANVAS -- */
+    #particles-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-    .checklist{max-width:700px;margin:0 auto}
-    .check-item{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
-    .check-icon{color:var(--cyan);font-size:1.2rem;flex-shrink:0;margin-top:2px}
-    .check-fail{color:#ff4d4d}
-    .check-item h4{font-size:.95rem;margin-bottom:.25rem}.check-item p{color:var(--muted);font-size:.85rem}
+    /* -- HERO -- */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.08) 0%, transparent 70%);
+    }
 
-    .faq-list{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
-    .faq-q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:'+';color:var(--cyan);font-size:1.4rem;font-weight:300}.faq-item.open .faq-q::after{content:'−'}
-    .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding-top:.75rem}
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
 
-    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.08em}.footer-logo span{color:var(--cyan)}.footer-social{display:flex;gap:1rem}.footer-social a{color:var(--muted);font-size:.85rem;transition:color .2s}.footer-social a:hover{color:var(--cyan)}.footer-copy{font-size:.78rem;color:var(--muted)}
+    .badge {
+      display: inline-block;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
 
-    @media(max-width:768px){      .nav-dropdown-menu{position:static;opacity:1;visibility:visible;background:transparent;border:none;min-width:auto;margin-top:0;padding:0}.nav-dropdown:hover .nav-dropdown-menu{display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:.5rem 0;font-size:1rem;color:#fff}.nav-dropdown-toggle::after{display:none}nav{padding:0 1rem}.nav-links{display:none}.hero{padding:4rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.proof{gap:2rem}}
-  
-/* ── Mobile Hamburger ── */
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-@media(max-width:768px){
-  .hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
-  .nav-links.open{display:flex!important}
-  .nav-links li{list-style:none}
-  .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
-  .nav-links a.active{color:#2ee8d3}
-  .nav-links .nav-cta{background:#2ee8d3;color:#080f1c;padding:12px 28px;border-radius:8px;font-weight:600;margin-top:1rem}
-}
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero h1 span { color: var(--cyan); }
 
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+    }
+    .hero-price .price-note {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'Figtree', sans-serif;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      border: 1px solid var(--cyan-border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hero-trust {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-trust span::before { content: '\2713 '; color: var(--cyan); }
+
+    /* -- STATS BAR -- */
+    .stats-bar {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem;
+    }
+    .stats-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .stat-label { font-size: 0.82rem; color: var(--muted); }
+
+    /* -- SECTION BASICS -- */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* -- BREADCRUMB -- */
+    .breadcrumb {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem 0;
+      font-size: 0.82rem;
+    }
+    .breadcrumb a { color: var(--muted); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--cyan); }
+    .breadcrumb span { color: var(--muted); margin: 0 0.4rem; }
+
+    /* -- PROBLEM CARDS -- */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .problem-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .problem-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+
+    .severity {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 6px;
+    }
+    .severity-critical { background: var(--red); box-shadow: 0 0 8px rgba(255, 77, 77, 0.4); }
+    .severity-high { background: var(--orange); box-shadow: 0 0 8px rgba(255, 159, 67, 0.4); }
+    .severity-medium { background: var(--yellow); box-shadow: 0 0 8px rgba(255, 211, 42, 0.3); }
+
+    .problem-card h3 { font-size: 0.98rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+    .problem-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .severity-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .tag-critical { background: rgba(255, 77, 77, 0.15); color: var(--red); }
+    .tag-high { background: rgba(255, 159, 67, 0.15); color: var(--orange); }
+    .tag-medium { background: rgba(255, 211, 42, 0.15); color: var(--yellow); }
+
+    /* -- SCORING DIMENSIONS -- */
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .score-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .score-card:hover { border-color: var(--cyan-border); }
+
+    .score-weight {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cyan);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .score-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+    .score-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+    /* -- HOW IT WORKS -- */
+    .how-it-works { background: var(--bg3); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- DELIVERABLES -- */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .deliverable-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .deliverable-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+    .deliverable-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .deliverable-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .deliverable-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* -- SECURITY -- */
+    .security-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.25rem 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .security-strip span::before { content: '\1F512 '; }
+
+    /* -- PRICING -- */
+    .pricing-section { background: var(--bg2); }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--cyan);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 560px;
+      margin: 0 auto;
+      box-shadow: 0 0 0 1px var(--cyan), 0 0 32px rgba(46, 232, 211, 0.15);
+    }
+
+    .pricing-tier {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 0.6rem;
+    }
+
+    .pricing-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .pricing-price .price-note {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'Figtree', sans-serif;
+    }
+
+    .pricing-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .pricing-features li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .pricing-features li::before {
+      content: '\2713';
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      transition: opacity 0.2s, transform 0.2s;
+      background: var(--cyan);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .pricing-cta:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    /* -- BUNDLE -- */
+    .bundle-card {
+      max-width: 560px;
+      margin: 2rem auto 0;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .bundle-card:hover { border-color: var(--cyan-border); }
+    .bundle-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
+    .bundle-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .bundle-card p { color: var(--muted); font-size: 0.92rem; margin-top: 0.5rem; }
+
+    /* -- FAQ -- */
+    .faq-section { background: var(--bg); }
+
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: var(--cyan-border); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: #fff;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--cyan);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    .faq-answer p {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* -- FINAL CTA -- */
+    .final-cta {
+      text-align: center;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%);
+    }
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+    .final-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    /* -- FOOTER -- */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand p { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.6; }
+
+    .footer-col h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.4rem; }
+    .footer-col a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cyan); }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-bottom {
+      max-width: 1080px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    /* -- FORM INPUTS -- */
+    .form-input {
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      width: 100%;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--cyan-border);
+    }
+
+    /* -- REVEAL ANIMATION -- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -- FOCUS STATES -- */
+    a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-outline:focus-visible, .pricing-cta:focus-visible, .nav-cta:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+
+    /* -- RESPONSIVE -- */
+    @media (max-width: 1024px) {
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .score-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .score-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .pricing-card { padding: 2rem; }
+      .hero-price { font-size: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats-inner { gap: 1.5rem; }
+    }
+
+    /* -- Mobile Hamburger -- */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(8, 15, 28, 0.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        z-index: 1000;
+        padding: 2rem;
+      }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { list-style: none; }
+      .nav-links a { font-size: 1.2rem; color: #fff; text-decoration: none; }
+      .nav-links a.active { color: #2ee8d3; }
+      .nav-links .nav-cta { background: #2ee8d3; color: #080f1c; padding: 12px 28px; border-radius: 8px; font-weight: 600; margin-top: 1rem; }
+      .nav-dropdown-menu { position: static; opacity: 1; visibility: visible; background: transparent; border: none; min-width: auto; margin-top: 0; padding: 0; }
+      .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: .5rem 0; font-size: 1rem; color: #fff; }
+      .nav-dropdown-toggle::after { display: none; }
+    }
+
+    .nav-dropdown-toggle { position: relative; cursor: pointer; color: var(--muted); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: .5rem; }
+    .nav-dropdown-toggle:hover { color: var(--text); }
+    .nav-dropdown-toggle::after { content: "\25BC"; font-size: .6rem; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(8, 15, 28, 0.98); border: 1px solid var(--border); border-radius: 8px; min-width: 240px; list-style: none; padding: .75rem 0; margin-top: .5rem; opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 1000; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a { display: block; padding: .75rem 1.5rem; color: var(--muted); font-size: .85rem; font-weight: 500; transition: color .2s, background .2s; }
+    .nav-dropdown-menu a:hover { background: rgba(46, 232, 211, .1); color: var(--cyan); }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <!-- -- NAV -- -->
+  <nav>
+    <a href="/" class="nav-logo">POWER<span>MATES</span></a>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/tenant-scan">Tenant Scan</a></li>
-    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
-    <li><a href="/semantic-model-audit">Model Audit</a></li>
-    <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
-    <li><a href="/migration-playbook">Migration</a></li>
-    <li><a href="/spark-optimization">Spark</a></li>
-    <li><a href="/pipeline-health-check" class="active">Pipelines</a></li>
-    <li class="nav-dropdown">
-      <a class="nav-dropdown-toggle">Bundles</a>
-      <ul class="nav-dropdown-menu">
-        <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
-        <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
-        <li><a href="/governance-performance">Governance + Performance</a></li>
-        <li><a href="/migration-governance">Migration + Governance</a></li>
-        <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
-        <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
-        <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
-      </ul>
-    </li>
-    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
-  </ul>
-</nav>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/tenant-scan">Tenant Scan</a></li>
+      <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+      <li><a href="/semantic-model-audit">Model Audit</a></li>
+      <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+      <li><a href="/migration-playbook">Migration</a></li>
+      <li><a href="/spark-optimization">Spark</a></li>
+      <li><a href="/pipeline-health-check" class="active">Pipelines</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-dropdown-toggle">Bundles</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+          <li><a href="/governance-performance">Governance + Performance</a></li>
+          <li><a href="/migration-governance">Migration + Governance</a></li>
+          <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
+          <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
+          <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+        </ul>
+      </li>
+      <li><a href="#pricing" class="nav-cta">Get Started &rarr;</a></li>
+    </ul>
+  </nav>
 
-<section class="hero">
-  <div class="hero-badge">NEW — Find the Silent Failures</div>
-  <h1>Your pipelines are failing <span>and you don't know it</span></h1>
-  <p>AI scans every pipeline for missing error handling, broken retry policies, scheduling gaps, and reliability blind spots. An MVP walks you through the fixes.</p>
-  <a href="#pricing" class="hero-cta">Get Started — $4,000</a>
-</section>
-
-<div class="section-alt">
-  <div class="section" style="padding:2.5rem 2rem;">
-    <div class="proof">
-      <div class="proof-item"><div class="proof-num">8</div><div class="proof-label">Anti-Patterns Detected</div></div>
-      <div class="proof-item"><div class="proof-num">5</div><div class="proof-label">Score Dimensions</div></div>
-      <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Job History Analyzed</div></div>
-      <div class="proof-item"><div class="proof-num">½ day</div><div class="proof-label">Delivery Time</div></div>
-    </div>
+  <!-- -- BREADCRUMB -- -->
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/#services">Services</a><span>/</span>Pipeline Health Check
   </div>
-</div>
 
-<!-- WHAT WE CHECK -->
-<section class="section">
-  <h2>What we <span>audit</span></h2>
-  <p class="section-sub">Five dimensions scored 0-100. Every finding comes with a specific fix — not just a red flag.</p>
-
-  <div class="cards">
-    <div class="card"><div class="card-icon">🚨</div><h3>Error Handling</h3><p>Does every critical activity have a failure path? Are there notification activities for pipeline failures? We check every dependency chain.</p></div>
-    <div class="card"><div class="card-icon">📈</div><h3>Reliability</h3><p>Job history analysis: success rates, failure patterns, duration trends, SLA compliance. We spot degradation before it becomes an outage.</p></div>
-    <div class="card"><div class="card-icon">⚙️</div><h3>Configuration</h3><p>Retry policies, timeouts, ForEach batch counts, parameterization. Every activity checked against Microsoft best practices.</p></div>
-    <div class="card"><div class="card-icon">📅</div><h3>Scheduling</h3><p>Overlapping schedules, disabled schedules, gaps between pipeline runs. We map your entire orchestration timeline.</p></div>
-    <div class="card"><div class="card-icon">🏗️</div><h3>Architecture</h3><p>Quality gates between layers, pipeline parameterization, dependency chain depth, notification coverage.</p></div>
-  </div>
-</section>
-
-<!-- WHAT WE CATCH -->
-<div class="section-alt">
-  <section class="section">
-    <h2>The silent killers in <span>your pipelines</span></h2>
-    <p class="section-sub">These are the issues that don't crash your pipeline — they just quietly corrupt your data or waste your capacity.</p>
-
-    <div class="checklist">
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div><h4>No failure path on critical activities</h4><p>Pipeline stops silently on error. No alert fires. Downstream dashboards show stale data for hours before anyone notices.</p></div>
+  <!-- -- HERO -- -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">Pipeline Reliability Audit</div>
+      <h1>Your pipelines are failing.<br /><span>You just don't know it yet.</span></h1>
+      <p>AI scans every Fabric Data Pipeline for 8 reliability anti-patterns &mdash; missing error paths, zero retry policies, no timeouts, hardcoded values. A Dual Microsoft MVP delivers the scored report with prioritized fixes.</p>
+      <div class="hero-price">$4,000 <span class="price-note">one-time</span></div>
+      <div class="hero-cta-group">
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+        <a href="#anti-patterns" class="btn-outline">See What We Catch</a>
       </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div><h4>Zero retry policy</h4><p>A single transient 429 or timeout kills the entire pipeline. Adding 2 retries with 30s backoff catches 90% of these.</p></div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div><h4>No timeout on notebook activities</h4><p>A Spark session hangs, the activity runs forever, consuming capacity. Nobody knows until the bill arrives.</p></div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div><h4>No quality gate between layers</h4><p>Bronze loads fine but writes zero rows. Silver transforms nothing. Gold serves empty dashboards. Everyone blames the data source.</p></div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div><h4>No notification on failure</h4><p>Pipeline fails at 2am. The team finds out at 10am when the CEO asks why the dashboard is wrong.</p></div>
-      </div>
-      <div class="check-item">
-        <div class="check-icon check-fail">✗</div>
-        <div><h4>Hardcoded paths and dates</h4><p>Works in dev, breaks in prod. Pipeline parameters and expressions prevent environment-specific failures.</p></div>
+      <div class="hero-trust">
+        <span>Dual Microsoft MVP</span>
+        <span>8 Anti-Patterns Checked</span>
+        <span>5 Scoring Dimensions</span>
+        <span>Half-Day Delivery</span>
       </div>
     </div>
   </section>
-</div>
 
-<!-- HOW IT WORKS -->
-<section class="section">
-  <h2>How it <span>works</span></h2>
-  <p class="section-sub">Three steps. Half a day. Clear action plan.</p>
-
-  <div class="steps">
-    <div class="step"><h4>Connect</h4><p>15-min call. We get read access to your workspace and understand which pipelines are business-critical.</p></div>
-    <div class="step"><h4>Scan</h4><p>AI reads every pipeline definition, analyzes activity configurations, pulls full job history, and maps schedules.</p></div>
-    <div class="step"><h4>Deliver</h4><p>Scored report with prioritized fixes, monitoring query templates, and a 2-hour walkthrough call with an MVP.</p></div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<div class="section-alt">
-  <section class="section" id="pricing">
-    <h2>Simple <span>pricing</span></h2>
-    <p class="section-sub">Every pipeline in your workspace, audited. One flat fee.</p>
-
-    <div class="pricing-card">
-      <h3>Data Pipeline Health Check</h3>
-      <div class="pricing-amount">$4,000 <small>one-time</small></div>
-      <ul class="pricing-features">
-        <li>All pipelines in workspace scanned</li>
-        <li>Activity-level configuration audit</li>
-        <li>Error handling & failure path analysis</li>
-        <li>Full job history reliability analysis</li>
-        <li>Schedule conflict detection</li>
-        <li>Quality gate assessment</li>
-        <li>Scored report (0-100 across 5 dimensions)</li>
-        <li>Monitoring query templates</li>
-        <li>Prioritized fix list with implementation steps</li>
-        <li>2-hour walkthrough with MVP</li>
-        <li>30-day support (1 follow-up call)</li>
-      </ul>
-      <div id="intake-form" style="margin-top:2rem;text-align:left;">
-        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
-          <input type="hidden" name="_subject" value="Data Pipeline Health Check — $4,000 Inquiry">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://www.thepowermates.com/pipeline-health-check#thanks">
-          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <select name="pipeline_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-            <option value="" disabled selected>Approximate pipeline count?</option>
-            <option value="1-5">1 – 5 pipelines</option>
-            <option value="6-15">6 – 15 pipelines</option>
-            <option value="16-30">16 – 30 pipelines</option>
-            <option value="30+">30+ pipelines</option>
-          </select>
-          <select name="main_concern" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-            <option value="" disabled selected>Primary concern?</option>
-            <option value="silent-failures">Silent failures / stale data</option>
-            <option value="reliability">Low reliability / frequent failures</option>
-            <option value="scheduling">Scheduling conflicts</option>
-            <option value="performance">Slow pipeline runs</option>
-            <option value="best-practices">Want to follow best practices</option>
-          </select>
-          <textarea name="details" rows="3" placeholder="Any specific pipelines or issues you want us to focus on?" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;resize:vertical"></textarea>
-          <button type="submit" class="pricing-cta">Request Pipeline Health Check</button>
-        </form>
-      </div>
-      <p id="thanks" style="display:none;color:var(--cyan);margin-top:1rem;font-weight:600">Thanks! We'll get back to you within 24 hours.</p>
+  <!-- -- STATS BAR -- -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Anti-Patterns Detected</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Score Dimensions</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Job History Analyzed</div></div>
+      <div class="stat"><div class="stat-num">&frac12; day</div><div class="stat-label">Delivery Time</div></div>
     </div>
+  </div>
 
-    <div class="bundle-card">
-      <h4>Bundle & Save</h4>
-      <p>Spark Optimization ($3,500) + Pipeline Health Check ($4,000)</p>
-      <div class="bundle-price">$6,500 <small style="font-size:.9rem;color:var(--muted);font-weight:400">save $1,000</small></div>
-      <p style="margin-top:.5rem">Audit your notebooks and the pipelines that run them.</p>
+  <!-- -- PROBLEM STATEMENT -- -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">Silent Pipeline Killers</h2>
+        <p class="section-sub">These issues don't crash your pipeline. They quietly corrupt your data, waste capacity, and serve stale dashboards for hours before anyone notices.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="severity severity-critical"></div>
+          <div>
+            <div class="severity-tag tag-critical">Critical</div>
+            <h3>No failure path on critical activities</h3>
+            <p>Pipeline stops silently on error. No alert fires. Downstream dashboards show stale data for hours before anyone notices.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-critical"></div>
+          <div>
+            <div class="severity-tag tag-critical">Critical</div>
+            <h3>No failure notifications</h3>
+            <p>Pipeline fails at 2 AM. The team finds out at 10 AM when the CEO asks why the dashboard is wrong. Eight hours of silence.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-critical"></div>
+          <div>
+            <div class="severity-tag tag-critical">Critical</div>
+            <h3>No quality gates between layers</h3>
+            <p>Bronze loads fine but writes zero rows. Silver transforms nothing. Gold serves empty dashboards. Everyone blames the data source.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-high"></div>
+          <div>
+            <div class="severity-tag tag-high">High</div>
+            <h3>Zero retry policy</h3>
+            <p>A single transient 429 or timeout kills the entire pipeline. Adding 2 retries with 30s backoff catches 90% of these failures.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-high"></div>
+          <div>
+            <div class="severity-tag tag-high">High</div>
+            <h3>No timeout on notebook activities</h3>
+            <p>A Spark session hangs, the activity runs forever, consuming capacity units. Nobody knows until the bill arrives.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-high"></div>
+          <div>
+            <div class="severity-tag tag-high">High</div>
+            <h3>Hardcoded values and paths</h3>
+            <p>Works in dev, breaks in prod. Pipeline parameters and expressions prevent environment-specific failures and make testing possible.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-medium"></div>
+          <div>
+            <div class="severity-tag tag-medium">Medium</div>
+            <h3>Long dependency chains</h3>
+            <p>Ten activities chained sequentially when five could run in parallel. Total pipeline duration doubles for no reason.</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="severity severity-medium"></div>
+          <div>
+            <div class="severity-tag tag-medium">Medium</div>
+            <h3>Excessive ForEach parallelism</h3>
+            <p>ForEach set to 50 concurrent items when the downstream source can only handle 5. Throttling cascades into timeout failures.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-</div>
 
-<!-- FAQ -->
-<section class="section">
-  <h2>Common <span>questions</span></h2>
+  <!-- -- SCORING DIMENSIONS -- -->
+  <section id="anti-patterns">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Scoring</div>
+        <h2 class="section-title">Five Dimensions. Scored 0&ndash;100.</h2>
+        <p class="section-sub">Every finding comes with a specific fix and priority level &mdash; not just a red flag.</p>
+      </div>
+      <div class="score-grid">
+        <div class="score-card reveal">
+          <div class="score-weight">25%</div>
+          <h3>Error Handling</h3>
+          <p>Failure paths, try-catch patterns, error propagation across activity chains</p>
+        </div>
+        <div class="score-card reveal">
+          <div class="score-weight">25%</div>
+          <h3>Reliability</h3>
+          <p>Success rates, failure patterns, duration trends, SLA compliance from job history</p>
+        </div>
+        <div class="score-card reveal">
+          <div class="score-weight">20%</div>
+          <h3>Configuration</h3>
+          <p>Retry policies, timeouts, ForEach batch counts, parameterization vs hardcoding</p>
+        </div>
+        <div class="score-card reveal">
+          <div class="score-weight">15%</div>
+          <h3>Scheduling</h3>
+          <p>Overlapping schedules, disabled triggers, gaps between pipeline runs, SLA windows</p>
+        </div>
+        <div class="score-card reveal">
+          <div class="score-weight">15%</div>
+          <h3>Architecture</h3>
+          <p>Quality gates between layers, dependency chain depth, notification coverage</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q">How is this different from the Spark Optimization Audit?</div>
-      <div class="faq-a">The Spark audit focuses on notebook code and Spark configs — what runs inside the compute engine. This pipeline audit focuses on orchestration — how activities are chained, how errors propagate, how schedules align. Different layers, both critical.</div>
+  <!-- -- HOW IT WORKS -- -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Three Steps. Half a Day. Clear Action Plan.</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Connect</h3>
+          <p>15-minute call. We get read-only access to your workspace and understand which pipelines are business-critical. No write access needed.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Scan</h3>
+          <p>AI reads every pipeline definition, analyzes activity configurations, pulls full job history via the Fabric REST API, and maps all schedules.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Deliver</h3>
+          <p>Scored report with prioritized fixes, monitoring query templates, and a 2-hour walkthrough call where we implement the highest-impact fixes together.</p>
+        </div>
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Do you need write access?</div>
-      <div class="faq-a">No — read-only access is enough. We read pipeline definitions and job history via the Fabric REST API. We never modify your pipelines.</div>
+  </section>
+
+  <!-- -- DELIVERABLES -- -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Deliverables</div>
+        <h2 class="section-title">What You Walk Away With</h2>
+        <p class="section-sub">Everything needed to go from "we hope it works" to "we know it works."</p>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4CA;</div>
+          <h3>Pipeline Scorecard</h3>
+          <p>Every pipeline scored 0&ndash;100 across 5 dimensions. Color-coded severity. Executive summary and per-pipeline breakdown.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F6E0;</div>
+          <h3>Prioritized Fix List</h3>
+          <p>Each finding ranked by impact and effort. Specific implementation steps &mdash; not vague recommendations. Copy-paste ready configurations.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4C8;</div>
+          <h3>Job History Analysis</h3>
+          <p>Success rates, failure patterns, duration trends, and schedule adherence across the last 30 days of pipeline execution history.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F50D;</div>
+          <h3>Monitoring Query Templates</h3>
+          <p>KQL and REST API queries to track pipeline health going forward. Drop them into your existing monitoring stack.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F91D;</div>
+          <h3>2-Hour MVP Walkthrough</h3>
+          <p>Live session with a Dual Microsoft MVP. We review findings, implement the top fixes together, and answer architecture questions.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4DE;</div>
+          <h3>30-Day Support</h3>
+          <p>One follow-up call within 30 days to check progress, answer questions, and validate implemented fixes.</p>
+        </div>
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">What if my pipelines use ADF instead of Fabric?</div>
-      <div class="faq-a">This audit is for Fabric Data Pipelines. If you're running Azure Data Factory, the patterns overlap significantly — reach out and we'll scope a custom engagement.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What job history do you analyze?</div>
-      <div class="faq-a">We pull all available job execution history from the Fabric API — typically the last 30 days. We analyze success rates, duration trends, failure patterns, and schedule adherence.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Will you fix the issues or just report them?</div>
-      <div class="faq-a">The report includes specific fixes for every finding. During the 2-hour walkthrough, we implement the highest-impact fixes together — adding retry policies, failure paths, and notification activities.</div>
-    </div>
+  </section>
+
+  <!-- -- SECURITY -- -->
+  <div class="security-strip">
+    <span>Read-only access &mdash; we never modify your pipelines</span>
+    <span>Fabric REST API only &mdash; no agent installed</span>
+    <span>NDA available on request</span>
   </div>
-</section>
 
-  <!-- FOOTER -->
+  <!-- -- PRICING -- -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">One Price. Every Pipeline Audited.</h2>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Data Pipeline Health Check</div>
+        <div class="pricing-price">$4,000 <span class="price-note">one-time</span></div>
+        <div class="pricing-tagline">Every pipeline in your workspace, audited and scored. One flat fee.</div>
+        <ul class="pricing-features">
+          <li>All pipelines in workspace scanned</li>
+          <li>8 anti-pattern detection per pipeline</li>
+          <li>Activity-level configuration audit</li>
+          <li>Error handling &amp; failure path analysis</li>
+          <li>Full job history reliability analysis (30 days)</li>
+          <li>Schedule conflict detection</li>
+          <li>Quality gate assessment</li>
+          <li>Scored report (0&ndash;100 across 5 dimensions)</li>
+          <li>Monitoring query templates (KQL + REST)</li>
+          <li>Prioritized fix list with implementation steps</li>
+          <li>2-hour walkthrough with a Dual Microsoft MVP</li>
+          <li>30-day support (1 follow-up call)</li>
+        </ul>
+
+        <div id="intake-form" style="margin-top: 2rem; text-align: left;">
+          <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display: flex; flex-direction: column; gap: .75rem;">
+            <input type="hidden" name="_subject" value="Data Pipeline Health Check — $4,000 Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.thepowermates.com/pipeline-health-check#thanks">
+            <input type="text" name="name" placeholder="Your name" required class="form-input">
+            <input type="email" name="email" placeholder="Work email" required class="form-input">
+            <input type="text" name="company" placeholder="Company" required class="form-input">
+            <select name="pipeline_count" class="form-input">
+              <option value="" disabled selected>How many pipelines?</option>
+              <option value="1-5">1 &ndash; 5 pipelines</option>
+              <option value="6-15">6 &ndash; 15 pipelines</option>
+              <option value="16-30">16 &ndash; 30 pipelines</option>
+              <option value="30+">30+ pipelines</option>
+            </select>
+            <select name="main_concern" class="form-input">
+              <option value="" disabled selected>Primary concern?</option>
+              <option value="silent-failures">Silent failures / stale data</option>
+              <option value="reliability">Low reliability / frequent failures</option>
+              <option value="scheduling">Scheduling conflicts</option>
+              <option value="performance">Slow pipeline runs</option>
+              <option value="best-practices">Want to follow best practices</option>
+            </select>
+            <textarea name="details" rows="3" placeholder="Any specific pipelines or issues you want us to focus on?" class="form-input" style="resize: vertical;"></textarea>
+            <button type="submit" class="pricing-cta">Request Pipeline Health Check</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="thanks" style="display: none; background: var(--card); border: 2px solid var(--cyan); border-radius: 12px; padding: 2rem; margin: 2rem auto; max-width: 560px; text-align: center;">
+        <h3 style="color: var(--cyan); margin-bottom: .5rem;">Request received!</h3>
+        <p style="color: #fff;">Gaston will reach out within 24 hours. Check your inbox.</p>
+      </div>
+
+      <!-- BUNDLE -->
+      <div class="bundle-card reveal">
+        <h4>Bundle &amp; Save</h4>
+        <p>Spark Optimization ($3,500) + Pipeline Health Check ($4,000)</p>
+        <div class="bundle-price">$6,500 <small style="font-size: .9rem; color: var(--muted); font-weight: 400;">save $1,000</small></div>
+        <p>Audit your notebooks <em>and</em> the pipelines that run them.</p>
+        <a href="/data-engineering-pack" class="btn-outline" style="margin-top: 1rem; padding: 10px 24px; font-size: 0.88rem; display: inline-block;">View Data Engineering Pack &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- FAQ -- -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How is this different from the Spark Optimization Audit?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>The Spark audit focuses on notebook code and Spark configs &mdash; what runs inside the compute engine. This pipeline audit focuses on orchestration &mdash; how activities are chained, how errors propagate, how schedules align. Different layers, both critical.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Do you need write access to my workspace?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>No. Read-only access is enough. We read pipeline definitions and job history via the Fabric REST API. We never modify your pipelines or any other artifacts in your workspace.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What if my pipelines use Azure Data Factory instead of Fabric?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>This audit is built for Fabric Data Pipelines. ADF shares many patterns, but the APIs and configurations differ. Reach out and we'll scope a custom ADF engagement.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What job history do you analyze?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>We pull all available job execution history from the Fabric API &mdash; typically the last 30 days. We analyze success rates, duration trends, failure patterns, and schedule adherence to surface reliability degradation.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Will you fix the issues or just report them?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>The report includes specific, copy-paste-ready fixes for every finding. During the 2-hour walkthrough, we implement the highest-impact fixes together &mdash; adding retry policies, failure paths, and notification activities live in your workspace.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How long does the entire process take?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Same day. The 15-minute connect call, AI scan, and report generation happen in the morning. The 2-hour walkthrough and fix session happens that afternoon. You walk away with everything by end of day.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- FINAL CTA -- -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="reveal">Stop Hoping Your Pipelines Work.</h2>
+      <p class="reveal">Get a scored reliability audit from a Dual Microsoft MVP. Every anti-pattern found, every fix documented.</p>
+      <div class="final-cta-group reveal">
+        <a href="#pricing" class="btn-primary">Get Started &mdash; $4,000 &rarr;</a>
+        <a href="#intake-form" class="btn-outline">Talk to Gaston</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- FOOTER -- -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+        <p>Microsoft Fabric &amp; Power Platform consulting. Dual MVP-led. AI-accelerated delivery.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/tenant-scan">Tenant Scan</a></li>
+          <li><a href="/fabric-architecture-accelerator">Architecture Accelerator</a></li>
+          <li><a href="/semantic-model-audit">Semantic Model Audit</a></li>
+          <li><a href="/pipeline-health-check">Pipeline Health Check</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <ul>
+          <li><a href="/spark-optimization">Spark Optimization</a></li>
+          <li><a href="/realtime-analytics-accelerator">Real-Time Analytics</a></li>
+          <li><a href="/migration-playbook">Migration Playbook</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</div>
       <div class="footer-social">
         <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
       </div>
-      <div class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</div>
     </div>
   </footer>
 
-<script>
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
-  });
-  if (location.hash === '#thanks') {
-    const ty = document.getElementById('thanks');
-    if (ty) { ty.style.display = 'block'; }
+  <!-- -- PARTICLES -- -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-    .nav-dropdown-toggle{position:relative;cursor:pointer;color:var(--muted);font-size:.9rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.5rem}.nav-dropdown-toggle:hover{color:var(--cyan)}.nav-dropdown-toggle::after{content:"▼";font-size:.6rem}.nav-dropdown-menu{position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;min-width:240px;list-style:none;padding:.75rem 0;margin-top:.5rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:1000}.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}.nav-dropdown-menu li{list-style:none}.nav-dropdown-menu a{display:block;padding:.75rem 1.5rem;color:var(--muted);font-size:.85rem;transition:color .2s,background .2s}.nav-dropdown-menu a:hover{background:rgba(46,232,211,.1);color:var(--cyan)}  }
-</script>
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
 
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
-  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
-  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});
-        var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
-  if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}});
-})();
-</script>
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- -- SCROLL REVEAL -- -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- -- FAQ ACCORDION -- -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+  <!-- -- THANK YOU HASH DETECTION -- -->
+  <script>
+    if (location.hash === '#thanks') {
+      const ty = document.getElementById('thanks');
+      if (ty) { ty.style.display = 'block'; }
+    }
+  </script>
+
+  <!-- -- HAMBURGER MENU -- -->
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger'), nav = document.querySelector('.nav-links');
+      if (btn && nav) {
+        btn.addEventListener('click', function(){ btn.classList.toggle('open'); nav.classList.toggle('open'); });
+      }
+      nav && nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){ btn.classList.remove('open'); nav.classList.remove('open'); });
+      });
+      var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e){
+          e.preventDefault();
+          var dropdown = document.querySelector('.nav-dropdown');
+          dropdown.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+
 </body>
 </html>

@@ -3,118 +3,306 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Real-Time Analytics Accelerator — $10,000 | PowerMates</title>
-  <meta name="description" content="Get a production-ready Fabric Eventhouse with KQL databases, streaming ingestion, materialized views, and real-time dashboards — deployed in a day. $10,000 one-time." />
-  <meta name="keywords" content="Microsoft Fabric Eventhouse, KQL database, real-time analytics, streaming ingestion, Eventstream, Kusto, PowerMates" />
-  <meta property="og:title" content="Real-Time Analytics Accelerator — $10,000 | PowerMates" />
-  <meta property="og:description" content="Streaming analytics in a day. AI scaffolds your Eventhouse, KQL tables, ingestion pipelines, and real-time dashboards. A Dual Microsoft MVP customizes it for your data." />
+  <title>Real-Time Analytics Accelerator — $8,000 | PowerMates</title>
+  <meta name="description" content="Production-ready real-time analytics in Microsoft Fabric — Eventstreams, KQL databases, Eventhouse, and live dashboards with sub-second latency. $8,000 one-time." />
+  <meta name="keywords" content="Microsoft Fabric real-time analytics, Eventstream, KQL database, Eventhouse, real-time dashboard, IoT telemetry, clickstream analytics, PowerMates" />
+  <meta property="og:title" content="Real-Time Analytics Accelerator — $8,000 | PowerMates" />
+  <meta property="og:description" content="Real-time analytics in a day. Eventstreams, KQL databases, and live dashboards deployed in your Fabric tenant by a Dual Microsoft MVP. $8,000 one-time." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thepowermates.com/realtime-analytics-accelerator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Real-Time Analytics Accelerator — $8,000 | PowerMates" />
+  <meta name="twitter:description" content="Sub-second analytics deployed in a day. Eventstreams, KQL databases, real-time dashboards — all in Microsoft Fabric." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #080F1C; --bg2: #0d1628; --bg3: #111d35;
-      --card: #0f1b2d; --card2: #141e30;
-      --text: #e8edf5; --muted: #7a8ba0;
-      --cyan: #2ee8d3; --cyan-dim: rgba(46,232,211,0.12);
-      --cyan-border: rgba(46,232,211,0.3); --cyan-glow: rgba(46,232,211,0.5);
-      --border: rgba(255,255,255,0.08);
+      --bg: #080F1C;
+      --bg2: #0d1628;
+      --bg3: #111d35;
+      --card: #0f1b2d;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a8ba0;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.3);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;overflow-x:hidden}
-    h1,h2,h3,h4{font-family:'Syne',sans-serif}
-    a{color:var(--cyan);text-decoration:none}a:hover{opacity:.85}
 
-    nav{position:sticky;top:0;z-index:100;background:rgba(8,15,28,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em}.nav-logo span{color:var(--cyan)}
-    .nav-links{display:flex;gap:1.5rem;align-items:center;list-style:none}
-    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--cyan)}
-    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:700;font-size:.875rem!important;transition:opacity .2s!important}.nav-dropdown-toggle{position:relative;cursor:pointer;color:var(--muted);font-size:.9rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.5rem}.nav-dropdown-toggle:hover{color:var(--cyan)}.nav-dropdown-toggle::after{content:"▼";font-size:.6rem}.nav-dropdown-menu{position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;min-width:240px;list-style:none;padding:.75rem 0;margin-top:.5rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:1000}.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}.nav-dropdown-menu li{list-style:none}.nav-dropdown-menu a{display:block;padding:.75rem 1.5rem;color:var(--muted);font-size:.85rem;transition:color .2s,background .2s}.nav-dropdown-menu a:hover{background:rgba(46,232,211,.1);color:var(--cyan)}.nav-cta:hover{opacity:.85!important}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
 
-    .hero{position:relative;padding:6rem 2rem 4rem;text-align:center;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--cyan-dim) 0%,transparent 70%);pointer-events:none}
-    .hero-badge{display:inline-block;padding:6px 16px;border:1px solid var(--cyan-border);border-radius:99px;font-size:.8rem;font-weight:600;color:var(--cyan);margin-bottom:1.5rem;background:var(--cyan-dim)}
-    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;max-width:800px;margin:0 auto 1rem}.hero h1 span{color:var(--cyan)}
-    .hero p{max-width:620px;margin:0 auto 2rem;color:var(--muted);font-size:1.1rem}
-    .hero-cta{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.05rem;transition:opacity .2s}.hero-cta:hover{opacity:.85}
+    /* -- NAV -- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.08em; }
+    .nav-logo span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); }
+    .nav-cta { background: var(--cyan); color: var(--bg) !important; padding: 8px 20px; border-radius: 8px; font-weight: 700; font-size: 0.875rem !important; transition: opacity 0.2s !important; }
+    .nav-cta:hover { opacity: 0.85 !important; }
+    .nav-dropdown-toggle { position: relative; cursor: pointer; color: var(--muted); font-size: .9rem; text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: .5rem; }
+    .nav-dropdown-toggle:hover { color: var(--cyan); }
+    .nav-dropdown-toggle::after { content: "\25BC"; font-size: .6rem; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; min-width: 240px; list-style: none; padding: .75rem 0; margin-top: .5rem; opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; z-index: 1000; }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a { display: block; padding: .75rem 1.5rem; color: var(--muted); font-size: .85rem; transition: color .2s, background .2s; }
+    .nav-dropdown-menu a:hover { background: rgba(46,232,211,.1); color: var(--cyan); }
 
-    .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}.section-alt{background:var(--bg2)}
-    .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}.section h2 span{color:var(--cyan)}
-    .section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto}
+    /* -- PARTICLES CANVAS -- */
+    #particles-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s}.card:hover{border-color:var(--cyan-border)}
-    .card-icon{font-size:2rem;margin-bottom:1rem}.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}.card p{color:var(--muted);font-size:.92rem}
+    /* -- HERO -- */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(46, 232, 211, 0.08) 0%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .badge { display: inline-block; background: var(--cyan-dim); border: 1px solid var(--cyan-border); color: var(--cyan); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.25rem; color: #fff; }
+    .hero h1 span { color: var(--cyan); }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 620px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .hero-price { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--cyan); margin-bottom: 2rem; }
+    .hero-price .price-note { font-size: 0.9rem; font-weight: 400; color: var(--muted); font-family: 'Figtree', sans-serif; }
+    .hero-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-primary { background: var(--cyan); color: var(--bg); padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; font-family: 'Figtree', sans-serif; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.2s; display: inline-block; }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+    .btn-outline { background: transparent; color: var(--cyan); padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; font-family: 'Figtree', sans-serif; border: 1px solid var(--cyan-border); cursor: pointer; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+    .hero-trust { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); }
+    .hero-trust span::before { content: '\2713 '; color: var(--cyan); }
 
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;counter-reset:step}
-    .step{text-align:center;counter-increment:step;position:relative}
-    .step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--cyan-dim);border:2px solid var(--cyan-border);border-radius:50%;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--cyan);margin:0 auto 1rem}
-    .step h4{font-size:1rem;margin-bottom:.5rem}.step p{color:var(--muted);font-size:.88rem}
+    /* -- BREADCRUMB -- */
+    .breadcrumb { padding: 0.75rem 2rem; font-size: 0.8rem; color: var(--muted); background: var(--bg); }
+    .breadcrumb a { color: var(--cyan); font-weight: 500; }
 
-    .scenarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-    .scenario{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem}
-    .scenario:hover{border-color:var(--cyan-border)}
-    .scenario h3{font-size:1.15rem;margin-bottom:.75rem}.scenario h3 span{color:var(--cyan);font-size:1.4rem;margin-right:.5rem}
-    .scenario ul{list-style:none;margin:.75rem 0}.scenario li{padding:.3rem 0;font-size:.9rem;color:var(--muted)}.scenario li::before{content:'→ ';color:var(--cyan)}
+    /* -- SECTION BASICS -- */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 0.75rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+    .section-header { margin-bottom: 3rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
 
-    .proof{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0}
-    .proof-item{text-align:center}.proof-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--cyan)}.proof-label{font-size:.82rem;color:var(--muted)}
+    /* -- STATS BAR -- */
+    .stats-bar { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem 0; max-width: 1080px; margin: 0 auto; }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--cyan); }
+    .stat-label { font-size: 0.82rem; color: var(--muted); }
 
-    .pricing-card{max-width:520px;margin:0 auto;background:var(--card);border:2px solid var(--cyan-border);border-radius:18px;padding:3rem;text-align:center;box-shadow:0 0 60px var(--cyan-dim)}
-    .pricing-card h3{font-size:1.6rem;margin-bottom:.5rem}
-    .pricing-amount{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--cyan);margin:1rem 0}.pricing-amount small{font-size:1rem;color:var(--muted);font-weight:400}
-    .pricing-features{list-style:none;text-align:left;margin:2rem 0}.pricing-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.95rem}.pricing-features li::before{content:'✓ ';color:var(--cyan);font-weight:700}
-    .pricing-cta{display:inline-block;width:100%;padding:16px;background:var(--cyan);color:var(--bg);font-weight:700;border-radius:10px;font-size:1.1rem;transition:opacity .2s;border:none;cursor:pointer;font-family:inherit}.pricing-cta:hover{opacity:.85}
+    /* -- PROBLEM SECTION -- */
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .problem-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.2s; }
+    .problem-card:hover { border-color: var(--cyan-border); }
+    .problem-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .problem-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .problem-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    .bundle-card{max-width:700px;margin:2rem auto 0;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center}
-    .bundle-card h4{margin-bottom:.5rem}.bundle-price{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--cyan)}.bundle-card p{color:var(--muted);font-size:.92rem}
+    /* -- USE CASES -- */
+    .usecases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .usecase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
+    .usecase-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+    .usecase-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .usecase-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .usecase-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.75rem; }
+    .usecase-card ul { list-style: none; }
+    .usecase-card li { padding: 0.25rem 0; font-size: 0.85rem; color: var(--muted); }
+    .usecase-card li::before { content: '\2192 '; color: var(--cyan); font-weight: 700; }
 
-    .faq-list{max-width:700px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
-    .faq-q{font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.faq-q::after{content:'+';color:var(--cyan);font-size:1.4rem;font-weight:300}.faq-item.open .faq-q::after{content:'−'}
-    .faq-a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding-top:.75rem}
+    /* -- DELIVERABLES GRID -- */
+    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .deliverable-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
+    .deliverable-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+    .deliverable-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .deliverable-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .deliverable-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    .flow-diagram{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:2rem;font-family:monospace;font-size:.85rem;line-height:1.8;overflow-x:auto;max-width:800px;margin:0 auto 2rem}
-    .flow-diagram .highlight{color:var(--cyan);font-weight:700}
+    /* -- ARCHITECTURE DIAGRAM -- */
+    .diagram-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; overflow-x: auto; }
+    .diagram-card pre { font-family: 'Figtree', monospace; font-size: 0.82rem; color: var(--text); line-height: 1.8; white-space: pre; }
+    .diagram-card .layer-label { color: var(--cyan); font-weight: 700; }
 
-    footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem}.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.08em}.footer-logo span{color:var(--cyan)}.footer-social{display:flex;gap:1rem}.footer-social a{color:var(--muted);font-size:.85rem;transition:color .2s}.footer-social a:hover{color:var(--cyan)}.footer-copy{font-size:.78rem;color:var(--muted)}
+    /* -- HOW IT WORKS -- */
+    .how-it-works { background: var(--bg3); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .step-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+    .step-number { width: 40px; height: 40px; background: var(--cyan-dim); border: 1px solid var(--cyan-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.9rem; color: var(--cyan); margin-bottom: 1rem; }
+    .step-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
 
-    @media(max-width:768px){      .nav-dropdown-menu{position:static;opacity:1;visibility:visible;background:transparent;border:none;min-width:auto;margin-top:0;padding:0}.nav-dropdown:hover .nav-dropdown-menu{display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:.5rem 0;font-size:1rem;color:#fff}.nav-dropdown-toggle::after{display:none}nav{padding:0 1rem}.nav-links{display:none}.hero{padding:4rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.proof{gap:2rem}}
-  
-/* ── Mobile Hamburger ── */
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-@media(max-width:768px){
-  .hamburger{display:block}
-  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
-  .nav-links.open{display:flex!important}
-  .nav-links li{list-style:none}
-  .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
-  .nav-links a.active{color:#2ee8d3}
-  .nav-links .nav-cta{background:#2ee8d3;color:#080f1c;padding:12px 28px;border-radius:8px;font-weight:600;margin-top:1rem}
-}
+    /* -- DELIVERABLES LIST -- */
+    .deliverables-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0.75rem; max-width: 760px; }
+    .deliverables-list li { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.9rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.75rem; transition: border-color 0.2s; }
+    .deliverables-list li:hover { border-color: var(--cyan-border); }
+    .deliverables-list li::before { content: '\2713'; color: var(--cyan); font-weight: 700; flex-shrink: 0; }
 
+    /* -- PRICING SECTION -- */
+    .pricing-section { background: var(--bg2); }
+    .pricing-card { background: var(--card); border: 1px solid var(--cyan); border-radius: 16px; padding: 2.5rem; max-width: 560px; margin: 0 auto; box-shadow: 0 0 0 1px var(--cyan), 0 0 32px rgba(46, 232, 211, 0.15); }
+    .pricing-tier { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.6rem; }
+    .pricing-price { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 0.25rem; }
+    .pricing-price .price-note { font-size: 0.85rem; font-weight: 400; color: var(--muted); font-family: 'Figtree', sans-serif; }
+    .pricing-tagline { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .pricing-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
+    .pricing-features li { font-size: 0.875rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.5; }
+    .pricing-features li::before { content: '\2713'; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pricing-cta { display: block; text-align: center; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; font-family: 'Figtree', sans-serif; transition: opacity 0.2s, transform 0.2s; background: var(--cyan); color: var(--bg); border: none; cursor: pointer; width: 100%; }
+    .pricing-cta:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg); }
+
+    /* -- BUNDLE -- */
+    .bundle-card { max-width: 560px; margin: 2rem auto 0; background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; text-align: center; transition: border-color 0.2s; }
+    .bundle-card:hover { border-color: var(--cyan-border); }
+    .bundle-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff; }
+    .bundle-price { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--cyan); margin: 0.5rem 0; }
+    .bundle-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* -- FAQ -- */
+    .faq-section { background: var(--bg); }
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-item:hover { border-color: var(--cyan-border); }
+    .faq-question { width: 100%; background: none; border: none; padding: 1.25rem 1.5rem; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: #fff; font-family: 'Figtree', sans-serif; font-size: 0.95rem; font-weight: 600; }
+    .faq-chevron { width: 20px; height: 20px; flex-shrink: 0; color: var(--cyan); transition: transform 0.3s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p { padding: 0 1.5rem 1.25rem; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* -- FINAL CTA -- */
+    .final-cta { text-align: center; background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(46, 232, 211, 0.07) 0%, transparent 70%); }
+    .final-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 2rem; }
+    .final-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+    /* -- FOOTER -- */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
+    .footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 1rem; letter-spacing: 0.04em; }
+    .footer-col a { display: block; color: var(--muted); font-size: 0.82rem; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cyan); }
+    .footer-logo-lg { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+    .footer-logo-lg span { color: var(--cyan); }
+    .footer-tagline { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .footer-bottom { max-width: 1080px; margin: 1.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    /* -- REVEAL ANIMATION -- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* -- FOCUS STATES -- */
+    a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-outline:focus-visible, .pricing-cta:focus-visible, .nav-cta:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+
+    /* -- RESPONSIVE -- */
+    @media (max-width: 1024px) {
+      .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .usecases-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .usecases-grid { grid-template-columns: 1fr; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .diagram-card { padding: 1.5rem; }
+      .diagram-card pre { font-size: 0.7rem; }
+      .pricing-card { padding: 2rem; }
+      .hero-price { font-size: 2rem; }
+      .stats-grid { gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .deliverables-list { grid-template-columns: 1fr; }
+    }
+
+    /* -- MOBILE HAMBURGER -- */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    @media (max-width: 768px) {
+      .nav-dropdown-menu { position: static; opacity: 1; visibility: visible; background: transparent; border: none; min-width: auto; margin-top: 0; padding: 0; }
+      .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: .5rem 0; font-size: 1rem; color: #fff; }
+      .nav-dropdown-toggle::after { display: none; }
+      .hamburger { display: block; }
+      .nav-links { display: none !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(8,15,28,.97); flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; z-index: 1000; padding: 2rem; }
+      .nav-links.open { display: flex !important; }
+      .nav-links li { list-style: none; }
+      .nav-links a { font-size: 1.2rem; color: #fff; text-decoration: none; }
+      .nav-links a.active { color: #2ee8d3; }
+      .nav-links .nav-cta { background: #2ee8d3; color: #080f1c; padding: 12px 28px; border-radius: 8px; font-weight: 600; margin-top: 1rem; }
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">POWER<span>MATES</span></a>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/tenant-scan">Tenant Scan</a></li>
-    <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
-    <li><a href="/semantic-model-audit">Model Audit</a></li>
-    <li><a href="/realtime-analytics-accelerator" class="active">Real-Time</a></li>
-    <li><a href="/migration-playbook">Migration</a></li>
-    <li><a href="/spark-optimization">Spark</a></li>
-    <li><a href="/pipeline-health-check">Pipelines</a></li>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/tenant-scan">Tenant Scan</a></li>
+      <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+      <li><a href="/semantic-model-audit">Model Audit</a></li>
+      <li><a href="/realtime-analytics-accelerator" class="active">Real-Time</a></li>
+      <li><a href="/migration-playbook">Migration</a></li>
+      <li><a href="/spark-optimization">Spark</a></li>
+      <li><a href="/pipeline-health-check">Pipelines</a></li>
       <li class="nav-dropdown">
         <a class="nav-dropdown-toggle">Bundles</a>
         <ul class="nav-dropdown-menu">
@@ -127,240 +315,537 @@
           <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
         </ul>
       </li>
-    <li><a href="#pricing" class="nav-cta">Get Started</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <div class="hero-badge">NEW — Streaming Analytics in a Day</div>
-  <h1>Real-time intelligence, <span>deployed fast</span></h1>
-  <p>AI scaffolds your Eventhouse, KQL tables, streaming pipelines, and dashboards. A Dual Microsoft MVP tunes it for your data. One day, one price.</p>
-  <a href="#pricing" class="hero-cta">Get Started — $10,000</a>
-</section>
-
-<div class="section-alt">
-  <div class="section" style="padding:2.5rem 2rem;">
-    <div class="proof">
-      <div class="proof-item"><div class="proof-num">3</div><div class="proof-label">Scenario Templates</div></div>
-      <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">KQL Deploy Scripts</div></div>
-      <div class="proof-item"><div class="proof-num">1 day</div><div class="proof-label">Deployment Time</div></div>
-      <div class="proof-item"><div class="proof-num">< 1s</div><div class="proof-label">Query Latency</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- DATA FLOW -->
-<section class="section">
-  <h2>The <span>streaming pipeline</span> we build</h2>
-  <p class="section-sub">From raw events to real-time dashboards — all within Fabric, no external infrastructure needed.</p>
-
-  <div class="flow-diagram">
-    <span class="highlight">Data Sources</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Eventstream</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Eventhouse / KQL</span><br>
-    ┌──────────┐ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ┌─────────────────┐ &nbsp;&nbsp;&nbsp;&nbsp; ┌────────────────────┐<br>
-    │ Event Hub │─────▶│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │─────▶│ RawEvents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    │ IoT Hub &nbsp;&nbsp;│─────▶│ Ingestion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp; ↓ update policy &nbsp;&nbsp;│<br>
-    │ REST API &nbsp;│─────▶│ Stream &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│ &nbsp;&nbsp;&nbsp;&nbsp; │ ParsedEvents &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    │ Kafka &nbsp;&nbsp;&nbsp;&nbsp;│─────▶│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp; ↓ function &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    └──────────┘ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └─────────────────┘ &nbsp;&nbsp;&nbsp;&nbsp; │ Alerts / Rollups &nbsp;&nbsp;│<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ <span class="highlight">Materialized Views</span> │<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └─────────┬──────────┘<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▼<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="highlight">Real-Time Dashboard</span>
-  </div>
-</section>
-
-<!-- SCENARIOS -->
-<div class="section-alt">
-  <section class="section">
-    <h2>Pick your <span>scenario</span></h2>
-    <p class="section-sub">Three battle-tested templates. Each includes tables, policies, functions, materialized views, and dashboard queries.</p>
-
-    <div class="scenarios">
-      <div class="scenario">
-        <h3><span>📡</span> IoT Telemetry</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin-bottom:.75rem">Device sensors, readings, anomaly detection, alerts</p>
-        <ul>
-          <li>RawTelemetry → ParsedTelemetry → DeviceAlerts</li>
-          <li>Anomaly detection via percentile functions</li>
-          <li>Hourly device stats materialized view</li>
-          <li>Live telemetry stream dashboard</li>
-        </ul>
-      </div>
-      <div class="scenario">
-        <h3><span>🖱️</span> Clickstream Analytics</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin-bottom:.75rem">Page views, sessions, user behavior, engagement</p>
-        <ul>
-          <li>RawEvents → PageViews → UserSessions</li>
-          <li>User-agent parsing + geo enrichment</li>
-          <li>Hourly page stats + daily session rollups</li>
-          <li>Active users real-time counter</li>
-        </ul>
-      </div>
-      <div class="scenario">
-        <h3><span>📋</span> Application Logs</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin-bottom:.75rem">Structured logging, error tracking, performance monitoring</p>
-        <ul>
-          <li>RawLogs → ParsedLogs → ErrorEvents</li>
-          <li>Exception type extraction + aggregation</li>
-          <li>Error rate trend materialized views</li>
-          <li>Live log stream + top exceptions dashboard</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- WHAT YOU GET -->
-<section class="section">
-  <h2>What's <span>included</span></h2>
-  <p class="section-sub">Everything you need to go from zero to real-time analytics in one engagement.</p>
-
-  <div class="cards">
-    <div class="card"><div class="card-icon">🏗️</div><h3>Eventhouse + KQL Database</h3><p>Provisioned in your Fabric workspace with proper naming and descriptions. Ready for data.</p></div>
-    <div class="card"><div class="card-icon">📊</div><h3>Table Schema + Policies</h3><p>Tables with typed columns, retention policies, hot cache configuration, and streaming ingestion enabled.</p></div>
-    <div class="card"><div class="card-icon">🔄</div><h3>Eventstream Pipeline</h3><p>Ingestion stream created and configured. Connect your Event Hub, IoT Hub, or custom app.</p></div>
-    <div class="card"><div class="card-icon">⚡</div><h3>ETL Functions + Update Policies</h3><p>KQL stored functions auto-transform raw data on ingestion. No manual ETL needed.</p></div>
-    <div class="card"><div class="card-icon">📈</div><h3>Materialized Views</h3><p>Pre-computed aggregations for common patterns — hourly stats, daily rollups, trend analysis.</p></div>
-    <div class="card"><div class="card-icon">🖥️</div><h3>Dashboard Queries</h3><p>Production-ready KQL queries for live stream, top-N, trend, and distribution visualizations.</p></div>
-    <div class="card"><div class="card-icon">📄</div><h3>Deployment Scripts</h3><p>Versioned .kql files + bash deploy script. Run once to deploy, commit to git for CI/CD.</p></div>
-    <div class="card"><div class="card-icon">🗺️</div><h3>Architecture Documentation</h3><p>Data flow diagram, table specs, function docs, and deployment guide. Complete handoff.</p></div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<div class="section-alt">
-  <section class="section">
-    <h2>How it <span>works</span></h2>
-    <p class="section-sub">Four steps. One day. Production-ready streaming.</p>
-
-    <div class="steps">
-      <div class="step"><h4>Discovery</h4><p>30-min call to understand your data sources, event schema, volume, and latency requirements.</p></div>
-      <div class="step"><h4>Scaffold</h4><p>AI generates Eventhouse, tables, policies, functions, and materialized views from your scenario template.</p></div>
-      <div class="step"><h4>Customize</h4><p>4-hour working session with an MVP. We tune schemas, connect your sources, and build your dashboard.</p></div>
-      <div class="step"><h4>Deploy</h4><p>Scripts deployed to your tenant. Architecture docs delivered. 30-day support with 2 follow-up calls.</p></div>
-    </div>
-  </section>
-</div>
-
-<!-- PRICING -->
-<section class="section" id="pricing">
-  <h2>Simple <span>pricing</span></h2>
-  <p class="section-sub">One scenario, fully deployed. No hourly billing.</p>
-
-  <div class="pricing-card">
-    <h3>Real-Time Analytics Accelerator</h3>
-    <div class="pricing-amount">$10,000 <small>one-time</small></div>
-    <ul class="pricing-features">
-      <li>Eventhouse + KQL Database provisioned</li>
-      <li>Eventstream ingestion pipeline</li>
-      <li>3-layer table architecture with typed schemas</li>
-      <li>Retention, caching, and streaming policies</li>
-      <li>ETL functions + automatic update policies</li>
-      <li>Materialized views for common aggregations</li>
-      <li>Real-time dashboard starter queries</li>
-      <li>Deployment scripts (.kql + bash)</li>
-      <li>Architecture documentation</li>
-      <li>4-hour working session with MVP</li>
-      <li>30-day support (2 follow-up calls)</li>
+      <li><a href="#pricing" class="nav-cta">Get Started &rarr;</a></li>
     </ul>
-    <div id="intake-form" style="margin-top:2rem;text-align:left;">
-      <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
-        <input type="hidden" name="_subject" value="Real-Time Analytics Accelerator — $10,000 Inquiry">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://www.thepowermates.com/realtime-analytics-accelerator#thanks">
-        <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-        <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-        <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-        <select name="scenario" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-          <option value="" disabled selected>Which scenario fits best?</option>
-          <option value="iot">IoT / Device Telemetry</option>
-          <option value="clickstream">Clickstream / Web Analytics</option>
-          <option value="app-logs">Application Logs / Observability</option>
-          <option value="custom">Custom / Not sure yet</option>
-        </select>
-        <input type="text" name="data_source" placeholder="Primary data source (e.g. Event Hub, IoT Hub, Kafka)" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-        <input type="text" name="volume" placeholder="Estimated events/day (e.g. 1M, 100M)" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
-        <textarea name="details" placeholder="Tell us about your use case (optional)" rows="3" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;resize:vertical;"></textarea>
-        <button type="submit" class="pricing-cta">Get Started — $10,000</button>
-      </form>
-    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/">Home</a> &nbsp;/&nbsp; <a href="/#services">Services</a> &nbsp;/&nbsp; Real-Time Analytics Accelerator
   </div>
 
-  <div class="bundle-card">
-    <h4>Bundle & Save</h4>
-    <p>Combine with Fabric Architecture Accelerator for batch + real-time in one engagement.</p>
-    <div class="bundle-price">$22,500 <small style="font-size:.9rem;color:var(--muted);font-weight:400">instead of $25,000</small></div>
-    <p style="margin-top:.5rem;">Architecture Accelerator ($15,000) + Real-Time ($10,000) = Save $2,500</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<div class="section-alt">
-  <section class="section">
-    <h2>Frequently asked <span>questions</span></h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">Do we need Fabric capacity?</div>
-        <div class="faq-a">Yes. Eventhouse requires at least an F2 SKU with Real-Time Intelligence enabled. We can help you determine the right capacity during the discovery call.</div>
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="badge">Sub-Second Latency</div>
+      <h1>Real-Time Analytics.<br /><span>Deployed in a Day.</span></h1>
+      <p>We set up Eventstreams, KQL databases, and live dashboards in your Microsoft Fabric tenant. AI scaffolds the infrastructure. A Dual Microsoft MVP tunes it for your data.</p>
+      <div class="hero-price">$8,000 <span class="price-note">one-time</span></div>
+      <div class="hero-cta-group">
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+        <a href="#how-it-works" class="btn-outline">How It Works</a>
       </div>
-      <div class="faq-item">
-        <div class="faq-q">What data sources can you connect?</div>
-        <div class="faq-a">Eventstream supports Azure Event Hubs, IoT Hub, custom apps (REST), Kafka, and sample data generators. We connect your source during the working session.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How much data can this handle?</div>
-        <div class="faq-a">Eventhouse is built on Kusto (Azure Data Explorer) and can handle billions of events. The policies we configure (retention, caching, streaming ingestion) are tuned for your expected volume.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Can we customize the scenario templates?</div>
-        <div class="faq-a">Absolutely — that's what the 4-hour working session is for. The templates are starting points. We'll adapt table schemas, functions, and materialized views to your actual event structure.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What if we also need batch processing?</div>
-        <div class="faq-a">Bundle with our Fabric Architecture Accelerator ($15,000) for a complete batch + real-time lakehouse. The combo gives you medallion architecture + streaming — save $2,500 on the bundle.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Can you also build the Power BI dashboards?</div>
-        <div class="faq-a">We deliver KQL dashboard queries ready to use in Fabric Real-Time Dashboards. For full Power BI report development, we offer follow-up engagements starting at $5,000.</div>
+      <div class="hero-trust">
+        <span>Dual Microsoft MVP</span>
+        <span>Fabric Real-Time Intelligence</span>
+        <span>Sub-Second Queries</span>
+        <span>Production-Ready</span>
       </div>
     </div>
   </section>
-</div>
 
-<section class="section" style="text-align:center;">
-  <h2>Stop waiting for batch. <span>Go real-time.</span></h2>
-  <p class="section-sub">Your data is moving. Your analytics should keep up.</p>
-  <a href="#pricing" class="hero-cta">Get Started — $10,000</a>
-</section>
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-num">4</div><div class="stat-label">Use Case Templates</div></div>
+      <div class="stat-item reveal"><div class="stat-num">&lt; 1s</div><div class="stat-label">Query Latency</div></div>
+      <div class="stat-item reveal"><div class="stat-num">1 day</div><div class="stat-label">Deployment Time</div></div>
+      <div class="stat-item reveal"><div class="stat-num">30 days</div><div class="stat-label">Post-Deploy Support</div></div>
+    </div>
+  </div>
+
+  <!-- WHY REAL-TIME -->
+  <section style="background: var(--bg);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">Why Real-Time Matters</h2>
+        <p class="section-sub">Batch processing gives you yesterday's answers. Your business needs to react now.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="icon">&#x23F1;</div>
+          <h3>Hours-Old Data</h3>
+          <p>Batch pipelines run overnight. By the time your dashboard refreshes, the moment to act has passed. Anomalies go undetected for hours.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="icon">&#x1F6A8;</div>
+          <h3>Missed Alerts</h3>
+          <p>Without streaming analytics, critical events &mdash; failed transactions, device failures, traffic spikes &mdash; sit unnoticed in a queue until the next ETL run.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="icon">&#x1F4B8;</div>
+          <h3>Infrastructure Sprawl</h3>
+          <p>Teams bolt on Kafka, Spark Streaming, custom code, and separate dashboards. Costs climb while reliability drops. Fabric unifies it all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Use Cases</div>
+        <h2 class="section-title">Four Battle-Tested Scenarios</h2>
+        <p class="section-sub">Pick the template that fits your data. We customize it during the working session.</p>
+      </div>
+      <div class="usecases-grid">
+        <div class="usecase-card reveal">
+          <div class="icon">&#x1F4E1;</div>
+          <h3>IoT Telemetry</h3>
+          <p>Device sensors, readings, anomaly detection, and alerts.</p>
+          <ul>
+            <li>RawTelemetry &rarr; ParsedTelemetry &rarr; DeviceAlerts</li>
+            <li>Anomaly detection via percentile functions</li>
+            <li>Hourly device stats materialized view</li>
+            <li>Live telemetry stream dashboard</li>
+          </ul>
+        </div>
+        <div class="usecase-card reveal">
+          <div class="icon">&#x1F5B1;</div>
+          <h3>Clickstream Analytics</h3>
+          <p>Page views, sessions, user behavior, and engagement tracking.</p>
+          <ul>
+            <li>RawEvents &rarr; PageViews &rarr; UserSessions</li>
+            <li>User-agent parsing + geo enrichment</li>
+            <li>Hourly page stats + daily session rollups</li>
+            <li>Active users real-time counter</li>
+          </ul>
+        </div>
+        <div class="usecase-card reveal">
+          <div class="icon">&#x1F4B3;</div>
+          <h3>Transaction Monitoring</h3>
+          <p>Payment flows, fraud signals, and revenue tracking in real time.</p>
+          <ul>
+            <li>RawTransactions &rarr; Validated &rarr; FraudAlerts</li>
+            <li>Velocity checks + threshold-based rules</li>
+            <li>Revenue-per-minute materialized view</li>
+            <li>Live transaction volume dashboard</li>
+          </ul>
+        </div>
+        <div class="usecase-card reveal">
+          <div class="icon">&#x1F4CA;</div>
+          <h3>Operational Dashboards</h3>
+          <p>Application logs, system health, SLA monitoring, and error tracking.</p>
+          <ul>
+            <li>RawLogs &rarr; ParsedLogs &rarr; ErrorEvents</li>
+            <li>Exception type extraction + aggregation</li>
+            <li>Error rate trend materialized views</li>
+            <li>Live log stream + top exceptions dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section id="whats-included" style="background: var(--bg);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">What You Get</div>
+        <h2 class="section-title">Everything to Go from Zero to Real-Time</h2>
+        <p class="section-sub">A complete streaming analytics stack, deployed and documented in a single day.</p>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x26A1;</div>
+          <h3>Eventstream Pipeline</h3>
+          <p>Ingestion stream configured in your Fabric workspace. Connect Event Hubs, IoT Hub, custom apps, or Kafka. Data flowing in minutes.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4BE;</div>
+          <h3>KQL Database (Eventhouse)</h3>
+          <p>Provisioned with typed tables, retention policies, hot cache configuration, and streaming ingestion enabled. Optimized for your volume.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4C8;</div>
+          <h3>Real-Time Dashboard</h3>
+          <p>Production-ready KQL queries for live stream, top-N, trend, and distribution visualizations. Pinned to a Fabric Real-Time Dashboard.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F514;</div>
+          <h3>Alerting Rules</h3>
+          <p>Threshold-based and anomaly-detection alerts configured via Activator. Get notified in Teams, email, or Power Automate when conditions trigger.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x2699;</div>
+          <h3>ETL Functions + Update Policies</h3>
+          <p>KQL stored functions auto-transform raw data on ingestion. Multi-layer table architecture with no manual ETL needed.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="icon">&#x1F4C4;</div>
+          <h3>Architecture Documentation</h3>
+          <p>Data flow diagram, table specs, function docs, alerting rules, and deployment guide. Complete handoff for your team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE DIAGRAM -->
+  <section id="diagram" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">The Streaming Pipeline</h2>
+        <p class="section-sub">From raw events to live dashboards &mdash; all within Fabric, no external infrastructure.</p>
+      </div>
+      <div class="diagram-card reveal">
+        <pre>
+<span class="layer-label">DATA SOURCES</span>       &rarr;  <span class="layer-label">EVENTSTREAM</span>          &rarr;  <span class="layer-label">KQL DATABASE</span>          &rarr;  <span class="layer-label">DASHBOARD</span>
+  Event Hub              Ingest + route           RawEvents                 Real-Time Dashboard
+  IoT Hub                Filter + transform       ParsedEvents (update)     Activator Alerts
+  Custom App / REST      Fan-out to targets       Materialized Views        Teams / Email
+  Kafka                  Dead-letter queue        Retention + caching       Power Automate
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Four Steps. One Day to Streaming.</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Discovery Call</h3>
+          <p>30-min call to understand your data sources, event schemas, volume, and latency requirements. We pick your scenario template.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>AI-Assisted Scaffold</h3>
+          <p>We generate Eventhouse, tables, policies, functions, materialized views, and dashboard queries from your scenario template.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Working Session</h3>
+          <p>4-hour hands-on session with a Dual Microsoft MVP. We tune schemas, connect your sources, configure alerts, and validate end-to-end.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">4</div>
+          <h3>Deploy + Handoff</h3>
+          <p>Everything deployed to your tenant. Architecture docs delivered. 30-day support with 2 follow-up calls included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES CHECKLIST -->
+  <section style="background: var(--bg);">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Deliverables</div>
+        <h2 class="section-title">What Ships at the End of the Day</h2>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <ul class="deliverables-list">
+          <li class="reveal">Eventhouse + KQL Database provisioned in your workspace</li>
+          <li class="reveal">Eventstream ingestion pipeline configured</li>
+          <li class="reveal">Multi-layer table architecture with typed schemas</li>
+          <li class="reveal">Retention, caching, and streaming policies tuned</li>
+          <li class="reveal">ETL functions + automatic update policies</li>
+          <li class="reveal">Materialized views for common aggregations</li>
+          <li class="reveal">Real-Time Dashboard with live queries</li>
+          <li class="reveal">Activator alerting rules configured</li>
+          <li class="reveal">Architecture documentation + data flow diagram</li>
+          <li class="reveal">4-hour working session with Dual MVP</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">One Price. Everything Included.</h2>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Real-Time Analytics Accelerator</div>
+        <div class="pricing-price">$8,000 <span class="price-note">one-time</span></div>
+        <div class="pricing-tagline">Complete streaming analytics stack, deployed and documented in a day.</div>
+        <ul class="pricing-features">
+          <li>Eventhouse + KQL Database provisioned</li>
+          <li>Eventstream ingestion pipeline</li>
+          <li>Multi-layer table architecture with typed schemas</li>
+          <li>Retention, caching, and streaming policies</li>
+          <li>ETL functions + automatic update policies</li>
+          <li>Materialized views for common aggregations</li>
+          <li>Real-Time Dashboard with live queries</li>
+          <li>Activator alerting rules</li>
+          <li>Architecture documentation</li>
+          <li>4-hour working session with a Dual MVP</li>
+          <li>30-day support (2 follow-up calls)</li>
+        </ul>
+
+        <div id="intake-form" style="margin-top: 2rem; text-align: left;">
+          <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display: flex; flex-direction: column; gap: .75rem;">
+            <input type="hidden" name="_subject" value="Real-Time Analytics Accelerator — $8,000 Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.thepowermates.com/realtime-analytics-accelerator#thanks">
+            <input type="text" name="name" placeholder="Your name" required style="padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .95rem; font-family: inherit;">
+            <input type="email" name="email" placeholder="Work email" required style="padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .95rem; font-family: inherit;">
+            <input type="text" name="company" placeholder="Company" required style="padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .95rem; font-family: inherit;">
+            <select name="data_source_type" required style="padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .95rem; font-family: inherit;">
+              <option value="" disabled selected>Data source type</option>
+              <option value="iot">IoT / Device Telemetry</option>
+              <option value="clickstream">Clickstream / Web Analytics</option>
+              <option value="transactions">Transactions / Payments</option>
+              <option value="logs">Application Logs / Observability</option>
+              <option value="other">Other / Not sure yet</option>
+            </select>
+            <input type="text" name="events_per_second" placeholder="Estimated events per second (e.g. 100, 10K, 1M)" style="padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .95rem; font-family: inherit;">
+            <textarea name="details" rows="3" placeholder="Tell us about your streaming use case (optional)" style="padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: .95rem; font-family: inherit; resize: vertical;"></textarea>
+            <button type="submit" class="pricing-cta">Request Real-Time Accelerator</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="thanks" style="display: none; background: var(--bg2); border: 2px solid #2ee8d3; border-radius: 12px; padding: 2rem; margin: 2rem auto; max-width: 600px; text-align: center;">
+        <h3 style="color: #2ee8d3; margin-bottom: .5rem;">Request received!</h3>
+        <p style="color: #fff;">Gaston will reach out within 24 hours. Check your inbox.</p>
+      </div>
+
+      <!-- BUNDLE -->
+      <div class="bundle-card reveal">
+        <h4>Bundle &amp; Save</h4>
+        <p>Combine with the Fabric Architecture Accelerator for batch + real-time in one engagement.</p>
+        <div class="bundle-price">$22,000 <span style="font-size: .85rem; color: var(--muted); font-weight: 400;">instead of $23,000</span></div>
+        <p style="margin-top: .5rem;">Architecture ($15,000) + Real-Time ($8,000) &mdash; Save $1,000</p>
+        <a href="/architecture-realtime" class="btn-outline" style="margin-top: 1rem; padding: 10px 24px; font-size: 0.85rem;">View Bundle &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Do we need Fabric capacity?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Yes. Eventhouse requires at least an F2 SKU with Real-Time Intelligence enabled. We help you determine the right capacity during the discovery call.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What data sources can you connect?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Eventstream supports Azure Event Hubs, IoT Hub, custom apps (REST), Kafka, and sample data generators. We connect your source during the working session.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            How much data can this handle?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Eventhouse is built on Kusto (Azure Data Explorer) and can handle billions of events. The policies we configure &mdash; retention, caching, streaming ingestion &mdash; are tuned for your expected volume.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Can we customize the scenario templates?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Absolutely &mdash; that's what the 4-hour working session is for. The templates are starting points. We adapt table schemas, functions, and materialized views to your actual event structure.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            What if we also need batch processing?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>Bundle with our Fabric Architecture Accelerator ($15,000) for a complete batch + real-time platform. The combo gives you medallion lakehouse + streaming &mdash; save $1,000 on the bundle at $22,000.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Can you also build Power BI reports on top?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </button>
+          <div class="faq-answer"><p>We deliver KQL dashboard queries ready to use in Fabric Real-Time Dashboards. For full Power BI report development, we offer follow-up engagements starting at $5,000.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="reveal">Stop Waiting for Batch. <span style="color: var(--cyan);">Go Real-Time.</span></h2>
+      <p class="reveal">Your data is moving. Your analytics should keep up.</p>
+      <div class="final-cta-group reveal">
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+        <a href="#intake-form" class="btn-outline">Talk to Gaston</a>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo-lg">POWER<span>MATES</span></div>
+        <p class="footer-tagline">Microsoft Fabric &amp; Power Platform consulting by Dual MVPs. Data Platform + AI.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/tenant-scan">Tenant Scan</a>
+        <a href="/fabric-architecture-accelerator">Architecture Accelerator</a>
+        <a href="/realtime-analytics-accelerator">Real-Time Analytics</a>
+        <a href="/semantic-model-audit">Semantic Model Audit</a>
+        <a href="/migration-playbook">Migration Playbook</a>
+      </div>
+      <div class="footer-col">
+        <h4>Bundles</h4>
+        <a href="/architecture-realtime">Architecture + Real-Time</a>
+        <a href="/bi-performance-pack">BI Performance Pack</a>
+        <a href="/data-engineering-pack">Data Engineering Pack</a>
+        <a href="/enterprise-transformation">Enterprise Transformation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X (Twitter)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</div>
       <div class="footer-social">
         <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
       </div>
-      <div class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</div>
     </div>
   </footer>
 
-<script>
-  document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open')})});
-</script>
+  <!-- PARTICLES -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
-  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
-  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});
-        var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
-  if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}});
-})();
-</script>
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.alpha = Math.random() * 0.4 + 0.05;
+        this.r = Math.random() * 1.8 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.06 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- FAQ ACCORDION -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+  <!-- HAMBURGER -->
+  <script>
+    (function(){
+      var btn = document.querySelector('.hamburger'), nav = document.querySelector('.nav-links');
+      if (btn && nav) {
+        btn.addEventListener('click', function(){ btn.classList.toggle('open'); nav.classList.toggle('open'); });
+      }
+      nav && nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){ btn.classList.remove('open'); nav.classList.remove('open'); });
+      });
+      var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e){ e.preventDefault(); document.querySelector('.nav-dropdown').classList.toggle('open'); });
+      }
+    })();
+  </script>
+
+  <!-- SHOW THANKS ON HASH -->
+  <script>
+    if (window.location.hash === '#thanks') {
+      var t = document.getElementById('thanks');
+      if (t) t.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
