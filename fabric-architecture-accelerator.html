@@ -660,6 +660,23 @@
       .pricing-card { padding: 2rem; }
       .hero-price { font-size: 2rem; }
     }
+  
+/* ── Mobile Hamburger ── */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:768px){      .nav-dropdown-menu{position:static;opacity:1;visibility:visible;background:transparent;border:none;min-width:auto;margin-top:0;padding:0}.nav-dropdown:hover .nav-dropdown-menu{display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:.5rem 0;font-size:1rem;color:#fff}.nav-dropdown-toggle::after{display:none}
+  .hamburger{display:block}
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
+  .nav-links.open{display:flex!important}
+  .nav-links li{list-style:none}
+  .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
+  .nav-links a.active{color:#2ee8d3}
+  .nav-links .nav-cta{background:#2ee8d3;color:#080f1c;padding:12px 28px;border-radius:8px;font-weight:600;margin-top:1rem}.nav-dropdown-toggle{position:relative;cursor:pointer;color:var(--muted);font-size:.9rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.5rem}.nav-dropdown-toggle:hover{color:var(--cyan)}.nav-dropdown-toggle::after{content:"▼";font-size:.6rem}.nav-dropdown-menu{position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;min-width:240px;list-style:none;padding:.75rem 0;margin-top:.5rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:1000}.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}.nav-dropdown-menu li{list-style:none}.nav-dropdown-menu a{display:block;padding:.75rem 1.5rem;color:var(--muted);font-size:.85rem;transition:color .2s,background .2s}.nav-dropdown-menu a:hover{background:rgba(46,232,211,.1);color:var(--cyan)}
+}
+
   </style>
 </head>
 <body>
@@ -667,11 +684,30 @@
   <!-- -- NAV -- -->
   <nav>
     <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
+      <li><a href="/">Home</a></li>
       <li><a href="/tenant-scan">Tenant Scan</a></li>
-      <li><a href="/fabric-architecture-accelerator" class="active">Architecture Accelerator</a></li>
+      <li><a href="/fabric-architecture-accelerator" class="active">Architecture</a></li>
+      <li><a href="/semantic-model-audit">Model Audit</a></li>
+      <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+      <li><a href="/migration-playbook">Migration</a></li>
+      <li><a href="/spark-optimization">Spark</a></li>
+      <li><a href="/pipeline-health-check">Pipelines</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-dropdown-toggle">Bundles</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+          <li><a href="/governance-performance">Governance + Performance</a></li>
+          <li><a href="/migration-governance">Migration + Governance</a></li>
+          <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
+          <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
+          <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+        </ul>
+      </li>
+      <li><a href="#pricing" class="nav-cta">Get Started &rarr;</a></li>
     </ul>
-    <a href="mailto:gaston@thepowermates.com?subject=Fabric%20Architecture%20Accelerator%20%E2%80%94%20%2415%2C000&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Fabric%20Architecture%20Accelerator.%20Please%20send%20details.%0A%0AThanks!" class="nav-cta">Get Started &rarr;</a>
   </nav>
 
   <!-- -- HERO -- -->
@@ -683,7 +719,7 @@
       <p>We connect to your Fabric tenant and scaffold a complete Bronze/Silver/Gold lakehouse architecture &mdash; workspaces, lakehouses, PySpark notebooks, pipelines, Spark configs, and Direct Lake semantic model. AI builds the scaffolding. A Dual Microsoft MVP customizes it for your data.</p>
       <div class="hero-price">$15,000 <span class="price-note">one-time</span></div>
       <div class="hero-cta-group">
-        <a href="mailto:gaston@thepowermates.com?subject=Fabric%20Architecture%20Accelerator%20%E2%80%94%20%2415%2C000&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20Fabric%20Architecture%20Accelerator.%20Please%20send%20details.%0A%0AThanks!" class="btn-primary">Get Started &rarr;</a>
+        <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
         <a href="#how-it-works" class="btn-outline">How It Works</a>
       </div>
       <div class="hero-trust">
@@ -901,36 +937,36 @@
           <strong>Add-on: Tenant Scan</strong> <span class="addon-price">($2,500&ndash;$12,500)</span><br />
           Scan your existing tenant first, then build the medallion architecture informed by the findings.
         </div>
-        <div id="intake-form" style="margin-top:2rem; text-align:left;">
-          <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
-            <input type="hidden" name="_subject" value="Fabric Architecture Accelerator — $15,000 Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://www.thepowermates.com/fabric-architecture-accelerator#thanks">
-            <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <input type="text" name="data_sources" placeholder="Primary data sources (e.g. SQL Server, Azure, S3)" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <select name="current_state" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-              <option value="" disabled selected>Current Fabric state</option>
-              <option value="greenfield">Greenfield — no Fabric yet</option>
-              <option value="poc">PoC / trial capacity</option>
-              <option value="existing">Existing workspaces, need restructuring</option>
-              <option value="migration">Migrating from Synapse / Databricks</option>
-            </select>
-            <select name="priority" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-              <option value="" disabled selected>Primary goal</option>
-              <option value="medallion">Build medallion architecture</option>
-              <option value="direct-lake">Enable Direct Lake reporting</option>
-              <option value="migration">Migrate existing pipelines</option>
-              <option value="best-practices">Establish best practices</option>
-              <option value="other">Other</option>
-            </select>
-            <textarea name="details" placeholder="Anything else? (optional)" rows="3" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;resize:vertical;"></textarea>
-            <button type="submit" class="pricing-cta" style="border:none;cursor:pointer;font-family:inherit;">Get Started — $15,000 &rarr;</button>
-          </form>
-        </div>
+        <div id="intake-form" style="margin-top:2rem;text-align:left;">
+        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
+          <input type="hidden" name="_subject" value="Architecture Accelerator — $15,000 Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.thepowermates.com/fabric-architecture-accelerator#thanks">
+          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <select name="data_sources" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Number of data sources?</option>
+            <option value="1-3">1 – 3 sources</option>
+            <option value="4-8">4 – 8 sources</option>
+            <option value="8+">8+ sources</option>
+          </select>
+          <select name="current_state" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Current Fabric state?</option>
+            <option value="greenfield">Greenfield — starting fresh</option>
+            <option value="existing">Have existing workspaces/lakehouses</option>
+            <option value="migrating">Migrating from another platform</option>
+          </select>
+          <textarea name="details" rows="3" placeholder="What data are you bringing into Fabric?" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;"></textarea>
+          <button type="submit" class="pricing-cta">Request Architecture Accelerator</button>
+        </form>
       </div>
+      </div>
+      <div id="thanks" style="display:none;background:var(--bg2,#0d1929);border:2px solid #2ee8d3;border-radius:12px;padding:2rem;margin:2rem auto;max-width:600px;text-align:center;">
+    <h3 style="color:#2ee8d3;margin-bottom:.5rem;">Request received!</h3>
+    <p style="color:#fff;">Gastón will reach out within 24 hours. Check your inbox.</p>
+  </div>
     </div>
   </section>
 
@@ -981,7 +1017,7 @@
       <p class="reveal">Stop building from scratch. Get a production-ready medallion architecture deployed by a Microsoft MVP.</p>
       <div class="final-cta-group reveal">
         <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
-        <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
+        <a href="#intake-form" class="btn-outline">Talk to Gaston</a>
       </div>
     </div>
   </section>
@@ -1093,5 +1129,15 @@
     });
   </script>
 
+
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
+  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});
+        var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
+  if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}});
+})();
+</script>
 </body>
 </html>

@@ -643,26 +643,54 @@
         border-top: 1px solid var(--cyan-border);
       }
     }
+  
+/* ── Mobile Hamburger ── */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:768px){      .nav-dropdown-menu{position:static;opacity:1;visibility:visible;background:transparent;border:none;min-width:auto;margin-top:0;padding:0}.nav-dropdown:hover .nav-dropdown-menu{display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:.5rem 0;font-size:1rem;color:#fff}.nav-dropdown-toggle::after{display:none}
+  .hamburger{display:block}
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
+  .nav-links.open{display:flex!important}
+  .nav-links li{list-style:none}
+  .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
+  .nav-links a.active{color:#2ee8d3}
+  .nav-links .nav-cta{background:#2ee8d3;color:#080f1c;padding:12px 28px;border-radius:8px;font-weight:600;margin-top:1rem}
+}
+
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="tenant-scan.html">Tenant Scan</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/tenant-scan" class="active">Tenant Scan</a></li>
+      <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+      <li><a href="/semantic-model-audit">Model Audit</a></li>
+      <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+      <li><a href="/migration-playbook">Migration</a></li>
+      <li><a href="/spark-optimization">Spark</a></li>
+      <li><a href="/pipeline-health-check">Pipelines</a></li>
       <li class="nav-dropdown">
-        <a href="#" aria-haspopup="true">Tiers &#9662;</a>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="tenant-scan-starter.html" role="menuitem">Starter &mdash; $2,500</a>
-          <a href="tenant-scan-professional.html" role="menuitem">Professional &mdash; $5,000</a>
-          <a href="tenant-scan-enterprise.html" role="menuitem">Enterprise &mdash; $7,500</a>
-          <a href="tenant-scan-ai-assisted.html" role="menuitem" style="color: var(--cyan); font-weight: 600;">AI-Assisted &mdash; $12,500</a>
-        </div>
+        <a class="nav-dropdown-toggle">Bundles</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+          <li><a href="/governance-performance">Governance + Performance</a></li>
+          <li><a href="/migration-governance">Migration + Governance</a></li>
+          <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
+          <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
+          <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+        </ul>
       </li>
+      <li><a href="#pricing" class="nav-cta">Get AI-Assisted Scan &rarr;</a></li>
     </ul>
-    <a href="mailto:gaston@thepowermates.com?subject=AI-Assisted%20Tenant%20Scan%20%E2%80%94%20%2412%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20AI-Assisted%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="nav-cta">Get AI-Assisted Scan &rarr;</a>
   </nav>
 
   <!-- HERO -->
@@ -674,8 +702,8 @@
       <p>We connect directly to your Fabric tenant using Microsoft's own FabricAdmin agent skills. AI scans every workspace, capacity, role assignment, shortcut, and semantic model &mdash; then a Dual Microsoft MVP interprets the findings in a live working session.</p>
       <div class="hero-price">$12,500 <small>one-time</small></div>
       <div class="hero-cta-group">
-        <a href="mailto:gaston@thepowermates.com?subject=AI-Assisted%20Tenant%20Scan%20%E2%80%94%20%2412%2C500&body=Hi%20Gaston%2C%0A%0AI%27m%20interested%20in%20the%20AI-Assisted%20Tenant%20Scan.%20Please%20send%20me%20the%20details%20to%20get%20started.%0A%0AThanks!" class="btn-primary">Get AI-Assisted Scan &rarr;</a>
-        <a href="tenant-scan.html#pricing" class="btn-outline">Compare All Tiers &rarr;</a>
+        <a href="#pricing" class="btn-primary">Get AI-Assisted Scan &rarr;</a>
+        <a href="/tenant-scan#pricing" class="btn-outline">Compare All Tiers &rarr;</a>
       </div>
       <div class="hero-trust">
         <span>Microsoft MVP</span>
@@ -867,30 +895,38 @@
           <li>2-hour live working session</li>
           <li>30-day follow-up call</li>
         </ul>
-        <div id="intake-form" style="margin-top:2rem; text-align:left;">
-          <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
-            <input type="hidden" name="_subject" value="AI-Assisted Tenant Scan — $12,500 Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://www.thepowermates.com/tenant-scan-ai-assisted#thanks">
-            <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <input type="text" name="tenant_size" placeholder="Approx. number of workspaces" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-            <select name="priority" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;">
-              <option value="" disabled selected>What's driving this?</option>
-              <option value="governance">Governance / compliance</option>
-              <option value="fabric-migration">Fabric migration planning</option>
-              <option value="security">Security / RBAC audit</option>
-              <option value="capacity">Capacity optimization</option>
-              <option value="visibility">Lack of visibility</option>
-              <option value="other">Other</option>
-            </select>
-            <textarea name="details" placeholder="Anything else? (optional)" rows="3" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:0.95rem;font-family:inherit;resize:vertical;"></textarea>
-            <button type="submit" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer;font-family:inherit;padding:14px;">Get AI-Assisted Scan — $12,500 &rarr;</button>
-          </form>
-        </div>
+        <div id="intake-form" style="margin-top:2rem;text-align:left;">
+        <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
+          <input type="hidden" name="_subject" value="AI-Assisted Tenant Scan — $12,500 Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.thepowermates.com/tenant-scan-ai-assisted#thanks">
+          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <select name="workspace_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Approximate workspace count?</option>
+            <option value="1-10">1 – 10 workspaces</option>
+            <option value="11-50">11 – 50 workspaces</option>
+            <option value="51-100">51 – 100 workspaces</option>
+            <option value="100+">100+ workspaces</option>
+          </select>
+          <select name="main_concern" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+            <option value="" disabled selected>Primary concern?</option>
+            <option value="governance">Governance & compliance gaps</option>
+            <option value="licensing">License optimization / cost</option>
+            <option value="migration">Migration readiness assessment</option>
+            <option value="security">Security & permissions audit</option>
+            <option value="copilot">Copilot readiness</option>
+          </select>
+          <button type="submit" class="pricing-cta">Request AI-Assisted Tenant Scan</button>
+        </form>
       </div>
+      </div>
+      <div id="thanks" style="display:none;background:var(--bg2,#0d1929);border:2px solid #2ee8d3;border-radius:12px;padding:2rem;margin:2rem auto;max-width:600px;text-align:center;">
+    <h3 style="color:#2ee8d3;margin-bottom:.5rem;">Request received!</h3>
+    <p style="color:#fff;">Gastón will reach out within 24 hours. Check your inbox.</p>
+  </div>
     </div>
   </section>
 
@@ -916,7 +952,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-q" tabindex="0" role="button" aria-expanded="false">What if I already bought a lower tier?</div>
-          <div class="faq-a">You can upgrade by paying the difference. Contact <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a>.</div>
+          <div class="faq-a">You can upgrade by paying the difference. <a href="#intake-form">Use our intake form</a> to connect with us.</div>
         </div>
       </div>
     </div>
@@ -930,7 +966,7 @@
         <p>AI-powered scan. Live working session. Dual Microsoft MVP. One engagement.</p>
         <div class="final-cta-group">
           <a href="#pricing" class="btn-primary">Get AI-Assisted Scan &mdash; $12,500 &rarr;</a>
-          <a href="mailto:gaston@thepowermates.com" class="btn-outline">Talk to Gaston</a>
+          <a href="#intake-form" class="btn-outline">Talk to Gaston</a>
         </div>
         <div class="hero-trust">
           <span>Read-only access only</span>
@@ -1049,5 +1085,15 @@
     });
   </script>
 
+
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
+  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});
+        var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
+  if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}});
+})();
+</script>
 </body>
 </html>

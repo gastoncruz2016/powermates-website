@@ -6,15 +6,18 @@
     },
     {
       "route": "/tenant-scan-starter",
-      "rewrite": "/tenant-scan-starter.html"
+      "redirect": "/tenant-scan-ai-assisted",
+      "statusCode": 301
     },
     {
       "route": "/tenant-scan-professional",
-      "rewrite": "/tenant-scan-professional.html"
+      "redirect": "/tenant-scan-ai-assisted",
+      "statusCode": 301
     },
     {
       "route": "/tenant-scan-enterprise",
-      "rewrite": "/tenant-scan-enterprise.html"
+      "redirect": "/tenant-scan-ai-assisted",
+      "statusCode": 301
     },
     {
       "route": "/tenant-scan-ai-assisted",
@@ -75,10 +78,6 @@
     {
       "route": "/enterprise-transformation",
       "rewrite": "/enterprise-transformation.html"
-    },
-    {
-      "route": "/iq-mcp-integration",
-      "rewrite": "/iq-mcp-integration.html"
     }
   ],
   "navigationFallback": {

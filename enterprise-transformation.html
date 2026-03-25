@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enterprise Transformation â The Power Mates</title>
+  <title>Enterprise Transformation — The Power Mates</title>
   <meta name="description" content="End-to-end Fabric buildout with two MVPs. $49,000 (save $10,500). Fixed-fee Fabric consulting by Dual Microsoft MVPs." />
-  <meta property="og:title" content="Enterprise Transformation â The Power Mates" />
+  <meta property="og:title" content="Enterprise Transformation — The Power Mates" />
   <meta property="og:description" content="End-to-end Fabric buildout with two MVPs. $49,000 bundle price." />
   <meta property="og:url" content="https://www.thepowermates.com/enterprise-transformation" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +22,7 @@
     .nav-links{display:flex;list-style:none;gap:1.5rem;align-items:center}
     .nav-links a{color:var(--muted);font-size:.9rem;text-decoration:none;transition:color .2s}
     .nav-links a:hover,.nav-links a.active{color:var(--cyan)}
-    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.9rem}
+    .nav-cta{background:var(--cyan);color:var(--bg)!important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:.9rem}.nav-dropdown-toggle{position:relative;cursor:pointer;color:var(--muted);font-size:.9rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.5rem}.nav-dropdown-toggle:hover{color:var(--cyan)}.nav-dropdown-toggle::after{content:"▼";font-size:.6rem}.nav-dropdown-menu{position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;min-width:240px;list-style:none;padding:.75rem 0;margin-top:.5rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:1000}.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible}.nav-dropdown-menu li{list-style:none}.nav-dropdown-menu a{display:block;padding:.75rem 1.5rem;color:var(--muted);font-size:.85rem;transition:color .2s,background .2s}.nav-dropdown-menu a:hover{background:rgba(46,232,211,.1);color:var(--cyan)}
     .hero{text-align:center;padding:5rem 2rem 3rem;max-width:800px;margin:0 auto}
     .hero-badge{display:inline-block;background:rgba(46,232,211,.1);color:var(--cyan);padding:6px 16px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(46,232,211,.2)}
     h1{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;line-height:1.15;margin-bottom:1rem}
@@ -47,7 +47,7 @@
     .included-detail{color:var(--muted);font-size:.9rem}
     .why-list{list-style:none;padding:0}
     .why-list li{padding:.75rem 0 .75rem 2rem;position:relative;color:var(--muted)}
-    .why-list li::before{content:"â";position:absolute;left:0;color:var(--cyan);font-weight:700}
+    .why-list li::before{content:"→";position:absolute;left:0;color:var(--cyan);font-weight:700}
     .timeline-bar{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin:2rem 0}
     .timeline-bar .label{color:var(--muted);font-size:.9rem}
     .timeline-bar .value{color:var(--cyan);font-weight:700;font-family:'Syne',sans-serif;font-size:1.2rem}
@@ -58,14 +58,45 @@
     .pricing-amount small{font-size:.9rem;color:var(--muted);font-weight:400;text-decoration:line-through;margin-left:.75rem}
     .pricing-cta{display:block;text-align:center;background:var(--cyan);color:var(--bg);padding:14px;border-radius:10px;font-weight:700;font-size:1rem;border:none;cursor:pointer;width:100%;font-family:inherit;margin-top:1rem;transition:transform .2s}
     .pricing-cta:hover{transform:translateY(-2px)}
-    footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--cyan); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a { color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--cyan); }
+
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
     /* Hamburger */
     .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
     .hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
     .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-    @media(max-width:768px){
+    @media(max-width:768px){      .nav-dropdown-menu{position:static;opacity:1;visibility:visible;background:transparent;border:none;min-width:auto;margin-top:0;padding:0}.nav-dropdown:hover .nav-dropdown-menu{display:none}.nav-dropdown.open .nav-dropdown-menu{display:block}.nav-dropdown-menu a{padding:.5rem 0;font-size:1rem;color:#fff}.nav-dropdown-toggle::after{display:none}
       .hamburger{display:block}
       .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
       .nav-links.open{display:flex!important}
@@ -95,12 +126,24 @@
     <li><a href="/migration-playbook">Migration</a></li>
     <li><a href="/spark-optimization">Spark</a></li>
     <li><a href="/pipeline-health-check">Pipelines</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-dropdown-toggle">Bundles</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+          <li><a href="/governance-performance">Governance + Performance</a></li>
+          <li><a href="/migration-governance">Migration + Governance</a></li>
+          <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
+          <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
+          <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+        </ul>
+      </li>
     <li><a href="#pricing" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
 <section class="hero">
-  <div class="hero-badge">BUNDLE â Save $10,500</div>
+  <div class="hero-badge">BUNDLE — Save $10,500</div>
   <h1>Enterprise <span>Transformation</span></h1>
   <p>Seven engagements. Two Dual Microsoft MVPs. One platform transformation. The complete Fabric buildout from governance to real-time.</p>
   <div class="hero-price">
@@ -108,7 +151,7 @@
     <span class="list">$59,500</span>
     <span class="save-badge">Save $10,500</span>
   </div>
-  <a href="#pricing" class="hero-cta">Get Started â $49,000</a>
+  <a href="#pricing" class="hero-cta">Get Started — $49,000</a>
 </section>
 
 <div class="section-alt">
@@ -120,7 +163,7 @@
           <a href="/tenant-scan-ai-assisted" class="included-name">AI-Assisted Tenant Scan</a>
           <span class="included-price">$12,500</span>
         </div>
-        <p class="included-detail">Governance, security, capacity audit â the foundation for everything else</p>
+        <p class="included-detail">Governance, security, capacity audit — the foundation for everything else</p>
       </div>
       <div class="included-item">
         <div class="included-header">
@@ -166,7 +209,7 @@
       </div>
     <div class="timeline-bar">
       <span class="label">Total timeline:</span>
-      <span class="value">4â6 weeks (phased)</span>
+      <span class="value">4–6 weeks (phased)</span>
     </div>
   </div>
 </div>
@@ -174,9 +217,9 @@
 <div class="section">
   <h2>Why <span>Bundle?</span></h2>
   <ul class="why-list">
-        <li>Sequential engagements build on each other â scan findings inform architecture, architecture informs migration, migration informs optimization</li>
-        <li>Two Dual Microsoft MVPs guiding every phase â not generalist consultants</li>
-        <li>Fixed-fee, deliverable-based â $49,000 total with no hourly billing or scope creep</li>
+        <li>Sequential engagements build on each other — scan findings inform architecture, architecture informs migration, migration informs optimization</li>
+        <li>Two Dual Microsoft MVPs guiding every phase — not generalist consultants</li>
+        <li>Fixed-fee, deliverable-based — $49,000 total with no hourly billing or scope creep</li>
         <li>Save $10,500 vs. booking all 7 offerings individually</li>
         <li>30-day post-delivery support included for every engagement</li>
   </ul>
@@ -186,9 +229,9 @@
   <div class="pricing-card">
     <h3>Enterprise Transformation</h3>
     <div class="pricing-amount">$49,000 <small>$59,500</small></div>
-    <p style="color:var(--muted);margin-bottom:1.5rem;">Fixed fee. 7 engagements. 4â6 weeks (phased). 30-day support included.</p>
+    <p style="color:var(--muted);margin-bottom:1.5rem;">Fixed fee. 7 engagements. 4–6 weeks (phased). 30-day support included.</p>
     <form action="https://formsubmit.co/gaston@thepowermates.com" method="POST" style="display:flex;flex-direction:column;gap:.75rem;">
-      <input type="hidden" name="_subject" value="Enterprise Transformation â $49,000 Inquiry">
+      <input type="hidden" name="_subject" value="Enterprise Transformation — $49,000 Inquiry">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://www.thepowermates.com/enterprise-transformation#thanks">
@@ -197,8 +240,8 @@
           <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
           <select name="team_size" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
             <option value="" disabled selected>Data team size?</option>
-            <option value="1-5">1 â 5 people</option>
-            <option value="6-15">6 â 15 people</option>
+            <option value="1-5">1 – 5 people</option>
+            <option value="6-15">6 – 15 people</option>
             <option value="15+">15+ people</option>
           </select>
           <select name="priority" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.95rem;font-family:inherit;">
@@ -214,20 +257,30 @@
     </form>
     <div id="thanks" style="display:none;background:var(--bg2);border:2px solid var(--cyan);border-radius:12px;padding:2rem;margin-top:1rem;text-align:center;">
       <h3 style="color:var(--cyan);margin-bottom:.5rem;">Request received!</h3>
-      <p>GastÃ³n will reach out within 24 hours.</p>
+      <p>Gastón will reach out within 24 hours.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  &copy; 2026 The Power Mates. Dual Microsoft MVPs. All rights reserved.
+  <div class="footer-inner">
+    <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</div>
+  </div>
 </footer>
 
 <script>
 (function(){
   var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
   if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
-  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});});
+  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');nav.classList.remove('open');});
+        var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
+  if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}});
 })();
 </script>
 </body>

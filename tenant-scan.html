@@ -95,6 +95,48 @@
     }
     .nav-cta:hover { opacity: 0.85 !important; }
 
+    .nav-dropdown-toggle {
+      position: relative;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-dropdown-toggle:hover { color: var(--text); }
+    .nav-dropdown-toggle::after { content: "▼"; font-size: 0.6rem; }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(8, 15, 28, 0.98);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 240px;
+      list-style: none;
+      padding: 0.75rem 0;
+      margin-top: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 1000;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(46, 232, 211, 0.1); color: var(--text); }
+
     /* ── PARTICLES CANVAS ── */
     #particles-canvas {
       position: absolute;
@@ -806,6 +848,11 @@
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       .nav-links { display: none; }
+      .nav-dropdown-menu { position: static; opacity: 1; visibility: visible; background: transparent; border: none; min-width: auto; margin-top: 0; padding: 0; }
+      .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: 0.5rem 0; font-size: 1rem; color: #fff; }
+      .nav-dropdown-toggle::after { display: none; }
       section { padding: 3.5rem 1.25rem; }
       .pricing-card.recommended { transform: scale(1); }
       .pricing-card.recommended:hover { transform: translateY(-4px); }
@@ -895,6 +942,23 @@
       .fabcon-text { font-size: 0.75rem; }
       #fabcon-countdown { display: none; }
     }
+  
+/* ── Mobile Hamburger ── */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:768px){
+  .hamburger{display:block}
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,15,28,.97);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:1000;padding:2rem}
+  .nav-links.open{display:flex!important}
+  .nav-links li{list-style:none}
+  .nav-links a{font-size:1.2rem;color:#fff;text-decoration:none}
+  .nav-links a.active{color:#2ee8d3}
+  .nav-links .nav-cta{background:#2ee8d3;color:#080f1c;padding:12px 28px;border-radius:8px;font-weight:600;margin-top:1rem}
+}
+
   </style>
 </head>
 <body>
@@ -918,14 +982,31 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <a href="https://thepowermates.com" class="nav-logo">POWER<span>MATES</span></a>
+    <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="https://thepowermates.com">Home</a></li>
-      <li><a href="https://thepowermates.com/executive-briefing">Executive Briefing</a></li>
-      <li><a href="https://thepowermates.com/migration-playbook">Migration Playbook</a></li>
-      <li><a href="#">Tenant Scan</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/tenant-scan" class="active">Tenant Scan</a></li>
+      <li><a href="/fabric-architecture-accelerator">Architecture</a></li>
+      <li><a href="/semantic-model-audit">Model Audit</a></li>
+      <li><a href="/realtime-analytics-accelerator">Real-Time</a></li>
+      <li><a href="/migration-playbook">Migration</a></li>
+      <li><a href="/spark-optimization">Spark</a></li>
+      <li><a href="/pipeline-health-check">Pipelines</a></li>
+      <li class="nav-dropdown">
+        <a class="nav-dropdown-toggle">Bundles</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+          <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+          <li><a href="/governance-performance">Governance + Performance</a></li>
+          <li><a href="/migration-governance">Migration + Governance</a></li>
+          <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
+          <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
+          <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+        </ul>
+      </li>
+      <li><a href="#pricing" class="nav-cta">Get Your Scan →</a></li>
     </ul>
-    <a href="#pricing" class="nav-cta">Get Your Scan →</a>
   </nav>
 
   <!-- ── HERO ── -->
@@ -1022,91 +1103,38 @@
   <section id="pricing" class="pricing-section">
     <div class="container">
       <div class="section-header centered reveal">
-        <div class="section-label">Assessment Tiers</div>
-        <h2 class="section-title">Choose Your Assessment Level</h2>
-        <p class="section-sub">Every tier uses the same structured methodology. The scope and advisory depth scale with your environment's complexity.</p>
+        <div class="section-label">Assessment Offering</div>
+        <h2 class="section-title">AI-Assisted Tenant Scan</h2>
+        <p class="section-sub">Comprehensive Fabric assessment with live scanning, AI-powered governance scoring, and direct MVP guidance to accelerate your migration strategy.</p>
       </div>
 
       <div class="pricing-grid">
 
-        <!-- STARTER -->
-        <div class="pricing-card reveal">
-          <div class="pricing-tier">Starter</div>
-          <div class="pricing-price">$2,500</div>
-          <div class="pricing-tagline">Single environment. Scored output. Fast turnaround.</div>
-          <ul class="pricing-features">
-            <li>Single environment scan</li>
-            <li>Fabric Readiness Score (0–100)</li>
-            <li>Governance findings with severity ratings</li>
-            <li>License &amp; cost analysis</li>
-            <li>Next 5 Actions prioritized list</li>
-            <li>PDF &amp; HTML assessment report</li>
-            <li>3–5 business day delivery</li>
-          </ul>
-          <a href="tenant-scan-starter.html" class="pricing-cta outline">Learn More →</a>
-        </div>
-
-        <!-- PROFESSIONAL (Recommended) -->
-        <div class="pricing-card recommended reveal">
-          <div class="recommended-badge">Best for Multi-Team Migrations</div>
-          <div class="pricing-tier">Professional</div>
-          <div class="pricing-price">$5,000</div>
-          <div class="pricing-tagline">1-hour MVP advisory. Migration roadmap. Executive deck.</div>
-          <ul class="pricing-features">
-            <li>Everything in Starter, plus:</li>
-            <li>Multi-environment scan (up to 3)</li>
-            <li>1-hour advisory call with Microsoft MVP</li>
-            <li>Custom Fabric migration roadmap</li>
-            <li>Copilot readiness assessment</li>
-            <li>Executive summary slide deck</li>
-            <li>Data quality &amp; compliance review</li>
-            <li>3–5 business day delivery</li>
-          </ul>
-          <a href="tenant-scan-professional.html" class="pricing-cta primary">Learn More →</a>
-        </div>
-
-        <!-- ENTERPRISE -->
-        <div class="pricing-card reveal">
-          <div class="pricing-tier">Enterprise</div>
-          <div class="pricing-price">$7,500</div>
-          <div class="pricing-tagline">Full enterprise assessment. ROI modeling. Ongoing advisory.</div>
-          <ul class="pricing-features">
-            <li>Everything in Professional, plus:</li>
-            <li>Unlimited environments</li>
-            <li>ROI &amp; TCO migration modeling</li>
-            <li>Compliance framework mapping (SOX, GDPR, HIPAA)</li>
-            <li>Migration wave planning with timelines</li>
-            <li>Copilot impact &amp; value projection</li>
-            <li>30/60/90-day executive roadmap</li>
-            <li>2 follow-up advisory sessions</li>
-            <li>Priority delivery scheduling</li>
-          </ul>
-          <a href="tenant-scan-enterprise.html" class="pricing-cta outline">Learn More →</a>
-        </div>
-
         <!-- AI-ASSISTED (Premium) -->
         <div class="pricing-card reveal" style="border-color: var(--cyan-border); background: linear-gradient(135deg, var(--card) 0%, rgba(46, 232, 211, 0.04) 100%);">
-          <div class="recommended-badge" style="background: var(--cyan); color: var(--bg);">NEW — AI-Powered</div>
-          <div class="pricing-tier">AI-Assisted</div>
+          <div class="recommended-badge" style="background: var(--cyan); color: var(--bg);">Complete Assessment</div>
+          <div class="pricing-tier">AI-Assisted Tenant Scan</div>
           <div class="pricing-price">$12,500</div>
           <div class="pricing-tagline">Live Fabric scan. AI governance scoring. MVP working session.</div>
           <ul class="pricing-features">
-            <li>Everything in Enterprise, plus:</li>
             <li>Live Fabric REST API scan (FabricAdmin agent)</li>
             <li>AI-powered Governance Score (0–100)</li>
             <li>Fabric Readiness Score</li>
             <li>Full RBAC security audit</li>
             <li>Semantic model health analysis</li>
+            <li>Multi-environment capability</li>
             <li>2-hour live working session with MVP</li>
+            <li>Custom migration roadmap</li>
+            <li>Executive summary deck</li>
             <li>30-day follow-up call</li>
           </ul>
-          <a href="tenant-scan-ai-assisted.html" class="pricing-cta primary" style="background: var(--cyan); color: var(--bg);">Learn More →</a>
+          <a href="/tenant-scan-ai-assisted" class="pricing-cta primary" style="background: var(--cyan); color: var(--bg);">Get Started →</a>
         </div>
 
       </div>
 
       <p class="pricing-note reveal">
-        Any tier can upgrade by paying the difference. Questions? <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a>
+        Ready to assess your Fabric environment? <a href="/tenant-scan-ai-assisted#intake-form">Start your intake form</a>
       </p>
     </div>
   </section>
@@ -1279,7 +1307,7 @@
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer">
-            <p>Yes. Any tier can upgrade by paying the difference. Contact <a href="mailto:gaston@thepowermates.com">gaston@thepowermates.com</a> and we'll extend your engagement scope.</p>
+            <p>Yes. Any tier can upgrade by paying the difference. Contact <a href="/tenant-scan-ai-assisted#intake-form">our intake form</a> and we'll extend your engagement scope.</p>
           </div>
         </div>
 
@@ -1363,7 +1391,7 @@
         <p>Pick a tier. Complete the questionnaire. Get your scored Fabric Readiness Report in 3–5 business days.</p>
         <div class="final-cta-group">
           <a href="#pricing" class="btn-primary">View Assessment Tiers →</a>
-          <a href="mailto:gaston@thepowermates.com?subject=Tenant%20Scan%20Inquiry" class="btn-outline">Talk to Gaston</a>
+          <a href="/tenant-scan-ai-assisted#intake-form" class="btn-outline">Talk to Gaston</a>
         </div>
         <div class="hero-trust">
           <span>No tenant access required</span>
@@ -1503,5 +1531,15 @@
     });
   </script>
 
+
+<script>
+(function(){
+  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
+  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');});}
+  nav&&nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(!a.classList.contains('nav-dropdown-toggle')){btn.classList.remove('open');nav.classList.remove('open');}});});
+  var dropdownToggle=document.querySelector('.nav-dropdown-toggle');
+  if(dropdownToggle){dropdownToggle.addEventListener('click',function(e){e.preventDefault();var dropdown=document.querySelector('.nav-dropdown');dropdown.classList.toggle('open');});}
+})();
+</script>
 </body>
 </html>
