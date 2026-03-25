@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Enterprise Data & AI Leaders | PowerMates</title>
+  <meta name="description" content="Meet the team behind PowerMates — Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders with 20+ years experience in Microsoft Fabric & Power Platform.">
+  <meta property="og:title" content="About — Enterprise Data & AI Leaders | PowerMates">
+  <meta property="og:description" content="Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders. 20+ years of hands-on Microsoft Fabric & Power Platform experience.">
+  <meta property="og:url" content="https://www.thepowermates.com/about">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PowerMates">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ThePowerMates">
+  <meta name="twitter:title" content="About — Enterprise Data & AI Leaders | PowerMates">
+  <meta name="twitter:description" content="Dual Microsoft MVPs, FabCon speakers, and enterprise data leaders with 20+ years experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080f1c;
+      --bg2: #0c1525;
+      --bg3: #111e33;
+      --card: #0f1b2e;
+      --cyan: #2ee8d3;
+      --cyan-dim: #1abfad;
+      --muted: #7a91aa;
+      --border: rgba(255,255,255,0.06);
+      --cyan-border: rgba(46,232,211,0.2);
+      --radius: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: #e8edf3;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 72px;
+      background: rgba(8,15,28,0.75);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
+    .logo-power { color: #fff; }
+    .logo-mates { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.25rem;
+      align-items: center;
+    }
+    .nav-links li a,
+    .nav-dropdown-trigger {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Figtree', sans-serif;
+    }
+    .nav-links li a:hover,
+    .nav-dropdown-trigger:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .nav-links li a.active { color: var(--cyan); }
+
+    .chevron {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      margin-left: 4px;
+      vertical-align: middle;
+      transition: transform 0.2s;
+    }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 320px;
+      background: rgba(15,27,46,0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.5rem;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown:hover .chevron { transform: rotate(180deg); }
+    .nav-dropdown-menu a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-dropdown-menu a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .dropdown-price { color: var(--cyan); font-weight: 600; font-size: 0.8rem; margin-left: 1rem; white-space: nowrap; }
+    .dropdown-divider { height: 1px; background: var(--border); margin: 0.35rem 0.5rem; }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #080f1c;
+      background: var(--cyan);
+      padding: 0.55rem 1.25rem;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: 0.2s; }
+
+    /* ── Mobile Nav ── */
+    @media (max-width: 968px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(8,15,28,0.98);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        gap: 0.5rem;
+      }
+      .nav-links.open li a,
+      .nav-links.open .nav-dropdown-trigger { padding: 0.75rem 1rem; font-size: 1rem; }
+      .nav-dropdown-menu {
+        position: static;
+        min-width: auto;
+        box-shadow: none;
+        border: none;
+        background: rgba(255,255,255,0.03);
+        margin-top: 0.25rem;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    }
+
+    /* ── Sections ── */
+    section { max-width: 1140px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-alt { background: var(--bg2); }
+    .section-full { max-width: none; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding-top: 10rem;
+      padding-bottom: 4rem;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      background: rgba(46,232,211,0.08);
+      border: 1px solid var(--cyan-border);
+      padding: 0.4rem 1.25rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .cyan { color: var(--cyan); }
+    .hero .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Founders Grid ── */
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .founders-grid { grid-template-columns: 1fr; }
+    }
+    .founder-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .founder-card:hover {
+      border-color: var(--cyan-border);
+      box-shadow: 0 0 40px rgba(46,232,211,0.08);
+    }
+    .founder-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .founder-avatar {
+      width: 120px;
+      height: 120px;
+      min-width: 120px;
+      border-radius: 16px;
+      background: var(--bg3);
+      border: 2px solid var(--cyan-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--cyan);
+    }
+    .founder-meta h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .founder-title {
+      color: var(--cyan);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .founder-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .founder-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .credential-badge {
+      background: rgba(46,232,211,0.08);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── Credentials Bar ── */
+    .credentials-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 3rem 2rem;
+    }
+    .cred-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e8edf3;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cred-chip:hover {
+      border-color: var(--cyan-border);
+      box-shadow: 0 0 20px rgba(46,232,211,0.08);
+    }
+    .cred-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--cyan);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Pillars (What We Do) ── */
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+    .pillar-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .pillar-card:hover {
+      border-color: var(--cyan-border);
+      box-shadow: 0 0 40px rgba(46,232,211,0.08);
+      transform: translateY(-4px);
+    }
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(46,232,211,0.08);
+      border: 1px solid var(--cyan-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .pillar-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .pillar-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .pillar-link {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+    .pillar-link:hover { gap: 0.6rem; }
+
+    /* ── Timeline ── */
+    .timeline-section { padding-bottom: 3rem; }
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+      padding-left: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--cyan), rgba(46,232,211,0.15));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      background: var(--bg);
+      border: 3px solid var(--cyan);
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: calc(-2.5rem + 4px);
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background: var(--cyan);
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 0 12px rgba(46,232,211,0.5);
+    }
+    .timeline-year {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+      margin-bottom: 0.35rem;
+    }
+    .timeline-item h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-item .tl-location {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-item .tl-detail {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .cta-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .cta-section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cyan);
+      color: #080f1c;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--cyan-dim); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--cyan);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      border: 1px solid var(--cyan-border);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { background: rgba(46,232,211,0.06); border-color: var(--cyan); transform: translateY(-2px); }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .footer-brand .nav-logo { margin-bottom: 1rem; }
+    .footer-tagline { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin-bottom: 1rem; }
+    .footer-credentials { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .footer-credential {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(46,232,211,0.08);
+      border: 1px solid var(--cyan-border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--cyan); border-color: var(--cyan-border); }
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.4rem; }
+    .footer-col a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--cyan); }
+
+    .footer-newsletter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem 0;
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .footer-newsletter h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    .footer-newsletter p { color: var(--muted); font-size: 0.85rem; }
+    .footer-newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .footer-newsletter-form input[type="email"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: #e8edf3;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.85rem;
+      width: 240px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .footer-newsletter-form input[type="email"]:focus { border-color: var(--cyan-border); }
+    .footer-newsletter-form button {
+      background: var(--cyan);
+      color: #080f1c;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Figtree', sans-serif;
+      transition: background 0.2s;
+    }
+    .footer-newsletter-form button:hover { background: var(--cyan-dim); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy { color: var(--muted); font-size: 0.8rem; }
+    .footer-bottom-links a { color: var(--muted); font-size: 0.8rem; transition: color 0.15s; }
+    .footer-bottom-links a:hover { color: var(--cyan); }
+
+    /* ── Scroll Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Glow Gradient BG ── */
+    .glow-bg {
+      position: relative;
+    }
+    .glow-bg::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(46,232,211,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-bg > * { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-power">POWER</span><span class="logo-mates">MATES</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Services <span class="chevron"></span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/tenant-scan">Tenant Scan<span class="dropdown-price">$12,500</span></a>
+          <a href="/fabric-architecture-accelerator">Fabric Architecture Accelerator<span class="dropdown-price">$15,000</span></a>
+          <a href="/semantic-model-audit">Semantic Model Audit<span class="dropdown-price">$2,500</span></a>
+          <a href="/realtime-analytics-accelerator">Real-Time Analytics Accelerator<span class="dropdown-price">$8,000</span></a>
+          <a href="/migration-playbook">SQL Warehouse Migration Playbook<span class="dropdown-price">$12,000</span></a>
+          <a href="/spark-optimization">Spark Job Optimization Audit<span class="dropdown-price">$3,500</span></a>
+          <a href="/pipeline-health-check">Data Pipeline Health Check<span class="dropdown-price">$4,000</span></a>
+          <a href="/iq-mcp-integration">IQ MCP Integration Accelerator<span class="dropdown-price">$18,000</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/services">View All Services &rarr;</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Bundles <span class="chevron"></span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/bi-performance-pack">BI Performance Pack<span class="dropdown-price">$9,500</span></a>
+          <a href="/data-engineering-pack">Data Engineering Pack<span class="dropdown-price">$6,500</span></a>
+          <a href="/governance-performance">Governance + Performance<span class="dropdown-price">$14,000</span></a>
+          <a href="/migration-governance">Migration + Governance<span class="dropdown-price">$23,500</span></a>
+          <a href="/architecture-realtime">Architecture + Real-Time<span class="dropdown-price">$22,000</span></a>
+          <a href="/full-data-platform-audit">Full Data Platform Audit<span class="dropdown-price">$21,500</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/enterprise-transformation">Enterprise Transformation &mdash; All 8<span class="dropdown-price">$63,000</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/pricing">Compare All Pricing &rarr;</a>
+        </div>
+      </li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/content">Content</a></li>
+    </ul>
+    <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero glow-bg">
+    <div class="eyebrow">ABOUT US</div>
+    <h1>Enterprise Data Leaders Who<br>Share <span class="cyan">Everything</span> We Learn</h1>
+    <p class="subtitle">PowerMates sits at the intersection of deep Microsoft expertise, real-world enterprise implementation, and community education.</p>
+  </section>
+
+  <!-- ═══════════════ FOUNDERS ═══════════════ -->
+  <section>
+    <div class="section-header">
+      <div class="eyebrow" style="margin-bottom: 1rem;">THE TEAM</div>
+      <h2>Meet the <span class="cyan">Founders</span></h2>
+    </div>
+    <div class="founders-grid">
+
+      <!-- Gaston -->
+      <div class="founder-card reveal">
+        <div class="founder-header">
+          <div class="founder-avatar">GC</div>
+          <div class="founder-meta">
+            <h3>Gast&oacute;n Cruz</h3>
+            <div class="founder-title">Co-Founder &amp; Principal Consultant</div>
+          </div>
+        </div>
+        <p>Gast&oacute;n brings two decades of hands-on experience designing and implementing enterprise data platforms. As a dual Microsoft MVP and Senior Director at Slalom, he bridges the gap between cutting-edge Microsoft technology and real-world business outcomes.</p>
+        <p>His work spans Power Platform, Microsoft Fabric, Azure data services, and AI integration &mdash; delivering solutions that scale for the enterprise while staying grounded in practical, measurable results.</p>
+        <div class="founder-credentials">
+          <span class="credential-badge">Microsoft MVP &mdash; Data Platform</span>
+          <span class="credential-badge">Microsoft MVP &mdash; AI</span>
+          <span class="credential-badge">Senior Director, Slalom</span>
+          <span class="credential-badge">20+ Years Enterprise</span>
+        </div>
+      </div>
+
+      <!-- Alex -->
+      <div class="founder-card reveal">
+        <div class="founder-header">
+          <div class="founder-avatar">AR</div>
+          <div class="founder-meta">
+            <h3>Alex Rostan</h3>
+            <div class="founder-title">Co-Founder &amp; Content Lead</div>
+          </div>
+        </div>
+        <p>Alex co-hosts The Power Mates YouTube channel, bringing technical depth and clarity to complex Microsoft topics. Together with Gast&oacute;n, he creates content that helps enterprise teams navigate the rapidly evolving data and AI landscape.</p>
+        <p>From deep-dive tutorials to executive-level briefings, Alex ensures every piece of content is actionable, honest, and worth your time.</p>
+        <div class="founder-credentials">
+          <span class="credential-badge">Content Strategy</span>
+          <span class="credential-badge">YouTube &mdash; 7,300+ Subs</span>
+          <span class="credential-badge">Technical Education</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ CREDENTIALS BAR ═══════════════ -->
+  <div class="section-alt">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <div class="credentials-bar">
+        <div class="cred-chip reveal"><span class="cred-dot"></span>Microsoft MVP &mdash; Data Platform</div>
+        <div class="cred-chip reveal"><span class="cred-dot"></span>Microsoft MVP &mdash; AI</div>
+        <div class="cred-chip reveal"><span class="cred-dot"></span>FabCon 2025 Speaker</div>
+        <div class="cred-chip reveal"><span class="cred-dot"></span>FabCon 2026 Speaker</div>
+        <div class="cred-chip reveal"><span class="cred-dot"></span>7,300+ YouTube Subscribers</div>
+        <div class="cred-chip reveal"><span class="cred-dot"></span>Senior Director, Slalom</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ WHAT WE DO ═══════════════ -->
+  <section>
+    <div class="section-header">
+      <div class="eyebrow" style="margin-bottom: 1rem;">WHAT WE DO</div>
+      <h2>Three Pillars of <span class="cyan">Impact</span></h2>
+      <p>We operate across consulting, content, and community to help enterprise teams succeed with Microsoft data and AI.</p>
+    </div>
+    <div class="pillars-grid">
+
+      <div class="pillar-card reveal">
+        <div class="pillar-icon">&#x1f4cb;</div>
+        <h3>Consulting</h3>
+        <p>8 specialized Fabric offerings from $2,500 to $18,000. Hands-on audits, architecture design, and migration support &mdash; delivered by practitioners, not slide decks.</p>
+        <a href="/services" class="pillar-link">Explore Services &rarr;</a>
+      </div>
+
+      <div class="pillar-card reveal">
+        <div class="pillar-icon">&#x1f3ac;</div>
+        <h3>Content</h3>
+        <p>Deep-dive videos, executive briefings, and technical walkthroughs on YouTube, LinkedIn, TikTok, and more. Honest takes on the tools and techniques that matter.</p>
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener" class="pillar-link">Watch on YouTube &rarr;</a>
+      </div>
+
+      <div class="pillar-card reveal">
+        <div class="pillar-icon">&#x1f310;</div>
+        <h3>Community</h3>
+        <p>Conference speaking, open-source tools, and sharing everything we learn with the global data community. We believe knowledge scales when it's free.</p>
+        <a href="/content" class="pillar-link">Join the Community &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ TIMELINE ═══════════════ -->
+  <section class="section-alt section-full">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <div class="section-header">
+        <div class="eyebrow" style="margin-bottom: 1rem;">CONFERENCE CIRCUIT</div>
+        <h2>Where We've <span class="cyan">Been</span></h2>
+        <p>Sharing real-world insights on stage and in the community.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">March 2025</div>
+          <h3>FabCon 2025</h3>
+          <div class="tl-location">Las Vegas, NV</div>
+          <div class="tl-detail">Conference speaker &mdash; sharing enterprise Fabric implementation insights with the global Microsoft data community.</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">March 2026</div>
+          <h3>FabCon 2026</h3>
+          <div class="tl-location">Atlanta, GA</div>
+          <div class="tl-detail">"The Instant Insights Pipeline: OneLake shortcuts + Dataverse + Power Apps" &mdash; live demo of end-to-end real-time data integration.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="cta-section glow-bg">
+    <h2>Ready to <span class="cyan">Work With Us</span>?</h2>
+    <p>Whether you need hands-on consulting or want to learn from our content, we're here to help your team move faster with Microsoft data and AI.</p>
+    <div class="cta-buttons">
+      <a href="/services" class="btn-primary">Explore Services &rarr;</a>
+      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener" class="btn-secondary">Watch Our Content &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="logo-power">POWER</span><span class="logo-mates">MATES</span>
+          </a>
+          <p class="footer-tagline">Enterprise Data & AI leaders who share everything we learn. Dual Microsoft MVPs, FabCon speakers, 7,300+ community.</p>
+          <div class="footer-credentials">
+            <span class="footer-credential">Microsoft MVP &mdash; Data Platform</span>
+            <span class="footer-credential">Microsoft MVP &mdash; AI</span>
+            <span class="footer-credential">FabCon 2026 Speakers</span>
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.youtube.com/@PowerMatesMS" aria-label="YouTube" title="YouTube">YT</a>
+            <a href="https://www.linkedin.com/company/91438424" aria-label="LinkedIn" title="LinkedIn">LI</a>
+            <a href="https://twitter.com/ThePowerMates" aria-label="Twitter/X" title="Twitter/X">X</a>
+            <a href="https://www.tiktok.com/@powermates" aria-label="TikTok" title="TikTok">TT</a>
+            <a href="https://www.instagram.com/power.mates/" aria-label="Instagram" title="Instagram">IG</a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/tenant-scan">Tenant Scan</a></li>
+            <li><a href="/fabric-architecture-accelerator">Architecture Accelerator</a></li>
+            <li><a href="/semantic-model-audit">Semantic Model Audit</a></li>
+            <li><a href="/realtime-analytics-accelerator">Real-Time Analytics</a></li>
+            <li><a href="/migration-playbook">Migration Playbook</a></li>
+            <li><a href="/spark-optimization">Spark Optimization</a></li>
+            <li><a href="/pipeline-health-check">Pipeline Health Check</a></li>
+            <li><a href="/iq-mcp-integration">IQ MCP Integration</a></li>
+          </ul>
+        </div>
+
+        <!-- Bundles -->
+        <div class="footer-col">
+          <h4>Bundles</h4>
+          <ul>
+            <li><a href="/bi-performance-pack">BI Performance Pack</a></li>
+            <li><a href="/data-engineering-pack">Data Engineering Pack</a></li>
+            <li><a href="/governance-performance">Governance + Performance</a></li>
+            <li><a href="/migration-governance">Migration + Governance</a></li>
+            <li><a href="/architecture-realtime">Architecture + Real-Time</a></li>
+            <li><a href="/full-data-platform-audit">Full Data Platform Audit</a></li>
+            <li><a href="/enterprise-transformation">Enterprise Transformation</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/content">Content Hub</a></li>
+            <li><a href="/executive-briefing">Executive Briefing</a></li>
+            <li><a href="https://www.youtube.com/@PowerMatesMS">YouTube Channel</a></li>
+          </ul>
+          <h4 style="margin-top: 1.5rem;">Team</h4>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/gastoncruz/">Gaston Cruz</a></li>
+            <li><a href="https://www.linkedin.com/in/alexrostan/">Alex Rostan</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <div class="footer-newsletter-text">
+          <h4>Stay in the loop</h4>
+          <p>Get Fabric & Power Platform insights delivered to your inbox.</p>
+        </div>
+        <form class="footer-newsletter-form" action="https://formsubmit.co/info@thepowermates.com" method="POST">
+          <input type="email" name="email" placeholder="you@company.com" required>
+          <input type="hidden" name="_subject" value="New Newsletter Subscriber">
+          <input type="hidden" name="_template" value="table">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 PowerMates LLC. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="mailto:info@thepowermates.com">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script>
+    // ── Mobile Nav Toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // ── Mobile Dropdown Toggle ──
+    if (window.innerWidth <= 968) {
+      document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.closest('.nav-dropdown').classList.toggle('open');
+        });
+      });
+    }
+
+    // ── Scroll Reveal ──
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ── Nav Scroll Effect ──
+    const nav = document.querySelector('.site-nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(8,15,28,0.92)'
+        : 'rgba(8,15,28,0.75)';
+    });
+  </script>
+
+</body>
+</html>

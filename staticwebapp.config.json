@@ -78,6 +78,18 @@
     {
       "route": "/enterprise-transformation",
       "rewrite": "/enterprise-transformation.html"
+    },
+    {
+      "route": "/services",
+      "rewrite": "/services.html"
+    },
+    {
+      "route": "/pricing",
+      "rewrite": "/pricing.html"
+    },
+    {
+      "route": "/about",
+      "rewrite": "/about.html"
     }
   ],
   "navigationFallback": {

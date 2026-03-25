@@ -693,9 +693,13 @@
     .nav-links { display: none; }
     .hero-stats { gap: 32px; }
     .topics-grid { grid-template-columns: 1fr; }
+    .services-preview-grid { grid-template-columns: 1fr !important; }
     .about-pillars { grid-template-columns: 1fr; }
     footer { flex-direction: column; align-items: center; text-align: center; }
     .fabcon-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 1024px) {
+    .services-preview-grid { grid-template-columns: repeat(2, 1fr) !important; }
   }
   @media (max-width: 600px) {
     section { padding: 72px 20px; }
@@ -853,20 +857,17 @@
 
 <!-- ─── NAVBAR ────────────────────────────────────────────────────────── -->
 <nav>
-  <a href="#" class="logo"><span>POWER</span> <span>MATES</span></a>
+  <a href="/" class="logo"><span>POWER</span> <span>MATES</span></a>
   <ul class="nav-links">
-    <li><a href="#briefing">Executive Briefing</a></li>
-    <li><a href="/migration-playbook">Migration Playbook</a></li>
-    <li><a href="/tenant-scan">Tenant Scan</a></li>
-    <li><a href="#topics">Topics</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="#featured">Content</a></li>
+    <li><a href="#fabric-news">News</a></li>
     <li><a href="#fabcon">FabCon 2026</a></li>
-    <li><a href="#featured">Videos</a></li>
-    <li><a href="#fabric-news">Fabric and Power Platform News</a></li>
   </ul>
   <a href="https://tally.so/r/xXd9lG" class="btn-subscribe">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-    Get Your Briefing →
+    Get Started →
   </a>
 </nav>
 
@@ -874,50 +875,97 @@
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-eyebrow">Microsoft Power Platform &amp; Fabric</div>
+    <div class="hero-eyebrow">Enterprise Data &amp; AI Consulting</div>
     <h1 class="hero-title">
-      <span class="w">POWER</span><br><span class="c">MATES</span>
+      <span class="w">Your Fabric.</span><br><span class="c">Optimized.</span>
     </h1>
     <p class="hero-sub">
-      Real-world implementations, cutting-edge insights, and mind-blowing innovations around
-      <strong>Microsoft Power Platform</strong> and <strong>Microsoft Fabric</strong>
+      We audit, architect, and accelerate <strong>Microsoft Fabric</strong> and <strong>Power Platform</strong> environments for enterprise teams. Dual MVPs. 20+ years. Real implementations.
     </p>
     <div class="hero-ctas">
-      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
-        Subscribe on YouTube
+      <a href="/services" class="btn-primary">
+        Explore Our Services
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
       </a>
-      <a href="#content" class="btn-secondary">
+      <a href="#featured" class="btn-secondary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        Watch Latest Videos
-      </a>
-      <a href="#briefing" class="btn-secondary" style="width:100%;justify-content:center;border-color:var(--cyan-border);margin-top:8px;">
-        📊 Free Executive Briefing Pack — Request Yours
+        Watch Our Content
       </a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">7,330</div>
-        <div class="stat-label">Subscribers</div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Specialized Offerings</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">131</div>
-        <div class="stat-label">Videos</div>
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">205</div>
-        <div class="stat-label">Shorts</div>
+        <div class="stat-num">2x</div>
+        <div class="stat-label">Microsoft MVP</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">336</div>
-        <div class="stat-label">Total Content</div>
+        <div class="stat-num">7,300+</div>
+        <div class="stat-label">YouTube Community</div>
       </div>
     </div>
   </div>
   <div class="scroll-hint">
     <div class="scroll-hint-mouse">
       <div class="scroll-hint-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ──────────────────────────────────────────────────────── -->
+<div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 24px;">
+  <div class="container" style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;">
+    <span style="color:var(--muted);font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;">Trusted by enterprise teams</span>
+    <div class="cred-badge" style="background:rgba(46,232,211,0.06);border:1px solid rgba(46,232,211,0.15);padding:6px 14px;font-size:13px;">Microsoft MVP — Data Platform</div>
+    <div class="cred-badge" style="background:rgba(46,232,211,0.06);border:1px solid rgba(46,232,211,0.15);padding:6px 14px;font-size:13px;">Microsoft MVP — AI</div>
+    <div class="cred-badge" style="background:rgba(46,232,211,0.06);border:1px solid rgba(46,232,211,0.15);padding:6px 14px;font-size:13px;">FabCon 2026 Speaker</div>
+    <div class="cred-badge" style="background:rgba(46,232,211,0.06);border:1px solid rgba(46,232,211,0.15);padding:6px 14px;font-size:13px;">Senior Director, Slalom</div>
+  </div>
+</div>
+
+<!-- ─── FEATURED SERVICES ──────────────────────────────────────────────── -->
+<section id="services-preview" style="background:var(--bg);padding:96px 24px;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title reveal">What We <span class="c">Deliver</span></h2>
+      <p class="section-sub reveal reveal-d1">Specialized Fabric and Power Platform services — from quick audits to full architecture engagements</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="services-preview-grid">
+      <a href="/tenant-scan" class="topic-card reveal reveal-d1" style="text-decoration:none;display:block;">
+        <div class="topic-icon">🔍</div>
+        <h3 style="color:#fff;">Tenant Scan</h3>
+        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$12,500</p>
+        <p>Full health audit of your entire Fabric tenant — governance, performance, security.</p>
+      </a>
+      <a href="/fabric-architecture-accelerator" class="topic-card reveal reveal-d2" style="text-decoration:none;display:block;">
+        <div class="topic-icon">🏗️</div>
+        <h3 style="color:#fff;">Architecture Accelerator</h3>
+        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$15,000</p>
+        <p>End-to-end architecture design for greenfield or migration scenarios.</p>
+      </a>
+      <a href="/iq-mcp-integration" class="topic-card reveal reveal-d3" style="text-decoration:none;display:block;">
+        <div class="topic-icon">🤖</div>
+        <h3 style="color:#fff;">IQ + MCP Integration</h3>
+        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$18,000</p>
+        <p>Connect Fabric IQ and Foundry IQ to AI agents via MCP servers.</p>
+      </a>
+      <a href="/semantic-model-audit" class="topic-card reveal reveal-d4" style="text-decoration:none;display:block;">
+        <div class="topic-icon">📊</div>
+        <h3 style="color:#fff;">Semantic Model Audit</h3>
+        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$2,500</p>
+        <p>Performance and best-practice review of your Power BI models.</p>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal reveal-d5">
+      <a href="/services" style="display:inline-flex;align-items:center;gap:10px;color:#2ee8d3;font-weight:600;font-size:15px;text-decoration:none;padding:12px 28px;border:1px solid rgba(46,232,211,0.3);border-radius:10px;transition:background 0.3s;">
+        View All 8 Services →
+      </a>
     </div>
   </div>
 </section>
@@ -1322,14 +1370,19 @@
 <!-- ─── CTA ────────────────────────────────────────────────────────────── -->
 <section id="cta">
   <div class="container cta-content">
-    <h2 class="cta-title reveal">Ready to <span class="c">Level Up?</span></h2>
-    <p class="cta-sub reveal reveal-d1">Join thousands of professionals mastering Microsoft Power Platform. Subscribe now and never miss an update!</p>
-    <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" class="btn-primary reveal reveal-d2" style="display:inline-flex;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
-      Subscribe Now
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-    </a>
-    <div class="reveal reveal-d3">
+    <h2 class="cta-title reveal">Ready to Optimize Your <span class="c">Data Platform?</span></h2>
+    <p class="cta-sub reveal reveal-d1">Book a free 30-minute discovery call. We'll assess your Fabric environment and recommend the right engagement.</p>
+    <div class="hero-ctas reveal reveal-d2" style="margin-bottom:0;">
+      <a href="https://tally.so/r/xXd9lG" class="btn-primary" style="display:inline-flex;">
+        Book Discovery Call
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
+      <a href="/services" class="btn-secondary" style="display:inline-flex;">
+        View All Services
+      </a>
+    </div>
+    <div class="reveal reveal-d3" style="margin-top:40px;">
+      <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">Or stay connected with our content</p>
       <div class="email-form">
         <input type="email" placeholder="your@email.com" aria-label="Email address">
         <button type="button" aria-label="Subscribe">
@@ -1338,58 +1391,70 @@
           </svg>
         </button>
       </div>
-      <p class="form-caption">Get notified about new tutorials and updates</p>
+      <p class="form-caption">Get notified about new content, services, and updates</p>
     </div>
   </div>
 </section>
 
 <!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
-<footer>
-  <a href="#" class="footer-logo">
-    <span class="w">POWER</span> <span class="c">MATES</span><span class="llc">LLC</span>
-  </a>
-
-  <!-- Social Links -->
-  <div class="footer-socials">
-    <!-- YouTube -->
-    <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" class="social-btn" aria-label="YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
-    </a>
-    <!-- LinkedIn Page -->
-    <a href="https://www.linkedin.com/company/91438424" target="_blank" class="social-btn" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-    </a>
-    <!-- Twitter/X -->
-    <a href="https://twitter.com/ThePowerMates" target="_blank" class="social-btn" aria-label="Twitter/X">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-    </a>
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/power.mates/" target="_blank" class="social-btn" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-    </a>
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/profile.php?id=100092443913807" target="_blank" class="social-btn" aria-label="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-    </a>
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@powermates" target="_blank" class="social-btn" aria-label="TikTok">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"></path></svg>
-    </a>
+<footer style="display:block;padding:64px 48px 32px;">
+  <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;max-width:1120px;margin:0 auto 48px;">
+    <!-- Brand Column -->
+    <div>
+      <a href="/" class="footer-logo" style="display:inline-block;margin-bottom:16px;">
+        <span class="w">POWER</span> <span class="c">MATES</span><span class="llc">LLC</span>
+      </a>
+      <p style="color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:20px;">Enterprise data &amp; AI leaders who share everything we learn. Dual Microsoft MVPs with 20+ years of real-world Fabric implementations.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg></a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" class="social-btn" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+        <a href="https://www.tiktok.com/@powermates" target="_blank" class="social-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"></path></svg></a>
+        <a href="https://www.instagram.com/power.mates/" target="_blank" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg></a>
+      </div>
+    </div>
+    <!-- Services Column -->
+    <div>
+      <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:.04em;">Services</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="/tenant-scan" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Tenant Scan</a>
+        <a href="/fabric-architecture-accelerator" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Architecture Accelerator</a>
+        <a href="/semantic-model-audit" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Semantic Model Audit</a>
+        <a href="/realtime-analytics-accelerator" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Real-Time Analytics</a>
+        <a href="/migration-playbook" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Migration Playbook</a>
+        <a href="/spark-optimization" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Spark Optimization</a>
+        <a href="/pipeline-health-check" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Pipeline Health Check</a>
+        <a href="/iq-mcp-integration" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">IQ + MCP Integration</a>
+      </div>
+    </div>
+    <!-- Company Column -->
+    <div>
+      <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:.04em;">Company</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="/about" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">About Us</a>
+        <a href="/services" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">All Services</a>
+        <a href="/pricing" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Pricing</a>
+        <a href="/executive-briefing" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Executive Briefing</a>
+        <a href="https://tally.so/r/xXd9lG" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Contact</a>
+      </div>
+    </div>
+    <!-- Founders Column -->
+    <div>
+      <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:.04em;">Founders</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://www.linkedin.com/in/gastoncruz/" target="_blank" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Gaston Cruz — MVP, Sr. Director</a>
+        <a href="https://www.linkedin.com/in/alexrostan/" target="_blank" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Alex Rostan — Co-Founder</a>
+      </div>
+      <h4 style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;margin:24px 0 16px;letter-spacing:.04em;">Content</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">YouTube Channel</a>
+        <a href="#fabric-news" style="color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s;">Platform News</a>
+      </div>
+    </div>
   </div>
-
-  <!-- Team -->
-  <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:20px 0 24px;">
-    <a href="https://www.linkedin.com/in/gastoncruz/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#7a91aa;font-size:13px;font-weight:500;text-decoration:none;padding:8px 16px;border:1px solid rgba(255,255,255,.08);border-radius:100px;transition:all .2s;" onmouseover="this.style.color='#2ee8d3';this.style.borderColor='rgba(46,232,211,.3)'" onmouseout="this.style.color='#7a91aa';this.style.borderColor='rgba(255,255,255,.08)'">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-      Gaston Cruz
-    </a>
-    <a href="https://www.linkedin.com/in/alexrostan/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#7a91aa;font-size:13px;font-weight:500;text-decoration:none;padding:8px 16px;border:1px solid rgba(255,255,255,.08);border-radius:100px;transition:all .2s;" onmouseover="this.style.color='#2ee8d3';this.style.borderColor='rgba(46,232,211,.3)'" onmouseout="this.style.color='#7a91aa';this.style.borderColor='rgba(255,255,255,.08)'">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-      Alex Rostan
-    </a>
+  <div style="border-top:1px solid var(--border);padding-top:24px;text-align:center;">
+    <p class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</p>
   </div>
-
-  <p class="footer-copy">© 2026 PowerMates LLC. All rights reserved.</p>
 </footer>
 
 <!-- ─── SCRIPTS ────────────────────────────────────────────────────────── -->

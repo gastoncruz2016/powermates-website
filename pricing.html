@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Microsoft Fabric & Power Platform Consulting | PowerMates</title>
+  <meta name="description" content="Transparent pricing for PowerMates consulting. Individual services from $2,500, bundles from $6,500, and the Enterprise Transformation at $63,000. No hidden fees." />
+  <meta name="keywords" content="Microsoft Fabric pricing, Power Platform consulting rates, data platform audit pricing, PowerMates services" />
+  <meta property="og:title" content="Pricing — Consulting Services | PowerMates" />
+  <meta property="og:description" content="Transparent pricing for 8 Microsoft Fabric & Power Platform consulting offerings. Individual services, bundles, and enterprise packages." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/pricing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThePowerMates" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080f1c;
+      --bg2: #0c1525;
+      --bg3: #111e33;
+      --card: #0f1b2e;
+      --card2: #141e30;
+      --text: #e8edf5;
+      --muted: #7a91aa;
+      --cyan: #2ee8d3;
+      --cyan-dim: rgba(46, 232, 211, 0.12);
+      --cyan-border: rgba(46, 232, 211, 0.2);
+      --cyan-glow: rgba(46, 232, 211, 0.5);
+      --border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(8, 15, 28, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, var(--cyan-dim) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--cyan-border);
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+      background: var(--cyan-dim);
+      letter-spacing: 0.08em;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* ---- SECTIONS ---- */
+    .section {
+      padding: 5rem 0;
+      position: relative;
+    }
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ---- SERVICE CARDS GRID ---- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .service-card:hover {
+      border-color: var(--cyan-border);
+      box-shadow: 0 0 30px rgba(46, 232, 211, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .service-card .price {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--cyan);
+      margin: 0.5rem 0 0.75rem;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .service-card .desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .service-card .timeline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .service-card .timeline svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2;
+    }
+    .service-card .learn-more {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--cyan);
+      transition: gap 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .service-card .learn-more:hover { gap: 8px; opacity: 1; }
+
+    /* ---- BUNDLE CARDS ---- */
+    .bundles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .bundle-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .bundle-card:hover {
+      border-color: var(--cyan-border);
+      box-shadow: 0 0 24px rgba(46, 232, 211, 0.1);
+      transform: translateY(-2px);
+    }
+    .bundle-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .bundle-card .bundle-includes {
+      list-style: none;
+      margin: 0.75rem 0;
+    }
+    .bundle-card .bundle-includes li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .bundle-card .bundle-includes li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      opacity: 0.6;
+    }
+    .bundle-card .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .bundle-card .price {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .bundle-card .save-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #0f1b2e;
+      background: var(--cyan);
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+
+    /* Featured Enterprise card */
+    .bundle-card.featured {
+      grid-column: 1 / -1;
+      border: 1px solid var(--cyan-border);
+      background: linear-gradient(135deg, rgba(46, 232, 211, 0.04) 0%, var(--card) 40%);
+      box-shadow: 0 0 40px rgba(46, 232, 211, 0.08);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .bundle-card.featured h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .bundle-card.featured .bundle-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .bundle-card.featured .bundle-includes {
+      display: inline-block;
+      text-align: left;
+    }
+    .bundle-card.featured .price-row {
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .bundle-card.featured .price {
+      font-size: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--cyan);
+      color: var(--bg);
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: opacity 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); color: var(--bg); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, border-color 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: var(--cyan-dim);
+      border-color: var(--cyan);
+    }
+
+    /* ---- INCLUDED SECTION ---- */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .included-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.25s;
+    }
+    .included-card:hover { border-color: var(--cyan-border); }
+    .included-card .icon {
+      width: 44px;
+      height: 44px;
+      background: var(--cyan-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .included-card .icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--cyan);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .included-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .included-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-list { max-width: 760px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: var(--cyan-border); }
+    .faq-item[open] { border-color: var(--cyan-border); }
+    .faq-item summary {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--cyan);
+      font-weight: 400;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .faq-item .faq-answer {
+      padding: 0 1.5rem 1.25rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ---- FINAL CTA ---- */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 2rem;
+      position: relative;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cyan-dim) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--muted);
+      font-size: 0.875rem;
+      margin-bottom: 0.6rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cyan); opacity: 1; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ---- DIVIDER ---- */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ---- SCROLL REVEAL ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(8, 15, 28, 0.98);
+        backdrop-filter: blur(14px);
+        padding: 2rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-toggle { display: block; }
+
+      .hero { padding: 7rem 1.5rem 3rem; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .bundles-grid { grid-template-columns: 1fr; }
+      .included-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .bundle-card.featured { padding: 2rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="/" class="nav-logo">POWER <span>MATES</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/pricing" class="active">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/#content">Content</a></li>
+    <li><a href="https://tally.so/r/xXd9lG" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="reveal">
+    <span class="hero-badge">TRANSPARENT PRICING</span>
+    <h1>Invest in Your <span>Data Platform</span></h1>
+    <p>Clear pricing. No hidden fees. Every engagement includes a detailed report, actionable recommendations, and implementation guidance.</p>
+  </div>
+</section>
+
+<!-- ============ INDIVIDUAL SERVICES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Individual Services</div>
+      <h2 class="section-title">Pick What You Need</h2>
+      <p class="section-subtitle">Each service is a self-contained engagement with a fixed price and clear timeline.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <h3>Semantic Model Audit</h3>
+        <div class="price">$2,500</div>
+        <p class="desc">Deep analysis of your Power BI semantic models — schema, DAX, relationships, and refresh health.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          3–5 days
+        </div>
+        <a href="/semantic-model-audit" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Spark Job Optimization</h3>
+        <div class="price">$3,500</div>
+        <p class="desc">Performance tuning for your Fabric Spark notebooks and jobs — execution plans, memory, partitioning.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          3–5 days
+        </div>
+        <a href="/spark-optimization" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Data Pipeline Health Check</h3>
+        <div class="price">$4,000</div>
+        <p class="desc">End-to-end audit of your Fabric pipelines — orchestration, error handling, refresh schedules, throughput.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          5–7 days
+        </div>
+        <a href="/pipeline-health-check" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Real-Time Analytics Accelerator</h3>
+        <div class="price">$8,000</div>
+        <p class="desc">Architecture and implementation plan for real-time streaming analytics using Fabric Eventstreams and KQL.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          1–2 weeks
+        </div>
+        <a href="/realtime-analytics-accelerator" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>SQL Warehouse Migration</h3>
+        <div class="price">$12,000</div>
+        <p class="desc">Complete migration playbook from your current data warehouse to Fabric SQL Analytics Endpoint or Warehouse.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          2–3 weeks
+        </div>
+        <a href="/migration-playbook" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Tenant Scan</h3>
+        <div class="price">$12,500</div>
+        <p class="desc">Full governance and health assessment of your entire Microsoft Fabric tenant — capacity, security, usage patterns.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          1–2 weeks
+        </div>
+        <a href="/tenant-scan" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Fabric Architecture Accelerator</h3>
+        <div class="price">$15,000</div>
+        <p class="desc">Ground-up architecture design for your Fabric environment — lakehouse, warehouse, capacity planning, security.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          2–4 weeks
+        </div>
+        <a href="/fabric-architecture-accelerator" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>IQ MCP Integration</h3>
+        <div class="price">$18,000</div>
+        <p class="desc">AI-powered integration using Model Context Protocol to connect your Fabric data with intelligent copilot experiences.</p>
+        <div class="timeline">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          2–3 weeks
+        </div>
+        <a href="/iq-mcp-integration" class="learn-more">Learn More <span>&rarr;</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ BUNDLES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Bundles</div>
+      <h2 class="section-title">Save With Packages</h2>
+      <p class="section-subtitle">Combine services for broader coverage and a built-in discount.</p>
+    </div>
+
+    <div class="bundles-grid">
+
+      <div class="bundle-card reveal">
+        <h3>Data Engineering Pack</h3>
+        <ul class="bundle-includes">
+          <li>Spark Job Optimization</li>
+          <li>Data Pipeline Health Check</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$6,500</span>
+          <span class="save-badge">Save $1,000</span>
+        </div>
+      </div>
+
+      <div class="bundle-card reveal">
+        <h3>BI Performance Pack</h3>
+        <ul class="bundle-includes">
+          <li>Semantic Model Audit</li>
+          <li>Real-Time Analytics Accelerator</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$9,500</span>
+          <span class="save-badge">Save $1,000</span>
+        </div>
+      </div>
+
+      <div class="bundle-card reveal">
+        <h3>Governance + Performance</h3>
+        <ul class="bundle-includes">
+          <li>Tenant Scan</li>
+          <li>Semantic Model Audit</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$14,000</span>
+          <span class="save-badge">Save $1,000</span>
+        </div>
+      </div>
+
+      <div class="bundle-card reveal">
+        <h3>Full Data Platform Audit</h3>
+        <ul class="bundle-includes">
+          <li>Tenant Scan</li>
+          <li>Semantic Model Audit</li>
+          <li>Spark Job Optimization</li>
+          <li>Data Pipeline Health Check</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$21,500</span>
+          <span class="save-badge">Save $1,000</span>
+        </div>
+      </div>
+
+      <div class="bundle-card reveal">
+        <h3>Architecture + Real-Time</h3>
+        <ul class="bundle-includes">
+          <li>Fabric Architecture Accelerator</li>
+          <li>Real-Time Analytics Accelerator</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$22,000</span>
+          <span class="save-badge">Save $1,000</span>
+        </div>
+      </div>
+
+      <div class="bundle-card reveal">
+        <h3>Migration + Governance</h3>
+        <ul class="bundle-includes">
+          <li>SQL Warehouse Migration</li>
+          <li>Tenant Scan</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$23,500</span>
+          <span class="save-badge">Save $1,000</span>
+        </div>
+      </div>
+
+      <!-- Featured Enterprise card -->
+      <div class="bundle-card featured reveal">
+        <div class="section-label" style="margin-bottom:0.5rem;">Most Popular</div>
+        <h3>Enterprise Transformation</h3>
+        <p class="bundle-desc">Complete end-to-end assessment, optimization, and architecture for your entire Fabric environment. All 8 services included.</p>
+        <ul class="bundle-includes">
+          <li>Semantic Model Audit</li>
+          <li>Spark Job Optimization</li>
+          <li>Data Pipeline Health Check</li>
+          <li>Real-Time Analytics Accelerator</li>
+          <li>SQL Warehouse Migration</li>
+          <li>Tenant Scan</li>
+          <li>Fabric Architecture Accelerator</li>
+          <li>IQ MCP Integration</li>
+        </ul>
+        <div class="price-row">
+          <span class="price">$63,000</span>
+          <span class="save-badge">Save $12,500</span>
+        </div>
+        <a href="https://tally.so/r/xXd9lG" class="btn-primary" style="margin-top:0.5rem;">Schedule Discovery Call</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ WHAT'S INCLUDED ============ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Every Engagement</div>
+      <h2 class="section-title">What's Included</h2>
+      <p class="section-subtitle">No matter which service you choose, you get the full package.</p>
+    </div>
+
+    <div class="included-grid">
+
+      <div class="included-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Detailed Report</h3>
+        <p>Every engagement delivers a comprehensive report with findings, severity ratings, and prioritized recommendations.</p>
+      </div>
+
+      <div class="included-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Implementation Guidance</h3>
+        <p>Not just what to fix — step-by-step instructions and code snippets to implement every recommendation.</p>
+      </div>
+
+      <div class="included-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Executive Summary</h3>
+        <p>A board-ready summary for leadership with ROI projections and risk assessment.</p>
+      </div>
+
+      <div class="included-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Follow-up Support</h3>
+        <p>30-day email support after delivery for questions about implementation.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common Questions</h2>
+    </div>
+
+    <div class="faq-list" style="margin-top:1.5rem;">
+
+      <details class="faq-item reveal">
+        <summary>How does the engagement work?</summary>
+        <div class="faq-answer">
+          We start with a 30-minute discovery call to understand your environment. After scope confirmation, we request read-only access to your Fabric tenant and deliver results within the stated timeline.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do you need admin access?</summary>
+        <div class="faq-answer">
+          Most audits require read-only access. We'll specify exact permissions needed during the discovery call.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can I start small and expand?</summary>
+        <div class="faq-answer">
+          Absolutely. Many clients start with a Semantic Model Audit ($2,500) and expand to a full Tenant Scan or bundle based on initial findings.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What if I need something custom?</summary>
+        <div class="faq-answer">
+          Contact us. We regularly design custom engagements for enterprises with specific requirements.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta-section">
+  <div class="reveal">
+    <h2>Ready to Get Started?</h2>
+    <p>Book a free 30-minute discovery call. No pressure, no pitch — just an honest look at your data platform.</p>
+    <a href="https://tally.so/r/xXd9lG" class="btn-primary">Book Discovery Call</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/semantic-model-audit">Semantic Model Audit</a>
+      <a href="/spark-optimization">Spark Job Optimization</a>
+      <a href="/pipeline-health-check">Pipeline Health Check</a>
+      <a href="/realtime-analytics-accelerator">Real-Time Analytics</a>
+      <a href="/migration-playbook">SQL Warehouse Migration</a>
+      <a href="/tenant-scan">Tenant Scan</a>
+      <a href="/fabric-architecture-accelerator">Architecture Accelerator</a>
+      <a href="/iq-mcp-integration">IQ MCP Integration</a>
+    </div>
+    <div class="footer-col">
+      <h4>Bundles</h4>
+      <a href="/bi-performance-pack">BI Performance Pack</a>
+      <a href="/data-engineering-pack">Data Engineering Pack</a>
+      <a href="/governance-performance">Governance + Performance</a>
+      <a href="/migration-governance">Migration + Governance</a>
+      <a href="/architecture-realtime">Architecture + Real-Time</a>
+      <a href="/full-data-platform-audit">Full Platform Audit</a>
+      <a href="/enterprise-transformation">Enterprise Transformation</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/services">Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.youtube.com/@ThePowerMates" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/thepowermates" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">Twitter / X</a>
+      <a href="https://tally.so/r/xXd9lG" target="_blank" rel="noopener">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 PowerMates LLC. All rights reserved.
+  </div>
+</footer>
+
+<!-- ============ SCROLL REVEAL ============ -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>
