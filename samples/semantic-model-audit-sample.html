@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semantic Model Audit — Client... | PowerMates</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#080F1C;--bg2:#0D1520;--bg3:#131C2E;--card:#0f1b2d;--cyan:#2ee8d3;--text:#E8ECF1;--dim:#8B95A5; }
+* { margin:0;padding:0;box-sizing:border-box; }
+body { background:var(--bg);color:var(--text);font-family:'Figtree', sans-serif;line-height:1.6; }
+h1,h2,h3 { font-family:'Syne', sans-serif; }
+.container { max-width:1100px;margin:0 auto;padding:32px 24px; }
+
+.header { background:linear-gradient(135deg,#0a1628,#0f1b2d);border-bottom:2px solid var(--cyan);padding:40px 48px;display:flex;justify-content:space-between;align-items:center; }
+.logo { font-size:13px;font-weight:800;letter-spacing:.15em;color:var(--cyan); }
+.report-title { font-size:30px;font-weight:700;margin-top:8px; }
+.report-sub { font-size:14px;color:var(--dim);margin-top:4px; }
+.header-right { text-align:right;color:var(--dim);font-size:13px; }
+
+.score-section { text-align:center;padding:40px;background:var(--bg2);border-radius:16px;margin:32px 0; }
+.score-label { font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px; }
+.score-num { font-size:88px;font-weight:800;font-family:'Syne', sans-serif; }
+.score-grade { font-size:18px;color:var(--dim);margin-top:4px; }
+
+.stats-row { display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap; }
+.stat-card { text-align:center;padding:12px 20px; }
+.stat-num { font-size:28px;font-weight:700; }
+.stat-label { font-size:12px;color:var(--dim);text-transform:uppercase; }
+
+.metrics-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
+.metric-card { background:var(--bg2);border-radius:12px;padding:20px;text-align:center; }
+.metric-val { font-size:24px;font-weight:700;color:var(--cyan); }
+.metric-label { font-size:12px;color:var(--dim);margin-top:4px;text-transform:uppercase; }
+
+.section { margin:32px 0; }
+.section-title { font-size:20px;color:var(--cyan);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--bg3); }
+
+.finding { background:var(--bg2);border-radius:10px;padding:20px;margin-bottom:12px;border-left:3px solid #999; }
+.finding-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
+.finding-title { font-size:15px;font-weight:600; }
+.sev-badge { padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase; }
+.finding-cat { font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px; }
+.finding-desc { color:var(--dim);font-size:14px;margin-top:6px; }
+.finding-rec { margin-top:10px;padding:10px 14px;background:rgba(46,232,211,0.12);border-radius:6px;font-size:13px;color:var(--cyan); }
+
+.rec-item { display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--bg2);border-radius:8px;margin-bottom:8px; }
+.rec-num { background:var(--cyan);color:var(--bg);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0; }
+
+.table-wrap { overflow-x:auto; }
+table { width:100%;border-collapse:collapse;font-size:13px; }
+th { background:var(--bg3);color:var(--cyan);padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px; }
+td { padding:8px 14px;border-bottom:1px solid var(--bg3);color:var(--dim); }
+.kv-table td { padding:8px 14px; }
+.kv-table .val { color:var(--text);font-weight:600; }
+
+.footer { text-align:center;padding:32px;color:var(--dim);font-size:13px;border-top:1px solid var(--bg3);margin-top:40px; }
+.footer a { color:var(--cyan);text-decoration:none; }
+
+@media print {
+  body { background:#fff;color:#1a1a1a; }
+  .header { background:#f5f5f5;border-bottom:2px solid #2ee8d3; }
+  .finding,.score-section,.metric-card,.rec-item { background:#f9f9f9; }
+  td { border-bottom:1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="logo">POWERMATES</div>
+        <div class="report-title">📊 Semantic Model Audit</div>
+        <div class="report-sub">Assessment Report</div>
+    </div>
+    <div class="header-right">
+        <div style="font-weight:600">Client...</div>
+        <div>March 29, 2026 11:18 AM</div>
+        <div style="margin-top:8px;color:var(--cyan)">gaston@thepowermates.com</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="score-section">
+        <div class="score-label">Overall Health Score</div>
+        <div class="score-num" style="color:#FFD93D">68</div>
+        <div class="score-grade">Grade: D</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF6B6B">1</div>
+                <div class="stat-label">CRITICAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF9F43">3</div>
+                <div class="stat-label">HIGH</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FFD93D">3</div>
+                <div class="stat-label">MEDIUM</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#6BCB77">1</div>
+                <div class="stat-label">LOW</div>
+            </div></div>
+    </div>
+
+    <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-val">5</div>
+                <div class="metric-label">total_models</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">73</div>
+                <div class="metric-label">total_tables</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">280</div>
+                <div class="metric-label">total_measures</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">2</div>
+                <div class="metric-label">models_with_rls</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">14.6</div>
+                <div class="metric-label">avg_tables_per_model</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">924</div>
+                <div class="metric-label">total_size_mb</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">42</div>
+                <div class="metric-label">unused_measures</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">8</div>
+                <div class="metric-label">duplicate_measures</div>
+            </div></div>
+
+    <section class="section">
+        <h2 class="section-title">Findings (8)</h2>
+        
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">Missing RLS on 3 models with sensitive data</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Security</span>
+            <p class="finding-desc">Sales Revenue, Marketing Attribution, and Supply Chain Ops models expose all data to all workspace members without Row-Level Security.</p>
+            <div class="finding-rec">→ Implement RLS roles mapped to Azure AD groups. Priority: Sales Revenue (contains revenue targets and compensation data).</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Marketing Attribution model exceeds 400MB</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Performance</span>
+            <p class="finding-desc">At 412MB, this Import model is approaching the 1GB Pro license limit and causing 45-minute refresh times.</p>
+            <div class="finding-rec">→ Partition the model by date or switch historical data to DirectQuery/Composite mode. Consider incremental refresh.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">42 unused measures across all models</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Optimization</span>
+            <p class="finding-desc">15% of all measures are never referenced in any report or dashboard, adding unnecessary complexity and refresh overhead.</p>
+            <div class="finding-rec">→ Archive unused measures to a separate 'deprecated' display folder, then remove after 30-day verification period.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Circular dependency detected in Finance model</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Modeling</span>
+            <p class="finding-desc">Table relationships between FactSales → DimProduct → FactInventory → DimProduct create a circular reference affecting calculation accuracy.</p>
+            <div class="finding-rec">→ Redesign the star schema to eliminate the circular path. Use bridge tables if many-to-many relationships are needed.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">8 duplicate measure definitions</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">Measures like 'Total Revenue' and 'Revenue Total' exist with identical DAX in multiple models, creating maintenance burden.</p>
+            <div class="finding-rec">→ Consolidate into a shared semantic model using composite models or DirectQuery chaining.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">No descriptions on 85% of tables and measures</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">Only Finance Consolidated has proper documentation. Other models lack descriptions, making self-service discovery difficult.</p>
+            <div class="finding-rec">→ Add descriptions to all tables and key measures. Use Tabular Editor for bulk updates.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">No incremental refresh configured</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Performance</span>
+            <p class="finding-desc">All 4 Import models do full refresh daily, even though only recent data changes. This wastes capacity and extends refresh windows.</p>
+            <div class="finding-rec">→ Configure incremental refresh with 3-year archive, 7-day incremental window on all Import models.</div>
+        </div>
+        <div class="finding" style="border-left-color:#6BCB77">
+            <div class="finding-header">
+                <div class="finding-title">DirectQuery performance below threshold</div>
+                <span class="sev-badge" style="background:#6BCB7720;color:#6BCB77">LOW</span>
+            </div>
+            <span class="finding-cat">Performance</span>
+            <p class="finding-desc">Finance Consolidated DirectQuery averages 4.2s per visual query, above the 2s recommended threshold.</p>
+            <div class="finding-rec">→ Add aggregation tables for common queries. Review the SQL source query performance.</div>
+        </div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Recommendations</h2><div class="rec-item"><span class="rec-num">1</span><span>Implement RLS on Sales Revenue, Marketing Attribution, and Supply Chain models immediately</span></div><div class="rec-item"><span class="rec-num">2</span><span>Partition Marketing Attribution model and configure incremental refresh</span></div><div class="rec-item"><span class="rec-num">3</span><span>Audit and remove 42 unused measures (15% of total)</span></div><div class="rec-item"><span class="rec-num">4</span><span>Resolve circular dependency in Finance Consolidated model</span></div><div class="rec-item"><span class="rec-num">5</span><span>Add descriptions to all undocumented tables and measures using Tabular Editor</span></div><div class="rec-item"><span class="rec-num">6</span><span>Consolidate 8 duplicate measures into shared definitions</span></div><div class="rec-item"><span class="rec-num">7</span><span>Configure incremental refresh on all Import-mode models</span></div><div class="rec-item"><span class="rec-num">8</span><span>Add aggregation tables to Finance DirectQuery model to improve visual query performance</span></div></section>
+
+    
+                <section class="section" id="models-audited">
+                    <h2 class="section-title">Models Audited</h2>
+                    <div class="table-wrap">
+                        <table><thead><tr><th>name</th><th>workspace</th><th>tables</th><th>measures</th><th>rls_enabled</th><th>storage_mode</th></tr></thead><tbody><tr><td>Sales Revenue Model</td><td>Sales Analytics</td><td>14</td><td>52</td><td>False</td><td>Import</td></tr><tr><td>HR Metrics Dashboard</td><td>HR Analytics</td><td>8</td><td>28</td><td>True</td><td>Import</td></tr><tr><td>Finance Consolidated</td><td>Finance</td><td>22</td><td>95</td><td>True</td><td>DirectQuery</td></tr><tr><td>Marketing Attribution</td><td>Marketing</td><td>11</td><td>38</td><td>False</td><td>Import</td></tr><tr><td>Supply Chain Ops</td><td>Operations</td><td>18</td><td>67</td><td>False</td><td>Composite</td></tr></tbody></table>
+                    </div>
+                </section>
+
+</div>
+
+<div class="footer">
+    <div style="margin-bottom:8px"><strong>The Power Mates</strong> — Dual Microsoft MVPs, Data Platform & AI</div>
+    <div><a href="https://thepowermates.com">thepowermates.com</a> · gaston@thepowermates.com</div>
+    <div style="margin-top:8px">Generated March 29, 2026</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Migration Playbook — Client... | PowerMates</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#080F1C;--bg2:#0D1520;--bg3:#131C2E;--card:#0f1b2d;--cyan:#2ee8d3;--text:#E8ECF1;--dim:#8B95A5; }
+* { margin:0;padding:0;box-sizing:border-box; }
+body { background:var(--bg);color:var(--text);font-family:'Figtree', sans-serif;line-height:1.6; }
+h1,h2,h3 { font-family:'Syne', sans-serif; }
+.container { max-width:1100px;margin:0 auto;padding:32px 24px; }
+
+.header { background:linear-gradient(135deg,#0a1628,#0f1b2d);border-bottom:2px solid var(--cyan);padding:40px 48px;display:flex;justify-content:space-between;align-items:center; }
+.logo { font-size:13px;font-weight:800;letter-spacing:.15em;color:var(--cyan); }
+.report-title { font-size:30px;font-weight:700;margin-top:8px; }
+.report-sub { font-size:14px;color:var(--dim);margin-top:4px; }
+.header-right { text-align:right;color:var(--dim);font-size:13px; }
+
+.score-section { text-align:center;padding:40px;background:var(--bg2);border-radius:16px;margin:32px 0; }
+.score-label { font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px; }
+.score-num { font-size:88px;font-weight:800;font-family:'Syne', sans-serif; }
+.score-grade { font-size:18px;color:var(--dim);margin-top:4px; }
+
+.stats-row { display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap; }
+.stat-card { text-align:center;padding:12px 20px; }
+.stat-num { font-size:28px;font-weight:700; }
+.stat-label { font-size:12px;color:var(--dim);text-transform:uppercase; }
+
+.metrics-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
+.metric-card { background:var(--bg2);border-radius:12px;padding:20px;text-align:center; }
+.metric-val { font-size:24px;font-weight:700;color:var(--cyan); }
+.metric-label { font-size:12px;color:var(--dim);margin-top:4px;text-transform:uppercase; }
+
+.section { margin:32px 0; }
+.section-title { font-size:20px;color:var(--cyan);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--bg3); }
+
+.finding { background:var(--bg2);border-radius:10px;padding:20px;margin-bottom:12px;border-left:3px solid #999; }
+.finding-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
+.finding-title { font-size:15px;font-weight:600; }
+.sev-badge { padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase; }
+.finding-cat { font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px; }
+.finding-desc { color:var(--dim);font-size:14px;margin-top:6px; }
+.finding-rec { margin-top:10px;padding:10px 14px;background:rgba(46,232,211,0.12);border-radius:6px;font-size:13px;color:var(--cyan); }
+
+.rec-item { display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--bg2);border-radius:8px;margin-bottom:8px; }
+.rec-num { background:var(--cyan);color:var(--bg);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0; }
+
+.table-wrap { overflow-x:auto; }
+table { width:100%;border-collapse:collapse;font-size:13px; }
+th { background:var(--bg3);color:var(--cyan);padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px; }
+td { padding:8px 14px;border-bottom:1px solid var(--bg3);color:var(--dim); }
+.kv-table td { padding:8px 14px; }
+.kv-table .val { color:var(--text);font-weight:600; }
+
+.footer { text-align:center;padding:32px;color:var(--dim);font-size:13px;border-top:1px solid var(--bg3);margin-top:40px; }
+.footer a { color:var(--cyan);text-decoration:none; }
+
+@media print {
+  body { background:#fff;color:#1a1a1a; }
+  .header { background:#f5f5f5;border-bottom:2px solid #2ee8d3; }
+  .finding,.score-section,.metric-card,.rec-item { background:#f9f9f9; }
+  td { border-bottom:1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="logo">POWERMATES</div>
+        <div class="report-title">🗺️ Migration Playbook</div>
+        <div class="report-sub">Assessment Report</div>
+    </div>
+    <div class="header-right">
+        <div style="font-weight:600">Client...</div>
+        <div>March 29, 2026 11:18 AM</div>
+        <div style="margin-top:8px;color:var(--cyan)">gaston@thepowermates.com</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="score-section">
+        <div class="score-label">Overall Health Score</div>
+        <div class="score-num" style="color:#FF6B6B">55</div>
+        <div class="score-grade">Grade: F</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF6B6B">2</div>
+                <div class="stat-label">CRITICAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF9F43">3</div>
+                <div class="stat-label">HIGH</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FFD93D">2</div>
+                <div class="stat-label">MEDIUM</div>
+            </div></div>
+    </div>
+
+    <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-val">Azure Synapse Dedicated SQL Pool</div>
+                <div class="metric-label">source_platform</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">Microsoft Fabric SQL Analytics Endpoint</div>
+                <div class="metric-label">target_platform</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">342</div>
+                <div class="metric-label">total_objects</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">187</div>
+                <div class="metric-label">tables</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">89</div>
+                <div class="metric-label">views</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">52</div>
+                <div class="metric-label">stored_procedures</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">14</div>
+                <div class="metric-label">functions</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">1240</div>
+                <div class="metric-label">estimated_data_size_gb</div>
+            </div></div>
+
+    <section class="section">
+        <h2 class="section-title">Findings (7)</h2>
+        
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">52 stored procedures require rewrite</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Compatibility</span>
+            <p class="finding-desc">Fabric SQL Analytics Endpoint does not support T-SQL stored procedures. All 52 procs must be converted to Spark notebooks or Dataflow Gen2.</p>
+            <div class="finding-rec">→ Categorize procs by complexity: simple (SELECT-based) → views, medium (INSERT/UPDATE) → Dataflow Gen2, complex (cursors/temp tables) → Spark notebooks.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">14 UDFs with CLR dependencies</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Compatibility</span>
+            <p class="finding-desc">14 user-defined functions use CLR assemblies not supported in any Fabric endpoint.</p>
+            <div class="finding-rec">→ Rewrite as Python UDFs in Spark notebooks or inline the logic in Dataflow Gen2 expressions.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Distribution keys not transferable</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Performance</span>
+            <p class="finding-desc">47 tables use HASH distribution in Synapse. Fabric Lakehouse tables use Delta format without explicit distribution control.</p>
+            <div class="finding-rec">→ For hot query tables, use Z-ORDER on the former distribution key columns. Monitor query performance post-migration.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">PolyBase external tables require new approach</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Compatibility</span>
+            <p class="finding-desc">23 external tables using PolyBase to read from ADLS Gen2 need conversion to OneLake shortcuts or OPENROWSET.</p>
+            <div class="finding-rec">→ Replace PolyBase external tables with OneLake shortcuts for same-tenant data. Use Dataflow Gen2 for cross-tenant sources.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Security model migration needed</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Security</span>
+            <p class="finding-desc">Column-level security on 8 tables and dynamic data masking on 15 columns must be reimplemented using Fabric security features.</p>
+            <div class="finding-rec">→ Implement OneLake data access roles for table-level security. Use RLS in semantic models for row-level. Column masking via Purview.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Materialized views not supported</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Compatibility</span>
+            <p class="finding-desc">12 materialized views used for query acceleration in Synapse have no direct equivalent in Fabric.</p>
+            <div class="finding-rec">→ Convert to Delta tables with scheduled refresh via notebook or pipeline. Use Fabric Direct Lake mode for similar performance.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">1.24TB data transfer requires phased approach</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Migration Planning</span>
+            <p class="finding-desc">Moving 1.24TB in a single migration window exceeds the 4-hour maintenance window. Risk of data inconsistency during cutover.</p>
+            <div class="finding-rec">→ Use phased migration: Wave 1 (dimension tables, <100GB) → Wave 2 (fact tables, incremental) → Wave 3 (real-time cutover).</div>
+        </div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Recommendations</h2><div class="rec-item"><span class="rec-num">1</span><span>Categorize and convert 52 stored procedures: simple→views, medium→Dataflow, complex→Spark</span></div><div class="rec-item"><span class="rec-num">2</span><span>Replace 23 PolyBase external tables with OneLake shortcuts</span></div><div class="rec-item"><span class="rec-num">3</span><span>Plan 3-wave migration for 1.24TB dataset to stay within maintenance windows</span></div><div class="rec-item"><span class="rec-num">4</span><span>Rewrite 14 CLR-dependent UDFs as Python functions</span></div><div class="rec-item"><span class="rec-num">5</span><span>Implement OneLake data access roles to replace column-level security</span></div><div class="rec-item"><span class="rec-num">6</span><span>Convert 12 materialized views to scheduled Delta tables</span></div><div class="rec-item"><span class="rec-num">7</span><span>Apply Z-ORDER optimization on former HASH distribution key columns</span></div></section>
+
+    
+
+</div>
+
+<div class="footer">
+    <div style="margin-bottom:8px"><strong>The Power Mates</strong> — Dual Microsoft MVPs, Data Platform & AI</div>
+    <div><a href="https://thepowermates.com">thepowermates.com</a> · gaston@thepowermates.com</div>
+    <div style="margin-top:8px">Generated March 29, 2026</div>
+</div>
+
+</body>
+</html>

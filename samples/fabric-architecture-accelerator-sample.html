@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabric Architecture Accelerator — Client... | PowerMates</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#080F1C;--bg2:#0D1520;--bg3:#131C2E;--card:#0f1b2d;--cyan:#2ee8d3;--text:#E8ECF1;--dim:#8B95A5; }
+* { margin:0;padding:0;box-sizing:border-box; }
+body { background:var(--bg);color:var(--text);font-family:'Figtree', sans-serif;line-height:1.6; }
+h1,h2,h3 { font-family:'Syne', sans-serif; }
+.container { max-width:1100px;margin:0 auto;padding:32px 24px; }
+
+.header { background:linear-gradient(135deg,#0a1628,#0f1b2d);border-bottom:2px solid var(--cyan);padding:40px 48px;display:flex;justify-content:space-between;align-items:center; }
+.logo { font-size:13px;font-weight:800;letter-spacing:.15em;color:var(--cyan); }
+.report-title { font-size:30px;font-weight:700;margin-top:8px; }
+.report-sub { font-size:14px;color:var(--dim);margin-top:4px; }
+.header-right { text-align:right;color:var(--dim);font-size:13px; }
+
+.score-section { text-align:center;padding:40px;background:var(--bg2);border-radius:16px;margin:32px 0; }
+.score-label { font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px; }
+.score-num { font-size:88px;font-weight:800;font-family:'Syne', sans-serif; }
+.score-grade { font-size:18px;color:var(--dim);margin-top:4px; }
+
+.stats-row { display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap; }
+.stat-card { text-align:center;padding:12px 20px; }
+.stat-num { font-size:28px;font-weight:700; }
+.stat-label { font-size:12px;color:var(--dim);text-transform:uppercase; }
+
+.metrics-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
+.metric-card { background:var(--bg2);border-radius:12px;padding:20px;text-align:center; }
+.metric-val { font-size:24px;font-weight:700;color:var(--cyan); }
+.metric-label { font-size:12px;color:var(--dim);margin-top:4px;text-transform:uppercase; }
+
+.section { margin:32px 0; }
+.section-title { font-size:20px;color:var(--cyan);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--bg3); }
+
+.finding { background:var(--bg2);border-radius:10px;padding:20px;margin-bottom:12px;border-left:3px solid #999; }
+.finding-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
+.finding-title { font-size:15px;font-weight:600; }
+.sev-badge { padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase; }
+.finding-cat { font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px; }
+.finding-desc { color:var(--dim);font-size:14px;margin-top:6px; }
+.finding-rec { margin-top:10px;padding:10px 14px;background:rgba(46,232,211,0.12);border-radius:6px;font-size:13px;color:var(--cyan); }
+
+.rec-item { display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--bg2);border-radius:8px;margin-bottom:8px; }
+.rec-num { background:var(--cyan);color:var(--bg);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0; }
+
+.table-wrap { overflow-x:auto; }
+table { width:100%;border-collapse:collapse;font-size:13px; }
+th { background:var(--bg3);color:var(--cyan);padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px; }
+td { padding:8px 14px;border-bottom:1px solid var(--bg3);color:var(--dim); }
+.kv-table td { padding:8px 14px; }
+.kv-table .val { color:var(--text);font-weight:600; }
+
+.footer { text-align:center;padding:32px;color:var(--dim);font-size:13px;border-top:1px solid var(--bg3);margin-top:40px; }
+.footer a { color:var(--cyan);text-decoration:none; }
+
+@media print {
+  body { background:#fff;color:#1a1a1a; }
+  .header { background:#f5f5f5;border-bottom:2px solid #2ee8d3; }
+  .finding,.score-section,.metric-card,.rec-item { background:#f9f9f9; }
+  td { border-bottom:1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="logo">POWERMATES</div>
+        <div class="report-title">📋 Fabric Architecture Accelerator</div>
+        <div class="report-sub">Assessment Report</div>
+    </div>
+    <div class="header-right">
+        <div style="font-weight:600">Client...</div>
+        <div>March 29, 2026 11:18 AM</div>
+        <div style="margin-top:8px;color:var(--cyan)">gaston@thepowermates.com</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="score-section">
+        <div class="score-label">Overall Health Score</div>
+        <div class="score-num" style="color:#FFD93D">74</div>
+        <div class="score-grade">Grade: C</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF6B6B">1</div>
+                <div class="stat-label">CRITICAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF9F43">2</div>
+                <div class="stat-label">HIGH</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FFD93D">2</div>
+                <div class="stat-label">MEDIUM</div>
+            </div></div>
+    </div>
+
+    <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-val">4</div>
+                <div class="metric-label">workspaces_designed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">2</div>
+                <div class="metric-label">lakehouses_created</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">6</div>
+                <div class="metric-label">pipelines_scaffolded</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">8</div>
+                <div class="metric-label">notebooks_generated</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">Medallion (Bronze/Silver/Gold)</div>
+                <div class="metric-label">architecture_pattern</div>
+            </div></div>
+
+    <section class="section">
+        <h2 class="section-title">Findings (5)</h2>
+        
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">No workspace isolation between dev/test/prod</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Architecture</span>
+            <p class="finding-desc">All development, testing, and production artifacts exist in a single workspace. A bad deployment could break production dashboards.</p>
+            <div class="finding-rec">→ Implement 3-workspace pattern: Sales-Dev, Sales-Test, Sales-Prod with deployment pipelines between them.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Lakehouse schema not enforced</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Quality</span>
+            <p class="finding-desc">Bronze layer tables lack schema enforcement, allowing malformed data to propagate to Silver and Gold layers.</p>
+            <div class="finding-rec">→ Add Delta table constraints and check constraints on Bronze ingestion. Use schema evolution with mergeSchema option.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Git integration not configured</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">DevOps</span>
+            <p class="finding-desc">No source control for notebooks, pipelines, or semantic models. Changes cannot be tracked, reviewed, or rolled back.</p>
+            <div class="finding-rec">→ Connect workspace to Azure DevOps or GitHub. Enable Git integration for all Fabric item types.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">No data lineage documentation</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">No documentation of data flow from source systems through Bronze → Silver → Gold layers.</p>
+            <div class="finding-rec">→ Generate lineage diagrams using Purview or manual documentation. Tag each table with source system and refresh frequency.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Missing capacity auto-scaling rules</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Cost</span>
+            <p class="finding-desc">Fabric capacity is fixed at F64 with no auto-pause or scale rules. Evening/weekend usage is near zero but capacity remains allocated.</p>
+            <div class="finding-rec">→ Configure auto-pause after 15min idle. Set up scale rules: F64 during business hours, F16 evenings/weekends.</div>
+        </div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Recommendations</h2><div class="rec-item"><span class="rec-num">1</span><span>Implement dev/test/prod workspace separation with deployment pipelines</span></div><div class="rec-item"><span class="rec-num">2</span><span>Enable Git integration for all workspaces</span></div><div class="rec-item"><span class="rec-num">3</span><span>Add schema enforcement on Bronze layer tables</span></div><div class="rec-item"><span class="rec-num">4</span><span>Configure capacity auto-scaling to reduce weekend/evening costs</span></div><div class="rec-item"><span class="rec-num">5</span><span>Document data lineage from source to Gold layer</span></div></section>
+
+    
+
+</div>
+
+<div class="footer">
+    <div style="margin-bottom:8px"><strong>The Power Mates</strong> — Dual Microsoft MVPs, Data Platform & AI</div>
+    <div><a href="https://thepowermates.com">thepowermates.com</a> · gaston@thepowermates.com</div>
+    <div style="margin-top:8px">Generated March 29, 2026</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenant Scan — Client... | PowerMates</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#080F1C;--bg2:#0D1520;--bg3:#131C2E;--card:#0f1b2d;--cyan:#2ee8d3;--text:#E8ECF1;--dim:#8B95A5; }
+* { margin:0;padding:0;box-sizing:border-box; }
+body { background:var(--bg);color:var(--text);font-family:'Figtree', sans-serif;line-height:1.6; }
+h1,h2,h3 { font-family:'Syne', sans-serif; }
+.container { max-width:1100px;margin:0 auto;padding:32px 24px; }
+
+.header { background:linear-gradient(135deg,#0a1628,#0f1b2d);border-bottom:2px solid var(--cyan);padding:40px 48px;display:flex;justify-content:space-between;align-items:center; }
+.logo { font-size:13px;font-weight:800;letter-spacing:.15em;color:var(--cyan); }
+.report-title { font-size:30px;font-weight:700;margin-top:8px; }
+.report-sub { font-size:14px;color:var(--dim);margin-top:4px; }
+.header-right { text-align:right;color:var(--dim);font-size:13px; }
+
+.score-section { text-align:center;padding:40px;background:var(--bg2);border-radius:16px;margin:32px 0; }
+.score-label { font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px; }
+.score-num { font-size:88px;font-weight:800;font-family:'Syne', sans-serif; }
+.score-grade { font-size:18px;color:var(--dim);margin-top:4px; }
+
+.stats-row { display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap; }
+.stat-card { text-align:center;padding:12px 20px; }
+.stat-num { font-size:28px;font-weight:700; }
+.stat-label { font-size:12px;color:var(--dim);text-transform:uppercase; }
+
+.metrics-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
+.metric-card { background:var(--bg2);border-radius:12px;padding:20px;text-align:center; }
+.metric-val { font-size:24px;font-weight:700;color:var(--cyan); }
+.metric-label { font-size:12px;color:var(--dim);margin-top:4px;text-transform:uppercase; }
+
+.section { margin:32px 0; }
+.section-title { font-size:20px;color:var(--cyan);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--bg3); }
+
+.finding { background:var(--bg2);border-radius:10px;padding:20px;margin-bottom:12px;border-left:3px solid #999; }
+.finding-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
+.finding-title { font-size:15px;font-weight:600; }
+.sev-badge { padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase; }
+.finding-cat { font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px; }
+.finding-desc { color:var(--dim);font-size:14px;margin-top:6px; }
+.finding-rec { margin-top:10px;padding:10px 14px;background:rgba(46,232,211,0.12);border-radius:6px;font-size:13px;color:var(--cyan); }
+
+.rec-item { display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--bg2);border-radius:8px;margin-bottom:8px; }
+.rec-num { background:var(--cyan);color:var(--bg);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0; }
+
+.table-wrap { overflow-x:auto; }
+table { width:100%;border-collapse:collapse;font-size:13px; }
+th { background:var(--bg3);color:var(--cyan);padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px; }
+td { padding:8px 14px;border-bottom:1px solid var(--bg3);color:var(--dim); }
+.kv-table td { padding:8px 14px; }
+.kv-table .val { color:var(--text);font-weight:600; }
+
+.footer { text-align:center;padding:32px;color:var(--dim);font-size:13px;border-top:1px solid var(--bg3);margin-top:40px; }
+.footer a { color:var(--cyan);text-decoration:none; }
+
+@media print {
+  body { background:#fff;color:#1a1a1a; }
+  .header { background:#f5f5f5;border-bottom:2px solid #2ee8d3; }
+  .finding,.score-section,.metric-card,.rec-item { background:#f9f9f9; }
+  td { border-bottom:1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="logo">POWERMATES</div>
+        <div class="report-title">🏢 Tenant Scan</div>
+        <div class="report-sub">Assessment Report</div>
+    </div>
+    <div class="header-right">
+        <div style="font-weight:600">Client...</div>
+        <div>March 29, 2026 11:18 AM</div>
+        <div style="margin-top:8px;color:var(--cyan)">gaston@thepowermates.com</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="score-section">
+        <div class="score-label">Overall Health Score</div>
+        <div class="score-num" style="color:#FF6B6B">0</div>
+        <div class="score-grade">Grade: F</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF6B6B">4</div>
+                <div class="stat-label">CRITICAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF9F43">8</div>
+                <div class="stat-label">HIGH</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FFD93D">8</div>
+                <div class="stat-label">MEDIUM</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#6BCB77">2</div>
+                <div class="stat-label">LOW</div>
+            </div></div>
+    </div>
+
+    <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-val">5000</div>
+                <div class="metric-label">total_workspaces</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">5000</div>
+                <div class="metric-label">total_datasets</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">5000</div>
+                <div class="metric-label">total_reports</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">4442</div>
+                <div class="metric-label">total_dashboards</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">365</div>
+                <div class="metric-label">total_dataflows</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">8951</div>
+                <div class="metric-label">total_fabric_items</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">825</div>
+                <div class="metric-label">total_apps</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">0</div>
+                <div class="metric-label">total_users</div>
+            </div></div>
+
+    <section class="section">
+        <h2 class="section-title">Findings (22)</h2>
+        
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">Data Exposure</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Data Exposure</span>
+            <p class="finding-desc">125 artifacts published to the public internet</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">No Publish to Web</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Data Protection</span>
+            <p class="finding-desc">125 artifacts published to web</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">Readiness Score Below Threshold</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Monitoring</span>
+            <p class="finding-desc">readiness_score.score: 0 (threshold: 40)</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">Published to Web Detected</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Monitoring</span>
+            <p class="finding-desc">widely_shared.published_to_web_count: 125 (threshold: 0)</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Data Privacy</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Privacy</span>
+            <p class="finding-desc">7 potential PII columns detected without protection</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">PII Columns Protected</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Protection</span>
+            <p class="finding-desc">7 unprotected PII columns</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Sensitivity Labels > 50%</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Classification</span>
+            <p class="finding-desc">Coverage at 0.0%</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Sensitivity labels applied</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Protection</span>
+            <p class="finding-desc">0.0% coverage — significant gap</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">PII column protection</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Protection</span>
+            <p class="finding-desc">7 potential PII columns without sensitivity labels</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Row-Level Security</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Data Protection</span>
+            <p class="finding-desc">No models with RLS configured</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Workspace ownership</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">100% of workspaces have no admin</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Compliance Score Drop</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Monitoring</span>
+            <p class="finding-desc">compliance_checklist.compliance_score: 45 (threshold: 50)</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Governance</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">100% of workspaces have no designated admin</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">RLS Configured on Shared Models</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Access Control</span>
+            <p class="finding-desc">0/1169 models with RLS</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">No Org-Wide Links > 10</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Access Control</span>
+            <p class="finding-desc">1641 org-wide links</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Workspace Ownership</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">5000 orphaned workspaces</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Shadow IT Under Control</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Governance</span>
+            <p class="finding-desc">17 shadow IT creators</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Shadow IT Spike</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Monitoring</span>
+            <p class="finding-desc">user_segmentation.shadow_it_count: 17 (threshold: 5)</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">Stale Workspace Accumulation</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Monitoring</span>
+            <p class="finding-desc">workspace_lifecycle.stale_180d_count: 1763 (threshold: 10)</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">9 duplicate data source connections across datasets</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Data Source Consolidation</span>
+            <p class="finding-desc">9 duplicate data source connections across datasets</p>
+            <div class="finding-rec">→ Consolidate to shared datasets or dataflows to reduce refresh load</div>
+        </div>
+        <div class="finding" style="border-left-color:#6BCB77">
+            <div class="finding-header">
+                <div class="finding-title">Git Source Control Adopted</div>
+                <span class="sev-badge" style="background:#6BCB7720;color:#6BCB77">LOW</span>
+            </div>
+            <span class="finding-cat">Change Management</span>
+            <p class="finding-desc">Git adoption: 0.0%</p>
+            
+        </div>
+        <div class="finding" style="border-left-color:#6BCB77">
+            <div class="finding-header">
+                <div class="finding-title">Content Endorsement > 10%</div>
+                <span class="sev-badge" style="background:#6BCB7720;color:#6BCB77">LOW</span>
+            </div>
+            <span class="finding-cat">Data Quality</span>
+            <p class="finding-desc">Certified: 0.0%</p>
+            
+        </div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Recommendations</h2><div class="rec-item"><span class="rec-num">1</span><span>Certify or promote key datasets used by decision-makers. Start with top 20 most-viewed datasets.</span></div><div class="rec-item"><span class="rec-num">2</span><span>Deploy Microsoft Purview sensitivity labels. Start with Confidential/Internal/Public taxonomy.</span></div><div class="rec-item"><span class="rec-num">3</span><span>Add descriptions to tables, columns, and measures in your top semantic models. Copilot uses these for natural language Q&A.</span></div><div class="rec-item"><span class="rec-num">4</span><span>This 90-day roadmap moves your tenant from Score 0 to an estimated 25/100. Phase 1 addresses critical governance gaps. Phase 2 executes the first migration wave and enables DevOps. Phase 3 scales migration and optimizes costs for an estimated $0/yr in savings.</span></div></section>
+
+    
+
+</div>
+
+<div class="footer">
+    <div style="margin-bottom:8px"><strong>The Power Mates</strong> — Dual Microsoft MVPs, Data Platform & AI</div>
+    <div><a href="https://thepowermates.com">thepowermates.com</a> · gaston@thepowermates.com</div>
+    <div style="margin-top:8px">Generated March 29, 2026</div>
+</div>
+
+</body>
+</html>

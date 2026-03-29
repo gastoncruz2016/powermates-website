@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Health Check — Client... | PowerMates</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#080F1C;--bg2:#0D1520;--bg3:#131C2E;--card:#0f1b2d;--cyan:#2ee8d3;--text:#E8ECF1;--dim:#8B95A5; }
+* { margin:0;padding:0;box-sizing:border-box; }
+body { background:var(--bg);color:var(--text);font-family:'Figtree', sans-serif;line-height:1.6; }
+h1,h2,h3 { font-family:'Syne', sans-serif; }
+.container { max-width:1100px;margin:0 auto;padding:32px 24px; }
+
+.header { background:linear-gradient(135deg,#0a1628,#0f1b2d);border-bottom:2px solid var(--cyan);padding:40px 48px;display:flex;justify-content:space-between;align-items:center; }
+.logo { font-size:13px;font-weight:800;letter-spacing:.15em;color:var(--cyan); }
+.report-title { font-size:30px;font-weight:700;margin-top:8px; }
+.report-sub { font-size:14px;color:var(--dim);margin-top:4px; }
+.header-right { text-align:right;color:var(--dim);font-size:13px; }
+
+.score-section { text-align:center;padding:40px;background:var(--bg2);border-radius:16px;margin:32px 0; }
+.score-label { font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px; }
+.score-num { font-size:88px;font-weight:800;font-family:'Syne', sans-serif; }
+.score-grade { font-size:18px;color:var(--dim);margin-top:4px; }
+
+.stats-row { display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap; }
+.stat-card { text-align:center;padding:12px 20px; }
+.stat-num { font-size:28px;font-weight:700; }
+.stat-label { font-size:12px;color:var(--dim);text-transform:uppercase; }
+
+.metrics-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
+.metric-card { background:var(--bg2);border-radius:12px;padding:20px;text-align:center; }
+.metric-val { font-size:24px;font-weight:700;color:var(--cyan); }
+.metric-label { font-size:12px;color:var(--dim);margin-top:4px;text-transform:uppercase; }
+
+.section { margin:32px 0; }
+.section-title { font-size:20px;color:var(--cyan);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--bg3); }
+
+.finding { background:var(--bg2);border-radius:10px;padding:20px;margin-bottom:12px;border-left:3px solid #999; }
+.finding-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
+.finding-title { font-size:15px;font-weight:600; }
+.sev-badge { padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase; }
+.finding-cat { font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px; }
+.finding-desc { color:var(--dim);font-size:14px;margin-top:6px; }
+.finding-rec { margin-top:10px;padding:10px 14px;background:rgba(46,232,211,0.12);border-radius:6px;font-size:13px;color:var(--cyan); }
+
+.rec-item { display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--bg2);border-radius:8px;margin-bottom:8px; }
+.rec-num { background:var(--cyan);color:var(--bg);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0; }
+
+.table-wrap { overflow-x:auto; }
+table { width:100%;border-collapse:collapse;font-size:13px; }
+th { background:var(--bg3);color:var(--cyan);padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px; }
+td { padding:8px 14px;border-bottom:1px solid var(--bg3);color:var(--dim); }
+.kv-table td { padding:8px 14px; }
+.kv-table .val { color:var(--text);font-weight:600; }
+
+.footer { text-align:center;padding:32px;color:var(--dim);font-size:13px;border-top:1px solid var(--bg3);margin-top:40px; }
+.footer a { color:var(--cyan);text-decoration:none; }
+
+@media print {
+  body { background:#fff;color:#1a1a1a; }
+  .header { background:#f5f5f5;border-bottom:2px solid #2ee8d3; }
+  .finding,.score-section,.metric-card,.rec-item { background:#f9f9f9; }
+  td { border-bottom:1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <div class="logo">POWERMATES</div>
+        <div class="report-title">🔧 Pipeline Health Check</div>
+        <div class="report-sub">Assessment Report</div>
+    </div>
+    <div class="header-right">
+        <div style="font-weight:600">Client...</div>
+        <div>March 29, 2026 11:18 AM</div>
+        <div style="margin-top:8px;color:var(--cyan)">gaston@thepowermates.com</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="score-section">
+        <div class="score-label">Overall Health Score</div>
+        <div class="score-num" style="color:#FFD93D">64</div>
+        <div class="score-grade">Grade: D</div>
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF6B6B">1</div>
+                <div class="stat-label">CRITICAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FF9F43">3</div>
+                <div class="stat-label">HIGH</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#FFD93D">2</div>
+                <div class="stat-label">MEDIUM</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" style="color:#6BCB77">1</div>
+                <div class="stat-label">LOW</div>
+            </div></div>
+    </div>
+
+    <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-val">6</div>
+                <div class="metric-label">total_pipelines</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">3</div>
+                <div class="metric-label">healthy</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">1</div>
+                <div class="metric-label">failing</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">2</div>
+                <div class="metric-label">degraded</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">82%</div>
+                <div class="metric-label">avg_success_rate</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">42</div>
+                <div class="metric-label">total_activities</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">50</div>
+                <div class="metric-label">avg_duration_min</div>
+            </div></div>
+
+    <section class="section">
+        <h2 class="section-title">Findings (7)</h2>
+        
+        <div class="finding" style="border-left-color:#FF6B6B">
+            <div class="finding-header">
+                <div class="finding-title">ETL-Inventory-Sync failing — 60% failure rate</div>
+                <span class="sev-badge" style="background:#FF6B6B20;color:#FF6B6B">CRITICAL</span>
+            </div>
+            <span class="finding-cat">Reliability</span>
+            <p class="finding-desc">Pipeline has failed 3 of last 5 runs with connection timeout to on-premises SQL Server. Data freshness SLA breached by 26 hours.</p>
+            <div class="finding-rec">→ Check on-premises data gateway health and network connectivity. Increase connection timeout to 120s. Add retry policy with exponential backoff.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">Finance-Consolidation duration trending up 340%</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Performance</span>
+            <p class="finding-desc">Average duration increased from 20min to 68min over the past 2 weeks. Root cause: new GL table with 4.2M rows added without incremental logic.</p>
+            <div class="finding-rec">→ Implement incremental load pattern for GL table using watermark column (LastModifiedDate). Consider partitioning by fiscal period.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">ML-Feature-Pipeline intermittent OOM failures</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Reliability</span>
+            <p class="finding-desc">Pipeline fails on 2 of 7 days with OutOfMemory errors during feature aggregation step. Memory usage spikes to 95% during window functions.</p>
+            <div class="finding-rec">→ Increase Spark pool memory or split the aggregation into 2 stages. Add checkpointing between heavy transformations.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FF9F43">
+            <div class="finding-header">
+                <div class="finding-title">No retry policy on 4 of 6 pipelines</div>
+                <span class="sev-badge" style="background:#FF9F4320;color:#FF9F43">HIGH</span>
+            </div>
+            <span class="finding-cat">Resilience</span>
+            <p class="finding-desc">Only ETL-Sales-Daily and HR-Data-Refresh have retry policies configured. Others fail permanently on first error.</p>
+            <div class="finding-rec">→ Add retry policies to all pipelines: 3 retries, exponential backoff starting at 5 minutes.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">4 pipelines scheduled at same time window</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Performance</span>
+            <p class="finding-desc">ETL-Sales-Daily, ETL-Inventory-Sync, HR-Data-Refresh, and Finance-Consolidation all run between 2:00-3:00 AM, competing for capacity.</p>
+            <div class="finding-rec">→ Stagger schedules: Sales at 1:00 AM, HR at 1:30 AM, Finance at 2:00 AM, Inventory at 2:30 AM.</div>
+        </div>
+        <div class="finding" style="border-left-color:#FFD93D">
+            <div class="finding-header">
+                <div class="finding-title">No alerting configured for pipeline failures</div>
+                <span class="sev-badge" style="background:#FFD93D20;color:#FFD93D">MEDIUM</span>
+            </div>
+            <span class="finding-cat">Monitoring</span>
+            <p class="finding-desc">Pipeline failures are only discovered when downstream reports show stale data. No proactive notification system.</p>
+            <div class="finding-rec">→ Configure Teams/email alerts on pipeline failure events. Set up Data Activator rules for SLA monitoring.</div>
+        </div>
+        <div class="finding" style="border-left-color:#6BCB77">
+            <div class="finding-header">
+                <div class="finding-title">Marketing-Attribution missing dependency chain</div>
+                <span class="sev-badge" style="background:#6BCB7720;color:#6BCB77">LOW</span>
+            </div>
+            <span class="finding-cat">Orchestration</span>
+            <p class="finding-desc">Pipeline runs on fixed schedule without validating that upstream Sales data has refreshed. Occasionally produces reports with stale data.</p>
+            <div class="finding-rec">→ Add pipeline dependency: trigger Marketing-Attribution after ETL-Sales-Daily completes successfully.</div>
+        </div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Recommendations</h2><div class="rec-item"><span class="rec-num">1</span><span>Fix ETL-Inventory-Sync immediately — SLA breach active, check gateway connectivity</span></div><div class="rec-item"><span class="rec-num">2</span><span>Implement incremental load for Finance GL table to reduce duration from 68min to ~25min</span></div><div class="rec-item"><span class="rec-num">3</span><span>Add retry policies to all 4 pipelines missing them</span></div><div class="rec-item"><span class="rec-num">4</span><span>Stagger overnight schedules to eliminate resource contention</span></div><div class="rec-item"><span class="rec-num">5</span><span>Set up failure alerting via Teams and Data Activator</span></div><div class="rec-item"><span class="rec-num">6</span><span>Increase Spark pool memory for ML-Feature-Pipeline or split aggregation step</span></div><div class="rec-item"><span class="rec-num">7</span><span>Add pipeline dependency chain: Sales → Marketing</span></div></section>
+
+    
+                <section class="section" id="pipelines">
+                    <h2 class="section-title">Pipelines</h2>
+                    <div class="table-wrap">
+                        <table><thead><tr><th>name</th><th>workspace</th><th>status</th><th>last_run</th><th>avg_duration_min</th><th>success_rate_7d</th></tr></thead><tbody><tr><td>ETL-Sales-Daily</td><td>Sales Analytics</td><td>healthy</td><td>2026-03-29T02:15:00Z</td><td>22</td><td>100</td></tr><tr><td>ETL-Inventory-Sync</td><td>Operations</td><td>failing</td><td>2026-03-28T03:00:00Z</td><td>45</td><td>40</td></tr><tr><td>Finance-Consolidation</td><td>Finance</td><td>degraded</td><td>2026-03-29T04:30:00Z</td><td>68</td><td>85</td></tr><tr><td>HR-Data-Refresh</td><td>HR Analytics</td><td>healthy</td><td>2026-03-29T01:00:00Z</td><td>8</td><td>100</td></tr><tr><td>Marketing-Attribution</td><td>Marketing</td><td>healthy</td><td>2026-03-29T05:00:00Z</td><td>35</td><td>95</td></tr><tr><td>ML-Feature-Pipeline</td><td>Data Science</td><td>degraded</td><td>2026-03-28T06:00:00Z</td><td>120</td><td>71</td></tr></tbody></table>
+                    </div>
+                </section>
+
+</div>
+
+<div class="footer">
+    <div style="margin-bottom:8px"><strong>The Power Mates</strong> — Dual Microsoft MVPs, Data Platform & AI</div>
+    <div><a href="https://thepowermates.com">thepowermates.com</a> · gaston@thepowermates.com</div>
+    <div style="margin-top:8px">Generated March 29, 2026</div>
+</div>
+
+</body>
+</html>
