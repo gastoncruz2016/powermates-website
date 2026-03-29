@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /images/
 
-Sitemap: https://thepowermates.com/sitemap.xml
+Sitemap: https://www.thepowermates.com/sitemap.xml

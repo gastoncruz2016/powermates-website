@@ -3,7 +3,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://thepowermates.com/</loc>
+    <loc>https://www.thepowermates.com/</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,19 +11,19 @@
 
   <!-- Core Pages -->
   <url>
-    <loc>https://thepowermates.com/services</loc>
+    <loc>https://www.thepowermates.com/services</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/pricing</loc>
+    <loc>https://www.thepowermates.com/pricing</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/about</loc>
+    <loc>https://www.thepowermates.com/about</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -31,61 +31,61 @@
 
   <!-- Offerings -->
   <url>
-    <loc>https://thepowermates.com/tenant-scan</loc>
+    <loc>https://www.thepowermates.com/tenant-scan</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/tenant-scan-ai-assisted</loc>
+    <loc>https://www.thepowermates.com/tenant-scan-ai-assisted</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/fabric-architecture-accelerator</loc>
+    <loc>https://www.thepowermates.com/fabric-architecture-accelerator</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/semantic-model-audit</loc>
+    <loc>https://www.thepowermates.com/semantic-model-audit</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/realtime-analytics-accelerator</loc>
+    <loc>https://www.thepowermates.com/realtime-analytics-accelerator</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/executive-briefing</loc>
+    <loc>https://www.thepowermates.com/executive-briefing</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/migration-playbook</loc>
+    <loc>https://www.thepowermates.com/migration-playbook</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/spark-optimization</loc>
+    <loc>https://www.thepowermates.com/spark-optimization</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/pipeline-health-check</loc>
+    <loc>https://www.thepowermates.com/pipeline-health-check</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/iq-mcp-integration</loc>
+    <loc>https://www.thepowermates.com/iq-mcp-integration</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -93,43 +93,43 @@
 
   <!-- Bundles -->
   <url>
-    <loc>https://thepowermates.com/bi-performance-pack</loc>
+    <loc>https://www.thepowermates.com/bi-performance-pack</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/data-engineering-pack</loc>
+    <loc>https://www.thepowermates.com/data-engineering-pack</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/governance-performance</loc>
+    <loc>https://www.thepowermates.com/governance-performance</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/migration-governance</loc>
+    <loc>https://www.thepowermates.com/migration-governance</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/architecture-realtime</loc>
+    <loc>https://www.thepowermates.com/architecture-realtime</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/full-data-platform-audit</loc>
+    <loc>https://www.thepowermates.com/full-data-platform-audit</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/enterprise-transformation</loc>
+    <loc>https://www.thepowermates.com/enterprise-transformation</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -137,13 +137,13 @@
 
   <!-- Legal -->
   <url>
-    <loc>https://thepowermates.com/privacy</loc>
+    <loc>https://www.thepowermates.com/privacy</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://thepowermates.com/terms</loc>
+    <loc>https://www.thepowermates.com/terms</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
