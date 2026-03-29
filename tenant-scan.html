@@ -866,86 +866,7 @@
       .proof-strip { gap: 1.5rem; }
     }
 
-    /* ── FABCON BANNER ── */
-    #fabcon-banner {
-      background: linear-gradient(90deg, #0a1a2e 0%, #0d2035 50%, #0a1a2e 100%);
-      border-bottom: 1px solid rgba(46, 232, 211, 0.3);
-      padding: 10px 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 101;
-    }
-    .fabcon-badge {
-      background: var(--cyan);
-      color: #080F1C;
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-    .fabcon-text {
-      font-size: 0.82rem;
-      color: #e8edf5;
-      font-family: 'Figtree', sans-serif;
-      white-space: nowrap;
-    }
-    .fabcon-text strong { color: var(--cyan); }
-    .fabcon-code {
-      font-size: 0.78rem;
-      color: var(--cyan);
-      border: 1px dashed rgba(46,232,211,0.5);
-      padding: 2px 10px;
-      border-radius: 4px;
-      font-family: 'Figtree', monospace;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .fabcon-cta {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #080F1C;
-      background: var(--cyan);
-      padding: 5px 14px;
-      border-radius: 6px;
-      white-space: nowrap;
-      font-family: 'Figtree', sans-serif;
-      transition: opacity 0.2s;
-    }
-    .fabcon-cta:hover { opacity: 0.85; color: #080F1C; }
-    .fabcon-close {
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 1rem;
-      line-height: 1;
-      padding: 4px;
-    }
-    .fabcon-close:hover { color: var(--text); }
-    #fabcon-countdown {
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    #fabcon-countdown span {
-      color: var(--text);
-      font-weight: 700;
-    }
     @media (max-width: 768px) {
-      #fabcon-banner { gap: 0.6rem; padding: 8px 2.5rem 8px 1rem; }
-      .fabcon-text { font-size: 0.75rem; }
-      #fabcon-countdown { display: none; }
     }
   
 /* ── Mobile Hamburger ── */
@@ -973,22 +894,7 @@
 </head>
 <body>
 
-  <!-- ── FABCON 2026 BANNER (auto-hides after event) ── -->
-  <div id="fabcon-banner" style="display:none;">
-    <span class="fabcon-badge">FabCon 2026</span>
-    <span class="fabcon-text">Atlanta, March 16–20 · Find Gaston at the <strong>Microsoft Fabric</strong> sessions</span>
-    <span class="fabcon-code">FABCON2026</span>
-    <span class="fabcon-text">— 10% off any tier</span>
-    <span id="fabcon-countdown"></span>
-    <a href="#pricing" class="fabcon-cta">Get Your Scan →</a>
-    <button class="fabcon-close" onclick="document.getElementById('fabcon-banner').style.display='none'" aria-label="Close">✕</button>
-  </div>
-  <script>
-    (function(){
-      var end = new Date('2026-03-21T00:00:00-05:00');
-      if (new Date() < end) document.getElementById('fabcon-banner').style.display = '';
-    })();
-  </script>
+  <!-- ── FABCON 2026 BANNER (removed — event ended March 20, 2026) ── -->
 
   <!-- ── NAV ── -->
   <nav>
@@ -1206,7 +1112,7 @@
         <div class="step-card reveal">
           <div class="step-number">3</div>
           <h3>Receive Your Fabric Readiness Report</h3>
-          <p>Your complete assessment — scored, prioritized, and ready to act on — delivered in 3–5 business days. Professional and Enterprise tiers include your advisory call scheduling link.</p>
+          <p>Your complete assessment — scored, prioritized, and ready to act on — delivered in 3–5 business days. AI-Assisted and Enterprise tiers include your advisory call scheduling link.</p>
         </div>
       </div>
     </div>
@@ -1341,7 +1247,7 @@
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-answer">
-            <p>Professional and Enterprise tiers include advisory sessions. Enterprise also includes 2 follow-up calls, ROI modeling, and a 30/60/90-day roadmap. You can also add the Migration Playbook — a detailed, phased execution plan built directly from your scan findings.</p>
+            <p>AI-Assisted and Enterprise tiers include advisory sessions. Enterprise also includes 2 follow-up calls, ROI modeling, and a 30/60/90-day roadmap. You can also add the Migration Playbook — a detailed, phased execution plan built directly from your scan findings.</p>
           </div>
         </div>
 
@@ -1591,28 +1497,6 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
-  <!-- ── FABCON COUNTDOWN ── -->
-  <script>
-    (function() {
-      const target = new Date('2026-03-16T08:00:00-05:00'); // FabCon Day 1, 8am ET
-      const el = document.getElementById('fabcon-countdown');
-      if (!el) return;
-      function tick() {
-        const now = new Date();
-        const diff = target - now;
-        if (diff <= 0) { el.style.display = 'none'; return; }
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        el.innerHTML = d > 0
-          ? `Starts in <span>${d}d ${h}h</span>`
-          : `Starts in <span>${h}h ${m}m</span>`;
-      }
-      tick();
-      setInterval(tick, 60000);
-    })();
-  </script>
-
   <!-- ── FAQ ACCORDION ── -->
   <script>
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -1688,7 +1572,7 @@
       "name": "What if I need help after the assessment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Professional and Enterprise tiers include advisory sessions. Enterprise also includes 2 follow-up calls, ROI modeling, and a 30/60/90-day roadmap. You can also add the Migration Playbook — a detailed, phased execution plan built directly from your scan findings."
+        "text": "AI-Assisted and Enterprise tiers include advisory sessions. Enterprise also includes 2 follow-up calls, ROI modeling, and a 30/60/90-day roadmap. You can also add the Migration Playbook — a detailed, phased execution plan built directly from your scan findings."
       }
     },
     {
