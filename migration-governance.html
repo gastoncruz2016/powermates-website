@@ -14,8 +14,9 @@
   <meta property="og:image" content="https://www.thepowermates.com/images/og-default.png">
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og-default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css">
   <style>
     :root {
       --bg: #080F1C;
@@ -884,32 +885,7 @@
   <div class="footer-bottom">&copy; 2026 PowerMates LLC. All rights reserved. · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></div>
 </footer>
 
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
-  if(btn&&nav){
-    btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');document.body.classList.toggle('nav-open');});
-    nav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click',function(){
-        if(!a.classList.contains('nav-dropdown-toggle')){btn.classList.remove('open');nav.classList.remove('open');document.body.classList.remove('nav-open');}
-      });
-    });
-  }
-  document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle){
-    toggle.addEventListener('click',function(e){
-      e.preventDefault();
-      toggle.closest('.nav-dropdown').classList.toggle('open');
-    });
-  });
-  var reveals=document.querySelectorAll('.reveal');
-  var observer=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-    });
-  },{threshold:0.15});
-  reveals.forEach(function(el){observer.observe(el);});
-})();
-</script>
+<script src="/nav.js"></script>
 
 <!-- Thank-you banner script -->
 <script>

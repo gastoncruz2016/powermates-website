@@ -13,8 +13,9 @@
   <meta property="og:image" content="https://www.thepowermates.com/images/og-default.png">
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og-default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css">
   <style>
     :root {
       --bg: #080F1C;
@@ -754,17 +755,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-  <script>
-  (function(){
-    var btn = document.querySelector('.hamburger'), nav = document.querySelector('.nav-links');
-    if (btn && nav) {
-      btn.addEventListener('click', function(){ btn.classList.toggle('open'); nav.classList.toggle('open'); document.body.classList.toggle('nav-open'); });
-    }
-    if (nav) nav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ if(btn) btn.classList.remove('open'); nav.classList.remove('open'); });
-    });
-  })();
-  </script>
+  <script src="/nav.js"></script>
 
 </body>
 </html>

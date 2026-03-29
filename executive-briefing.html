@@ -10,7 +10,8 @@
   <meta property="og:image" content="https://www.thepowermates.com/images/og-default.png">
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og-default.png">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+    <link rel="stylesheet" href="/styles.css">
+      <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #080F1C; --card: #0d1628; --cyan: #2ee8d3; --text: #e8edf5;
@@ -237,12 +238,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
-  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');document.body.classList.toggle('nav-open');});}
-})();
-</script>
+<script src="/nav.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","name":"Executive Briefing on Microsoft Fabric & AI","description":"A tailored, board-ready executive briefing pack on Microsoft Fabric and AI — built for your industry, your audience, and your timeline. Complimentary.","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://thepowermates.com/executive-briefing"}
 </script>

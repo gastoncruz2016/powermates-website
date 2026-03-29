@@ -16,8 +16,9 @@
   <meta property="og:image" content="https://www.thepowermates.com/images/og-default.png">
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og-default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css">
   <style>
     :root {
       --bg: #080f1c;
@@ -984,20 +985,7 @@
 </footer>
 
 <!-- ============ SCROLL REVEAL ============ -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  });
-</script>
+<script src="/nav.js"></script>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Pricing — Microsoft Fabric & Power Platform Consulting","description":"Transparent pricing for PowerMates consulting. Individual services from $2,500, bundles from $6,500, and the Enterprise Transformation at $63,000. No hidden fees.","url":"https://thepowermates.com/pricing","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"}}

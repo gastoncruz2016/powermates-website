@@ -16,8 +16,9 @@
   <meta property="og:image" content="https://www.thepowermates.com/images/og-default.png">
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og-default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css">
   <style>
     :root {
       --bg:          #080f1c;
@@ -1136,12 +1137,7 @@
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 })();
 </script>
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger'),nav=document.querySelector('.nav-links');
-  if(btn&&nav){btn.addEventListener('click',function(){btn.classList.toggle('open');nav.classList.toggle('open');document.body.classList.toggle('nav-open');});}
-})();
-</script>
+<script src="/nav.js"></script>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"PowerMates Services — Microsoft Fabric & Power Platform","description":"8 specialized Microsoft Fabric and Power Platform consulting services. Governance audits, data engineering, architecture accelerators, and AI integrations. $2,500–$18,000. Built by Dual Microsoft MVPs.","url":"https://thepowermates.com/services","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"}}
