@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <title>Power BI & Fabric Tenant Scan | PowerMates</title>
-  <meta name="description" content="Get a comprehensive Fabric migration readiness assessment with a scored methodology, complexity heatmap, and phased roadmap. Three tiers from $2,500 to $7,500. Built by Microsoft MVPs." />
+  <meta name="description" content="Get a comprehensive Fabric migration readiness assessment with a scored methodology, governance findings, and prioritized action plan. From $2,500 to $12,500. Built by Dual Microsoft MVPs." />
   <meta name="keywords" content="Microsoft Fabric tenant scan, Power BI governance assessment, Fabric migration readiness, tenant health check, Fabric readiness score, Power BI audit" />
   <meta property="og:title" content="Power BI & Fabric Tenant Scan | PowerMates" />
   <meta property="og:description" content="A data-driven migration readiness assessment for your Power BI and Fabric tenant — scored methodology, phased roadmap, governance findings. Built by Microsoft MVPs." />
@@ -845,7 +845,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .pricing-grid { grid-template-columns: 1fr !important; max-width: 480px; margin: 0 auto !important; }
       .pricing-card.recommended { transform: scale(1); }
       .risks-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
@@ -1113,23 +1113,39 @@
   <section id="pricing" class="pricing-section">
     <div class="container">
       <div class="section-header centered reveal">
-        <div class="section-label">Assessment Offering</div>
-        <h2 class="section-title">AI-Assisted Tenant Scan</h2>
-        <p class="section-sub">Comprehensive Fabric assessment with live scanning, AI-powered governance scoring, and direct MVP guidance to accelerate your migration strategy.</p>
+        <div class="section-label">Choose Your Assessment</div>
+        <h2 class="section-title">Tenant Scan Tiers</h2>
+        <p class="section-sub">From a focused governance check to a full enterprise assessment with live scanning and MVP guidance.</p>
       </div>
 
-      <div class="pricing-grid">
+      <div class="pricing-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 1100px; margin: 0 auto;">
 
-        <!-- AI-ASSISTED (Premium) -->
-        <div class="pricing-card reveal" style="border-color: var(--cyan-border); background: linear-gradient(135deg, var(--card) 0%, rgba(46, 232, 211, 0.04) 100%);">
-          <div class="recommended-badge" style="background: var(--cyan); color: var(--bg);">Complete Assessment</div>
-          <div class="pricing-tier">AI-Assisted Tenant Scan</div>
+        <!-- STARTER -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-price">$2,500</div>
+          <div class="pricing-tagline">Single-environment governance assessment. Delivered in 3–5 business days.</div>
+          <ul class="pricing-features">
+            <li>Single environment scan</li>
+            <li>Fabric Readiness Score (0–100)</li>
+            <li>Governance findings with severity ratings</li>
+            <li>License &amp; cost analysis</li>
+            <li>Next 5 Actions — prioritized</li>
+            <li>PDF &amp; HTML assessment report</li>
+          </ul>
+          <a href="https://buy.stripe.com/7sYbJ373f19I1OCbpT8AE04" class="pricing-cta outline">Get Starter Scan →</a>
+        </div>
+
+        <!-- AI-ASSISTED (Recommended) -->
+        <div class="pricing-card recommended reveal" style="border-color: var(--cyan-border); background: linear-gradient(135deg, var(--card) 0%, rgba(46, 232, 211, 0.04) 100%);">
+          <div class="recommended-badge" style="background: var(--cyan); color: var(--bg);">Recommended</div>
+          <div class="pricing-tier">AI-Assisted</div>
           <div class="pricing-price">$12,500</div>
           <div class="pricing-tagline">Live Fabric scan. AI governance scoring. MVP working session.</div>
           <ul class="pricing-features">
+            <li>Everything in Starter, plus:</li>
             <li>Live Fabric REST API scan (FabricAdmin agent)</li>
             <li>AI-powered Governance Score (0–100)</li>
-            <li>Fabric Readiness Score</li>
             <li>Full RBAC security audit</li>
             <li>Semantic model health analysis</li>
             <li>Multi-environment capability</li>
@@ -1138,13 +1154,31 @@
             <li>Executive summary deck</li>
             <li>30-day follow-up call</li>
           </ul>
-          <a href="/tenant-scan-ai-assisted" class="pricing-cta primary" style="background: var(--cyan); color: var(--bg);">Get Started →</a>
+          <a href="/tenant-scan-ai-assisted" class="pricing-cta primary" style="background: var(--cyan); color: var(--bg);">Get AI-Assisted Scan →</a>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-price">$15,000+</div>
+          <div class="pricing-tagline">Full enterprise assessment with custom scoping and quarterly advisory.</div>
+          <ul class="pricing-features">
+            <li>Everything in AI-Assisted, plus:</li>
+            <li>Custom scoping call</li>
+            <li>Multi-business-unit coverage</li>
+            <li>Executive presentation deck</li>
+            <li>2 follow-up advisory calls</li>
+            <li>ROI modeling</li>
+            <li>30/60/90-day roadmap</li>
+            <li>Quarterly advisory option</li>
+          </ul>
+          <a href="mailto:gaston@thepowermates.com?subject=Enterprise%20Tenant%20Scan%20Inquiry" class="pricing-cta outline">Contact Us →</a>
         </div>
 
       </div>
 
       <p class="pricing-note reveal">
-        Ready to assess your Fabric environment? <a href="/tenant-scan-ai-assisted#intake-form">Start your intake form</a>
+        Questions? <a href="mailto:gaston@thepowermates.com">Email Gastón directly</a> or <a href="https://tally.so/r/xXd9lG">book a discovery call</a>.
       </p>
     </div>
   </section>
@@ -1339,7 +1373,7 @@
           <p><strong>Not ready for a full assessment?</strong></p>
           <p>Start with our complimentary Quick Governance Scan — a high-level view of your governance posture at no cost.</p>
         </div>
-        <a href="https://tally.so/r/rjlkGL" class="btn-outline" style="white-space: nowrap; flex-shrink: 0;">Request Free Scan →</a>
+        <a href="#pricing" class="btn-outline" style="white-space: nowrap; flex-shrink: 0;">View Pricing →</a>
       </div>
 
     </div>
@@ -1608,7 +1642,7 @@
 })();
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":"Power BI & Fabric Tenant Scan","description":"Get a comprehensive Fabric migration readiness assessment with a scored methodology, complexity heatmap, and phased roadmap. Three tiers from $2,500 to $7,500. Built by Microsoft MVPs.","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"},"offers":{"@type":"Offer","price":"12500","priceCurrency":"USD"},"url":"https://thepowermates.com/tenant-scan"}
+{"@context":"https://schema.org","@type":"Service","name":"Power BI & Fabric Tenant Scan","description":"Get a comprehensive Fabric migration readiness assessment with a scored methodology, governance findings, and prioritized action plan. From $2,500 to $12,500. Built by Dual Microsoft MVPs.","provider":{"@type":"Organization","name":"The Power Mates","url":"https://thepowermates.com"},"offers":{"@type":"Offer","price":"12500","priceCurrency":"USD"},"url":"https://thepowermates.com/tenant-scan"}
 </script>
 </body>
 </html>
