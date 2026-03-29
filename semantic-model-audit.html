@@ -886,6 +886,80 @@
   <a href="#pricing" class="hero-cta">Request Your Audit — $2,500</a>
 </section>
 
+  <!-- ─── FAQ ──────────────────────────────────────────────────────── -->
+  <section style="background:var(--bg);padding:80px 24px;">
+    <div style="max-width:800px;margin:0 auto;">
+      <h2 style="font-family:'Syne',sans-serif;text-align:center;margin-bottom:40px;font-size:1.8rem;">Common <span style="color:#2ee8d3;">Questions</span></h2>
+
+      <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;">
+        <button class="faq-question" style="background:none;border:none;color:#e8edf5;font-size:1rem;font-weight:600;cursor:pointer;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;font-family:'Figtree',sans-serif;" aria-expanded="false">
+          What do you need access to?
+          <span style="color:#2ee8d3;font-size:1.2rem;transition:transform 0.2s;">+</span>
+        </button>
+        <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s;padding:0 0 0 0;">
+          <p style="color:#7a91aa;font-size:0.9rem;line-height:1.7;padding-top:12px;">We need read-only access to your Power BI workspace metadata via the Fabric REST API — or you can export model metadata using Tabular Editor and send us the files. We never modify your models or data.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;">
+        <button class="faq-question" style="background:none;border:none;color:#e8edf5;font-size:1rem;font-weight:600;cursor:pointer;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;font-family:'Figtree',sans-serif;" aria-expanded="false">
+          How many models can you audit?
+          <span style="color:#2ee8d3;font-size:1.2rem;transition:transform 0.2s;">+</span>
+        </button>
+        <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s;padding:0 0 0 0;">
+          <p style="color:#7a91aa;font-size:0.9rem;line-height:1.7;padding-top:12px;">The $2,500 flat fee covers up to 10 semantic models across any number of workspaces. For larger environments, we scope a custom engagement — typically $500 per additional batch of 5 models.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;">
+        <button class="faq-question" style="background:none;border:none;color:#e8edf5;font-size:1rem;font-weight:600;cursor:pointer;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;font-family:'Figtree',sans-serif;" aria-expanded="false">
+          What's in the deliverable?
+          <span style="color:#2ee8d3;font-size:1.2rem;transition:transform 0.2s;">+</span>
+        </button>
+        <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s;padding:0 0 0 0;">
+          <p style="color:#7a91aa;font-size:0.9rem;line-height:1.7;padding-top:12px;">You receive an HTML dashboard with scored findings, a PowerPoint executive summary deck, and a Word document with detailed recommendations. Every finding includes severity rating, business impact, and specific remediation steps.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;">
+        <button class="faq-question" style="background:none;border:none;color:#e8edf5;font-size:1rem;font-weight:600;cursor:pointer;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;font-family:'Figtree',sans-serif;" aria-expanded="false">
+          Can I bundle this with a Tenant Scan?
+          <span style="color:#2ee8d3;font-size:1.2rem;transition:transform 0.2s;">+</span>
+        </button>
+        <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s;padding:0 0 0 0;">
+          <p style="color:#7a91aa;font-size:0.9rem;line-height:1.7;padding-top:12px;">Yes — the Governance + Performance bundle combines an AI-Assisted Tenant Scan with a Semantic Model Audit for $14,000 (save $1,000). <a href="/governance-performance" style="color:#2ee8d3;">View bundle details →</a></p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;">
+        <button class="faq-question" style="background:none;border:none;color:#e8edf5;font-size:1rem;font-weight:600;cursor:pointer;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;font-family:'Figtree',sans-serif;" aria-expanded="false">
+          How long does it take?
+          <span style="color:#2ee8d3;font-size:1.2rem;transition:transform 0.2s;">+</span>
+        </button>
+        <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s;padding:0 0 0 0;">
+          <p style="color:#7a91aa;font-size:0.9rem;line-height:1.7;padding-top:12px;">3–5 business days from the time we receive access or exported metadata. You'll get a progress update at the midpoint and final deliverables via email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = btn.querySelector('span:last-child');
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+        document.querySelectorAll('.faq-answer').forEach(a => { a.style.maxHeight = '0px'; });
+        document.querySelectorAll('.faq-question span:last-child').forEach(s => { s.textContent = '+'; });
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.textContent = '−';
+        }
+      });
+    });
+  </script>
+
   <!-- ─── MORE OFFERINGS ────────────────────────────────────────────── -->
 <style>@media(max-width:768px){.more-offerings-grid{grid-template-columns:1fr!important}}@media(min-width:769px) and (max-width:1024px){.more-offerings-grid{grid-template-columns:repeat(2,1fr)!important}}</style>
 <section style="background:var(--bg2, #0c1525);padding:80px 24px;border-top:1px solid rgba(255,255,255,0.06);">
