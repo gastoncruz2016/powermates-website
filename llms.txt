@@ -1,0 +1,40 @@
+# The Power Mates
+
+> Dual Microsoft MVPs (Data Platform & AI) helping enterprise teams unlock Microsoft Fabric, Power Platform, and AI. Senior Directors with 20+ years of hands-on experience.
+
+## Who We Are
+
+Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates — an enterprise data and AI channel with 7,000+ subscribers. They work as Senior Directors in the Microsoft ecosystem and deliver consulting, training, and productized services for data-driven organizations.
+
+## What We Do
+
+- **Tenant Scan**: AI-powered Microsoft 365 and Power Platform governance audit. Surfaces ungoverned flows, DLP gaps, orphaned apps, and compliance risks automatically.
+- **Fabric Architecture**: Design and implementation of Microsoft Fabric medallion lakehouses, OneLake architecture, and real-time analytics pipelines.
+- **Power Platform Consulting**: Governance frameworks, performance optimization, migration playbooks, and Dataverse architecture for enterprise environments.
+- **Semantic Model Audits**: DAX quality review, relationship design, partition strategy, and Power BI performance optimization.
+- **Training & Enablement**: Executive briefings, team workshops, and hands-on labs for Microsoft Fabric and Power Platform adoption.
+
+## Key Offerings
+
+- Tenant Scan Starter — entry-level governance audit
+- Tenant Scan Professional — deep audit with remediation roadmap
+- Tenant Scan Enterprise — comprehensive Microsoft 365 tenant health assessment
+- Fabric Architecture Accelerator — medallion lakehouse design sprint
+- BI Performance Pack — Power BI report and model optimization
+- Migration Playbook — structured Power BI to Fabric migration
+- Data Engineering Pack — Fabric pipelines, notebooks, and OneLake
+- Pipeline Health Check — reliability and bottleneck analysis
+- Semantic Model Audit — DAX and data model review
+- Enterprise Transformation — full-scale Fabric and Power Platform modernization
+
+## Content
+
+The Power Mates YouTube channel publishes practical Microsoft Fabric and Power Platform tutorials, demos, and session recordings for enterprise data professionals.
+
+## Contact & Links
+
+- Website: https://www.thepowermates.com
+- YouTube: https://www.youtube.com/@PowerMatesMS
+- LinkedIn: https://www.linkedin.com/company/thepowermates
+- Twitter/X: https://twitter.com/ThePowerMates
+- TikTok: https://www.tiktok.com/@powermates
