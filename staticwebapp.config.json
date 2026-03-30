@@ -88,6 +88,10 @@
       "rewrite": "/blog/5-signs-fabric-tenant-needs-audit.html"
     },
     {
+      "route": "/blog/two-types-of-power-bi-admins",
+      "rewrite": "/blog/two-types-of-power-bi-admins.html"
+    },
+    {
       "route": "/services",
       "rewrite": "/services.html"
     },
