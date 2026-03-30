@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <title>There Are Two Types of Power BI Admins Right Now | PowerMates Blog</title>
+  <meta name="description" content="One type has been meaning to audit their tenant for months. The other ran an assessment, found what was broken, and fixed it. The difference is visibility — not knowledge." />
+  <meta name="keywords" content="Power BI governance, Microsoft Fabric tenant audit, Copilot readiness, tenant assessment, Power BI admin, Fabric governance" />
+  <meta property="og:title" content="There Are Two Types of Power BI Admins Right Now" />
+  <meta property="og:description" content="One type has been meaning to audit their tenant for months. The other ran an assessment and fixed it. The difference is visibility — not knowledge." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.thepowermates.com/blog/two-types-of-power-bi-admins" />
+  <meta property="og:image" content="https://www.thepowermates.com/images/og/og-blog-two-types.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThePowerMates" />
+  <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-blog-two-types.png">
+  <meta property="article:published_time" content="2026-03-30" />
+  <meta property="article:author" content="Gastón Cruz" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P5LH45QCFC');</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="/" class="nav-logo">POWER<span>MATES</span></a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="https://tally.so/r/xXd9lG" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- ============ ARTICLE ============ -->
+<article class="blog-post">
+  <div class="blog-post-header reveal">
+    <div class="blog-post-meta">
+      <a href="/blog/" class="blog-back">&larr; Back to Blog</a>
+      <div class="blog-post-info">
+        <span class="blog-tag">Strategy</span>
+        <time datetime="2026-03-30">March 30, 2026</time>
+        <span class="blog-read-time">6 min read</span>
+      </div>
+    </div>
+    <h1>There Are Two Types of <span>Power BI Admins</span> Right Now</h1>
+    <p class="blog-post-subtitle">One has been meaning to audit their tenant for months. The other already did. Here's what separates them — and what to do about it.</p>
+    <div class="blog-post-author">
+      <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-author-img" />
+      <div>
+        <strong>Gastón Cruz</strong>
+        <span>Dual Microsoft MVP &mdash; Data Platform &amp; AI</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-post-body">
+
+    <p>There are two types of Power BI and Microsoft Fabric admins right now.</p>
+
+    <p>The first type knows something is wrong. Reports are duplicating. Guest accounts nobody owns keep showing up in the tenant. The data catalog is a mess. Nobody can tell you what workspaces are active and what is just sitting there costing money. Copilot readiness? They haven't even started.</p>
+
+    <p>They have been meaning to audit all of this for months. They have opened the Admin portal. They have scrolled through the settings. They have made zero progress.</p>
+
+    <p>The second type ran an assessment. Found exactly what was broken. Fixed it in order of business risk. And now they have a clean, governed, Copilot-ready tenant — and the receipts to prove it to their CTO.</p>
+
+    <p>The difference is not knowledge. The difference is visibility.</p>
+
+    <p>I have spent 20 years in data and analytics. I hold dual Microsoft MVP status in Data Platform and AI. I have audited more Power BI and Fabric tenants than I can count, across companies ranging from mid-market operations to enterprise deployments.</p>
+
+    <p>Here is what I find every single time: the problem is never the technology. The problem is that nobody has ever taken a structured look at what is actually running in the tenant.</p>
+
+    <h2>The uncomfortable truth about most Power BI tenants</h2>
+
+    <p>Most organizations using Power BI or Microsoft Fabric have no real governance in place. Not because they don't care. Because nobody stopped to look.</p>
+
+    <p>Here is what a typical unaudited tenant looks like after two or three years of organic growth:</p>
+
+    <ul>
+      <li>Dozens of workspaces created by individuals who have since left the company — now ownerless</li>
+      <li>Reports accessed once a month at best, still sitting in Premium capacity burning compute</li>
+      <li>Guest accounts with broader permissions than anyone intended</li>
+      <li>Shared datasets with no lineage documentation — nobody knows what feeds what</li>
+      <li>Sensitivity labels inconsistently applied or not applied at all</li>
+      <li>No readiness for Microsoft Copilot because the data foundation doesn't meet the prerequisites</li>
+    </ul>
+
+    <p>None of this is visible from the inside when you're in it day to day. You need to step back and look at the whole thing at once. That is what a tenant assessment does.</p>
+
+    <h2>What we actually find</h2>
+
+    <p>When we run a Tenant Scan, we look at four areas:</p>
+
+    <p><strong>Governance and Security.</strong> Who has access to what, and should they? Guest accounts, external sharing settings, sensitivity labels, admin role assignments. This is where the highest-risk findings live.</p>
+
+    <p><strong>Workspace and Capacity Health.</strong> What is active, what is stale, what is costing you money without delivering value. We have seen organizations cut their Premium capacity costs by 30% just from cleaning up workspaces they forgot existed.</p>
+
+    <p><strong>Data Architecture.</strong> Dataset dependencies, dataflow lineage, connection health, gateway configurations. The stuff that breaks at 8am on a Monday when the CFO needs the board report.</p>
+
+    <p><strong>Copilot and AI Readiness.</strong> Microsoft Copilot for Fabric has specific prerequisites around data classification, sensitivity labeling, and access governance. Most tenants are not ready. We tell you exactly what needs to change and in what order.</p>
+
+    <h2>Real numbers from real assessments</h2>
+
+    <p>Here is what we found in a recent mid-market assessment — a manufacturing company with about 400 Power BI users:</p>
+
+    <ul>
+      <li>23 workspaces with no assigned owner</li>
+      <li>14 active guest accounts that should have been removed</li>
+      <li>6 Premium datasets consuming capacity with zero active users in the past 90 days</li>
+      <li>Sensitivity labels applied to less than 20% of content</li>
+      <li>Copilot readiness score: 2 out of 10</li>
+    </ul>
+
+    <p>After a 10-day remediation sprint using our prioritized recommendations: capacity costs reduced, guest access locked down, the top 3 Copilot blockers resolved, and an IT team with a governance framework they can actually maintain going forward.</p>
+
+    <p>That is what a structured look at your tenant unlocks.</p>
+
+    <h2>The moment that changes everything</h2>
+
+    <p>Every organization we have worked with had the same reaction when they saw their first assessment report: <em>"We had no idea."</em></p>
+
+    <p>Not because they were careless. Because the tools don't surface this information in a digestible way. The Admin portal shows you everything and helps you understand nothing. You need someone who knows what to look for and what it means when they find it.</p>
+
+    <p>The organizations that do this assessment early save money, reduce risk, and set themselves up for everything Microsoft is building toward with Copilot and Fabric. The ones that skip it find out the hard way — usually when something breaks or an audit surfaces a compliance issue.</p>
+
+    <p>The gap between a messy tenant and a governed one is not a year of work. For most organizations it is a few weeks of focused effort, pointed in the right direction.</p>
+
+    <h2>The Tenant Scan</h2>
+
+    <p>We built Tenant Scan as a fixed-scope, fast-turnaround assessment for exactly this situation.</p>
+
+    <p><strong>Tenant Scan Starter</strong> is designed for organizations that have never done a formal audit. We go deep on governance, security, and Copilot readiness, and deliver a prioritized report with clear remediation steps your team can act on immediately. Two-week turnaround. $2,500.</p>
+
+    <p><strong>Tenant Scan Pro</strong> goes further — full data architecture review, capacity optimization analysis, and a 90-day governance roadmap. For organizations preparing for a major Fabric migration or Copilot rollout, this is the right starting point. $12,500.</p>
+
+    <p>Both engagements end with a readout session where we walk your team through every finding and answer every question.</p>
+
+    <p>You are a good fit if you are running Power BI or Fabric at 50+ users and have never done a formal governance review. If you are planning to roll out Microsoft Copilot and want to know if your tenant is actually ready. If you are a data or IT leader who has inherited a tenant and wants to understand what you are working with.</p>
+
+    <p>The first step is not another internal review cycle. The first step is a structured look at what is actually there.</p>
+
+  </div>
+
+  <!-- ============ AUTHOR BIO ============ -->
+  <div class="blog-post-bio reveal">
+    <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-bio-img" />
+    <div>
+      <strong>Gastón Cruz</strong> is a Dual Microsoft MVP (Data Platform &amp; AI) and co-founder of PowerMates. He's spent 20+ years designing enterprise data platforms for Fortune 500 companies and leads every Tenant Scan engagement personally.
+    </div>
+  </div>
+
+  <!-- ============ CTA ============ -->
+  <div class="blog-post-cta reveal">
+    <h3>Ready to see what's in your tenant?</h3>
+    <p>Get a Fabric Readiness Score and a prioritized action plan — delivered in 3–5 days.</p>
+    <a href="/tenant-scan" class="btn-primary">Learn About Tenant Scan &rarr;</a>
+  </div>
+
+</article>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/semantic-model-audit">Semantic Model Audit</a>
+      <a href="/spark-optimization">Spark Job Optimization</a>
+      <a href="/pipeline-health-check">Pipeline Health Check</a>
+      <a href="/realtime-analytics-accelerator">Real-Time Analytics</a>
+      <a href="/migration-playbook">SQL Warehouse Migration</a>
+      <a href="/tenant-scan">Tenant Scan</a>
+      <a href="/fabric-architecture-accelerator">Architecture Accelerator</a>
+      <a href="/iq-mcp-integration">IQ MCP Integration</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/blog/">Blog</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="https://www.youtube.com/@ThePowerMates" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.youtube.com/@ThePowerMates" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/thepowermates" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">Twitter / X</a>
+      <a href="https://tally.so/r/xXd9lG" target="_blank" rel="noopener">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 PowerMates LLC. All rights reserved.
+  </div>
+</footer>
+
+<script src="/nav.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "There Are Two Types of Power BI Admins Right Now",
+  "description": "One type has been meaning to audit their tenant for months. The other ran an assessment, found what was broken, and fixed it. The difference is visibility — not knowledge.",
+  "datePublished": "2026-03-30",
+  "author": {"@type": "Person", "name": "Gastón Cruz", "jobTitle": "Dual Microsoft MVP — Data Platform & AI"},
+  "publisher": {"@type": "Organization", "name": "PowerMates", "url": "https://www.thepowermates.com"},
+  "url": "https://www.thepowermates.com/blog/two-types-of-power-bi-admins",
+  "mainEntityOfPage": "https://www.thepowermates.com/blog/two-types-of-power-bi-admins"
+}
+</script>
+</body>
+</html>
