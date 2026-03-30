@@ -84,6 +84,10 @@
       "rewrite": "/iq-mcp-integration.html"
     },
     {
+      "route": "/blog/5-signs-fabric-tenant-needs-audit",
+      "rewrite": "/blog/5-signs-fabric-tenant-needs-audit.html"
+    },
+    {
       "route": "/services",
       "rewrite": "/services.html"
     },
