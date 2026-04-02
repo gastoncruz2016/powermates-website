@@ -72,10 +72,14 @@
 <!-- ─── HERO ───────────────────────────────────────────────────────────── -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-noise"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Enterprise Data &amp; AI Consulting</div>
     <h1 class="hero-title">
-      <span class="w">Your Fabric.</span><br><span class="c">Optimized.</span>
+      <span class="w">Your Fabric.</span><br><span class="gradient-text">Optimized.</span>
     </h1>
     <p class="hero-sub">
       We audit, architect, and accelerate <strong>Microsoft Fabric</strong> and <strong>Power Platform</strong> environments for enterprise teams. Dual MVPs. 20+ years. Real implementations.
@@ -112,19 +116,19 @@
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">8</div>
+        <div class="stat-num glow-num">8</div>
         <div class="stat-label">Specialized Offerings</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">20+</div>
+        <div class="stat-num glow-num">20+</div>
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">2x</div>
+        <div class="stat-num glow-num">2x</div>
         <div class="stat-label">Microsoft MVP</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">7,300+</div>
+        <div class="stat-num glow-num">7,300+</div>
         <div class="stat-label">YouTube Community</div>
       </div>
     </div>
@@ -139,29 +143,25 @@
 <!-- ─── SOCIAL PROOF ──────────────────────────────────────────────────── -->
 <div class="social-proof">
   <div class="proof-grid">
-    <div class="proof-card reveal">
-      <div class="proof-icon">🏆</div>
+    <div class="proof-card glass-card reveal">
       <div class="proof-stat">2x</div>
       <div class="proof-label">Microsoft MVP</div>
-      <div class="proof-detail">Data Platform + AI — recognized by Microsoft for community impact</div>
+      <div class="proof-detail">Data Platform + AI — recognized by Microsoft</div>
     </div>
-    <div class="proof-card reveal reveal-d1">
-      <div class="proof-icon">🏢</div>
+    <div class="proof-card glass-card reveal reveal-d1">
       <div class="proof-stat">50+</div>
       <div class="proof-label">Tenants Audited</div>
-      <div class="proof-detail">Across Fortune 500, mid-market, and government organizations</div>
+      <div class="proof-detail">Fortune 500, mid-market &amp; government</div>
     </div>
-    <div class="proof-card reveal reveal-d2">
-      <div class="proof-icon">🎤</div>
+    <div class="proof-card glass-card reveal reveal-d2">
       <div class="proof-stat">FabCon</div>
       <div class="proof-label">2026 Speaker</div>
-      <div class="proof-detail">Two sessions at Microsoft's flagship Fabric conference in Atlanta</div>
+      <div class="proof-detail">Microsoft's flagship Fabric conference</div>
     </div>
-    <div class="proof-card reveal reveal-d3">
-      <div class="proof-icon">📺</div>
+    <div class="proof-card glass-card reveal reveal-d3">
       <div class="proof-stat">7,300+</div>
       <div class="proof-label">YouTube Community</div>
-      <div class="proof-detail">Real-world tutorials on Fabric, Power Platform, and enterprise AI</div>
+      <div class="proof-detail">Real-world Fabric &amp; Power Platform tutorials</div>
     </div>
   </div>
 </div>
@@ -591,134 +591,134 @@
       <p class="section-sub reveal reveal-d1">The latest from Microsoft Power Platform &amp; Fabric — curated for the PowerMates community</p>
     </div>
 
-    <!-- Article 1: Power Platform February 2026 -->
+    <!-- Article 1: FabCon 2026 Key Announcements -->
     <article class="news-article reveal reveal-d1">
+      <div class="news-article-header">
+        <div class="news-meta">
+          <span class="news-tag">FabCon 2026</span>
+          <span class="news-date">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            March 20, 2026
+          </span>
+        </div>
+        <h3 class="news-article-title">FabCon 2026: Microsoft Fabric's Agentic Era Begins</h3>
+        <p class="news-article-lead">Over 8,000 data professionals gathered in Atlanta for the biggest FabCon yet — with major announcements around MCP, data agents, OneLake interoperability, and 31,000+ Fabric customers worldwide.</p>
+      </div>
+      <div class="news-article-body">
+        <div class="news-highlight-grid">
+          <div class="news-highlight">
+            <div class="news-highlight-icon">🤖</div>
+            <div>
+              <div class="news-highlight-label">Fabric Data Agents — Now Generally Available</div>
+              <p>Fabric data agents are now GA, acting as virtual analysts that provide domain-specific insights. Combined with the new Fabric Local MCP (GA) and Fabric Remote MCP (preview), AI coding assistants like GitHub Copilot, Claude, and Cursor can now connect securely and directly to Fabric.</p>
+            </div>
+          </div>
+          <div class="news-highlight">
+            <div class="news-highlight-icon">🔗</div>
+            <div>
+              <div class="news-highlight-label">OneLake Interoperability Expands</div>
+              <p>OneLake now natively integrates with Azure Databricks via Unity Catalog (preview) and Snowflake (GA). New mirroring for SharePoint lists, Dremio, Oracle, and SAP Datasphere — plus Change Data Feed on top of mirrored data — makes OneLake the universal data hub.</p>
+            </div>
+          </div>
+          <div class="news-highlight">
+            <div class="news-highlight-icon">📊</div>
+            <div>
+              <div class="news-highlight-label">31,000+ Customers on Fabric</div>
+              <p>Microsoft Fabric has become one of the fastest-growing data platforms in Microsoft history, surpassing 31,000 customers. The ecosystem is accelerating with new ISV workloads, governance tools, and enterprise-grade AI capabilities across every workload.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="https://www.sharepointeurope.com/microsoft-news-key-announcements-from-fabcon-2026/" target="_blank" rel="noopener" class="news-read-more">
+        Read the key announcements from FabCon 2026
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
+    </article>
+
+    <!-- Article 2: Power Platform March 2026 -->
+    <article class="news-article reveal reveal-d2">
       <div class="news-article-header">
         <div class="news-meta">
           <span class="news-tag">Power Platform</span>
           <span class="news-date">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            February 28, 2026
+            March 2026
           </span>
         </div>
-        <h3 class="news-article-title">Power Platform February 2026 Feature Update</h3>
-        <p class="news-article-lead">A massive month for Power Platform — Code Apps hit GA, Copilot lands inside model-driven apps, and the new Power Apps MCP Server opens the door to agent-driven business applications.</p>
+        <h3 class="news-article-title">Power Platform March 2026 Feature Update</h3>
+        <p class="news-article-lead">Deeper Copilot experiences, vibe coding for Power Apps, unified modern controls, and Object-Centric Process Mining — March brings major leaps across the entire Power Platform stack.</p>
       </div>
       <div class="news-article-body">
         <div class="news-highlight-grid">
           <div class="news-highlight">
-            <div class="news-highlight-icon">💻</div>
+            <div class="news-highlight-icon">🎨</div>
             <div>
-              <div class="news-highlight-label">Code Apps — Now Generally Available</div>
-              <p>Code apps in Power Apps are now GA, giving developers full code-first flexibility with React, Vue, and other frameworks while IT gets enterprise-grade guardrails. Build in any code-first IDE, deploy to Power Apps — bridging the gap between pro-dev and citizen development.</p>
+              <div class="news-highlight-label">Vibe Coding — Build Power Apps from a Prompt</div>
+              <p>A new vibe.powerapps.com preview enables developers to build full code Power Apps from a prompt using AI-driven plan, data, and app generation. Describe what you need, and the platform generates a complete, functional application.</p>
             </div>
           </div>
           <div class="news-highlight">
-            <div class="news-highlight-icon">🤖</div>
+            <div class="news-highlight-icon">🎛️</div>
             <div>
-              <div class="news-highlight-label">M365 Copilot Chat in Model-Driven Apps</div>
-              <p>Copilot chat is now available directly inside model-driven apps. Users can ask questions, reason over in-app data, and connect insights from documents and communications — all without leaving the application. A unified AI experience embedded in the flow of business.</p>
+              <div class="news-highlight-label">Unified Modern Controls — Quality Overhaul</div>
+              <p>All nine modern controls in canvas apps now share a unified property model with standardized names and typed enum values. Refined OnChange behavior reduces unnecessary recalculations, making apps faster and more responsive.</p>
             </div>
           </div>
           <div class="news-highlight">
-            <div class="news-highlight-icon">🔌</div>
+            <div class="news-highlight-icon">🔄</div>
             <div>
-              <div class="news-highlight-label">Power Apps MCP Server — Public Preview</div>
-              <p>The new Model Context Protocol (MCP) Server enables AI agents to automate repetitive app tasks with human review and approval. The enhanced agent feed provides built-in supervision tools so humans can review, assist, and take control of agent actions when needed.</p>
+              <div class="news-highlight-label">Object-Centric Process Mining</div>
+              <p>A new approach to process analysis where a single event can belong to multiple objects and types — orders, invoices, deliveries, payments — preserving the full web of interactions and dependencies end-to-end.</p>
             </div>
           </div>
         </div>
       </div>
-      <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-february-2026-feature-update/" target="_blank" rel="noopener" class="news-read-more">
-        Read the full February 2026 update on Power Platform Blog
+      <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-march-2026-feature-update/" target="_blank" rel="noopener" class="news-read-more">
+        Read the full March 2026 update on Power Platform Blog
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
       </a>
     </article>
 
-    <!-- Article 2: Agent-First Enterprise -->
-    <article class="news-article reveal reveal-d2">
-      <div class="news-article-header">
-        <div class="news-meta">
-          <span class="news-tag">AI &amp; Agents</span>
-          <span class="news-date">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            February 24, 2026
-          </span>
-        </div>
-        <h3 class="news-article-title">The Shift Reshaping Enterprise Applications: Agent-First Solutions</h3>
-        <p class="news-article-lead">Microsoft outlines the dramatic expansion in what's possible to build with AI and agents — and why the people who understand finance, HR, supply chain, and customer service need to be involved in shaping these systems.</p>
-      </div>
-      <div class="news-article-body">
-        <div class="news-highlight-grid">
-          <div class="news-highlight">
-            <div class="news-highlight-icon">🏢</div>
-            <div>
-              <div class="news-highlight-label">Agent-First, Not Code-First</div>
-              <p>The enterprise application landscape is shifting from traditional form-based apps to agent-driven solutions where AI handles routine tasks, surfaces insights proactively, and orchestrates workflows across systems. Power Platform is positioning itself at the center of this shift.</p>
-            </div>
-          </div>
-          <div class="news-highlight">
-            <div class="news-highlight-icon">👥</div>
-            <div>
-              <div class="news-highlight-label">Business Users as Solution Shapers</div>
-              <p>Companies that want AI to meaningfully change operations need domain experts — not just developers — shaping the systems they rely on. Power Platform's low-code approach enables finance, HR, and operations teams to build and customize agent-powered solutions directly.</p>
-            </div>
-          </div>
-          <div class="news-highlight">
-            <div class="news-highlight-icon">⚡</div>
-            <div>
-              <div class="news-highlight-label">Copilot Studio + Power Apps + Dataverse</div>
-              <p>The convergence of Copilot Studio for agent creation, Power Apps for business interfaces, and Dataverse for structured data creates a complete stack for building enterprise-grade AI solutions — with governance, security, and compliance built in from the start.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="https://www.microsoft.com/en-us/power-platform/blog/2026/02/24/the-shift-reshaping-enterprise-applications/" target="_blank" rel="noopener" class="news-read-more">
-        Read the full article on Power Platform Blog
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      </a>
-    </article>
-
-    <!-- Article 3: Fabric February Summary -->
+    <!-- Article 3: Fabric March 2026 Summary -->
     <article class="news-article reveal reveal-d3">
       <div class="news-article-header">
         <div class="news-meta">
           <span class="news-tag">Microsoft Fabric</span>
           <span class="news-date">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            February 25, 2026
+            March 2026
           </span>
         </div>
-        <h3 class="news-article-title">Fabric February 2026 Feature Summary</h3>
-        <p class="news-article-lead">A wide range of enhancements land across the Fabric platform this month — from OneLake Catalog improvements and developer experiences to meaningful updates in Data Engineering, Data Factory, and Real-Time Intelligence.</p>
+        <h3 class="news-article-title">Fabric March 2026 Feature Summary</h3>
+        <p class="news-article-lead">Major enhancements across governance, data engineering, real-time intelligence, and AI — Git selective branching, DLP policies for Fabric, and a new workload management hub in the Admin Portal.</p>
       </div>
       <div class="news-article-body">
         <div class="news-highlight-grid">
           <div class="news-highlight">
-            <div class="news-highlight-icon">🗂️</div>
+            <div class="news-highlight-icon">🔀</div>
             <div>
-              <div class="news-highlight-label">OneLake Catalog</div>
-              <p>Workspace Apps are now included in the OneLake Catalog, making it the single place to discover all Fabric content. The updated Item Details page delivers a consistent, modern design with richer metadata and full schema visibility.</p>
+              <div class="news-highlight-label">Git Integration — Selective Branch-Out</div>
+              <p>Developers can now select only the items they need when branching out in Fabric Git Integration. Work with a smaller, purpose-built workspace to iterate faster, reduce clutter, and improve reliability across your CI/CD pipeline.</p>
+            </div>
+          </div>
+          <div class="news-highlight">
+            <div class="news-highlight-icon">🛡️</div>
+            <div>
+              <div class="news-highlight-label">Data Loss Prevention Policies for Fabric</div>
+              <p>DLP policies now extend to Fabric in preview, giving admins the ability to define and enforce data protection rules across the platform. Combined with the new Manage Workloads tab in the Admin Portal, governance has never been more centralized.</p>
             </div>
           </div>
           <div class="news-highlight">
             <div class="news-highlight-icon">⚡</div>
             <div>
-              <div class="news-highlight-label">Data Engineering — New ODBC Driver</div>
-              <p>A brand-new ODBC Driver built for Fabric Data Engineering offers deep OneLake integration, environment-based execution, ODBC 3.x compliance, and Microsoft Entra ID authentication — accelerating Spark-powered data engineering at scale.</p>
-            </div>
-          </div>
-          <div class="news-highlight">
-            <div class="news-highlight-icon">🔁</div>
-            <div>
-              <div class="news-highlight-label">Real-Time Intelligence &amp; Data Factory</div>
-              <p>February also brings improvements to Real-Time Intelligence pipelines and Data Factory connectors. Many of these updates were showcased live at FabCon Atlanta (March 16–20), where PowerMates delivered two sessions on Power Platform and Fabric architecture.</p>
+              <div class="news-highlight-label">Real-Time Stream Processing &amp; Snowflake Mirroring</div>
+              <p>March brings real-time stream processing capabilities in preview alongside extended mirroring with change delta feed and Snowflake support — enabling live, always-current analytics across hybrid data estates.</p>
             </div>
           </div>
         </div>
       </div>
-      <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-february-2026-feature-summary/" target="_blank" rel="noopener" class="news-read-more">
-        Read the full February 2026 summary on Microsoft Fabric Blog
+      <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-march-2026-feature-summary" target="_blank" rel="noopener" class="news-read-more">
+        Read the full March 2026 summary on Microsoft Fabric Blog
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
       </a>
     </article>
