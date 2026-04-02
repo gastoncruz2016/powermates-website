@@ -12,6 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thepowermates.com/semantic-model-audit" />
   <meta property="og:image" content="https://www.thepowermates.com/images/og/og-semantic-model-audit.png">
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-semantic-model-audit.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,12 +59,29 @@
   </ul>
 </nav>
 
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a><span>/</span><a href="/services">Services</a><span>/</span>Semantic Model Audit
+</div>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">NEW — AI-Powered Analysis</div>
-  <h1>Know exactly what's wrong with your <span>Power BI models</span></h1>
-  <p>AI scans every table, measure, relationship, and refresh pattern. A Dual Microsoft MVP delivers the fix-it plan. One report, zero guesswork.</p>
-  <a href="#pricing" class="hero-cta">Get Your Audit — $2,500</a>
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-content">
+    <div class="badge">AI-Powered Analysis</div>
+    <h1>Know exactly what's wrong with your <span>Power BI models</span></h1>
+    <p>AI scans every table, measure, relationship, and refresh pattern. A Dual Microsoft MVP delivers the fix-it plan. One report, zero guesswork.</p>
+    <div class="hero-price">$2,500 <span class="price-note">one-time</span></div>
+    <div class="hero-cta-group">
+      <a href="#pricing" class="btn-primary">Get Your Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      <a href="#sample-report" class="btn-secondary">See Sample Report</a>
+    </div>
+    <div class="hero-trust">
+      <span>✓ 48-hour turnaround</span>
+      <span>✓ MVP-reviewed findings</span>
+      <span>✓ Actionable fix plan</span>
+    </div>
+  </div>
 </section>
 
 <!-- PROOF STRIP -->
@@ -328,7 +346,7 @@
           <p style="color:#7a91aa;font-size:0.82rem;line-height:1.5;">Detailed written report with findings table, remediation steps, and priority recommendations. Shareable with stakeholders.</p>
         </div>
       </div>
-      <div class="report-preview reveal">
+      <div id="sample-report" class="report-preview reveal">
   <div class="report-preview-header">
     <span class="report-preview-label">Live Sample Report</span>
     <div class="report-preview-actions">
@@ -462,6 +480,46 @@
     });
   </script>
 
+<!-- WHO IT'S FOR -->
+<section style="background:var(--bg);padding:80px 24px;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="section-header" style="text-align:center;margin-bottom:48px;">
+      <p style="color:#2ee8d3;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">IS THIS RIGHT FOR YOU?</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:#fff;">This audit is built for teams that</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
+        <div>
+          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Have slow Power BI reports</h4>
+          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Users are complaining about load times but you don't know which model issues are causing it.</p>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
+        <div>
+          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Manage 5+ semantic models</h4>
+          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Overlapping models, inconsistent measures, and no clear governance across your BI estate.</p>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
+        <div>
+          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Are migrating to Direct Lake</h4>
+          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Need to know which models are Direct Lake-ready and which need restructuring first.</p>
+        </div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
+        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
+        <div>
+          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Want a second opinion from an MVP</h4>
+          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Your team built it, but you want a Dual Microsoft MVP to validate architecture and DAX patterns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- Case Studies -->
 <section class="case-studies" style="background:var(--bg);padding:80px 24px;">
   <div style="max-width:1000px;margin:0 auto;text-align:center;margin-bottom:60px;">
@@ -491,6 +549,18 @@
 </section>
 
   <!-- ─── MORE OFFERINGS ────────────────────────────────────────────── -->
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="reveal">Know What's Wrong With Your Models.</h2>
+    <p class="reveal">Get an AI-powered audit from a Dual Microsoft MVP. Every issue scored, every fix documented.</p>
+    <div class="final-cta-group reveal">
+      <a href="#pricing" class="btn-primary">Get Started &rarr;</a>
+      <a href="https://tally.so/r/xXd9lG" class="btn-outline">Talk to Gaston</a>
+    </div>
+  </div>
+</section>
+
 <section style="background:var(--bg2, #0c1525);padding:80px 24px;border-top:1px solid rgba(255,255,255,0.06);">
   <div style="max-width:1200px;margin:0 auto;">
     <h2 style="font-family:'Syne',sans-serif;text-align:center;margin-bottom:12px;font-size:1.8rem;">Explore Our <span style="color:#2ee8d3;">Other Offerings</span></h2>
@@ -559,14 +629,32 @@
     </div>
   </footer>
 
+<!-- PARTICLES -->
 <script>
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      q.parentElement.classList.toggle('open');
-    });
-  });
+(function(){
+  const canvas = document.getElementById('particles-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  function resize(){ canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  resize(); window.addEventListener('resize', resize);
+  class Particle {
+    constructor(){ this.reset(); }
+    reset(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.vx=(Math.random()-0.5)*0.35; this.vy=(Math.random()-0.5)*0.35; this.alpha=Math.random()*0.4+0.05; this.r=Math.random()*1.8+0.4; }
+    update(){ this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height)this.reset(); }
+    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle=`rgba(46,232,211,${this.alpha})`; ctx.fill(); }
+  }
+  for(let i=0;i<50;i++) particles.push(new Particle());
+  function drawLines(){
+    for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(46,232,211,${0.06*(1-d/90)})`; ctx.lineWidth=0.6; ctx.stroke(); }
+    }
+  }
+  function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); drawLines(); requestAnimationFrame(animate); }
+  animate();
+})();
 </script>
-
 
 <!-- MOBILE STICKY CTA -->
 <div class="mobile-sticky-cta">

@@ -1,10 +1,10 @@
 # The Power Mates
 
-> Dual Microsoft MVPs (Data Platform & AI) helping enterprise teams unlock Microsoft Fabric, Power Platform, and AI. Senior Directors with 20+ years of hands-on experience.
+> Dual Microsoft MVPs (Data Platform & AI) helping enterprise teams unlock Microsoft Fabric, Power Platform, and AI. 20+ years of hands-on experience.
 
 ## Who We Are
 
-Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates — an enterprise data and AI channel with 7,000+ subscribers. They work as Senior Directors in the Microsoft ecosystem and deliver consulting, training, and productized services for data-driven organizations.
+Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates — an enterprise data and AI channel with 7,000+ subscribers. They deliver consulting, training, and productized services for data-driven organizations.
 
 ## What We Do
 
