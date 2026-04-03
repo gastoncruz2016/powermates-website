@@ -497,8 +497,8 @@ li:focus-within > .nav-dropdown {
   align-items: center;
   gap: 10px;
   background: var(--cyan);
-  color: #080f1c;
-  font-weight: 700;
+  color: #020508;
+  font-weight: 800;
   font-size: 16px;
   padding: 16px 36px;
   border-radius: var(--radius-pill);
