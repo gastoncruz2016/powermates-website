@@ -71,7 +71,7 @@
     <canvas id="particles-canvas"></canvas>
     <div class="hero-content">
       <div class="badge">Sub-Second Latency</div>
-      <h1>Real-Time Analytics.<br /><span>Deployed in a Day.</span></h1>
+      <h1>Real-Time Analytics.<br /><span class="gradient-text">Deployed in a Day.</span></h1>
       <p>We set up Eventstreams, KQL databases, and live dashboards in your Microsoft Fabric tenant. AI scaffolds the infrastructure. A Dual Microsoft MVP tunes it for your data.</p>
       <div class="hero-price">$8,000 <span class="price-note">one-time</span></div>
       <div class="hero-cta-group">
@@ -463,119 +463,117 @@
 
   <!-- Case Studies -->
 <section class="case-studies" style="background:var(--bg);padding:80px 24px;">
-  <div style="max-width:1000px;margin:0 auto;text-align:center;margin-bottom:60px;">
-    <p style="color:#2ee8d3;font-size:0.85rem;font-weight:700;letter-spacing:1px;margin-bottom:8px;">CLIENT RESULTS</p>
-    <h2 style="font-family:'Syne',sans-serif;font-size:1.8rem;color:#fff;margin-bottom:12px;">Results from Recent Engagements</h2>
+  <div class="case-header">
+    <div class="case-label">CLIENT RESULTS</div>
+    <h2 class="section-title">Results from Recent Engagements</h2>
   </div>
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
-    <div style="background:rgba(15,27,46,0.8);border:1px solid rgba(46,232,211,0.15);border-radius:12px;padding:32px;text-align:center;">
-      <p style="color:#2ee8d3;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;">Fintech</p>
-      <p style="font-family:'Syne',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Sub-second fraud detection</p>
-      <p style="color:#7a91aa;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Moved from 15-minute batch alerts to real-time Eventstream processing with KQL anomaly detection. Fraud flagged in <500ms.</p>
-      <p style="color:#2ee8d3;font-size:0.85rem;font-weight:600;">15min → 0.5s latency</p>
+  <div class="case-grid">
+    <div class="case-card">
+      <p class="case-label">Fintech</p>
+      <h3 class="case-headline">Sub-second fraud detection</h3>
+      <p class="case-description">Moved from 15-minute batch alerts to real-time Eventstream processing with KQL anomaly detection. Fraud flagged in <500ms.</p>
+      <p class="case-result">15min → 0.5s latency</p>
     </div>
-    <div style="background:rgba(15,27,46,0.8);border:1px solid rgba(46,232,211,0.15);border-radius:12px;padding:32px;text-align:center;">
-      <p style="color:#2ee8d3;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;">Transportation</p>
-      <p style="font-family:'Syne',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Live fleet visibility</p>
-      <p style="color:#7a91aa;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Built Eventhouse ingesting 50K GPS events/sec with real-time Power BI dashboards for 300+ dispatchers.</p>
-      <p style="color:#2ee8d3;font-size:0.85rem;font-weight:600;">50K events/sec processed</p>
+    <div class="case-card">
+      <p class="case-label">Transportation</p>
+      <h3 class="case-headline">Live fleet visibility</h3>
+      <p class="case-description">Built Eventhouse ingesting 50K GPS events/sec with real-time Power BI dashboards for 300+ dispatchers.</p>
+      <p class="case-result">50K events/sec processed</p>
     </div>
-    <div style="background:rgba(15,27,46,0.8);border:1px solid rgba(46,232,211,0.15);border-radius:12px;padding:32px;text-align:center;">
-      <p style="color:#2ee8d3;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;">Retail</p>
-      <p style="font-family:'Syne',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Real-time inventory sync</p>
-      <p style="color:#7a91aa;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">POS transactions streaming into Fabric via Event Hubs. Store managers see stock levels update within 2 seconds across 150 locations.</p>
-      <p style="color:#2ee8d3;font-size:0.85rem;font-weight:600;">150 stores, 2s refresh</p>
+    <div class="case-card">
+      <p class="case-label">Retail</p>
+      <h3 class="case-headline">Real-time inventory sync</h3>
+      <p class="case-description">POS transactions streaming into Fabric via Event Hubs. Store managers see stock levels update within 2 seconds across 150 locations.</p>
+      <p class="case-result">150 stores, 2s refresh</p>
     </div>
   </div>
 </section>
 
 <!-- WHO IT'S FOR -->
-<section style="background:var(--bg);padding:80px 24px;">
-  <div style="max-width:900px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:48px;">
-      <p style="color:#2ee8d3;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">IS THIS RIGHT FOR YOU?</p>
-      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:#fff;">This accelerator is built for teams that</h2>
+<section class="who-section">
+  <div class="section-header centered reveal">
+    <div class="section-label">IS THIS RIGHT FOR YOU?</div>
+    <h2 class="section-title">This accelerator is built for teams that</h2>
+  </div>
+  <div class="who-grid">
+    <div class="who-card">
+      <span class="who-check">✓</span>
+      <div>
+        <h4>Need sub-second latency dashboards</h4>
+        <p>Operations, trading desks, or IoT monitoring teams that can't wait for batch refreshes.</p>
+      </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
-        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
-        <div>
-          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Need sub-second latency dashboards</h4>
-          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Operations, trading desks, or IoT monitoring teams that can't wait for batch refreshes.</p>
-        </div>
+    <div class="who-card">
+      <span class="who-check">✓</span>
+      <div>
+        <h4>Are evaluating Eventstreams + KQL</h4>
+        <p>Want a production-grade reference implementation instead of starting from scratch with docs.</p>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
-        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
-        <div>
-          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Are evaluating Eventstreams + KQL</h4>
-          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Want a production-grade reference implementation instead of starting from scratch with docs.</p>
-        </div>
+    </div>
+    <div class="who-card">
+      <span class="who-check">✓</span>
+      <div>
+        <h4>Have streaming data sources ready</h4>
+        <p>Event Hubs, IoT Hub, Kafka, or CDC feeds — you have the data, you need the Fabric pipeline.</p>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
-        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
-        <div>
-          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Have streaming data sources ready</h4>
-          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">Event Hubs, IoT Hub, Kafka, or CDC feeds — you have the data, you need the Fabric pipeline.</p>
-        </div>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:14px;align-items:flex-start;">
-        <span style="color:#2ee8d3;font-size:20px;flex-shrink:0;">✓</span>
-        <div>
-          <h4 style="color:#fff;font-size:15px;font-weight:600;margin-bottom:6px;">Want it deployed in a day, not a quarter</h4>
-          <p style="color:#7a91aa;font-size:13px;line-height:1.6;">AI scaffolds the infrastructure, an MVP tunes it. You're live with real-time analytics fast.</p>
-        </div>
+    </div>
+    <div class="who-card">
+      <span class="who-check">✓</span>
+      <div>
+        <h4>Want it deployed in a day, not a quarter</h4>
+        <p>AI scaffolds the infrastructure, an MVP tunes it. You're live with real-time analytics fast.</p>
       </div>
     </div>
   </div>
 </section>
 
   <!-- ─── MORE OFFERINGS ────────────────────────────────────────────── -->
-<section style="background:var(--bg2, #0c1525);padding:80px 24px;border-top:1px solid rgba(255,255,255,0.06);">
-  <div style="max-width:1200px;margin:0 auto;">
-    <h2 style="font-family:'Syne',sans-serif;text-align:center;margin-bottom:12px;font-size:1.8rem;">Explore Our <span style="color:#2ee8d3;">Other Offerings</span></h2>
-    <p style="text-align:center;color:#7a91aa;margin-bottom:48px;font-size:0.95rem;">Each engagement is standalone — or bundle them for deeper savings.</p>
-    <div class="more-offerings-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
-      <a href="/tenant-scan" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🔍</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Tenant Scan</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$12,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Full tenant health audit</p>
+<section class="offerings-section">
+  <div class="container">
+    <h2 class="section-title">Explore Our <span class="gradient-text">Other Offerings</span></h2>
+    <p class="section-sub">Each engagement is standalone — or bundle them for deeper savings.</p>
+    <div class="more-offerings-grid">
+      <a href="/tenant-scan" class="offering-link">
+        <div class="offer-icon">🔍</div>
+        <h3>Tenant Scan</h3>
+        <p class="offer-price">$12,500</p>
+        <p class="offer-desc">Full tenant health audit</p>
       </a>
-      <a href="/fabric-architecture-accelerator" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🏗️</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Architecture Accelerator</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$15,000</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Medallion lakehouse architecture</p>
+      <a href="/fabric-architecture-accelerator" class="offering-link">
+        <div class="offer-icon">🏗️</div>
+        <h3>Architecture Accelerator</h3>
+        <p class="offer-price">$15,000</p>
+        <p class="offer-desc">Medallion lakehouse architecture</p>
       </a>
-      <a href="/iq-mcp-integration" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🤖</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">IQ + MCP Integration</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$18,000</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">AI agent integration via MCP</p>
+      <a href="/iq-mcp-integration" class="offering-link">
+        <div class="offer-icon">🤖</div>
+        <h3>IQ + MCP Integration</h3>
+        <p class="offer-price">$18,000</p>
+        <p class="offer-desc">AI agent integration via MCP</p>
       </a>
-      <a href="/semantic-model-audit" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">📊</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Semantic Model Audit</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$2,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Power BI model review</p>
+      <a href="/semantic-model-audit" class="offering-link">
+        <div class="offer-icon">📊</div>
+        <h3>Semantic Model Audit</h3>
+        <p class="offer-price">$2,500</p>
+        <p class="offer-desc">Power BI model review</p>
       </a>
-      <a href="/spark-optimization" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">⚡</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Spark Optimization</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$4,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Spark anti-pattern detection</p>
+      <a href="/spark-optimization" class="offering-link">
+        <div class="offer-icon">⚡</div>
+        <h3>Spark Optimization</h3>
+        <p class="offer-price">$4,500</p>
+        <p class="offer-desc">Spark anti-pattern detection</p>
       </a>
-      <a href="/pipeline-health-check" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🔧</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Pipeline Health Check</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$3,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Pipeline reliability review</p>
+      <a href="/pipeline-health-check" class="offering-link">
+        <div class="offer-icon">🔧</div>
+        <h3>Pipeline Health Check</h3>
+        <p class="offer-price">$3,500</p>
+        <p class="offer-desc">Pipeline reliability review</p>
       </a>
-      <a href="/migration-playbook" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🚀</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Migration Playbook</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$8,000</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Migration plan to Fabric</p>
+      <a href="/migration-playbook" class="offering-link">
+        <div class="offer-icon">🚀</div>
+        <h3>Migration Playbook</h3>
+        <p class="offer-price">$8,000</p>
+        <p class="offer-desc">Migration plan to Fabric</p>
       </a>
     </div>
     <div style="text-align:center;margin-top:32px;">

@@ -4,32 +4,103 @@
 
 ## Who We Are
 
-Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates — an enterprise data and AI channel with 7,000+ subscribers. They deliver consulting, training, and productized services for data-driven organizations.
+Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates — an enterprise data and AI channel with 7,300+ subscribers. They deliver consulting, training, and productized services for data-driven organizations.
+
+### Team
+
+- **Gastón Cruz** — Microsoft Data & AI MVP, Data Architect. 20+ years in enterprise data architecture, Microsoft Fabric and Power Platform implementation. FabCon 2026 speaker.
+- **Alex Rostan** — Co-Founder, PowerMates. Enterprise Architect specializing in Microsoft 365 governance, Power Platform optimization, and Fabric architecture. FabCon 2026 speaker.
 
 ## What We Do
 
-- **Tenant Scan**: AI-powered Microsoft 365 and Power Platform governance audit. Surfaces ungoverned flows, DLP gaps, orphaned apps, and compliance risks automatically.
-- **Fabric Architecture**: Design and implementation of Microsoft Fabric medallion lakehouses, OneLake architecture, and real-time analytics pipelines.
+- **Tenant Scan**: AI-powered Microsoft 365 and Power Platform governance audit. Surfaces ungoverned flows, DLP gaps, orphaned apps, and compliance risks automatically. Includes scoring, findings, and prioritized action plan.
+- **Fabric Architecture**: Design and implementation of Microsoft Fabric medallion lakehouses, OneLake architecture, and real-time analytics pipelines. End-to-end deployment support.
 - **Power Platform Consulting**: Governance frameworks, performance optimization, migration playbooks, and Dataverse architecture for enterprise environments.
-- **Semantic Model Audits**: DAX quality review, relationship design, partition strategy, and Power BI performance optimization.
+- **Semantic Model Audits**: DAX quality review, relationship design, partition strategy, Power BI performance optimization, and best practices analysis.
 - **Training & Enablement**: Executive briefings, team workshops, and hands-on labs for Microsoft Fabric and Power Platform adoption.
+- **Spark Optimization**: Analyze and tune Spark job performance, partition strategy, and lakehouse efficiency.
+- **Pipeline Health Check**: Reliability analysis, bottleneck identification, and optimization recommendations for data pipelines.
+- **Migration Playbook**: Structured approach to Power BI to Fabric migration with phased implementation strategy.
 
-## Key Offerings
+## Service Offerings & Pricing
 
-- Tenant Scan Starter — entry-level governance audit
-- Tenant Scan Professional — deep audit with remediation roadmap
-- Tenant Scan Enterprise — comprehensive Microsoft 365 tenant health assessment
-- Fabric Architecture Accelerator — medallion lakehouse design sprint
-- BI Performance Pack — Power BI report and model optimization
-- Migration Playbook — structured Power BI to Fabric migration
-- Data Engineering Pack — Fabric pipelines, notebooks, and OneLake
-- Pipeline Health Check — reliability and bottleneck analysis
-- Semantic Model Audit — DAX and data model review
-- Enterprise Transformation — full-scale Fabric and Power Platform modernization
+### Audit & Optimization Services (Entry-Level)
+- **Tenant Scan** — From $2,500 — AI-powered governance audit with findings and action plan
+- **Semantic Model Audit** — $2,500 — DAX review, data model optimization, performance recommendations
+- **Spark Optimization** — $3,500 — Spark job tuning and lakehouse efficiency analysis
+- **Pipeline Health Check** — $4,000 — Pipeline reliability and performance optimization review
 
-## Content
+### Architecture & Implementation (Mid-Level)
+- **Fabric Architecture Accelerator** — $15,000 — End-to-end medallion lakehouse design and implementation
+- **Migration Playbook** — $12,000 — Structured Power BI to Fabric migration with phased roadmap
+- **Real-Time Analytics Accelerator** — $8,000 — Real-time data ingestion and analytics pipeline design
 
-The Power Mates YouTube channel publishes practical Microsoft Fabric and Power Platform tutorials, demos, and session recordings for enterprise data professionals.
+### Enterprise & Advanced (Premium)
+- **IQ + MCP Integration** — $18,000 — Advanced integration with Copilot and enterprise models
+- **Enterprise Transformation** — Custom — Full-scale Fabric and Power Platform modernization
+
+### Enterprise Bundle
+- **All 8 Services Bundle** — $63,000 — Complete enterprise data transformation package
+
+## How to Engage
+
+### Free
+- YouTube channel: 7,300+ subscribers learning Fabric and Power Platform
+- Weekly tutorials, live demos, and conference recordings
+- Community Q&A and engagement
+- Start here: https://www.youtube.com/@PowerMatesMS
+
+### Entry-Level ($2,500–$4,000)
+- Tenant Scan governance assessments
+- Semantic model audits
+- Spark optimization reviews
+- Pipeline health checks
+- Perfect for: Quick assessments and targeted optimizations
+
+### Mid-Level ($8,000–$15,000)
+- Fabric Architecture Accelerator — medallion lakehouse design and implementation
+- Migration Playbook — Power BI to Fabric migration roadmap
+- Real-Time Analytics Accelerator — advanced pipeline design
+- Perfect for: Architecture projects and platform migrations
+
+### Premium (Custom)
+- IQ + MCP Integration — advanced enterprise automation
+- Enterprise Transformation — full-stack Fabric and Power Platform modernization
+- Custom engagement models for Fortune 500 and large enterprises
+- Perfect for: End-to-end digital transformation
+
+## YouTube Channel
+
+**The Power Mates** (@PowerMatesMS) — 7,300+ subscribers
+
+Weekly content covering:
+- Microsoft Fabric tutorials and advanced patterns
+- Power Platform governance and optimization
+- Real-world data architecture case studies
+- Enterprise adoption strategies
+- FabCon 2026 session recordings and insights
+
+Subscribe: https://www.youtube.com/@PowerMatesMS
+
+## FabCon 2026 Sessions
+
+Gastón Cruz and Alex Rostan are speaking at Microsoft's flagship Fabric conference:
+
+1. **"Building Next-Gen Apps with Power Platform and SQL Server 2025"** — Enterprise application architecture combining Power Platform's low-code approach with SQL Server's data capabilities.
+
+2. **"The Instant Insights Pipeline: OneLake Shortcuts + Dataverse + Power Apps"** — Real-time analytics pipeline design connecting Dataverse, OneLake, and Power Apps for enterprise insights.
+
+## Blog & Resources
+
+Content available at https://www.thepowermates.com/blog/:
+
+- Fabric architecture patterns and best practices
+- Power Platform governance frameworks
+- OneLake optimization strategies
+- Real-time analytics design patterns
+- Data quality and semantic modeling approaches
+- Enterprise transformation case studies
+- FabCon 2026 speaker insights
 
 ## Contact & Links
 
@@ -38,3 +109,4 @@ The Power Mates YouTube channel publishes practical Microsoft Fabric and Power P
 - LinkedIn: https://www.linkedin.com/company/thepowermates
 - Twitter/X: https://twitter.com/ThePowerMates
 - TikTok: https://www.tiktok.com/@powermates
+- Discovery Call: https://tally.so/r/xXd9lG

@@ -69,7 +69,7 @@
     <canvas id="particles-canvas"></canvas>
     <div class="hero-content">
       <div class="badge">NEW OFFERING</div>
-      <h1>Your Medallion Architecture.<br /><span>Built in a Day. By AI + an MVP.</span></h1>
+      <h1>Your Medallion Architecture.<br /><span class="gradient-text">Built in a Day. By AI + an MVP.</span></h1>
       <p>We connect to your Fabric tenant and scaffold a complete Bronze/Silver/Gold lakehouse architecture &mdash; workspaces, lakehouses, PySpark notebooks, pipelines, Spark configs, and Direct Lake semantic model. AI builds the scaffolding. A Dual Microsoft MVP customizes it for your data.</p>
       <div class="hero-price">$15,000 <span class="price-note">one-time</span></div>
       <div class="hero-cta-group">
@@ -434,24 +434,24 @@
     <p style="color:#2ee8d3;font-size:0.85rem;font-weight:700;letter-spacing:1px;margin-bottom:8px;">CLIENT RESULTS</p>
     <h2 style="font-family:'Syne',sans-serif;font-size:1.8rem;color:#fff;margin-bottom:12px;">Results from Recent Engagements</h2>
   </div>
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
-    <div style="background:rgba(15,27,46,0.8);border:1px solid rgba(46,232,211,0.15);border-radius:12px;padding:32px;text-align:center;">
-      <p style="color:#2ee8d3;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;">Insurance</p>
-      <p style="font-family:'Syne',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Production lakehouse in 1 day</p>
-      <p style="color:#7a91aa;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Scaffolded Bronze/Silver/Gold medallion architecture with automated ingestion from 8 source systems. Team was building on day 2.</p>
-      <p style="color:#2ee8d3;font-size:0.85rem;font-weight:600;">8 sources, 1-day setup</p>
+  <div class="case-grid">
+    <div class="case-card">
+      <p class="case-label">Insurance</p>
+      <p class="case-result">Production lakehouse in 1 day</p>
+      <p class="case-description">Scaffolded Bronze/Silver/Gold medallion architecture with automated ingestion from 8 source systems. Team was building on day 2.</p>
+      <p class="case-metric">8 sources, 1-day setup</p>
     </div>
-    <div style="background:rgba(15,27,46,0.8);border:1px solid rgba(46,232,211,0.15);border-radius:12px;padding:32px;text-align:center;">
-      <p style="color:#2ee8d3;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;">CPG</p>
-      <p style="font-family:'Syne',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Enterprise-grade from day one</p>
-      <p style="color:#7a91aa;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Designed multi-workspace architecture with capacity management, CI/CD pipelines, and environment separation (dev/test/prod).</p>
-      <p style="color:#2ee8d3;font-size:0.85rem;font-weight:600;">Full CI/CD in place</p>
+    <div class="case-card">
+      <p class="case-label">CPG</p>
+      <p class="case-result">Enterprise-grade from day one</p>
+      <p class="case-description">Designed multi-workspace architecture with capacity management, CI/CD pipelines, and environment separation (dev/test/prod).</p>
+      <p class="case-metric">Full CI/CD in place</p>
     </div>
-    <div style="background:rgba(15,27,46,0.8);border:1px solid rgba(46,232,211,0.15);border-radius:12px;padding:32px;text-align:center;">
-      <p style="color:#2ee8d3;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;">Government</p>
-      <p style="font-family:'Syne',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Compliance-first architecture</p>
-      <p style="color:#7a91aa;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Built FedRAMP-compatible Fabric architecture with data residency controls, encryption at rest, and audit logging baked in.</p>
-      <p style="color:#2ee8d3;font-size:0.85rem;font-weight:600;">FedRAMP audit-ready</p>
+    <div class="case-card">
+      <p class="case-label">Government</p>
+      <p class="case-result">Compliance-first architecture</p>
+      <p class="case-description">Built FedRAMP-compatible Fabric architecture with data residency controls, encryption at rest, and audit logging baked in.</p>
+      <p class="case-metric">FedRAMP audit-ready</p>
     </div>
   </div>
 </section>
@@ -459,50 +459,50 @@
 <!-- ─── MORE OFFERINGS ────────────────────────────────────────────── -->
 <section style="background:var(--bg2, #0c1525);padding:80px 24px;border-top:1px solid rgba(255,255,255,0.06);">
   <div style="max-width:1200px;margin:0 auto;">
-    <h2 style="font-family:'Syne',sans-serif;text-align:center;margin-bottom:12px;font-size:1.8rem;">Explore Our <span style="color:#2ee8d3;">Other Offerings</span></h2>
+    <h2 style="font-family:'Syne',sans-serif;text-align:center;margin-bottom:12px;font-size:1.8rem;">Explore Our <span class="gradient-text">Other Offerings</span></h2>
     <p style="text-align:center;color:#7a91aa;margin-bottom:48px;font-size:0.95rem;">Each engagement is standalone — or bundle them for deeper savings.</p>
-    <div class="more-offerings-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
-      <a href="/tenant-scan" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🔍</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Tenant Scan</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$12,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Full tenant health audit</p>
+    <div class="more-offerings-grid">
+      <a href="/tenant-scan" class="offering-link">
+        <div class="offer-icon">🔍</div>
+        <h3>Tenant Scan</h3>
+        <p class="offer-price">$12,500</p>
+        <p class="offer-desc">Full tenant health audit</p>
       </a>
-      <a href="/iq-mcp-integration" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🤖</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">IQ + MCP Integration</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$18,000</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">AI agent integration via MCP</p>
+      <a href="/iq-mcp-integration" class="offering-link">
+        <div class="offer-icon">🤖</div>
+        <h3>IQ + MCP Integration</h3>
+        <p class="offer-price">$18,000</p>
+        <p class="offer-desc">AI agent integration via MCP</p>
       </a>
-      <a href="/semantic-model-audit" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">📊</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Semantic Model Audit</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$2,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Power BI model review</p>
+      <a href="/semantic-model-audit" class="offering-link">
+        <div class="offer-icon">📊</div>
+        <h3>Semantic Model Audit</h3>
+        <p class="offer-price">$2,500</p>
+        <p class="offer-desc">Power BI model review</p>
       </a>
-      <a href="/spark-optimization" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">⚡</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Spark Optimization</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$4,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Spark anti-pattern detection</p>
+      <a href="/spark-optimization" class="offering-link">
+        <div class="offer-icon">⚡</div>
+        <h3>Spark Optimization</h3>
+        <p class="offer-price">$4,500</p>
+        <p class="offer-desc">Spark anti-pattern detection</p>
       </a>
-      <a href="/pipeline-health-check" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🔧</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Pipeline Health Check</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$3,500</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Pipeline reliability review</p>
+      <a href="/pipeline-health-check" class="offering-link">
+        <div class="offer-icon">🔧</div>
+        <h3>Pipeline Health Check</h3>
+        <p class="offer-price">$3,500</p>
+        <p class="offer-desc">Pipeline reliability review</p>
       </a>
-      <a href="/migration-playbook" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">🚀</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Migration Playbook</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$8,000</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Migration plan to Fabric</p>
+      <a href="/migration-playbook" class="offering-link">
+        <div class="offer-icon">🚀</div>
+        <h3>Migration Playbook</h3>
+        <p class="offer-price">$8,000</p>
+        <p class="offer-desc">Migration plan to Fabric</p>
       </a>
-      <a href="/realtime-analytics-accelerator" style="display:block;text-decoration:none;background:rgba(15,27,46,0.8);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(46,232,211,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='none'">
-        <div style="font-size:1.5rem;margin-bottom:8px;">📡</div>
-        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:0.95rem;margin-bottom:4px;">Real-Time Analytics</h3>
-        <p style="color:#2ee8d3;font-weight:700;font-size:12px;margin-bottom:6px;">$12,000</p>
-        <p style="color:#7a91aa;font-size:12px;line-height:1.4;">Eventstreams & KQL setup</p>
+      <a href="/realtime-analytics-accelerator" class="offering-link">
+        <div class="offer-icon">📡</div>
+        <h3>Real-Time Analytics</h3>
+        <p class="offer-price">$12,000</p>
+        <p class="offer-desc">Eventstreams & KQL setup</p>
       </a>
     </div>
     <div style="text-align:center;margin-top:32px;">
