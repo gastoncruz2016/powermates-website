@@ -496,9 +496,9 @@ li:focus-within > .nav-dropdown {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--cyan);
-  color: #020508;
-  font-weight: 800;
+  background: #fff;
+  color: #060b16;
+  font-weight: 700;
   font-size: 16px;
   padding: 16px 36px;
   border-radius: var(--radius-pill);
@@ -506,10 +506,11 @@ li:focus-within > .nav-dropdown {
   border: none;
   cursor: pointer;
   transition: background var(--duration), transform 0.15s, box-shadow var(--duration);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.1);
 }
 .btn-primary:hover {
-  background: var(--cyan-hover);
+  background: var(--cyan);
+  color: #060b16;
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 0 56px rgba(54, 215, 183, 0.35);
 }
