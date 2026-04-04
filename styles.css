@@ -172,7 +172,7 @@ nav {
   justify-content: space-between;
   height: var(--nav-height);
   padding: 0 56px;
-  background: rgba(6, 11, 22, 0.8);
+  background: rgba(6, 11, 22, 0.72);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
   border-bottom: 1px solid var(--border);
@@ -511,7 +511,7 @@ li:focus-within > .nav-dropdown {
 .btn-primary:hover {
   background: var(--cyan);
   color: #060b16;
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-4px) scale(1.02);
   box-shadow: 0 0 56px rgba(54, 215, 183, 0.35);
 }
 
@@ -533,7 +533,7 @@ li:focus-within > .nav-dropdown {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.22);
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .btn-outline {
@@ -544,9 +544,9 @@ li:focus-within > .nav-dropdown {
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
-  padding: 12px 28px;
+  padding: 14px 32px;
   border: 1px solid rgba(46, 232, 211, 0.3);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   transition: background var(--duration), border-color var(--duration);
 }
 .btn-outline:hover {
@@ -564,8 +564,8 @@ li:focus-within > .nav-dropdown {
   color: #080f1c;
   font-weight: 700;
   font-size: 15px;
-  padding: 14px 28px;
-  border-radius: var(--radius-md);
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -574,7 +574,7 @@ li:focus-within > .nav-dropdown {
 }
 .pricing-cta:hover {
   background: var(--cyan-hover);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 .pricing-cta.outline {
   background: transparent;
@@ -1028,7 +1028,7 @@ li:focus-within > .nav-dropdown {
   margin: 32px auto 0;
   background: var(--card);
   border: 1px solid var(--cyan-border);
-  border-radius: 12px;
+  border-radius: 500px;
   overflow: hidden;
   padding: 4px;
 }
@@ -1040,7 +1040,7 @@ li:focus-within > .nav-dropdown {
   color: #fff;
   font-family: 'Figtree', sans-serif;
   font-size: 14px;
-  padding: 12px 16px;
+  padding: 12px 20px;
 }
 .email-form input::placeholder { color: var(--muted); }
 .email-form button {
@@ -1048,7 +1048,7 @@ li:focus-within > .nav-dropdown {
   border: none;
   cursor: pointer;
   width: 40px; height: 40px;
-  border-radius: 8px;
+  border-radius: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1168,6 +1168,7 @@ footer {
   padding: 32px;
   margin-top: 32px;
   text-align: center;
+  box-shadow: var(--shadow-card);
 }
 .bundle-card h4 {
   font-family: 'Syne', sans-serif;
@@ -1539,7 +1540,7 @@ footer {
 
 .expert-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(54, 215, 183, 0.08);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2), 0 0 20px rgba(54, 215, 183, 0.08);
 }
 
 
@@ -1968,8 +1969,8 @@ section + div::before {
   color: #080f1c;
   font-weight: 700;
   font-size: 15px;
-  padding: 14px 24px;
-  border-radius: var(--radius-md);
+  padding: 14px 32px;
+  border-radius: 500px;
   text-decoration: none;
   box-shadow: var(--shadow-glow);
   transition: background var(--duration);
@@ -2133,6 +2134,7 @@ section + div::before {
 .case-card {
   background: var(--card); border: 1px solid var(--border-light); border-radius: var(--radius-md);
   padding: 32px; position: relative; transition: border-color var(--duration) var(--ease);
+  box-shadow: var(--shadow-card);
 }
 .case-card:hover { border-color: var(--cyan-border); }
 .case-card .case-industry { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--cyan); margin-bottom: 12px; }
@@ -2606,6 +2608,7 @@ section + div::before {
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
 .service-card::before {
@@ -2622,7 +2625,7 @@ section + div::before {
 
 .service-card:hover {
   border-color: rgba(54, 215, 183, 0.25);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 32px rgba(54, 215, 183, 0.08);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
   transform: translateY(-4px);
 }
 
@@ -2778,8 +2781,8 @@ section + div::before {
 
 .bundle-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
+  transform: translateY(-4px);
 }
 
 .bundle-card h3 {
@@ -2878,6 +2881,7 @@ section + div::before {
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   transition: border-color 0.35s, box-shadow 0.35s, transform 0.25s;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
 .risk-card::before {
@@ -2894,8 +2898,8 @@ section + div::before {
 
 .risk-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 24px rgba(54, 215, 183, 0.06);
-  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
+  transform: translateY(-4px);
 }
 
 .risk-card:hover::before { opacity: 1; }
@@ -2954,8 +2958,8 @@ section + div::before {
 
 .deliverable-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 24px rgba(54, 215, 183, 0.06);
-  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
+  transform: translateY(-4px);
 }
 
 .deliverable-card:hover::before { opacity: 1; }
@@ -3097,6 +3101,7 @@ section + div::before {
   transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.25s var(--ease);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
 .feature-card::before,
@@ -3119,8 +3124,8 @@ section + div::before {
 .roi-card:hover,
 .why-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(54, 215, 183, 0.06);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
+  transform: translateY(-4px);
 }
 
 .feature-card:hover::before,
@@ -3185,7 +3190,7 @@ section + div::before {
 .btn-cta-lg:hover {
   background: var(--cyan);
   color: var(--bg);
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-4px) scale(1.02);
   box-shadow: 0 0 56px rgba(54, 215, 183, 0.35);
 }
 
@@ -3261,8 +3266,8 @@ section + div::before {
 
 .method-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
+  transform: translateY(-4px);
 }
 
 .method-card:hover::before { opacity: 1; }
@@ -3333,6 +3338,7 @@ section + div::before {
   transition: border-color 0.35s, transform 0.25s;
   overflow: hidden;
   position: relative;
+  box-shadow: var(--shadow-card);
 }
 
 .who-card::before {
@@ -3349,7 +3355,7 @@ section + div::before {
 
 .who-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .who-card:hover::before { opacity: 1; }
@@ -3407,8 +3413,8 @@ section + div::before {
 
 .case-card:hover {
   border-color: rgba(54, 215, 183, 0.25);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 24px rgba(54, 215, 183, 0.06);
-  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
+  transform: translateY(-4px);
 }
 
 .case-label {
@@ -3477,7 +3483,7 @@ section + div::before {
 
 .offering-link:hover {
   border-color: rgba(54, 215, 183, 0.25);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
@@ -3527,6 +3533,7 @@ section + div::before {
   transition: border-color 0.35s, transform 0.25s;
   overflow: hidden;
   position: relative;
+  box-shadow: var(--shadow-card);
 }
 
 .step-card::before {
@@ -3543,7 +3550,7 @@ section + div::before {
 
 .step-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .step-card:hover::before { opacity: 1; }
@@ -3608,7 +3615,7 @@ section + div::before {
 
 .report-mockup-card:hover {
   border-color: rgba(54, 215, 183, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2);
 }
 
 .mockup-label {
@@ -3660,7 +3667,7 @@ section + div::before {
 }
 
 .pricing-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .pricing-card.recommended {
@@ -4171,7 +4178,7 @@ section + div::before {
 .testimonial-card:hover {
   transform: translateY(-4px);
   border-color: var(--cyan-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--cyan-border);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(54, 215, 183, 0.2), 0 0 0 1px var(--cyan-border);
 }
 
 .testimonial-stars {
