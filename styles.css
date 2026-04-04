@@ -51,7 +51,7 @@
   --radius-pill:  100px;
 
   /* Shadows — subtler, more layered */
-  --shadow-card:  0 2px 16px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-card:  rgba(0, 0, 0, 0.3) 0px 8px 24px;
   --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--cyan-border);
   --shadow-glow:  0 0 40px rgba(54, 215, 183, 0.2);
 
@@ -173,8 +173,8 @@ nav {
   height: var(--nav-height);
   padding: 0 56px;
   background: rgba(6, 11, 22, 0.8);
-  backdrop-filter: blur(32px) saturate(1.2);
-  -webkit-backdrop-filter: blur(32px) saturate(1.2);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
   border-bottom: 1px solid var(--border);
   transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease);
 }
@@ -314,7 +314,7 @@ li:focus-within > .nav-dropdown {
   font-size: 14px;
   font-weight: 700;
   padding: 9px 20px;
-  border-radius: 8px;
+  border-radius: 500px;
   text-decoration: none;
   transition: background var(--duration), transform 0.15s;
   flex-shrink: 0;
