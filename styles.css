@@ -2137,7 +2137,6 @@ section + div::before {
   box-shadow: var(--shadow-card);
 }
 .case-card:hover { border-color: var(--cyan-border); }
-.case-card .case-industry { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--cyan); margin-bottom: 12px; }
 .case-card .case-result { font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.2; }
 .case-card .case-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; }
 .case-card .case-metric { display: inline-block; background: var(--cyan-bg); border: 1px solid var(--cyan-border); border-radius: var(--radius-sm); padding: 4px 12px; font-size: 0.8rem; color: var(--cyan); font-weight: 600; }
