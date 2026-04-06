@@ -1,0 +1,295 @@
+{
+  "$schema": "https://fabric.microsoft.com/ontology/v1",
+  "name": "TenantScanGovernance",
+  "displayName": "TenantScan Governance Ontology",
+  "description": "Semantic model for Microsoft Fabric tenant governance — defines entity types, relationships, and condition-action rules for the TenantScan Advisor.",
+  "version": "1.0.0",
+
+  "entityTypes": {
+    "TenantScanRun": {
+      "displayName": "Tenant Scan Run",
+      "description": "A single governance scan execution with aggregate scores",
+      "dataBinding": {
+        "source": "SemanticModel",
+        "table": "tenant_scan_runs",
+        "alternateSource": {
+          "type": "Lakehouse",
+          "table": "tenant_scan_runs"
+        }
+      },
+      "keyProperty": "scan_id",
+      "properties": {
+        "scan_id":          { "type": "String",   "description": "Unique scan identifier" },
+        "scan_date":        { "type": "DateTime", "description": "When the scan was executed" },
+        "overall_score":    { "type": "Int32",    "description": "Overall governance score (0-100)" },
+        "score_rating":     { "type": "String",   "description": "Rating label: Critical / Poor / Fair / Good / Excellent" },
+        "fabric_readiness": { "type": "Int32",    "description": "Fabric Readiness sub-score" },
+        "rbac_score":       { "type": "Int32",    "description": "RBAC governance sub-score" },
+        "naming_score":     { "type": "Int32",    "description": "Naming convention sub-score" },
+        "refresh_score":    { "type": "Int32",    "description": "Refresh hygiene sub-score" },
+        "capacity_score":   { "type": "Int32",    "description": "Capacity utilization sub-score" },
+        "description_score":{ "type": "Int32",    "description": "Description coverage sub-score" },
+        "workspace_count":  { "type": "Int32",    "description": "Total workspaces scanned" },
+        "item_count":       { "type": "Int32",    "description": "Total items scanned" },
+        "finding_count":    { "type": "Int32",    "description": "Total findings detected" },
+        "pct_admin":        { "type": "Double",   "description": "Percentage of Admin roles across all workspaces" }
+      }
+    },
+
+    "Finding": {
+      "displayName": "Governance Finding",
+      "description": "A specific governance issue detected during a scan",
+      "dataBinding": {
+        "source": "SemanticModel",
+        "table": "tenant_scan_findings",
+        "alternateSource": {
+          "type": "Lakehouse",
+          "table": "tenant_scan_findings"
+        }
+      },
+      "keyProperty": "finding_id",
+      "properties": {
+        "finding_id":  { "type": "String",  "description": "Unique finding identifier" },
+        "title":       { "type": "String",  "description": "Finding title" },
+        "category":    { "type": "String",  "description": "Category: Security / Naming / Capacity / Refresh / Description" },
+        "severity":    { "type": "String",  "description": "Severity: Critical / High / Medium / Low / Info" },
+        "detail":      { "type": "String",  "description": "Detailed finding description" },
+        "scan_date":   { "type": "DateTime","description": "Scan date this finding belongs to" },
+        "status":      { "type": "String",  "description": "Resolution status: Open / Resolved / Suppressed" }
+      }
+    },
+
+    "Recommendation": {
+      "displayName": "Remediation Recommendation",
+      "description": "An actionable recommendation linked to one or more findings",
+      "dataBinding": {
+        "source": "SemanticModel",
+        "table": "tenant_scan_recommendations"
+      },
+      "keyProperty": "recommendation_id",
+      "properties": {
+        "recommendation_id": { "type": "String", "description": "Unique recommendation identifier" },
+        "title":             { "type": "String", "description": "Recommendation title" },
+        "priority":          { "type": "String", "description": "Priority: P1 / P2 / P3 / P4" },
+        "effort":            { "type": "String", "description": "Estimated effort: Low / Medium / High" },
+        "impact":            { "type": "String", "description": "Expected score impact: Low / Medium / High" },
+        "powershell_cmd":    { "type": "String", "description": "PowerShell remediation command (if applicable)" },
+        "api_endpoint":      { "type": "String", "description": "Fabric REST API endpoint for automated fix (Tier 3)" }
+      }
+    },
+
+    "Workspace": {
+      "displayName": "Fabric Workspace",
+      "description": "A workspace in the Fabric tenant with governance metadata",
+      "dataBinding": {
+        "source": "SemanticModel",
+        "table": "tenant_scan_workspaces",
+        "alternateSource": {
+          "type": "Lakehouse",
+          "table": "tenant_scan_workspaces"
+        }
+      },
+      "keyProperty": "workspace_id",
+      "properties": {
+        "workspace_id":  { "type": "String", "description": "Fabric workspace GUID" },
+        "name":          { "type": "String", "description": "Workspace display name" },
+        "state":         { "type": "String", "description": "Workspace state: Active / Deleted / Orphaned" },
+        "capacity_id":   { "type": "String", "description": "Assigned capacity GUID (null if unassigned)" },
+        "capacity_name": { "type": "String", "description": "Capacity display name" },
+        "item_count":    { "type": "Int32",  "description": "Number of items in this workspace" },
+        "has_description":{ "type": "Boolean","description": "Whether workspace has a description set" }
+      }
+    },
+
+    "RoleAssignment": {
+      "displayName": "Role Assignment",
+      "description": "An RBAC role assignment linking a principal to a workspace",
+      "dataBinding": {
+        "source": "SemanticModel",
+        "table": "tenant_scan_roles",
+        "alternateSource": {
+          "type": "Lakehouse",
+          "table": "tenant_scan_roles"
+        }
+      },
+      "keyProperty": "assignment_id",
+      "properties": {
+        "assignment_id":  { "type": "String", "description": "Unique assignment identifier" },
+        "workspace_name": { "type": "String", "description": "Workspace this role belongs to" },
+        "role":           { "type": "String", "description": "Role: Admin / Member / Contributor / Viewer" },
+        "principal_id":   { "type": "String", "description": "Azure AD principal identifier" },
+        "principal_type": { "type": "String", "description": "Principal type: User / Group / ServicePrincipal / App" }
+      }
+    }
+  },
+
+  "relationships": [
+    {
+      "name": "scan_produces_findings",
+      "displayName": "Scan → Findings",
+      "description": "A scan run produces zero or more governance findings",
+      "sourceEntity": "TenantScanRun",
+      "targetEntity": "Finding",
+      "cardinality": "oneToMany",
+      "sourceKey": "scan_date",
+      "targetKey": "scan_date"
+    },
+    {
+      "name": "finding_affects_workspace",
+      "displayName": "Finding → Workspace",
+      "description": "A finding affects a specific workspace",
+      "sourceEntity": "Finding",
+      "targetEntity": "Workspace",
+      "cardinality": "manyToOne",
+      "sourceKey": "category",
+      "targetKey": "workspace_id",
+      "note": "Linked via finding detail or workspace reference in the finding"
+    },
+    {
+      "name": "finding_resolved_by_recommendation",
+      "displayName": "Finding → Recommendation",
+      "description": "A finding is resolved by applying a recommendation",
+      "sourceEntity": "Finding",
+      "targetEntity": "Recommendation",
+      "cardinality": "manyToOne",
+      "sourceKey": "category",
+      "targetKey": "recommendation_id",
+      "note": "Matched by category + severity → priority mapping"
+    },
+    {
+      "name": "workspace_has_roles",
+      "displayName": "Workspace → Roles",
+      "description": "A workspace has multiple role assignments",
+      "sourceEntity": "Workspace",
+      "targetEntity": "RoleAssignment",
+      "cardinality": "oneToMany",
+      "sourceKey": "name",
+      "targetKey": "workspace_name"
+    },
+    {
+      "name": "scan_covers_workspaces",
+      "displayName": "Scan → Workspaces",
+      "description": "A scan covers all workspaces in the tenant",
+      "sourceEntity": "TenantScanRun",
+      "targetEntity": "Workspace",
+      "cardinality": "oneToMany",
+      "sourceKey": "scan_date",
+      "targetKey": "scan_date",
+      "note": "Temporal join — workspaces snapshot per scan"
+    }
+  ],
+
+  "conditionActionRules": [
+    {
+      "name": "critical_score_alert",
+      "displayName": "Critical Governance Score",
+      "description": "Fire alert when overall score drops below critical threshold",
+      "condition": {
+        "entity": "TenantScanRun",
+        "expression": "overall_score < 40"
+      },
+      "action": {
+        "type": "Activator",
+        "target": "TenantScan-Watchdog",
+        "severity": "Critical",
+        "message": "Overall governance score fell to {overall_score}/100 — immediate review required.",
+        "channel": "Power Automate → Teams Adaptive Card"
+      }
+    },
+    {
+      "name": "score_drop_alert",
+      "displayName": "Score Drop Detection",
+      "description": "Fire alert when score drops 5+ points between consecutive scans",
+      "condition": {
+        "entity": "TenantScanRun",
+        "expression": "overall_score < PREVIOUS(overall_score) - 5",
+        "window": "consecutive_scans"
+      },
+      "action": {
+        "type": "Activator",
+        "target": "TenantScan-Watchdog",
+        "severity": "Warning",
+        "message": "Score dropped from {PREVIOUS(overall_score)} to {overall_score} (−{PREVIOUS(overall_score) - overall_score} pts).",
+        "channel": "Power Automate → Teams Adaptive Card"
+      }
+    },
+    {
+      "name": "admin_role_bloat",
+      "displayName": "Admin Role Bloat",
+      "description": "Warn when admin roles exceed 30% of total assignments",
+      "condition": {
+        "entity": "TenantScanRun",
+        "expression": "pct_admin > 0.30"
+      },
+      "action": {
+        "type": "Activator",
+        "target": "TenantScan-Watchdog",
+        "severity": "Warning",
+        "message": "Admin role percentage is {pct_admin * 100}% — exceeds 30% recommended threshold.",
+        "channel": "Power Automate → Teams Adaptive Card"
+      }
+    },
+    {
+      "name": "new_critical_finding",
+      "displayName": "New Critical Finding Detected",
+      "description": "Fire alert when a new Critical-severity finding appears",
+      "condition": {
+        "entity": "Finding",
+        "expression": "severity == 'Critical' AND status == 'Open'",
+        "trigger": "on_create"
+      },
+      "action": {
+        "type": "Activator",
+        "target": "TenantScan-Watchdog",
+        "severity": "Critical",
+        "message": "New critical finding: {title} in category {category}.",
+        "channel": "Power Automate → Teams Adaptive Card + Email"
+      }
+    },
+    {
+      "name": "unassigned_capacity_warning",
+      "displayName": "Workspace Without Capacity",
+      "description": "Warn when workspaces exist without capacity assignment",
+      "condition": {
+        "entity": "Workspace",
+        "expression": "capacity_id == null AND state == 'Active'"
+      },
+      "action": {
+        "type": "Activator",
+        "target": "TenantScan-Watchdog",
+        "severity": "Info",
+        "message": "Workspace '{name}' has no capacity assigned — running on shared capacity.",
+        "channel": "Power Automate → Teams"
+      }
+    }
+  ],
+
+  "agentInstructions": {
+    "dataAgent": {
+      "name": "TenantScan-Advisor",
+      "ontologyBinding": "TenantScanGovernance",
+      "instructions": [
+        "You are the TenantScan Governance Advisor. Use the TenantScanGovernance ontology as your primary semantic layer.",
+        "Entity types available: TenantScanRun, Finding, Recommendation, Workspace, RoleAssignment.",
+        "Use GQL queries for relationship traversals (e.g., 'which workspaces have admin bloat AND critical findings').",
+        "Use DAX for real-time score calculations and the semantic model.",
+        "When asked 'what if' questions, traverse Finding → Recommendation relationships to estimate score impact.",
+        "Always reference entities by their ontology names, not raw table/column names.",
+        "Support group-by in GQL queries for aggregation across entity relationships.",
+        "When explaining your reasoning, reference the ontology graph path (e.g., TenantScanRun → Finding → Workspace → RoleAssignment)."
+      ]
+    },
+    "operationsAgent": {
+      "name": "TenantScan-Watchdog",
+      "ontologyBinding": "TenantScanGovernance",
+      "instructions": [
+        "Monitor the TenantScanGovernance ontology for condition-action rule triggers.",
+        "Use the conditionActionRules defined in the ontology — do not hardcode thresholds.",
+        "Route alerts through Activator → Power Automate based on severity.",
+        "Critical alerts: Teams Adaptive Card + Email to tenant admins.",
+        "Warning alerts: Teams Adaptive Card only.",
+        "Info alerts: Log to Lakehouse audit table."
+      ]
+    }
+  }
+}
