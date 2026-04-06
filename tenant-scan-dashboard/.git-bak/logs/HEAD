@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 2aed65008810a8a84e53834ee94c68b299e7ae76 Minion <minion@Minions-Mac-mini.local> 1775431943 -0700	commit (initial): Harden Fabric agent + add chat persistence
-2aed65008810a8a84e53834ee94c68b299e7ae76 918d54f2dc0ee64b139768add0b4d7586cc8e5b9 Gaston Cruz <gaston@thepowermates.com> 1775432604 -0700	commit: Tier 1: context injection, agent steps, remediation cards
-918d54f2dc0ee64b139768add0b4d7586cc8e5b9 ed97611405f32a491c137005c7ee7633b380af27 Gaston Cruz <gaston@thepowermates.com> 1775435030 -0700	commit: Tier 2: what-if simulator, score monitoring, multi-source grounding
-ed97611405f32a491c137005c7ee7633b380af27 10594b73db9a0d0a4bbe2f040c4ad646e231011a Gaston Cruz <gaston@thepowermates.com> 1775435704 -0700	commit: Tier 2.5: IQ Ontology semantic layer for governance graph reasoning
-10594b73db9a0d0a4bbe2f040c4ad646e231011a f169533bc8718767ebfde09e9cf23475b887a5cf Gaston Cruz <gaston@thepowermates.com> 1775437774 -0700	commit: Tier 3: Fabric REST API actions with confirmation modal

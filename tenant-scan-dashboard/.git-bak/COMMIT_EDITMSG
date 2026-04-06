@@ -1,7 +1,0 @@
-Tier 3: Fabric REST API actions with confirmation modal
-
-Add FABRIC_ACTIONS config (assign capacity, add/remove workspace users,
-downgrade roles), executeFabricAction with MSAL token, confirmation modal,
-and action buttons on remediation cards. CSS for buttons + modal.
-
-Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
