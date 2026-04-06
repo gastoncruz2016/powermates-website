@@ -61,6 +61,12 @@
 
   // ─── DAX QUERY ENGINE ────────────────────────────────────────────────
   async function queryDAX(dax) {
+    // Demo mode: return static data instead of calling the API
+    if (IS_DEMO) {
+      const key = demoQueryKey(dax);
+      return Promise.resolve(DEMO_DATA[key] || []);
+    }
+
     const token = await getToken();
     const res = await fetch(API_BASE, {
       method: 'POST',
@@ -148,6 +154,136 @@
         "Type", tenant_scan_roles[principal_type]
       )`
   };
+
+  // ─── DEMO MODE ────────────────────────────────────────────────────────
+  const IS_DEMO = new URLSearchParams(window.location.search).get('demo') === 'true';
+
+  const DEMO_DATA = {
+    overview: [{
+      '[OverallScore]': 41,
+      '[FabricReadiness]': 49,
+      '[RBACScore]': 0,
+      '[NamingScore]': 100,
+      '[RefreshScore]': 0,
+      '[CapacityScore]': 75,
+      '[DescriptionScore]': 0,
+      '[ScoreRating]': 'Needs Attention',
+      '[LastScanDate]': '2026-03-28T14:30:00Z',
+      '[Workspaces]': 12,
+      '[Items]': 135,
+      '[Findings]': 4,
+      '[Recommendations]': 8,
+      '[Scans]': 3,
+      '[AdminRoles]': 6,
+      '[PctAdmin]': 0.42
+    }],
+
+    trend: [
+      { 'tenant_scan_runs[scan_date]': '2026-01-15', '[Score]': 28 },
+      { 'tenant_scan_runs[scan_date]': '2026-02-12', '[Score]': 33 },
+      { 'tenant_scan_runs[scan_date]': '2026-03-28', '[Score]': 41 }
+    ],
+
+    findings: [
+      { '[Finding]': '42% of workspace users have Admin role',         '[Category]': 'Security',    '[Severity]': 'Critical', '[Detail]': '6 out of 14 role assignments are Admin. Principle of least privilege is not enforced.' },
+      { '[Finding]': 'No refresh schedules configured',                '[Category]': 'Operations',  '[Severity]': 'High',     '[Detail]': '0 of 12 semantic models have automated refresh. Data may be stale.' },
+      { '[Finding]': '0% of items have descriptions',                  '[Category]': 'Governance',  '[Severity]': 'Medium',   '[Detail]': 'None of the 135 items have descriptions set, reducing discoverability.' },
+      { '[Finding]': '3 workspaces not assigned to Fabric capacity',   '[Category]': 'Capacity',    '[Severity]': 'Medium',   '[Detail]': 'Workspaces "Sandbox", "Archive", "Test-Dev" run on shared capacity with no SLA.' }
+    ],
+
+    recommendations: [
+      { '[Recommendation]': 'Downgrade Admin roles to Member or Contributor', '[Priority]': 'Critical', '[Category]': 'Security',    '[Effort]': 'Low',    '[Impact]': 'High' },
+      { '[Recommendation]': 'Configure scheduled refresh for all semantic models', '[Priority]': 'High', '[Category]': 'Operations',  '[Effort]': 'Medium', '[Impact]': 'High' },
+      { '[Recommendation]': 'Add descriptions to all workspace items',  '[Priority]': 'Medium',  '[Category]': 'Governance',  '[Effort]': 'Medium', '[Impact]': 'Medium' },
+      { '[Recommendation]': 'Assign remaining workspaces to F64 capacity', '[Priority]': 'Medium', '[Category]': 'Capacity',    '[Effort]': 'Low',    '[Impact]': 'Medium' },
+      { '[Recommendation]': 'Implement workspace naming convention policy', '[Priority]': 'Low', '[Category]': 'Governance',  '[Effort]': 'Low',    '[Impact]': 'Low' },
+      { '[Recommendation]': 'Enable audit logging for tenant-wide visibility', '[Priority]': 'High', '[Category]': 'Security',    '[Effort]': 'Low',    '[Impact]': 'High' },
+      { '[Recommendation]': 'Create a dedicated gateway for on-prem data sources', '[Priority]': 'Medium', '[Category]': 'Operations',  '[Effort]': 'High',   '[Impact]': 'Medium' },
+      { '[Recommendation]': 'Establish data certification workflow',    '[Priority]': 'Low',    '[Category]': 'Governance',  '[Effort]': 'Medium', '[Impact]': 'Medium' }
+    ],
+
+    workspaces: [
+      { '[Name]': 'Finance Analytics',     '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 28 },
+      { '[Name]': 'HR Dashboards',         '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 15 },
+      { '[Name]': 'Sales & Marketing',     '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 22 },
+      { '[Name]': 'Executive Reports',     '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 9 },
+      { '[Name]': 'Supply Chain',          '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 18 },
+      { '[Name]': 'Data Engineering',      '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 12 },
+      { '[Name]': 'IT Operations',         '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 8 },
+      { '[Name]': 'Customer Insights',     '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 11 },
+      { '[Name]': 'Quality Assurance',     '[Type]': 'Workspace', '[Capacity]': 'FabricProd-F64',  '[CapacitySku]': 'F64',  '[Items]': 5 },
+      { '[Name]': 'Sandbox',               '[Type]': 'Workspace', '[Capacity]': 'Shared',           '[CapacitySku]': '',     '[Items]': 3 },
+      { '[Name]': 'Archive',               '[Type]': 'Workspace', '[Capacity]': 'Shared',           '[CapacitySku]': '',     '[Items]': 2 },
+      { '[Name]': 'Test-Dev',              '[Type]': 'Workspace', '[Capacity]': 'Shared',           '[CapacitySku]': '',     '[Items]': 2 }
+    ],
+
+    roles: [
+      { '[Workspace]': 'Finance Analytics',  '[Role]': 'Admin',       '[Principal]': 'user-001', '[Type]': 'User' },
+      { '[Workspace]': 'Finance Analytics',  '[Role]': 'Admin',       '[Principal]': 'user-002', '[Type]': 'User' },
+      { '[Workspace]': 'HR Dashboards',      '[Role]': 'Admin',       '[Principal]': 'user-001', '[Type]': 'User' },
+      { '[Workspace]': 'Sales & Marketing',  '[Role]': 'Admin',       '[Principal]': 'user-003', '[Type]': 'User' },
+      { '[Workspace]': 'Sales & Marketing',  '[Role]': 'Member',      '[Principal]': 'user-004', '[Type]': 'User' },
+      { '[Workspace]': 'Executive Reports',  '[Role]': 'Admin',       '[Principal]': 'user-001', '[Type]': 'User' },
+      { '[Workspace]': 'Executive Reports',  '[Role]': 'Viewer',      '[Principal]': 'group-001','[Type]': 'Group' },
+      { '[Workspace]': 'Supply Chain',       '[Role]': 'Admin',       '[Principal]': 'user-005', '[Type]': 'User' },
+      { '[Workspace]': 'Supply Chain',       '[Role]': 'Contributor', '[Principal]': 'user-006', '[Type]': 'User' },
+      { '[Workspace]': 'Data Engineering',   '[Role]': 'Member',      '[Principal]': 'user-007', '[Type]': 'User' },
+      { '[Workspace]': 'Data Engineering',   '[Role]': 'Member',      '[Principal]': 'user-008', '[Type]': 'User' },
+      { '[Workspace]': 'IT Operations',      '[Role]': 'Admin',       '[Principal]': 'user-009', '[Type]': 'User' },
+      { '[Workspace]': 'Customer Insights',  '[Role]': 'Member',      '[Principal]': 'user-010', '[Type]': 'User' },
+      { '[Workspace]': 'Sandbox',            '[Role]': 'Member',      '[Principal]': 'user-011', '[Type]': 'User' }
+    ]
+  };
+
+  // Map DAX query string → demo dataset key
+  function demoQueryKey(dax) {
+    if (dax.includes('Overall Score (Trend)')) return 'trend';
+    if (dax.includes('scan_date'))         return 'trend';
+    if (dax.includes('Overall Score'))     return 'overview';
+    if (dax.includes('tenant_scan_findings'))       return 'findings';
+    if (dax.includes('tenant_scan_recommendations'))return 'recommendations';
+    if (dax.includes('tenant_scan_workspaces'))     return 'workspaces';
+    if (dax.includes('tenant_scan_roles'))           return 'roles';
+    return 'overview';
+  }
+
+  // Pre-recorded agent conversation for demo
+  const DEMO_CHAT = [
+    {
+      q: /score|overall|how.*doing|status|health/i,
+      a: `**Overall Governance Score: 41/100 — Needs Attention**\n\nHere's the breakdown:\n- **RBAC Security: 0/100** — 42% of users have Admin role. This is your biggest risk.\n- **Refresh Schedules: 0/100** — No automated refreshes configured anywhere.\n- **Descriptions: 0/100** — Zero items have descriptions, hurting discoverability.\n- **Capacity: 75/100** — 3 workspaces still on shared capacity.\n- **Naming: 100/100** — Great job here, all workspaces follow convention.\n- **Fabric Readiness: 49/100** — Room to improve before full Fabric migration.\n\nI'd recommend tackling RBAC first — downgrading unnecessary Admin roles to Member is low-effort, high-impact.`
+    },
+    {
+      q: /rbac|admin|security|role|permission|access/i,
+      a: `**RBAC Analysis: Critical**\n\n6 out of 14 role assignments (42%) are Admin-level. That's well above the recommended 10% threshold.\n\n**Workspaces with excessive Admin roles:**\n- Finance Analytics — 2 Admins (user-001, user-002)\n- Executive Reports — 1 Admin with broad access\n- IT Operations — 1 Admin\n- Supply Chain — 1 Admin\n- Sales & Marketing — 1 Admin\n\n**Recommendation:** Downgrade at least 4 of these to Member or Contributor. Keep only 1-2 Admins per workspace for break-glass scenarios. This single change would raise your RBAC score from 0 to ~70.`
+    },
+    {
+      q: /capacity|sku|shared|f64/i,
+      a: `**Capacity Report:**\n\n9 of 12 workspaces are assigned to **FabricProd-F64** capacity — good.\n\n**3 workspaces on Shared (no SLA):**\n1. Sandbox (3 items)\n2. Archive (2 items)\n3. Test-Dev (2 items)\n\nWhile these are low-usage workspaces, assigning them to capacity ensures consistent performance and lets you track CU consumption. Moving them to F64 would bring your Capacity Score from 75 to 100.\n\nUse the **"Assign to Capacity"** action on each workspace's remediation card to fix this directly.`
+    },
+    {
+      q: /finding|issue|problem|wrong|fix/i,
+      a: `**4 Active Findings:**\n\n1. 🔴 **Critical — 42% Admin roles.** Principle of least privilege not enforced. Immediate action needed.\n2. 🟠 **High — No refresh schedules.** All 12 semantic models lack automated refresh. Data freshness at risk.\n3. 🟡 **Medium — 0% descriptions.** 135 items have no descriptions. Governance and discoverability gap.\n4. 🟡 **Medium — 3 unassigned workspaces.** Sandbox, Archive, Test-Dev not on Fabric capacity.\n\n**Quick wins:** Fix #1 (RBAC) and #4 (capacity) first — both are low effort and would move your score from 41 to ~60.`
+    },
+    {
+      q: /workspace|list|inventory/i,
+      a: `**12 Workspaces Scanned:**\n\n| Workspace | Capacity | Items |\n|---|---|---|\n| Finance Analytics | F64 | 28 |\n| Sales & Marketing | F64 | 22 |\n| Supply Chain | F64 | 18 |\n| HR Dashboards | F64 | 15 |\n| Data Engineering | F64 | 12 |\n| Customer Insights | F64 | 11 |\n| Executive Reports | F64 | 9 |\n| IT Operations | F64 | 8 |\n| Quality Assurance | F64 | 5 |\n| Sandbox | Shared | 3 |\n| Archive | Shared | 2 |\n| Test-Dev | Shared | 2 |\n\n**Total: 135 items** across all workspaces. Finance Analytics is the largest with 28 items.`
+    },
+    {
+      q: /recommend|suggestion|what.*should|priorit|action/i,
+      a: `**Top 8 Recommendations (prioritized):**\n\n1. 🔴 **Downgrade Admin roles** — Critical, Low effort, High impact\n2. 🟠 **Configure scheduled refresh** — High priority, Medium effort\n3. 🟠 **Enable audit logging** — High priority, Low effort\n4. 🟡 **Add item descriptions** — Medium, Medium effort\n5. 🟡 **Assign workspaces to F64** — Medium, Low effort\n6. 🟡 **Create dedicated gateway** — Medium, High effort\n7. 🔵 **Implement naming convention policy** — Low, Low effort\n8. 🔵 **Establish data certification workflow** — Low, Medium effort\n\nFixing items 1, 3, and 5 alone would push your score from **41 → ~65** with minimal effort.`
+    }
+  ];
+
+  // Fallback demo response
+  const DEMO_FALLBACK = `Great question! Based on the current scan data, this tenant scores **41/100** and needs attention in several areas.\n\nThe biggest opportunities are:\n- **RBAC cleanup** — too many Admin roles (42%)\n- **Refresh schedules** — none configured\n- **Item descriptions** — 0% coverage\n\nWould you like me to dive deeper into any of these areas? You can also try asking about specific workspaces, capacity allocation, or recommendations.`;
+
+  function getDemoResponse(msg) {
+    for (const entry of DEMO_CHAT) {
+      if (entry.q.test(msg)) return entry.a;
+    }
+    return DEMO_FALLBACK;
+  }
 
   // ─── UTILITY: DEBOUNCE ────────────────────────────────────────────────
   function debounce(fn, ms = 250) {
@@ -737,6 +873,10 @@
     $('#authScreen').classList.add('hidden');
     $('#dashApp').classList.add('active');
     $('#navUser').textContent = user.username || user.name || '';
+    if (IS_DEMO) {
+      const signOut = document.getElementById('signOutBtn');
+      if (signOut) signOut.style.display = 'none';
+    }
   }
 
   function showAuth() {
@@ -923,6 +1063,10 @@
 
   // Execute a Fabric REST API action
   async function executeFabricAction(actionId, params) {
+    if (IS_DEMO) {
+      alert('Fabric API actions are disabled in demo mode. Sign in with your own tenant to execute governance actions.');
+      return;
+    }
     const action = FABRIC_ACTIONS[actionId];
     if (!action) throw new Error(`Unknown action: ${actionId}`);
 
@@ -1789,6 +1933,25 @@
     const loadingEl = appendBubble('assistant loading', '');
     loadingEl.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
 
+    // Demo mode: simulate agent response with pre-recorded answers
+    if (IS_DEMO) {
+      const reply = getDemoResponse(msg);
+      // Simulate a short delay for realism
+      await new Promise(r => setTimeout(r, 800 + Math.random() * 1200));
+      loadingEl.className = 'chat-bubble assistant';
+      await typewrite(loadingEl, reply);
+      renderRemediationCards(reply, loadingEl.closest('.chat-bubble-wrap') || loadingEl.parentElement);
+      renderWhatIfGauge(loadingEl.closest('.chat-bubble-wrap') || loadingEl.parentElement, reply);
+      const wrap = loadingEl.closest('.chat-bubble-wrap') || loadingEl.parentElement;
+      if (wrap && !wrap.querySelector('.chat-copy-btn')) {
+        wrap.appendChild(createCopyBtn(reply));
+      }
+      saveChatHistory();
+      const messages = document.getElementById('chat-messages');
+      messages.scrollTop = messages.scrollHeight;
+      return;
+    }
+
     try {
       let token = await getAgentToken();
 
@@ -1978,8 +2141,8 @@
   }
 
   async function resetChat() {
-    // Clean up thread on server if possible
-    if (agentState.threadId) {
+    // Clean up thread on server if possible (skip in demo mode)
+    if (!IS_DEMO && agentState.threadId) {
       try {
         const token = await getAgentToken();
         await agentFetch(`/threads/${agentState.threadId}`, token, { method: 'DELETE' }, 0);
@@ -2074,6 +2237,23 @@
   // ─── INIT ────────────────────────────────────────────────────────────
   async function init() {
     try {
+      // Demo mode: skip MSAL entirely, show dashboard with fake user
+      if (IS_DEMO) {
+        initTabs();
+        const demoUser = { username: 'Demo User', name: 'Demo User' };
+        showDashboard(demoUser);
+
+        // Add a demo banner
+        const banner = document.createElement('div');
+        banner.className = 'demo-banner';
+        banner.innerHTML = '🔍 <strong>Demo Mode</strong> — Viewing sample governance scan data. <a href="/tenant-scan">Get your own scan →</a>';
+        const dashApp = document.getElementById('dashApp');
+        dashApp.insertBefore(banner, dashApp.firstChild);
+
+        try { await loadOverview(); } catch (err) { showError(err); }
+        return;
+      }
+
       await initMSAL();
       initTabs();
 
