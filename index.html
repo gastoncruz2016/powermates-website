@@ -32,6 +32,49 @@
 /* Page-specific: index.html only */
 .news-article-body { margin-bottom: 24px; }
 #featured a[href*="youtube"]:last-of-type:hover { background: rgba(46,232,211,0.08); border-color: rgba(46,232,211,0.5); }
+
+/* ─── Announcement Bar ─────────────────────────────────────────── */
+.announce-bar {
+  background: linear-gradient(90deg, rgba(46,232,211,0.12) 0%, rgba(46,232,211,0.04) 50%, rgba(46,232,211,0.12) 100%);
+  border-bottom: 1px solid rgba(46,232,211,0.2);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #b4c3d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 100;
+}
+.announce-bar .announce-badge {
+  background: rgba(46,232,211,0.15);
+  border: 1px solid rgba(46,232,211,0.35);
+  color: #2ee8d3;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.announce-bar a {
+  color: #2ee8d3;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.announce-bar a:hover { color: #fff; }
+.announce-bar .announce-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.announce-bar a:hover .announce-arrow { transform: translateX(3px); }
+@media (max-width: 600px) {
+  .announce-bar { font-size: 13px; gap: 8px; flex-wrap: wrap; }
+}
 </style>
 <!-- Google Analytics 4 — replace G-P5LH45QCFC with your Measurement ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
@@ -81,6 +124,13 @@
   </ul>
   <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
 </nav>
+
+<!-- ─── ANNOUNCEMENT BAR ───────────────────────────────────────────────── -->
+<div class="announce-bar">
+  <span class="announce-badge">Live Demo</span>
+  <span>TenantScan Advisor — AI-powered Fabric governance is here.</span>
+  <a href="/samples/tenant-scan-advisor">Try it now <span class="announce-arrow">&rarr;</span></a>
+</div>
 
 <!-- ─── HERO ───────────────────────────────────────────────────────────── -->
 <section id="hero">
