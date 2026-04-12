@@ -102,14 +102,11 @@ h4 { font-size: 16px; font-weight: 700; }
 
 /* Gradient text effect for premium accent words */
 .gradient-text {
-  background: linear-gradient(135deg, #36d7b7 0%, #4ae3c6 40%, #e8d5b7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--cyan);
 }
 
 .section-title .c {
-  color: var(--cyan);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 
@@ -134,11 +131,11 @@ section {
 
 .section-label {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 16px;
 }
 
@@ -347,7 +344,7 @@ li:focus-within > .nav-dropdown {
 /* ─── HERO ───────────────────────────────────────────────────────────────── */
 #hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -355,9 +352,7 @@ li:focus-within > .nav-dropdown {
   text-align: center;
   padding: 140px 24px 100px;
   overflow: hidden;
-  background: radial-gradient(ellipse 80% 70% at 50% 40%, rgba(54, 215, 183, 0.04) 0%, transparent 60%),
-              radial-gradient(ellipse 60% 50% at 70% 20%, rgba(54, 215, 183, 0.03) 0%, transparent 50%),
-              var(--bg);
+  background: var(--bg);
 }
 
 #hero-canvas {
@@ -377,28 +372,16 @@ li:focus-within > .nav-dropdown {
 }
 
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--cyan-bg);
-  border: 1px solid var(--cyan-border);
-  color: var(--cyan);
-  font-size: 12px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   animation: fadeUp 0.6s ease both;
 }
-.hero-eyebrow::before {
-  content: '';
-  width: 5px; height: 5px;
-  background: var(--cyan);
-  border-radius: 50%;
-  opacity: 0.7;
-}
+.hero-eyebrow::before { display: none; }
 
 .hero-title {
   font-family: 'Syne', sans-serif;
@@ -602,17 +585,13 @@ li:focus-within > .nav-dropdown {
 }
 
 .topic-icon {
-  width: 48px; height: 48px;
-  background: var(--cyan-bg);
-  border-radius: 12px;
+  width: 40px; height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
-  font-size: 22px;
-  transition: background var(--duration);
+  margin-bottom: 20px;
+  font-size: 24px;
 }
-.topic-card:hover .topic-icon { background: rgba(46, 232, 211, 0.18); }
 
 .topic-card h3 {
   font-family: 'Syne', sans-serif;
@@ -1632,16 +1611,12 @@ section + div::before {
 /* tier-featured styled via WOW section below */
 
 .tier-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--cyan-bg);
-  border: 1px solid var(--cyan-border);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  font-size: 24px;
+  font-size: 28px;
+  opacity: 0.7;
 }
 
 .tier-name {
