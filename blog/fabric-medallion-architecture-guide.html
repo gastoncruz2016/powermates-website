@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://www.thepowermates.com/blog/fabric-medallion-architecture-guide">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <title>Medallion Architecture in Microsoft Fabric: The Complete Guide | PowerMates</title>
+  <meta name="description" content="How to design and build a Bronze/Silver/Gold medallion lakehouse in Microsoft Fabric. Patterns, pitfalls, and what two Dual MVPs actually implement at enterprise scale." />
+  <meta name="keywords" content="medallion architecture Microsoft Fabric, fabric lakehouse bronze silver gold, fabric medallion lakehouse, OneLake architecture, data lakehouse Fabric, fabric architecture guide" />
+  <meta property="og:title" content="Medallion Architecture in Microsoft Fabric: The Complete Guide" />
+  <meta property="og:description" content="The definitive guide to designing Bronze/Silver/Gold lakehouse architecture in Microsoft Fabric. Real patterns from Fortune 500 implementations." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.thepowermates.com/blog/fabric-medallion-architecture-guide" />
+  <meta property="og:image" content="https://www.thepowermates.com/images/og/og-blog-default.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThePowerMates" />
+  <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-blog-default.png">
+  <meta property="article:published_time" content="2026-04-12" />
+  <meta property="article:author" content="Gastón Cruz" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Medallion Architecture in Microsoft Fabric: The Complete Guide",
+    "description": "How to design and build a Bronze/Silver/Gold medallion lakehouse in Microsoft Fabric. Patterns, pitfalls, and what two Dual MVPs actually implement at enterprise scale.",
+    "author": {"@type": "Person", "name": "Gastón Cruz"},
+    "publisher": {"@type": "Organization", "name": "The Power Mates", "url": "https://www.thepowermates.com"},
+    "datePublished": "2026-04-12",
+    "url": "https://www.thepowermates.com/blog/fabric-medallion-architecture-guide"
+  }
+  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P5LH45QCFC');</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="/" class="logo"><span>POWER</span> <span>MATES</span></a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li>
+      <a href="/services" class="nav-dropdown-trigger">Services</a>
+      <div class="nav-dropdown">
+        <a href="/tenant-scan">Tenant Scan <span class="dropdown-price">from $2,500</span></a>
+        <a href="/fabric-architecture-accelerator">Architecture Accelerator <span class="dropdown-price">$15,000</span></a>
+        <a href="/semantic-model-audit">Semantic Model Audit <span class="dropdown-price">$2,500</span></a>
+        <a href="/realtime-analytics-accelerator">Real-Time Analytics <span class="dropdown-price">$8,000</span></a>
+        <a href="/migration-playbook">Migration Playbook <span class="dropdown-price">$12,000</span></a>
+        <a href="/spark-optimization">Spark Optimization <span class="dropdown-price">$3,500</span></a>
+        <a href="/pipeline-health-check">Pipeline Health Check <span class="dropdown-price">$4,000</span></a>
+        <a href="/iq-mcp-integration">IQ MCP Integration <span class="dropdown-price">$18,000</span></a>
+        <div class="dropdown-divider"></div>
+        <a href="/services">View All Services &rarr;</a>
+      </div>
+    </li>
+    <li>
+      <a class="nav-dropdown-trigger">Bundles</a>
+      <div class="nav-dropdown">
+        <a href="/bi-performance-pack">BI Performance Pack <span class="dropdown-price">$9,500</span></a>
+        <a href="/data-engineering-pack">Data Engineering Pack <span class="dropdown-price">$6,500</span></a>
+        <a href="/governance-performance">Governance + Performance <span class="dropdown-price">$14,000</span></a>
+        <a href="/migration-governance">Migration + Governance <span class="dropdown-price">$23,500</span></a>
+        <a href="/architecture-realtime">Architecture + Real-Time <span class="dropdown-price">$22,000</span></a>
+        <a href="/full-data-platform-audit">Full Data Platform Audit <span class="dropdown-price">$21,500</span></a>
+        <div class="dropdown-divider"></div>
+        <a href="/enterprise-transformation">Enterprise Transformation &mdash; All 8 <span class="dropdown-price">$63,000</span></a>
+        <div class="dropdown-divider"></div>
+        <a href="/pricing">Compare All Pricing &rarr;</a>
+      </div>
+    </li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">Content</a></li>
+  </ul>
+  <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
+</nav>
+
+<!-- ============ ARTICLE ============ -->
+<article class="blog-post">
+  <div class="blog-post-header reveal">
+    <div class="blog-post-meta">
+      <a href="/blog/" class="blog-back">&larr; Back to Blog</a>
+      <div class="blog-post-info">
+        <span class="blog-tag">Architecture</span>
+        <time datetime="2026-04-12">April 12, 2026</time>
+        <span class="blog-read-time">8 min read</span>
+      </div>
+    </div>
+    <h1>Medallion Architecture in Microsoft Fabric: <span>The Complete Guide</span></h1>
+    <p class="blog-post-subtitle">Bronze, Silver, Gold — everyone talks about it. Here's what it actually looks like when you build it at enterprise scale in Fabric.</p>
+    <div class="blog-post-author">
+      <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-author-img" loading="lazy" width="48" height="48" />
+      <div>
+        <strong>Gastón Cruz</strong>
+        <span>Dual Microsoft MVP &mdash; Data Platform &amp; AI</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-post-body">
+
+    <p>Medallion architecture is the most common pattern we implement for enterprise Fabric deployments. But most of what's written about it stops at the concept level: ingest raw data into Bronze, clean it in Silver, aggregate it in Gold. That's true, but it's not useful.</p>
+
+    <p>What's missing is the nuance — how to structure lakehouses, when to use shortcuts vs. pipelines, how Delta handles schema evolution, and what breaks when you have 50 teams writing to the same lakehouse. That's what this guide covers.</p>
+
+    <h2>What Medallion Architecture Actually Is</h2>
+
+    <p>Medallion (also called multi-hop) is a pattern for organizing data through progressive quality layers:</p>
+
+    <ul>
+      <li><strong>Bronze</strong> — Raw, immutable data exactly as it arrived from the source. No transformations. No schema enforcement. Think of it as your audit log.</li>
+      <li><strong>Silver</strong> — Cleansed, validated, deduplicated data. Schema enforced. Business keys resolved. This is your reliable foundation.</li>
+      <li><strong>Gold</strong> — Business-ready aggregations, denormalized tables, and serving layer datasets optimized for specific use cases (reporting, ML, APIs).</li>
+    </ul>
+
+    <p>In Microsoft Fabric, each layer typically maps to a separate Lakehouse item within a workspace — though there are valid reasons to deviate from this, which we'll cover.</p>
+
+    <h2>Workspace Design: One Workspace or Many?</h2>
+
+    <p>This is the first decision most teams get wrong. The common mistake is creating one workspace per team or department, then trying to share data across workspaces via exports. That creates data duplication, consistency problems, and no single source of truth.</p>
+
+    <p>The pattern we use at enterprise scale:</p>
+
+    <ul>
+      <li><strong>A Central Data Platform workspace</strong> — Contains Bronze, Silver, and core Gold lakehouses. This is the authoritative layer. Controlled access. Owns the master data.</li>
+      <li><strong>Domain workspaces</strong> — Finance, HR, Operations, etc. Each has its own Gold lakehouse built on top of the central Silver layer using OneLake shortcuts (more on this below). Teams own their domain models but don't duplicate raw data.</li>
+      <li><strong>Development/Staging workspaces</strong> — Mirror of production for testing. Git-integrated for Fabric items via deployment pipelines.</li>
+    </ul>
+
+    <p>This structure gives you enterprise governance (central Bronze/Silver with strict access) while enabling team autonomy (domain Gold layers). The central team doesn't become a bottleneck for every data request.</p>
+
+    <h2>OneLake Shortcuts: The Fabric Superpower Most Teams Underuse</h2>
+
+    <p>OneLake Shortcuts let you reference data in another lakehouse, storage account, or even an external source like S3 or ADLS Gen2 — without copying it. The data stays where it is; Fabric reads it as if it's local.</p>
+
+    <p>This changes the medallion pattern significantly:</p>
+
+    <ul>
+      <li>Silver layer data can be exposed to domain workspaces via shortcuts — domain teams query Silver data without it being duplicated</li>
+      <li>External data sources (Azure Blob, S3, ADLS Gen2, Google Cloud Storage) can be mounted directly into your Bronze lakehouse — no ingestion pipeline needed for the initial load</li>
+      <li>Dataverse data can be shortcutted into Fabric directly, enabling Fabric analytics on Power Platform operational data</li>
+    </ul>
+
+    <p>The catch: shortcuts are read-only from the target. If domain teams need to write enriched data back, they need their own writable tables in their domain lakehouse — not the shortcut.</p>
+
+    <h2>Delta Lake: Why It Matters for Medallion</h2>
+
+    <p>All Fabric lakehouses store data in Delta format. This isn't just a file format choice — Delta is what makes the medallion pattern work reliably at scale.</p>
+
+    <p>The features you'll lean on:</p>
+
+    <ul>
+      <li><strong>ACID transactions</strong> — Multiple pipelines can write to the same table without corruption. Critical when you have parallel ingestion streams landing in Bronze.</li>
+      <li><strong>Schema evolution</strong> — Source systems change their schemas. Delta handles adding new columns without breaking existing queries. <code>mergeSchema</code> option in Spark makes this seamless.</li>
+      <li><strong>Time travel</strong> — Every Delta table maintains a transaction log. You can query as-of-yesterday with <code>VERSION AS OF</code> or <code>TIMESTAMP AS OF</code>. This is invaluable for debugging and regulatory requirements.</li>
+      <li><strong>Z-ordering and liquid clustering</strong> — Fabric's managed lakehouse tables support liquid clustering, which automatically reorganizes data for the most common query patterns. For large tables (100M+ rows), this can cut query times by 60–80%.</li>
+    </ul>
+
+    <p>One important decision: managed tables vs. unmanaged (external) tables in your lakehouse. Managed tables live under the <code>Tables/</code> path and are fully controlled by Fabric — easy to work with, show up in the SQL analytics endpoint automatically. External tables point to files in <code>Files/</code> or in external storage. We use managed tables for Gold (final serving layer, well-defined schema) and external tables for Bronze (preserving raw files exactly as received).</p>
+
+    <h2>Ingestion Patterns for Bronze</h2>
+
+    <p>Bronze should be append-only whenever possible. You're creating an audit trail. If a source system sends bad data, you still want the bad data in Bronze — so you can debug the Silver transformation logic later.</p>
+
+    <p>Common ingestion patterns in Fabric:</p>
+
+    <ul>
+      <li><strong>Data Factory pipelines</strong> — Best for batch ingestion from databases, APIs, SaaS sources (Salesforce, Dynamics, SAP). Use Copy Activity for simple moves, Dataflow Gen2 for transformations during ingestion.</li>
+      <li><strong>Eventstream</strong> — For real-time data: IoT, event hubs, Kafka. Lands directly into Bronze or bypasses Bronze into a KQL database for sub-second analytics.</li>
+      <li><strong>Notebooks</strong> — For complex ingestion logic that outgrows Dataflow capabilities. Use PySpark for anything involving custom parsing, complex joins, or ML-based enrichment during ingestion.</li>
+      <li><strong>Shortcuts from source</strong> — For sources where data already exists in cloud storage (ADLS, S3). Mount it directly — no ingestion job needed.</li>
+    </ul>
+
+    <p>Add metadata to every Bronze table: <code>ingested_at</code> timestamp, <code>source_system</code> string, <code>batch_id</code> for traceability. This costs almost nothing but saves enormous debugging time.</p>
+
+    <h2>Silver: Where Real Engineering Happens</h2>
+
+    <p>Silver is where most of the engineering work lives. You're going from "raw data that arrived" to "data we can trust."</p>
+
+    <p>Standard Silver transformations:</p>
+
+    <ul>
+      <li><strong>Deduplication</strong> — Sources often send duplicate records. Delta's <code>MERGE</code> statement handles upserts cleanly: update if the record exists, insert if it doesn't. Define your business key clearly before you start.</li>
+      <li><strong>Type casting and validation</strong> — Enforce column types. Reject or quarantine records that fail validation. Write rejects to a <code>_rejected</code> table with a reason code — never silently drop bad data.</li>
+      <li><strong>Null handling</strong> — Standardize null representation. Decide whether nulls in source mean "unknown" or "not applicable" — this matters for aggregations in Gold.</li>
+      <li><strong>Business key resolution</strong> — If the same entity has different IDs across source systems (customer ID in Salesforce vs. account number in SAP), Silver is where you resolve to a canonical key.</li>
+      <li><strong>Slowly Changing Dimensions (SCD)</strong> — For entities that change over time (customer address, product price), decide your SCD type. SCD Type 2 (keep full history) is safest but requires careful key management. Delta's MERGE + time travel make this tractable.</li>
+    </ul>
+
+    <p>Organize Silver notebooks into reusable patterns. We use a base transform class that handles logging, error quarantine, and Delta MERGE boilerplate — domain-specific notebooks just define the transformation logic. This pays off enormously when you have 50+ Silver tables to maintain.</p>
+
+    <h2>Gold: Purpose-Built for Consumers</h2>
+
+    <p>Gold layers are not generic. Each Gold table exists for a specific consumer: a Power BI semantic model, an ML feature store, an operational API. Optimize accordingly.</p>
+
+    <p>Common Gold patterns:</p>
+
+    <ul>
+      <li><strong>Star schema tables</strong> — Fact and dimension tables ready for Power BI import mode. Pre-computed, pre-aggregated, pre-filtered to the reporting grain. Import mode semantic models over star schema Gold tables are the fastest Power BI possible.</li>
+      <li><strong>Wide flat tables</strong> — For operational dashboards that need low-latency DirectLake access. Denormalized, single scan, partitioned by date. DirectLake reads directly from the Delta files without import — near-real-time with near-import-mode performance.</li>
+      <li><strong>Feature tables</strong> — For ML teams. Pre-computed features joined across multiple Silver entities. Versioned, timestamped for training reproducibility.</li>
+      <li><strong>Aggregated summary tables</strong> — Weekly/monthly rollups for executive reporting. Materialized in Gold rather than computed at query time — much faster for large tenants.</li>
+    </ul>
+
+    <h2>Common Mistakes at Enterprise Scale</h2>
+
+    <p>After implementing this pattern across retail, banking, oil &amp; gas, and media organizations, here's what breaks:</p>
+
+    <ul>
+      <li><strong>No workspace governance</strong> — Anyone can create a workspace, so they do. 6 months in, you have 200 workspaces, no naming convention, no ownership, and Bronze data duplicated in 15 places. Define workspace governance before you start.</li>
+      <li><strong>Skipping the Bronze immutability rule</strong> — Teams start "fixing" Bronze data directly when they find issues. This destroys your audit trail. Bronze is sacred — transformations only happen in Silver.</li>
+      <li><strong>Single lakehouse for all layers</strong> — Putting Bronze, Silver, and Gold in the same lakehouse makes access control impossible. Separate workspaces and lakehouses per layer, linked by shortcuts.</li>
+      <li><strong>Not partitioning Delta tables</strong> — Large tables without partitioning cause full scans. Partition by date (ingestion date for Bronze, business date for Silver/Gold). With liquid clustering, this becomes less critical, but partitioning is still cheaper for time-range queries.</li>
+      <li><strong>No monitoring on pipelines</strong> — Notebooks and pipelines fail silently. By the time someone notices a report is stale, the pipeline has been failing for a week. Use Fabric's built-in monitoring + alerts, or wire failures to a Slack/Teams channel via Power Automate.</li>
+    </ul>
+
+    <h2>Where to Start</h2>
+
+    <p>If you're building a Fabric medallion architecture from scratch, start with a single domain — not the whole enterprise. Pick one business process with a clear consumer (a report, a dashboard, an application). Build Bronze → Silver → Gold for that domain. Get it working, monitored, and trusted. Then expand.</p>
+
+    <p>The most common mistake is trying to design the entire enterprise data model before landing a single row of data in Fabric. You'll discover things in production that no whiteboard session will surface. Build fast, learn fast.</p>
+
+    <p>If you have an existing Power BI environment you're migrating into Fabric, your semantic models are a useful guide to what Gold needs to look like — work backwards from there.</p>
+
+    <p>And if you want an expert eye on whether your current or planned architecture will hold up at scale, that's exactly what our <a href="/fabric-architecture-accelerator">Fabric Architecture Accelerator</a> is for — we design your medallion architecture in a day, using your actual data sources and reporting requirements as inputs.</p>
+
+  </div>
+
+  <!-- ============ AUTHOR BIO ============ -->
+  <div class="blog-post-bio reveal">
+    <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-bio-img" loading="lazy" width="64" height="64" />
+    <div>
+      <strong>Gastón Cruz</strong> is a Dual Microsoft MVP (Data Platform &amp; AI) and co-founder of PowerMates. He's designed medallion architectures across retail, banking, oil &amp; gas, and media organizations — and has been implementing Microsoft Fabric since its earliest preview releases.
+    </div>
+  </div>
+</article>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="reveal">
+    <h2>Need a Fabric Architecture Built the Right Way?</h2>
+    <p>We design your medallion lakehouse architecture in a day — Bronze to Gold, with your actual data sources, reporting requirements, and governance constraints baked in from the start.</p>
+    <a href="/fabric-architecture-accelerator" class="btn-primary">See the Architecture Accelerator &rarr;</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/semantic-model-audit">Semantic Model Audit</a>
+      <a href="/spark-optimization">Spark Job Optimization</a>
+      <a href="/pipeline-health-check">Pipeline Health Check</a>
+      <a href="/realtime-analytics-accelerator">Real-Time Analytics</a>
+      <a href="/migration-playbook">SQL Warehouse Migration</a>
+      <a href="/tenant-scan">Tenant Scan</a>
+      <a href="/fabric-architecture-accelerator">Architecture Accelerator</a>
+      <a href="/iq-mcp-integration">IQ MCP Integration</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/blog/">Blog</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">Twitter / X</a>
+      <a href="https://tally.so/r/xXd9lG" target="_blank" rel="noopener">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 PowerMates LLC. All rights reserved.
+  </div>
+</footer>
+
+<script src="/nav.js"></script>
+</body>
+</html>

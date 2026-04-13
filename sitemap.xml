@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.thepowermates.com/</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,7 +32,7 @@
   <!-- Blog -->
   <url>
     <loc>https://www.thepowermates.com/blog/</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -66,35 +66,47 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Offerings -->
   <url>
-    <loc>https://www.thepowermates.com/tenant-scan</loc>
-    <lastmod>2026-04-05</lastmod>
+    <loc>https://www.thepowermates.com/blog/fabric-medallion-architecture-guide</loc>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.thepowermates.com/blog/fabric-vs-databricks</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tenant Scan — Primary Offering -->
+  <url>
+    <loc>https://www.thepowermates.com/tenant-scan</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.thepowermates.com/tenant-scan-starter</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.thepowermates.com/tenant-scan-professional</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.thepowermates.com/tenant-scan-enterprise</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.thepowermates.com/tenant-scan-ai-assisted</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,6 +116,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Offerings -->
   <url>
     <loc>https://www.thepowermates.com/fabric-architecture-accelerator</loc>
     <lastmod>2026-04-05</lastmod>

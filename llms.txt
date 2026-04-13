@@ -13,7 +13,7 @@ Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates 
 
 ## What We Do
 
-- **Tenant Scan**: AI-powered Microsoft 365 and Power Platform governance audit. Surfaces ungoverned flows, DLP gaps, orphaned apps, and compliance risks automatically. Includes scoring, findings, and prioritized action plan.
+- **Tenant Scan**: Microsoft Fabric tenant health audit. Surfaces workspace sprawl, orphaned lakehouses and semantic models, Spark inefficiencies, and pipelines running without monitoring. Includes a scored health report and prioritized action plan. From $2,500.
 - **Fabric Architecture**: Design and implementation of Microsoft Fabric medallion lakehouses, OneLake architecture, and real-time analytics pipelines. End-to-end deployment support.
 - **Power Platform Consulting**: Governance frameworks, performance optimization, migration playbooks, and Dataverse architecture for enterprise environments.
 - **Semantic Model Audits**: DAX quality review, relationship design, partition strategy, Power BI performance optimization, and best practices analysis.
@@ -25,7 +25,7 @@ Gastón Cruz and Alex Rostan are Dual Microsoft MVPs co-hosting The Power Mates 
 ## Service Offerings & Pricing
 
 ### Audit & Optimization Services (Entry-Level)
-- **Tenant Scan** — From $2,500 — AI-powered governance audit with findings and action plan
+- **Tenant Scan** — From $2,500 — Microsoft Fabric tenant health audit with scored report and action plan
 - **Semantic Model Audit** — $2,500 — DAX review, data model optimization, performance recommendations
 - **Spark Optimization** — $3,500 — Spark job tuning and lakehouse efficiency analysis
 - **Pipeline Health Check** — $4,000 — Pipeline reliability and performance optimization review
