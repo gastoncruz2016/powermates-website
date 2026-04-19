@@ -19,6 +19,121 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ── SCAN PREVIEW WIDGET (hero) ── */
+    .scan-preview {
+      background: rgba(8, 15, 28, 0.85);
+      border: 1px solid var(--cyan-border);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      max-width: 560px;
+      margin: 1.75rem auto;
+      text-align: left;
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    .scan-preview::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      animation: scan-line 2.4s ease-in-out infinite alternate;
+    }
+    @keyframes scan-line {
+      0% { opacity: 0.4; transform: scaleX(0.3); transform-origin: left; }
+      100% { opacity: 1; transform: scaleX(1); transform-origin: left; }
+    }
+    .scan-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .scan-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse-dot 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .scan-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .scan-metric {
+      text-align: center;
+      padding: 0.625rem;
+      background: var(--bg2);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .scan-metric-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .scan-metric-val .counter-suffix { color: var(--cyan); }
+    .scan-metric-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .scan-score-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .scan-score-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .scan-score-bar {
+      flex: 1;
+      height: 8px;
+      background: var(--bg3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .scan-score-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), rgba(46, 232, 211, 0.6));
+      border-radius: 4px;
+      width: 0%;
+      transition: width 2s ease-out;
+    }
+    .scan-score-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: var(--cyan);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 52px;
+      text-align: right;
+    }
+    @media (max-width: 480px) {
+      .scan-metrics { gap: 0.5rem; }
+      .scan-metric-val { font-size: 1.1rem; }
+    }
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,6 +228,34 @@
       <div class="badge">Fabric Migration Readiness</div>
       <h1>Know Exactly What's in Your Tenant<br /><span class="gradient-text">Before You Migrate.</span></h1>
       <p>A scored, structured assessment of your Power BI environment — governance gaps, licensing waste, Copilot readiness, and a migration roadmap built from your actual data. Not guesswork.</p>
+
+      <!-- Scan Preview Widget -->
+      <div class="scan-preview" id="scan-preview-widget">
+        <div class="scan-header">
+          <div class="scan-dot"></div>
+          Scan Preview — Typical Enterprise Tenant
+        </div>
+        <div class="scan-metrics">
+          <div class="scan-metric">
+            <div class="scan-metric-val"><span class="counter" data-target="347">0</span></div>
+            <div class="scan-metric-label">Workspaces<br/>Found</div>
+          </div>
+          <div class="scan-metric">
+            <div class="scan-metric-val"><span class="counter" data-target="42">0</span><span class="counter-suffix">%</span></div>
+            <div class="scan-metric-label">Orphaned<br/>Access</div>
+          </div>
+          <div class="scan-metric">
+            <div class="scan-metric-val">$<span class="counter" data-target="127">0</span><span class="counter-suffix">K</span></div>
+            <div class="scan-metric-label">License<br/>Savings Found</div>
+          </div>
+        </div>
+        <div class="scan-score-row">
+          <span class="scan-score-label">Readiness Score:</span>
+          <div class="scan-score-bar"><div class="scan-score-fill" id="hero-score-fill"></div></div>
+          <span class="scan-score-num" id="hero-score-num">0 / 100</span>
+        </div>
+      </div>
+
       <div class="hero-cta-group">
         <a href="#pricing" class="btn-primary">View Assessment Tiers →</a>
         <a href="/samples/tenant-scan-advisor" class="btn-outline">See Live Demo →</a>
@@ -312,7 +455,7 @@
           <div class="mockup-label">Component 1</div>
           <div class="mockup-title">Fabric Readiness Score</div>
           <div class="gauge-mock">
-            <div class="gauge-circle">74</div>
+            <div class="gauge-circle" id="gauge-score">0</div>
             <div class="gauge-text">Scored 0–100 across governance, complexity, and migration readiness dimensions</div>
           </div>
         </div>
@@ -746,6 +889,55 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <!-- ── SCAN WIDGET + GAUGE ANIMATIONS ── -->
+  <script>
+    (function() {
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+      function animateCounter(el, target, duration) {
+        const start = performance.now();
+        (function step(now) {
+          const t = Math.min((now - start) / duration, 1);
+          el.textContent = Math.round(easeOut(t) * target);
+          if (t < 1) requestAnimationFrame(step);
+        })(performance.now());
+      }
+      function runHeroWidget() {
+        document.querySelectorAll('#scan-preview-widget .counter').forEach(el => {
+          animateCounter(el, parseInt(el.dataset.target), 1800);
+        });
+        setTimeout(() => {
+          const fill = document.getElementById('hero-score-fill');
+          const num = document.getElementById('hero-score-num');
+          if (fill) fill.style.width = '74%';
+          if (num) {
+            const start = performance.now();
+            (function step(now) {
+              const t = Math.min((now - start) / 1800, 1);
+              num.textContent = Math.round(easeOut(t) * 74) + ' / 100';
+              if (t < 1) requestAnimationFrame(step);
+            })(performance.now());
+          }
+        }, 300);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runHeroWidget);
+      } else {
+        setTimeout(runHeroWidget, 400);
+      }
+      const gaugeEl = document.getElementById('gauge-score');
+      if (gaugeEl) {
+        new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCounter(gaugeEl, 74, 1400);
+              entry.target._obs && entry.target._obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 }).observe(gaugeEl);
+      }
+    })();
   </script>
 
   <!-- ── FAQ ACCORDION ── -->

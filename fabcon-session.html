@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://www.thepowermates.com/fabcon-session">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <title>The Instant Insights Pipeline | FabCon 2026 Session Resources — PowerMates</title>
+  <meta name="description" content="FabCon 2026 session resources: The Instant Insights Pipeline — OneLake shortcuts + Dataverse + Power Apps. Demo files, slides, and implementation guide from Dual Microsoft MVPs." />
+  <meta name="keywords" content="FabCon 2026, OneLake shortcuts, Dataverse Power Apps, Microsoft Fabric pipeline, Gastón Cruz, PowerMates, Fabric session resources" />
+  <meta property="og:title" content="The Instant Insights Pipeline | FabCon 2026 — PowerMates" />
+  <meta property="og:description" content="OneLake shortcuts + Dataverse + Power Apps — zero-copy pipeline from raw data to a working app. Session resources, demo files, and implementation guide." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/fabcon-session" />
+  <meta property="og:image" content="https://www.thepowermates.com/images/og/og-default.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+    .event-bar {
+      background: linear-gradient(90deg, rgba(46,232,211,0.08), rgba(46,232,211,0.04));
+      border-bottom: 1px solid var(--cyan-border);
+      padding: 10px 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      font-family: 'Figtree', sans-serif;
+    }
+    .event-chip { display: flex; align-items: center; gap: 0.4rem; color: var(--muted); }
+    .event-chip strong { color: var(--text); }
+    .event-chip-sep { color: var(--border); }
+    .event-tag {
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* Two-column hero */
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+    @media(max-width: 880px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .hero-meta { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+    .hero-meta-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; font-family: 'Figtree', sans-serif; }
+    .hero-meta-item strong { color: var(--text); }
+    .hero-meta-item span { color: var(--muted); }
+
+    /* Lead card */
+    .lead-card {
+      background: var(--card);
+      border: 1px solid var(--cyan-border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: sticky;
+      top: 84px;
+    }
+    .lead-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .lead-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; font-family: 'Figtree', sans-serif; }
+    .lead-form { display: flex; flex-direction: column; gap: 0.875rem; }
+    .lead-form input, .lead-form select {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.875rem;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .lead-form input::placeholder { color: var(--muted); }
+    .lead-form input:focus, .lead-form select:focus { outline: none; border-color: var(--cyan-border); }
+    .lead-form select { color: var(--muted); cursor: pointer; }
+    .lead-form select option { background: var(--bg2); }
+    .lead-form .submit-btn {
+      background: var(--cyan);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'Figtree', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      width: 100%;
+    }
+    .lead-form .submit-btn:hover { opacity: 0.85; }
+    .lead-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 0.5rem; font-family: 'Figtree', sans-serif; }
+
+    /* Pipeline diagram */
+    .pipeline-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .pipeline-step {
+      flex: 1;
+      min-width: 170px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+      font-family: 'Figtree', sans-serif;
+    }
+    .pipeline-step:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
+    .pipeline-arrow { display: flex; align-items: center; padding: 0 0.4rem; color: var(--cyan); font-size: 1.1rem; flex-shrink: 0; }
+    .pipeline-icon { font-size: 1.75rem; margin-bottom: 0.625rem; }
+    .pipeline-step h4 { font-family: 'Syne', sans-serif; font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 0.375rem; }
+    .pipeline-step p { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+    .pipeline-chip {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cyan);
+      color: var(--bg);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      font-family: 'Figtree', sans-serif;
+    }
+    @media(max-width: 700px) {
+      .pipeline-steps { flex-direction: column; gap: 0.75rem; }
+      .pipeline-arrow { transform: rotate(90deg); justify-content: center; padding: 0.25rem; }
+      .pipeline-step { min-width: unset; }
+    }
+
+    /* Learnings grid */
+    .learnings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    .learning-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      font-family: 'Figtree', sans-serif;
+    }
+    .learning-card:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
+    .learning-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--cyan); opacity: 0.3; line-height: 1; margin-bottom: 0.5rem; }
+    .learning-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .learning-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* Demo table */
+    .demo-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; font-family: 'Figtree', sans-serif; }
+    .demo-table th {
+      text-align: left;
+      padding: 10px 16px;
+      background: var(--card);
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .demo-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+    .demo-table tr:last-child td { border-bottom: none; }
+    .demo-table tr:hover td { background: rgba(46,232,211,0.03); }
+    .demo-table td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+    .demo-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+      margin-bottom: 3px;
+    }
+    .badge-fabric { background: rgba(120,88,220,0.2); color: #a78bfa; border: 1px solid rgba(120,88,220,0.3); }
+    .badge-dataverse { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+    .badge-powerapp { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
+    .badge-live { background: rgba(46,232,211,0.15); color: var(--cyan); border: 1px solid var(--cyan-border); }
+
+    /* Resources */
+    .resource-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      font-family: 'Figtree', sans-serif;
+    }
+    .resource-card:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
+    .resource-icon { font-size: 1.75rem; }
+    .resource-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .resource-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .resource-link { font-size: 0.8rem; font-weight: 700; color: var(--cyan); display: flex; align-items: center; gap: 0.3rem; }
+    .resource-link:hover { opacity: 0.8; }
+
+    /* Speaker */
+    .speaker-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 700px;
+      font-family: 'Figtree', sans-serif;
+    }
+    .speaker-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--cyan-dim);
+      border: 2px solid var(--cyan-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .speaker-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+    .speaker-title { font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.75rem; }
+    .speaker-bio { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+    @media(max-width: 560px) {
+      .speaker-card { flex-direction: column; gap: 1rem; }
+      .speaker-avatar { width: 60px; height: 60px; font-size: 1.5rem; }
+    }
+
+    /* Next steps */
+    .next-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-family: 'Figtree', sans-serif;
+    }
+    .next-card:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
+    .next-card .price { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--cyan); }
+    .next-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .next-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P5LH45QCFC');</script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+  <a href="/" class="logo"><span>POWER</span> <span>MATES</span></a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li>
+      <a href="/services" class="nav-dropdown-trigger">Services</a>
+      <div class="nav-dropdown">
+        <a href="/tenant-scan">Tenant Scan <span class="dropdown-price">from $2,500</span></a>
+        <a href="/fabric-architecture-accelerator">Architecture Accelerator <span class="dropdown-price">$15,000</span></a>
+        <a href="/semantic-model-audit">Semantic Model Audit <span class="dropdown-price">$2,500</span></a>
+        <a href="/realtime-analytics-accelerator">Real-Time Analytics <span class="dropdown-price">$8,000</span></a>
+        <a href="/migration-playbook">Migration Playbook <span class="dropdown-price">$12,000</span></a>
+        <a href="/spark-optimization">Spark Optimization <span class="dropdown-price">$3,500</span></a>
+        <a href="/pipeline-health-check">Pipeline Health Check <span class="dropdown-price">$4,000</span></a>
+        <a href="/iq-mcp-integration">IQ MCP Integration <span class="dropdown-price">$18,000</span></a>
+        <div class="dropdown-divider"></div>
+        <a href="/services">View All Services &rarr;</a>
+      </div>
+    </li>
+    <li>
+      <a class="nav-dropdown-trigger">Bundles</a>
+      <div class="nav-dropdown">
+        <a href="/bi-performance-pack">BI Performance Pack <span class="dropdown-price">$9,500</span></a>
+        <a href="/data-engineering-pack">Data Engineering Pack <span class="dropdown-price">$6,500</span></a>
+        <a href="/governance-performance">Governance + Performance <span class="dropdown-price">$14,000</span></a>
+        <a href="/migration-governance">Migration + Governance <span class="dropdown-price">$23,500</span></a>
+        <a href="/architecture-realtime">Architecture + Real-Time <span class="dropdown-price">$22,000</span></a>
+        <a href="/full-data-platform-audit">Full Data Platform Audit <span class="dropdown-price">$21,500</span></a>
+        <div class="dropdown-divider"></div>
+        <a href="/enterprise-transformation">Enterprise Transformation &mdash; All 8 <span class="dropdown-price">$63,000</span></a>
+        <div class="dropdown-divider"></div>
+        <a href="/pricing">Compare All Pricing &rarr;</a>
+      </div>
+    </li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">Content</a></li>
+  </ul>
+  <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span>FabCon 2026 Session
+  </div>
+
+  <!-- ── EVENT BAR ── -->
+  <div class="event-bar">
+    <span class="event-tag">FabCon 2026</span>
+    <div class="event-chip"><span>📍</span><span><strong>Atlanta</strong> · March 16–20, 2026</span></div>
+    <div class="event-chip-sep">·</div>
+    <div class="event-chip"><span>🎙️</span><span>Session by <strong>Gastón Cruz</strong></span></div>
+    <div class="event-chip-sep">·</div>
+    <div class="event-chip"><span>✅</span><span><strong>Post-session resources now live</strong></span></div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero" style="padding: 5rem 2rem 4rem;">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-inner">
+      <div>
+        <div class="badge">FabCon 2026 · Session Resources</div>
+        <h1>The Instant Insights<br /><span class="gradient-text">Pipeline</span></h1>
+        <p style="font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:540px;font-family:'Figtree',sans-serif;">OneLake shortcuts + Dataverse + Power Apps — from raw data to a working app in a single, connected Fabric pipeline. Everything from the session, plus next steps to build it in your tenant.</p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span>🗓️</span>
+            <span><strong>March 18, 2026</strong> · Microsoft Fabric track, FabCon Atlanta</span>
+          </div>
+          <div class="hero-meta-item">
+            <span>⏱️</span>
+            <span><strong>45-minute session</strong> · Live demo included</span>
+          </div>
+          <div class="hero-meta-item">
+            <span>🏅</span>
+            <span>Presented by <strong>Dual Microsoft MVPs</strong> · Data &amp; AI</span>
+          </div>
+        </div>
+        <div class="hero-cta-group">
+          <a href="#resources" class="btn-primary">Get Session Resources →</a>
+          <a href="#pipeline" class="btn-outline">See the Pipeline</a>
+        </div>
+      </div>
+
+      <!-- Lead Capture Card -->
+      <div class="lead-card" id="contact">
+        <h3>Continue the Conversation</h3>
+        <p>Were you at the session? Drop your info and we'll send the demo files, implementation checklist, and a link to book a follow-up call.</p>
+        <form class="lead-form" id="contact-form" action="https://tally.so/r/xXd9lG" method="GET">
+          <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
+          <input type="email" name="email" placeholder="Work email" required autocomplete="email" />
+          <input type="text" name="company" placeholder="Company" autocomplete="organization" />
+          <select name="interest">
+            <option value="" disabled selected>What are you interested in?</option>
+            <option value="implement-pipeline">Implementing this pipeline</option>
+            <option value="tenant-scan">Tenant Scan assessment</option>
+            <option value="architecture">Architecture advisory</option>
+            <option value="just-resources">Just the session resources</option>
+          </select>
+          <button type="submit" class="submit-btn">Send Resources →</button>
+          <p class="lead-note">We'll reply within 1 business day. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PIPELINE ── -->
+  <section id="pipeline" style="background:var(--bg2);padding:5rem 2rem;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">The Architecture</div>
+        <h2 class="section-title">One Pipeline. Three Fabric Services.</h2>
+        <p class="section-sub">No custom connectors, no data movement, no scheduled exports. Data stays in OneLake and surfaces anywhere via shortcut.</p>
+      </div>
+      <div class="pipeline-steps reveal">
+        <div class="pipeline-step">
+          <div class="pipeline-chip">Source</div>
+          <div class="pipeline-icon">🗄️</div>
+          <h4>OneLake</h4>
+          <p>Single store for all structured + unstructured data. Delta Parquet tables, no silos.</p>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="pipeline-chip">Shortcut</div>
+          <div class="pipeline-icon">⚡</div>
+          <h4>OneLake Shortcut</h4>
+          <p>Zero-copy reference into Dataverse. Live read — no ETL, no duplication, no lag.</p>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="pipeline-chip">Logic</div>
+          <div class="pipeline-icon">🔗</div>
+          <h4>Dataverse</h4>
+          <p>Business logic, security roles, and relationships. Tables backed by OneLake data.</p>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="pipeline-chip">Surface</div>
+          <div class="pipeline-icon">📱</div>
+          <h4>Power Apps</h4>
+          <p>Canvas app on vibe.powerapps.com — built in minutes, connected to live Dataverse tables.</p>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="pipeline-chip">Insight</div>
+          <div class="pipeline-icon">📊</div>
+          <h4>Live Feedback</h4>
+          <p>SharePoint list captures session data and flows back into the pipeline for live metrics.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:2rem;padding:1.25rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;align-items:flex-start;gap:1rem;max-width:780px;font-family:'Figtree',sans-serif;">
+        <span style="font-size:1.25rem;flex-shrink:0;">💡</span>
+        <div>
+          <strong style="color:var(--text);font-size:0.875rem;">Why this matters:</strong>
+          <p style="font-size:0.85rem;color:var(--muted);margin-top:0.25rem;line-height:1.65;">Most orgs run Power Apps on Dataverse tables loaded by scheduled pipelines. The shortcut pattern eliminates that copy — Dataverse points directly into OneLake Delta tables. One write, infinite reads. Change the data in OneLake and every app downstream sees it instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KEY LEARNINGS ── -->
+  <section id="learnings" style="padding:5rem 2rem;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Session Takeaways</div>
+        <h2 class="section-title">What You Walked Away With</h2>
+        <p class="section-sub">Six concrete patterns from the live session — each one ready to implement in your Fabric tenant this week.</p>
+      </div>
+      <div class="learnings-grid">
+        <div class="learning-card reveal">
+          <div class="learning-num">01</div>
+          <h3>OneLake Shortcuts Are Zero-Copy by Design</h3>
+          <p>A shortcut is a live reference, not a copy. Setting one up from Dataverse into a Lakehouse table takes under 5 minutes and eliminates the need for any scheduled export pipeline.</p>
+        </div>
+        <div class="learning-card reveal">
+          <div class="learning-num">02</div>
+          <h3>Dataverse Tables Can Be Fabric-Backed</h3>
+          <p>With the Fabric-linked Dataverse environment, standard Dataverse tables appear as Delta tables in OneLake automatically. You get the Power Platform security model and the Fabric analytics engine on the same data.</p>
+        </div>
+        <div class="learning-card reveal">
+          <div class="learning-num">03</div>
+          <h3>vibe.powerapps.com Is Real and Fast</h3>
+          <p>The AI-native canvas app builder generates a working app from a natural-language prompt in under 2 minutes. We built a functional attendee feedback app connected to live SharePoint data during the session.</p>
+        </div>
+        <div class="learning-card reveal">
+          <div class="learning-num">04</div>
+          <h3>SharePoint as a Lightweight Write Surface</h3>
+          <p>SharePoint Lists work well as the write layer for low-volume structured data collection. Power Automate flows the data back through Dataverse and into OneLake without any manual step.</p>
+        </div>
+        <div class="learning-card reveal">
+          <div class="learning-num">05</div>
+          <h3>The Whole Stack Is One Fabric License</h3>
+          <p>Fabric F64+ covers OneLake, Dataverse integration, Power Apps, and Copilot. Organizations running separate Power BI Premium + Power Apps per-user + Synapse licensing should model a consolidated Fabric cost — the math often surprises teams.</p>
+        </div>
+        <div class="learning-card reveal">
+          <div class="learning-num">06</div>
+          <h3>Security Inheritance Works Across the Stack</h3>
+          <p>Dataverse column-level security and Fabric workspace roles are additive, not redundant. You can grant a business user access to a Power App column without exposing the underlying OneLake table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEMO BREAKDOWN ── -->
+  <section id="demo" style="background:var(--bg2);padding:5rem 2rem;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Session Demo</div>
+        <h2 class="section-title">What We Built Live</h2>
+        <p class="section-sub">Three demos, 45 minutes, one unbroken Fabric pipeline.</p>
+      </div>
+      <div class="reveal" style="border-radius:14px;overflow:hidden;border:1px solid var(--border);">
+        <table class="demo-table">
+          <thead>
+            <tr>
+              <th>Demo</th>
+              <th>What we built</th>
+              <th>Tech used</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 — OneLake Shortcut</td>
+              <td>Created a shortcut from a Dataverse table into a Fabric Lakehouse Delta table. Zero copy, live read confirmed via notebook cell.</td>
+              <td>
+                <span class="demo-badge badge-fabric">Fabric Lakehouse</span>
+                <span class="demo-badge badge-dataverse">Dataverse</span>
+              </td>
+              <td>~8 min</td>
+            </tr>
+            <tr>
+              <td>2 — Feedback App</td>
+              <td>Built a session feedback Power App on vibe.powerapps.com from a natural-language prompt. Attendees submitted feedback live during the session.</td>
+              <td>
+                <span class="demo-badge badge-powerapp">Power Apps</span>
+                <span class="demo-badge badge-live">Live attendee data</span>
+              </td>
+              <td>~12 min</td>
+            </tr>
+            <tr>
+              <td>3 — End-to-End Flow</td>
+              <td>Power Automate flow from SharePoint submissions → Dataverse → Power BI report embedded in the app. Full pipeline, one Fabric capacity.</td>
+              <td>
+                <span class="demo-badge badge-fabric">Fabric</span>
+                <span class="demo-badge badge-dataverse">Dataverse</span>
+                <span class="demo-badge badge-powerapp">Power Automate</span>
+              </td>
+              <td>~15 min</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESOURCES ── -->
+  <section id="resources" style="padding:5rem 2rem;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Session Materials</div>
+        <h2 class="section-title">Everything From the Session</h2>
+        <p class="section-sub">Submit the form above to get your download link — delivered within 1 business day.</p>
+      </div>
+      <div class="more-offerings-grid">
+        <div class="resource-card reveal">
+          <div class="resource-icon">📋</div>
+          <h3>Implementation Checklist</h3>
+          <p>Step-by-step checklist to recreate the pipeline in your own Fabric tenant — environment setup, shortcut config, app deployment. ~4–6 hours for a clean environment.</p>
+          <a href="#contact" class="resource-link">Get checklist →</a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-icon">🗂️</div>
+          <h3>Session Slide Deck</h3>
+          <p>Full slide deck — architecture diagrams, pipeline overview, cost comparison, and the Fabric licensing argument for leadership conversations.</p>
+          <a href="#contact" class="resource-link">Request slides →</a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-icon">💻</div>
+          <h3>Demo Files &amp; Notebooks</h3>
+          <p>The Fabric Notebook used to validate the shortcut, the Power Automate flow export, and the speaker-feedback.csv schema used in the SharePoint demo.</p>
+          <a href="#contact" class="resource-link">Get demo files →</a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-icon">🎥</div>
+          <h3>Session Recording</h3>
+          <p>We'll post an extended walkthrough on The Power Mates YouTube channel with deeper commentary on each demo step. Subscribe to be notified.</p>
+          <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener" class="resource-link">Subscribe on YouTube →</a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-icon">📊</div>
+          <h3>Fabric Tenant Scan</h3>
+          <p>Know exactly what's in your tenant before you build this pipeline. Scored readiness report, governance findings, prioritized action plan. From $2,500.</p>
+          <a href="/tenant-scan" class="resource-link">View Tenant Scan →</a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-icon">🏗️</div>
+          <h3>Architecture Accelerator</h3>
+          <p>We design and validate your medallion lakehouse architecture before you build. Full reference design scoped to your data estate. Includes a 2-hour review session.</p>
+          <a href="/fabric-architecture-accelerator" class="resource-link">View offering →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SPEAKER ── -->
+  <section id="speaker" style="background:var(--bg2);padding:5rem 2rem;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Your Speaker</div>
+        <h2 class="section-title">About Gastón</h2>
+      </div>
+      <div class="speaker-card reveal">
+        <div class="speaker-avatar">👤</div>
+        <div>
+          <div class="speaker-name">Gastón Cruz</div>
+          <div class="speaker-title">Microsoft MVP — Data &amp; AI · Senior Director, Slalom · Co-founder, PowerMates</div>
+          <p class="speaker-bio">20+ years building enterprise data platforms across Fortune 500 manufacturing, financial services, and healthcare organizations. Microsoft Dual MVP in Data &amp; AI and Power Platform. Co-hosts The Power Mates YouTube channel with 7,300+ subscribers. Specializes in Microsoft Fabric architecture, supply chain analytics, and AI-native data platform design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEXT STEPS ── -->
+  <section id="next-steps" style="padding:5rem 2rem;">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Work With Us</div>
+        <h2 class="section-title">Ready to Build It in Your Tenant?</h2>
+        <p class="section-sub">Three ways we can help you take the session from inspiration to production.</p>
+      </div>
+      <div class="risks-grid">
+        <div class="next-card reveal">
+          <div class="price">$2,500</div>
+          <div>
+            <h3>Tenant Scan — Starter</h3>
+            <p>Before you build the pipeline, know what's in your tenant. Scored governance assessment, complexity heatmap, and your top 5 actions. 3–5 day delivery.</p>
+          </div>
+          <a href="/tenant-scan" class="btn-outline" style="align-self:flex-start;font-size:0.85rem;padding:10px 20px;">View Tenant Scan →</a>
+        </div>
+        <div class="next-card reveal" style="border-color:var(--cyan-border);background:linear-gradient(135deg,var(--card) 0%,rgba(46,232,211,0.04) 100%);">
+          <div class="price">$15,000</div>
+          <div>
+            <h3>Architecture Accelerator</h3>
+            <p>We design your full Fabric medallion lakehouse — data model, medallion zone layout, semantic model strategy, and a reference architecture your team can build from.</p>
+          </div>
+          <a href="/fabric-architecture-accelerator" class="btn-primary" style="align-self:flex-start;font-size:0.85rem;padding:10px 20px;">View Accelerator →</a>
+        </div>
+        <div class="next-card reveal">
+          <div class="price">Free</div>
+          <div>
+            <h3>Direct Advisory Call</h3>
+            <p>Talk to Gastón directly about your environment. Whether you're planning a migration or ready to implement the instant insights pipeline — a 60-minute scoping call is on us.</p>
+          </div>
+          <a href="https://tally.so/r/xXd9lG" target="_blank" rel="noopener" class="btn-outline" style="align-self:flex-start;font-size:0.85rem;padding:10px 20px;">Book a Call →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Build the Pipeline in Your Tenant.</h2>
+        <p>Get the implementation checklist, demo files, and slides — then book a call when you're ready to go deeper.</p>
+        <div class="final-cta-group">
+          <a href="#contact" class="btn-primary">Get Session Resources →</a>
+          <a href="mailto:gaston@thepowermates.com?subject=FabCon%20Follow-up" class="btn-outline">Email Gastón</a>
+        </div>
+        <div class="hero-trust">
+          <span>Microsoft Dual MVP</span>
+          <span>Demo files included</span>
+          <span>1-day reply, no spam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">POWER<span>MATES</span> LLC</div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/91438424" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com/ThePowerMates" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="footer-copy">© 2026 PowerMates LLC. All rights reserved. · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a></div>
+    </div>
+  </footer>
+
+  <!-- ── PARTICLES ── -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.alpha = Math.random() * 0.35 + 0.05;
+        this.r = Math.random() * 1.5 + 0.4;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(46, 232, 211, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+    for (let i = 0; i < 50; i++) particles.push(new Particle());
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(46, 232, 211, ${0.05 * (1 - d / 90)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- ── SCROLL REVEAL ── -->
+  <script>
+    new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 }).observe || document.querySelectorAll('.reveal').forEach(() => {});
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+  <script src="/nav.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "The Instant Insights Pipeline: OneLake shortcuts + Dataverse + Power Apps",
+    "startDate": "2026-03-18",
+    "location": {
+      "@type": "Place",
+      "name": "FabCon 2026",
+      "address": { "@type": "PostalAddress", "addressLocality": "Atlanta", "addressRegion": "GA" }
+    },
+    "organizer": { "@type": "Organization", "name": "The Power Mates", "url": "https://thepowermates.com" },
+    "performer": { "@type": "Person", "name": "Gastón Cruz" },
+    "description": "FabCon 2026 session on building an instant insights pipeline using OneLake shortcuts, Dataverse, and Power Apps in Microsoft Fabric."
+  }
+  </script>
+</body>
+</html>
