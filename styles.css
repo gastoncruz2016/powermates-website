@@ -4472,3 +4472,105 @@ footer { background: #0a1628 !important; color: #f0f2f5 !important; }
 .pricing-card .price,
 .feature-item { color: #0a1628; }
 .feature-muted { color: #6b7280; }
+
+/* ─── CONTRAST FIXES (light theme) ─────────────────────────────────────── */
+
+/* Credential/trust badge pills — bright cyan is invisible on white */
+.cred-badge {
+  background: rgba(15,118,110,0.07);
+  border-color: rgba(15,118,110,0.25);
+  color: #0f766e;
+}
+
+/* Bundle savings pill */
+.bundle-savings {
+  background: rgba(15,118,110,0.08);
+  color: #0f766e;
+}
+
+/* Pricing price — white-to-cyan gradient disappears on white background */
+.pricing-price {
+  background: none;
+  -webkit-text-fill-color: #0a1628;
+  color: #0a1628;
+}
+
+/* Pricing tier label — was white text */
+.pricing-tier { color: #0a1628; }
+
+/* Bundle amount / list amount on service pages */
+.bundle-amount { color: #0a1628; }
+.list-amount { color: #9ca3af; text-decoration: line-through; }
+.pricing-amount { color: #0a1628; font-weight: 700; }
+.pricing-amount small { color: #9ca3af; text-decoration: line-through; font-size: 0.65em; }
+
+/* Hero price display — white-to-cyan gradient disappears on white */
+.hero-price {
+  background: none;
+  -webkit-text-fill-color: #0a1628;
+  color: #0a1628;
+}
+
+/* Save badge pill */
+.save-badge {
+  display: inline-block;
+  background: rgba(15,118,110,0.08);
+  border: 1px solid rgba(15,118,110,0.25);
+  color: #0f766e;
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 100px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* Hero badge (BUNDLE label) */
+.hero-badge {
+  display: inline-block;
+  background: rgba(15,118,110,0.08);
+  border: 1px solid rgba(15,118,110,0.25);
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+/* Security strip checkmarks */
+.security-strip span::before { color: #0f766e; }
+.security-strip {
+  background: rgba(15,118,110,0.04);
+  border-color: rgba(15,118,110,0.12);
+}
+
+/* Hero CTA button on service/bundle pages */
+.hero-cta {
+  display: inline-block;
+  background: #0a1628;
+  color: #ffffff !important;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.hero-cta:hover {
+  background: #0f766e;
+  box-shadow: 0 8px 24px rgba(15,118,110,0.25);
+}
+
+/* Included cards — bright cyan border on white is ok but dim it slightly */
+.included-card {
+  border-color: rgba(15,118,110,0.3);
+  box-shadow: 0 0 16px rgba(15,118,110,0.06);
+  background: #fff;
+}
+
+/* ROI values — bright cyan low-contrast on white */
+.roi-value { color: #0f766e; }
