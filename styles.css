@@ -4398,7 +4398,7 @@ nav.scrolled {
 
 /* Logo strip */
 .logo-strip { background: #f7f9fc; border-top: 1px solid rgba(0,0,0,0.07); border-bottom: 1px solid rgba(0,0,0,0.07); }
-.logo-strip-label { color: #9ca3af; }
+.logo-strip-label { color: #6b7280; }
 .logo-pill {
   background: transparent;
   border: 1px solid rgba(0,0,0,0.1);
@@ -4452,7 +4452,7 @@ nav.scrolled {
 }
 .case-card:hover { border-color: rgba(13,148,136,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
 .case-description { color: #6b7280; }
-.case-result { color: #9ca3af; }
+.case-result { color: #6b7280; }
 
 /* CTA section — keep dark for McKinsey contrast moment */
 #cta {
@@ -4516,9 +4516,9 @@ footer { background: #0a1628 !important; color: #f0f2f5 !important; }
 
 /* Bundle amount / list amount on service pages */
 .bundle-amount { color: #0a1628; }
-.list-amount { color: #9ca3af; text-decoration: line-through; }
+.list-amount { color: #6b7280; text-decoration: line-through; }
 .pricing-amount { color: #0a1628; font-weight: 700; }
-.pricing-amount small { color: #9ca3af; text-decoration: line-through; font-size: 0.65em; }
+.pricing-amount small { color: #6b7280; text-decoration: line-through; font-size: 0.65em; }
 
 /* Hero price display — white-to-cyan gradient disappears on white */
 .hero-price {
@@ -4590,3 +4590,78 @@ footer { background: #0a1628 !important; color: #f0f2f5 !important; }
 
 /* ROI values — bright cyan low-contrast on white */
 .roi-value { color: #0f766e; }
+
+/* Stat labels on white cards */
+.hero-ent-stat-label { color: #6b7280; }
+.ent-band-label { color: rgba(255,255,255,0.6); }
+
+/* Code snippets — var(--cyan) = #36d7b7 on #eef1f6 is ~1.6:1, terrible */
+code { color: var(--cyan-dim); background: rgba(15,118,110,0.07); }
+
+/* ─── GLOBAL CONTRAST FIX — service pages built for dark theme ──────────
+   Service pages use inline color:#fff on sections that now have light
+   var(--bg/bg2/bg3) backgrounds. CSS attribute selectors override these. */
+section[style*="background:var(--bg)"] h1[style*="color:#fff"],
+section[style*="background:var(--bg)"] h2[style*="color:#fff"],
+section[style*="background:var(--bg)"] h3[style*="color:#fff"],
+section[style*="background:var(--bg)"] h4[style*="color:#fff"],
+section[style*="background:var(--bg)"] p[style*="color:#fff"],
+section[style*="background: var(--bg)"] h2[style*="color:#fff"],
+section[style*="background: var(--bg)"] h3[style*="color:#fff"],
+section[style*="background: var(--bg)"] p[style*="color:#fff"],
+section[style*="background:var(--bg2"] h2[style*="color:#fff"],
+section[style*="background:var(--bg2"] h3[style*="color:#fff"],
+section[style*="background:var(--bg2"] h4[style*="color:#fff"],
+section[style*="background:var(--bg2"] p[style*="color:#fff"],
+section[style*="background: var(--bg2"] h2[style*="color:#fff"],
+section[style*="background: var(--bg2"] p[style*="color:#fff"],
+section[style*="background:var(--bg3"] h2[style*="color:#fff"],
+section[style*="background:var(--bg3"] h3[style*="color:#fff"],
+section[style*="background:var(--bg3"] p[style*="color:#fff"],
+section[style*="background:var(--card"] h2[style*="color:#fff"],
+section[style*="background:var(--card"] h3[style*="color:#fff"],
+section[style*="background:var(--card"] p[style*="color:#fff"],
+div[style*="background:var(--bg)"] h2[style*="color:#fff"],
+div[style*="background:var(--bg2"] h2[style*="color:#fff"],
+div[style*="background:var(--bg2"] h3[style*="color:#fff"],
+div[style*="background:var(--bg3"] h2[style*="color:#fff"] {
+  color: var(--text) !important;
+}
+
+/* Who-card and similar text that was white on dark cards */
+section[style*="background:var(--bg)"] .who-card h4,
+section[style*="background:var(--bg)"] .who-card p,
+section[style*="background:var(--bg2"] .who-card h4,
+section[style*="background:var(--bg2"] .who-card p {
+  color: var(--text) !important;
+}
+
+/* FAQ and card borders — near-invisible white borders on light sections */
+section[style*="background:var(--bg)"] .faq-item,
+section[style*="background:var(--bg)"] [style*="border-bottom:1px solid rgba(255,255,255"],
+section[style*="background:var(--bg2"] .faq-item,
+section[style*="background:var(--bg3"] .faq-item {
+  border-bottom-color: rgba(0,0,0,0.1) !important;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-question {
+  color: var(--text) !important;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Figtree', sans-serif;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-answer {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
