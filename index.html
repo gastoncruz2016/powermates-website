@@ -290,32 +290,110 @@ input[type=range].roi-range::-webkit-slider-thumb {
 .editorial-article-headline {
   font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 800; line-height: 1.2;
-  color: #fff; margin-bottom: 14px;
+  color: #0a1628; margin-bottom: 14px;
   font-family: 'Syne', sans-serif;
 }
 .editorial-article-headline-sm {
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 700; line-height: 1.3;
-  color: #fff; margin-bottom: 10px;
+  color: #0a1628; margin-bottom: 10px;
   font-family: 'Syne', sans-serif;
 }
-.editorial-article-body { font-size: 14px; color: #7a91aa; line-height: 1.75; margin-bottom: 20px; }
-.editorial-article-body-sm { font-size: 13px; color: #7a91aa; line-height: 1.65; margin-bottom: 16px; }
+.editorial-article-body { font-size: 14px; color: #374151; line-height: 1.75; margin-bottom: 20px; }
+.editorial-article-body-sm { font-size: 13px; color: #374151; line-height: 1.65; margin-bottom: 16px; }
 .editorial-read-more {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: #2ee8d3; text-decoration: none;
-  letter-spacing: .02em; transition: gap 0.2s;
+  font-size: 13px; font-weight: 700; color: #0f766e; text-decoration: none;
+  letter-spacing: .02em; transition: gap 0.2s; border-bottom: 1px solid rgba(15,118,110,0.3); padding-bottom: 1px;
 }
-.editorial-read-more:hover { gap: 10px; }
+.editorial-read-more:hover { gap: 10px; border-color: #0f766e; }
 .editorial-divider {
-  height: 1px; background: rgba(255,255,255,0.08);
+  height: 1px; background: rgba(0,0,0,0.08);
   margin: 28px 0;
 }
 @media (max-width: 768px) {
   .editorial-grid { grid-template-columns: 1fr; }
-  .editorial-featured { padding-right: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 32px; margin-bottom: 32px; }
+  .editorial-featured { padding-right: 0; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 32px; margin-bottom: 32px; }
   .editorial-sidebar { padding-left: 0; }
 }
+
+/* ─── Enterprise hero ────────────────────────────────────────────── */
+#hero { padding: 160px 0 100px; min-height: auto; background: #fff; }
+.hero-enterprise { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hero-ent-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; margin-bottom: 24px; }
+.hero-ent-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6.5vw, 84px);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.03em;
+  color: #0a1628; margin-bottom: 28px;
+}
+.hero-ent-accent { display: block; color: #0f766e; }
+.hero-ent-credits {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: #6b7280; margin-bottom: 36px; flex-wrap: wrap;
+}
+.expert-avatar-sm {
+  width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+  border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+.expert-avatar-sm + .expert-avatar-sm { margin-left: -10px; }
+.hero-ent-ctas { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+.hero-ent-link { font-size: 14px; font-weight: 600; color: #0a1628; text-decoration: none; border-bottom: 1.5px solid rgba(0,0,0,0.25); padding-bottom: 2px; transition: border-color .2s, color .2s; }
+.hero-ent-link:hover { color: #0f766e; border-color: #0f766e; }
+.hero-ent-panel { background: #f7f9fc; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 36px; }
+.hero-ent-panel-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #0f766e; margin-bottom: 10px; }
+.hero-ent-panel-title { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #0a1628; margin-bottom: 12px; }
+.hero-ent-panel-desc { font-size: 14px; color: #6b7280; line-height: 1.7; margin-bottom: 24px; border-left: 3px solid #36d7b7; padding-left: 14px; }
+.hero-ent-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.hero-ent-stat { padding: 14px 16px; background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 10px; }
+.hero-ent-stat-num { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #0f766e; line-height: 1; margin-bottom: 4px; }
+.hero-ent-stat-label { font-size: 11px; color: #9ca3af; line-height: 1.4; }
+.hero-ent-panel-cta { font-size: 13px; font-weight: 700; color: #0a1628; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.2); padding-bottom: 1px; transition: color .2s, border-color .2s; }
+.hero-ent-panel-cta:hover { color: #0f766e; border-color: #0f766e; }
+@media (max-width: 768px) {
+  #hero { padding: 120px 0 60px; }
+  .hero-enterprise { grid-template-columns: 1fr; gap: 40px; }
+  .hero-ent-right { display: none; }
+}
+
+/* ─── Dark stat band ─────────────────────────────────────────────── */
+.ent-stat-band { background: #0a1628; padding: 56px 24px; }
+.ent-stat-band-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.ent-band-stat { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+.ent-band-stat:last-child { border-right: none; }
+.ent-band-num { font-family: 'Syne', sans-serif; font-size: clamp(36px,4vw,52px); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 8px; }
+.ent-band-label { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; max-width: 140px; margin: 0 auto; }
+@media (max-width: 640px) {
+  .ent-stat-band-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .ent-band-stat { border-right: none; }
+}
+
+/* ─── Enterprise service list ────────────────────────────────────── */
+.ent-service-list { margin-top: 48px; }
+.ent-service-item {
+  display: grid; grid-template-columns: 40px 1fr auto;
+  align-items: start; gap: 24px;
+  padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.08);
+  transition: background .2s;
+}
+.ent-service-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+.ent-service-num { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: #9ca3af; padding-top: 3px; }
+.ent-service-body { }
+.ent-service-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #0a1628; margin-bottom: 6px; }
+.ent-service-desc { font-size: 14px; color: #6b7280; line-height: 1.6; }
+.ent-service-price { font-size: 14px; font-weight: 700; color: #0f766e; white-space: nowrap; padding-top: 3px; }
+a.ent-service-item { text-decoration: none; cursor: pointer; }
+a.ent-service-item:hover .ent-service-name { color: #0f766e; }
+a.ent-service-item:hover { background: rgba(0,0,0,0.01); margin: 0 -24px; padding: 28px 24px; }
+@media (max-width: 600px) {
+  .ent-service-item { grid-template-columns: 30px 1fr; }
+  .ent-service-price { grid-column: 2; color: #9ca3af; font-size: 12px; }
+}
+
+/* ─── HIW step title fix ─────────────────────────────────────────── */
+.hiw-step-title { color: #0a1628 !important; }
+.hiw-step-desc { color: #6b7280 !important; }
 
 /* ─── How It Works ───────────────────────────────────────────────── */
 #how-it-works { padding: 80px 0; }
@@ -434,78 +512,79 @@ a.topic-card, div.topic-card { position: relative; }
 
 <!-- ─── HERO ───────────────────────────────────────────────────────────── -->
 <section id="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Enterprise Data &amp; AI Consulting</div>
-    <h1 class="hero-title">
-      <span class="w">Your Fabric.</span><br><span class="gradient-text hero-rotate" id="hero-rotate">Optimized.</span>
-    </h1>
-    <p class="hero-sub">
-      We audit, architect, and accelerate <strong>Microsoft Fabric</strong> and <strong>Power Platform</strong> environments for enterprise teams. Dual MVPs. 20+ years. Real implementations.
-    </p>
-    <div class="hero-experts">
-      <div class="expert-card">
-        <img src="/images/gaston-cruz.jpg?v=3" alt="Gastón Cruz" class="expert-avatar" id="avatar-gaston" width="64" height="64">
-        <div class="expert-info">
-          <div class="expert-name">Gastón Cruz</div>
-          <div class="expert-title">Microsoft Data & AI MVP</div>
-          <div class="expert-badges">
-            <span class="expert-badge">Data Architect</span>
-            <span class="expert-badge">FabCon Speaker</span>
-          </div>
+  <div class="container">
+    <div class="hero-enterprise">
+      <!-- Left: headline + credentials + CTA -->
+      <div class="hero-ent-left">
+        <div class="hero-ent-eyebrow">Microsoft Fabric &amp; Power Platform Consulting</div>
+        <h1 class="hero-ent-title">
+          Enterprise Data.
+          <span class="hero-ent-accent hero-rotate" id="hero-rotate">Optimized.</span>
+        </h1>
+        <div class="hero-ent-credits">
+          <img src="/images/gaston-cruz.jpg?v=3" alt="Gastón Cruz" class="expert-avatar-sm" id="avatar-gaston" width="32" height="32">
+          <img src="/images/alex-rostan.jpg?v=4" alt="Alex Rostan" class="expert-avatar-sm" id="avatar-alex" width="32" height="32">
+          <span>Gastón Cruz &amp; Alex Rostan &mdash; Dual Microsoft MVPs, 20+ years combined experience</span>
+        </div>
+        <div class="hero-ent-ctas">
+          <a href="/tenant-scan" class="btn-primary">
+            Start with Tenant Scan
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </a>
+          <a href="/services" class="hero-ent-link">View all services →</a>
+        </div>
+        <div class="avail-badge">
+          <span class="avail-dot"></span>
+          Now booking Q2 — limited engagement slots
         </div>
       </div>
-      <div class="expert-card">
-        <img src="/images/alex-rostan.jpg?v=4" alt="Alex Rostan" class="expert-avatar" id="avatar-alex" width="64" height="64">
-        <div class="expert-info">
-          <div class="expert-name">Alex Rostan</div>
-          <div class="expert-title">Co-Founder, PowerMates</div>
-          <div class="expert-badges">
-            <span class="expert-badge">Enterprise Architect</span>
-            <span class="expert-badge">FabCon Speaker</span>
+      <!-- Right: featured service card -->
+      <div class="hero-ent-right">
+        <div class="hero-ent-panel">
+          <div class="hero-ent-panel-label">Featured Service</div>
+          <div class="hero-ent-panel-title">Tenant Scan</div>
+          <p class="hero-ent-panel-desc">AI-powered governance audit for Microsoft Fabric tenants. Findings, risk scoring, and a prioritized 30-day action plan — delivered in 5 business days.</p>
+          <div class="hero-ent-stats">
+            <div class="hero-ent-stat">
+              <div class="hero-ent-stat-num">$180K</div>
+              <div class="hero-ent-stat-label">Avg. licensing savings identified</div>
+            </div>
+            <div class="hero-ent-stat">
+              <div class="hero-ent-stat-num">5 days</div>
+              <div class="hero-ent-stat-label">Delivery turnaround</div>
+            </div>
           </div>
+          <a href="/tenant-scan" class="hero-ent-panel-cta">Learn more about Tenant Scan →</a>
         </div>
       </div>
-    </div>
-    <div class="hero-ctas">
-      <a href="/services" class="btn-primary">
-        Explore Our Services
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-      </a>
-      <a href="#featured" class="btn-secondary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        Watch Our Content
-      </a>
-    </div>
-    <div class="avail-badge">
-      <span class="avail-dot"></span>
-      Now booking Q2 engagements — limited slots available
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num glow-num">8</div>
-        <div class="stat-label">Specialized Offerings</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num glow-num">20+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num glow-num">2x</div>
-        <div class="stat-label">Microsoft MVP</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num glow-num">7,300+</div>
-        <div class="stat-label">YouTube Community</div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-hint-mouse">
-      <div class="scroll-hint-dot"></div>
     </div>
   </div>
 </section>
 
+
+<!-- ─── STAT BAND ─────────────────────────────────────────────────────── -->
+<div class="ent-stat-band">
+  <div class="container">
+    <div class="ent-stat-band-grid">
+      <div class="ent-band-stat">
+        <div class="ent-band-num">$180K</div>
+        <div class="ent-band-label">Average licensing savings per Tenant Scan</div>
+      </div>
+      <div class="ent-band-stat">
+        <div class="ent-band-num">8</div>
+        <div class="ent-band-label">Specialized service offerings</div>
+      </div>
+      <div class="ent-band-stat">
+        <div class="ent-band-num">20+</div>
+        <div class="ent-band-label">Years combined Microsoft platform experience</div>
+      </div>
+      <div class="ent-band-stat">
+        <div class="ent-band-num">2×</div>
+        <div class="ent-band-label">Microsoft MVPs — Data AI &amp; Power Platform</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ─── CLIENT LOGO STRIP ────────────────────────────────────────────── -->
 <div class="logo-strip">
@@ -598,44 +677,69 @@ a.topic-card, div.topic-card { position: relative; }
   </div>
 </section>
 
-<!-- ─── FEATURED SERVICES ──────────────────────────────────────────────── -->
-<section id="services-preview" style="background:var(--bg);padding:96px 24px;">
+<!-- ─── SERVICES ──────────────────────────────────────────────────────── -->
+<section id="services-preview" style="padding: 96px 0; background: #fff;">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label reveal">Our Offerings</div>
-      <h2 class="section-title reveal">What We <span class="c">Deliver</span></h2>
-      <p class="section-sub reveal reveal-d1">Specialized Fabric and Power Platform services — from quick audits to full architecture engagements</p>
+    <div class="editorial-header reveal">
+      <div class="editorial-rule">
+        <span class="editorial-rule-label">Our Services</span>
+        <div class="editorial-rule-line"></div>
+      </div>
+      <h2 class="editorial-title">What We Deliver</h2>
+      <p class="editorial-lead">Fixed-price, scoped engagements — from governance audits to full-stack Fabric architecture.</p>
     </div>
-    <div class="services-preview-grid">
-      <a href="/tenant-scan" class="topic-card reveal reveal-d1" style="text-decoration:none;display:block;">
-        <div class="topic-icon">🔍</div>
-        <h3 style="color:#fff;">Tenant Scan</h3>
-        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">From $2,500</p>
-        <p>Fabric readiness assessment — governance scoring, findings, and prioritized action plan.</p>
+    <div class="ent-service-list reveal">
+      <a href="/tenant-scan" class="ent-service-item">
+        <div class="ent-service-num">01</div>
+        <div class="ent-service-body">
+          <div class="ent-service-name">Tenant Scan</div>
+          <div class="ent-service-desc">AI-powered governance audit — workspace inventory, risk scoring, orphaned licenses, and a prioritized 30-day remediation plan.</div>
+        </div>
+        <div class="ent-service-price">From $2,500</div>
       </a>
-      <a href="/fabric-architecture-accelerator" class="topic-card reveal reveal-d2" style="text-decoration:none;display:block;">
-        <div class="topic-icon">🏗️</div>
-        <h3 style="color:#fff;">Architecture Accelerator</h3>
-        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$15,000</p>
-        <p>End-to-end medallion lakehouse architecture scaffolded in your Fabric tenant.</p>
+      <a href="/fabric-architecture-accelerator" class="ent-service-item">
+        <div class="ent-service-num">02</div>
+        <div class="ent-service-body">
+          <div class="ent-service-name">Architecture Accelerator</div>
+          <div class="ent-service-desc">End-to-end medallion lakehouse design, workspace topology, and security model — production-ready in your Fabric tenant.</div>
+        </div>
+        <div class="ent-service-price">$15,000</div>
       </a>
-      <a href="/iq-mcp-integration" class="topic-card reveal reveal-d3" style="text-decoration:none;display:block;">
-        <div class="topic-icon">🤖</div>
-        <h3 style="color:#fff;">IQ + MCP Integration</h3>
-        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$18,000</p>
-        <p>Connect Fabric IQ and Foundry IQ to AI agents via MCP servers.</p>
+      <a href="/semantic-model-audit" class="ent-service-item">
+        <div class="ent-service-num">03</div>
+        <div class="ent-service-body">
+          <div class="ent-service-name">Semantic Model Audit</div>
+          <div class="ent-service-desc">DAX quality review, data model optimization, and performance recommendations for Power BI semantic models.</div>
+        </div>
+        <div class="ent-service-price">$2,500</div>
       </a>
-      <a href="/semantic-model-audit" class="topic-card reveal reveal-d4" style="text-decoration:none;display:block;">
-        <div class="topic-icon">📊</div>
-        <h3 style="color:#fff;">Semantic Model Audit</h3>
-        <p style="color:var(--cyan);font-weight:700;font-size:13px;margin-bottom:6px;">$2,500</p>
-        <p>Performance and best-practice review of your Power BI semantic models.</p>
+      <a href="/migration-playbook" class="ent-service-item">
+        <div class="ent-service-num">04</div>
+        <div class="ent-service-body">
+          <div class="ent-service-name">Migration Playbook</div>
+          <div class="ent-service-desc">Structured Power BI to Fabric migration with phased roadmap, schema mapping, and zero-downtime cutover framework.</div>
+        </div>
+        <div class="ent-service-price">$12,000</div>
+      </a>
+      <a href="/spark-optimization" class="ent-service-item">
+        <div class="ent-service-num">05</div>
+        <div class="ent-service-body">
+          <div class="ent-service-name">Spark Optimization</div>
+          <div class="ent-service-desc">Spark job tuning, partition strategy, Delta Lake configuration — average 3× performance improvement.</div>
+        </div>
+        <div class="ent-service-price">$3,500</div>
+      </a>
+      <a href="/iq-mcp-integration" class="ent-service-item">
+        <div class="ent-service-num">06</div>
+        <div class="ent-service-body">
+          <div class="ent-service-name">IQ + MCP Integration</div>
+          <div class="ent-service-desc">Connect Fabric IQ to AI agents via Model Context Protocol — enabling autonomous data queries from Copilot, Claude, and Cursor.</div>
+        </div>
+        <div class="ent-service-price">$18,000</div>
       </a>
     </div>
-    <div style="text-align:center;margin-top:40px;" class="reveal reveal-d5">
-      <a href="/services" style="display:inline-flex;align-items:center;gap:10px;color:#2ee8d3;font-weight:600;font-size:15px;text-decoration:none;padding:12px 28px;border:1px solid rgba(46,232,211,0.3);border-radius:10px;transition:background 0.3s;">
-        View Details &amp; Bundles →
-      </a>
+    <div style="margin-top:40px;" class="reveal">
+      <a href="/services" class="hero-ent-link">View all 8 services and bundle pricing →</a>
     </div>
   </div>
 </section>
