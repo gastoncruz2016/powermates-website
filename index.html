@@ -199,6 +199,63 @@ input[type=range].roi-range::-webkit-slider-thumb {
   animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
+/* ─── McKinsey editorial header ─────────────────────────────────── */
+.editorial-header { margin-bottom: 48px; }
+.editorial-rule { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.editorial-rule-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+.editorial-rule-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: #2ee8d3; white-space: nowrap;
+}
+.editorial-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 800; line-height: 1.1;
+  color: #fff; margin-bottom: 16px;
+}
+.editorial-lead { font-size: 16px; color: #7a91aa; line-height: 1.7; max-width: 640px; }
+
+/* ─── McKinsey editorial news grid ──────────────────────────────── */
+.editorial-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 0; margin-top: 0; }
+.editorial-featured {
+  padding-right: 48px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.editorial-sidebar { padding-left: 48px; }
+.editorial-article-tag {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  color: #2ee8d3; margin-bottom: 10px;
+}
+.editorial-article-headline {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 800; line-height: 1.2;
+  color: #fff; margin-bottom: 14px;
+  font-family: 'Syne', sans-serif;
+}
+.editorial-article-headline-sm {
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700; line-height: 1.3;
+  color: #fff; margin-bottom: 10px;
+  font-family: 'Syne', sans-serif;
+}
+.editorial-article-body { font-size: 14px; color: #7a91aa; line-height: 1.75; margin-bottom: 20px; }
+.editorial-article-body-sm { font-size: 13px; color: #7a91aa; line-height: 1.65; margin-bottom: 16px; }
+.editorial-read-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: #2ee8d3; text-decoration: none;
+  letter-spacing: .02em; transition: gap 0.2s;
+}
+.editorial-read-more:hover { gap: 10px; }
+.editorial-divider {
+  height: 1px; background: rgba(255,255,255,0.08);
+  margin: 28px 0;
+}
+@media (max-width: 768px) {
+  .editorial-grid { grid-template-columns: 1fr; }
+  .editorial-featured { padding-right: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 32px; margin-bottom: 32px; }
+  .editorial-sidebar { padding-left: 0; }
+}
+
 /* ─── How It Works ───────────────────────────────────────────────── */
 #how-it-works { padding: 80px 0; }
 .hiw-steps {
@@ -794,14 +851,50 @@ a.topic-card, div.topic-card { position: relative; }
 <!-- ─── PLATFORM NEWS ──────────────────────────────────────────────────────── -->
 <section id="fabric-news" style="padding: 80px 0;">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label reveal">Industry Updates</div>
-      <h2 class="section-title reveal">Platform <span class="c">Latest News</span></h2>
-      <p class="section-sub reveal reveal-d1">The latest from Microsoft Power Platform &amp; Fabric — curated for the PowerMates community</p>
+    <div class="editorial-header reveal">
+      <div class="editorial-rule">
+        <span class="editorial-rule-label">Platform Intelligence</span>
+        <div class="editorial-rule-line"></div>
+      </div>
+      <h2 class="editorial-title">What's Moving in<br>Microsoft Fabric</h2>
+      <p class="editorial-lead">The most important developments in Fabric and Power Platform — curated weekly by two Microsoft MVPs.</p>
     </div>
 
-    <!-- Article 1: FabCon 2026 Key Announcements -->
-    <article class="news-article reveal reveal-d1">
+    <div class="editorial-grid reveal">
+
+      <!-- Featured left -->
+      <div class="editorial-featured">
+        <div class="editorial-article-tag">FabCon 2026 · March 20, 2026</div>
+        <h3 class="editorial-article-headline">Microsoft Fabric's Agentic Era Begins</h3>
+        <p class="editorial-article-body">Over 8,000 data professionals gathered in Atlanta for the biggest FabCon yet. Microsoft announced Fabric data agents are now generally available — virtual analysts that provide domain-specific insights. The new Fabric Local MCP (GA) and Fabric Remote MCP (preview) let AI coding assistants like GitHub Copilot, Claude, and Cursor connect directly and securely to Fabric data.</p>
+        <p class="editorial-article-body">OneLake now natively integrates with Azure Databricks via Unity Catalog and Snowflake (GA), with new mirroring for SharePoint lists, Oracle, and SAP Datasphere. Fabric has surpassed 31,000 enterprise customers — one of the fastest-growing data platforms in Microsoft's history.</p>
+        <a href="https://www.sharepointeurope.com/microsoft-news-key-announcements-from-fabcon-2026/" target="_blank" rel="noopener" class="editorial-read-more">
+          Read FabCon 2026 key announcements →
+        </a>
+      </div>
+
+      <!-- Sidebar right -->
+      <div class="editorial-sidebar">
+        <div class="editorial-article-tag">Power Platform · March 2026</div>
+        <h3 class="editorial-article-headline-sm">Vibe Coding, Unified Controls, and Process Mining</h3>
+        <p class="editorial-article-body-sm">vibe.powerapps.com lets developers build full Power Apps from a prompt. All nine modern canvas controls now share a unified property model. Object-Centric Process Mining brings multi-object analysis to process intelligence — tracking orders, invoices, and deliveries as a connected graph.</p>
+        <a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-march-2026-feature-update/" target="_blank" rel="noopener" class="editorial-read-more" style="font-size:12px;">
+          March 2026 Power Platform update →
+        </a>
+
+        <div class="editorial-divider"></div>
+
+        <div class="editorial-article-tag">Microsoft Fabric · March 2026</div>
+        <h3 class="editorial-article-headline-sm">Git Selective Branching, DLP Policies, and Real-Time Streams</h3>
+        <p class="editorial-article-body-sm">Git Integration adds selective branch-out so developers work with only the items they need. DLP policies now extend to Fabric in preview. Real-time stream processing and Snowflake mirroring with change delta feed arrive, enabling always-current analytics across hybrid data estates.</p>
+        <a href="https://blog.fabric.microsoft.com/en-us/blog/fabric-march-2026-feature-summary" target="_blank" rel="noopener" class="editorial-read-more" style="font-size:12px;">
+          Fabric March 2026 summary →
+        </a>
+      </div>
+    </div>
+
+    <!-- DEAD ARTICLES BELOW — replaced by editorial grid above -->
+    <article class="news-article reveal reveal-d1" style="display:none">
       <div class="news-article-header">
         <div class="news-meta">
           <span class="news-tag">FabCon 2026</span>
@@ -844,8 +937,7 @@ a.topic-card, div.topic-card { position: relative; }
       </a>
     </article>
 
-    <!-- Article 2: Power Platform March 2026 -->
-    <article class="news-article reveal reveal-d2">
+    <article class="news-article reveal reveal-d2" style="display:none">
       <div class="news-article-header">
         <div class="news-meta">
           <span class="news-tag">Power Platform</span>
@@ -888,8 +980,7 @@ a.topic-card, div.topic-card { position: relative; }
       </a>
     </article>
 
-    <!-- Article 3: Fabric March 2026 Summary -->
-    <article class="news-article reveal reveal-d3">
+    <article class="news-article reveal reveal-d3" style="display:none">
       <div class="news-article-header">
         <div class="news-meta">
           <span class="news-tag">Microsoft Fabric</span>
@@ -948,10 +1039,13 @@ a.topic-card, div.topic-card { position: relative; }
 <!-- ─── CLIENT RESULTS ──────────────────────────────────────────────────── -->
 <section id="results">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="section-label">Client Results</div>
-      <h2 class="section-title">What Happens After a <span class="gradient-text">PowerMates Engagement</span></h2>
-      <p class="section-sub">Real outcomes from real tenants. Every engagement delivers measurable, actionable results.</p>
+    <div class="editorial-header reveal">
+      <div class="editorial-rule">
+        <span class="editorial-rule-label">Client Results</span>
+        <div class="editorial-rule-line"></div>
+      </div>
+      <h2 class="editorial-title">Real Numbers.<br>Real Tenants.</h2>
+      <p class="editorial-lead">Every engagement delivers a written report, measurable outcome, and prioritized action plan. These are the results.</p>
     </div>
 
     <div class="case-grid">
