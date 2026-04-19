@@ -5,57 +5,57 @@
 
 /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
 :root {
-  /* Backgrounds — deeper, richer navy */
-  --bg:           #060b16;
-  --bg2:          #0a1220;
-  --bg3:          #0f1a2e;
-  --card:         #0c1626;
-  --card2:        #101c30;
+  /* Backgrounds — light theme */
+  --bg:           #ffffff;
+  --bg2:          #f7f9fc;
+  --bg3:          #eef1f6;
+  --card:         #ffffff;
+  --card2:        #f7f9fc;
 
-  /* Brand — warmer mint-cyan for sophistication */
+  /* Brand — bright cyan accent on white */
   --cyan:         #36d7b7;
   --cyan-hover:   #2bc4a6;
-  --cyan-dim:     #20b397;
-  --cyan-glow:    rgba(54, 215, 183, 0.07);
-  --cyan-border:  rgba(54, 215, 183, 0.12);
-  --cyan-bg:      rgba(54, 215, 183, 0.04);
+  --cyan-dim:     #0f766e;
+  --cyan-glow:    rgba(54, 215, 183, 0.12);
+  --cyan-border:  rgba(13, 148, 136, 0.2);
+  --cyan-bg:      rgba(13, 148, 136, 0.06);
 
-  /* Secondary accent — warm gold for premium feel */
-  --gold:         #e8d5b7;
-  --gold-dim:     rgba(232, 213, 183, 0.6);
-  --gold-border:  rgba(232, 213, 183, 0.15);
-  --gold-bg:      rgba(232, 213, 183, 0.04);
+  /* Secondary accent */
+  --gold:         #92400e;
+  --gold-dim:     rgba(146, 64, 14, 0.5);
+  --gold-border:  rgba(146, 64, 14, 0.15);
+  --gold-bg:      rgba(146, 64, 14, 0.04);
 
-  /* Text — softer whites for less harsh contrast */
-  --text:         #f0f2f5;
-  --text-secondary: #b8c8d8;
-  --muted:        #6b839e;
+  /* Text — dark navy on white */
+  --text:         #0a1628;
+  --text-secondary: #374151;
+  --muted:        #6b7280;
 
-  /* Borders — slightly more visible */
-  --border:       rgba(255, 255, 255, 0.05);
-  --border-light: rgba(255, 255, 255, 0.10);
+  /* Borders — subtle on white */
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-light: rgba(0, 0, 0, 0.14);
 
   /* Layout */
   --nav-height:   72px;
   --max-width:    1240px;
   --content-width: 1160px;
 
-  /* Spacing — more generous for premium feel */
+  /* Spacing */
   --section-pad:  128px;
   --section-pad-mobile: 80px;
 
-  /* Radius — slightly larger for modern feel */
+  /* Radius */
   --radius-sm:    8px;
   --radius-md:    12px;
   --radius-lg:    20px;
   --radius-pill:  100px;
 
-  /* Shadows — subtler, more layered */
-  --shadow-card:  rgba(0, 0, 0, 0.3) 0px 8px 24px;
-  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.2);
-  --shadow-glow:  0 0 40px rgba(54, 215, 183, 0.2);
+  /* Shadows — crisp on white */
+  --shadow-card:  0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
+  --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-glow:  0 0 32px rgba(54, 215, 183, 0.2);
 
-  /* Transitions — slightly slower for elegance */
+  /* Transitions */
   --ease:         cubic-bezier(0.25, 0.1, 0.25, 1);
   --duration:     0.3s;
 }
@@ -4324,3 +4324,151 @@ section + div::before {
   }
   .cta-form-card { padding: 28px 20px; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIGHT THEME — Override hardcoded dark values
+   All variable-driven styles auto-adapt above; these fix hardcoded colors.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Nav */
+nav {
+  background: rgba(255,255,255,0.92);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.98);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.logo span:first-child { color: #0a1628; }
+.nav-links a { color: #4b5563; }
+.nav-links a:hover { color: #0a1628; background: rgba(0,0,0,0.04); }
+.nav-links a.active { color: var(--cyan-dim); }
+.nav-dropdown { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.12); border-color: rgba(0,0,0,0.08); }
+.nav-dropdown a { color: #374151; }
+.nav-dropdown a:hover { background: rgba(13,148,136,0.06); color: #0a1628; }
+.hamburger span { background: #0a1628; }
+
+/* Hero */
+#hero-canvas { opacity: 0.03; }
+.hero-eyebrow { color: #6b7280; }
+.hero-sub { color: #374151; }
+.hero-sub strong { color: var(--cyan-dim); }
+.w { color: var(--text); }
+.scroll-hint { opacity: 0.25; }
+
+/* Buttons */
+.btn-primary {
+  background: #0a1628;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(10,22,40,0.15);
+}
+.btn-primary:hover {
+  background: var(--cyan);
+  color: #0a1628;
+  box-shadow: 0 8px 28px rgba(54,215,183,0.3);
+}
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid rgba(0,0,0,0.18);
+  color: #0a1628;
+}
+.btn-secondary:hover {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.3);
+}
+
+/* Section labels */
+.section-label { color: #6b7280; }
+.section-title .c { color: var(--cyan-dim); }
+.gradient-text { color: var(--cyan-dim); }
+.c { color: var(--cyan-dim); }
+
+/* Announcement bar */
+.announce-bar {
+  background: #f7f9fc;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  color: #374151;
+}
+
+/* Logo strip */
+.logo-strip { background: #f7f9fc; border-top: 1px solid rgba(0,0,0,0.07); border-bottom: 1px solid rgba(0,0,0,0.07); }
+.logo-strip-label { color: #9ca3af; }
+.logo-pill {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #6b7280;
+}
+
+/* Cards */
+.topic-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.topic-card:hover {
+  border-color: rgba(13,148,136,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.topic-card h3 { color: #0a1628; }
+.topic-card p { color: #6b7280; }
+
+/* Briefing */
+#briefing { background: #f7f9fc; }
+#briefing::before { opacity: 0; }
+.briefing-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); box-shadow: var(--shadow-card); }
+.briefing-card h3 { color: #0a1628; }
+.briefing-card p { color: #6b7280; }
+
+/* News articles (hidden on index.html but used on other pages) */
+.news-article { background: #fff; border: 1px solid rgba(0,0,0,0.08); }
+.news-article-title { color: #0a1628; }
+.news-highlight { background: #f7f9fc; border: 1px solid rgba(0,0,0,0.06); }
+.news-highlight-label { color: #0a1628; }
+.news-highlight p { color: #6b7280; }
+
+/* Case cards */
+.case-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.case-card:hover { border-color: rgba(13,148,136,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.case-description { color: #6b7280; }
+.case-result { color: #9ca3af; }
+
+/* CTA section — keep dark for McKinsey contrast moment */
+#cta {
+  background: #0a1628;
+}
+#cta::before { background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(54,215,183,0.08), transparent); }
+.cta-title, .cta-sub, .cta-check-item { color: #f0f2f5; }
+.cta-title .c { color: var(--cyan); }
+
+/* Footer */
+footer { background: #0a1628 !important; color: #f0f2f5 !important; }
+
+/* Mobile sticky CTA */
+.mobile-sticky-cta { background: #0a1628; border-top: 1px solid rgba(255,255,255,0.1); }
+.mobile-sticky-cta a { color: #fff; }
+
+/* Email form in dark CTA */
+.email-form { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+.email-form input { color: #fff; }
+
+/* Form fields on service pages */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: #fff;
+  border-color: rgba(0,0,0,0.14);
+  color: #0a1628;
+}
+
+/* Pricing cards */
+.pricing-card { background: #fff; border-color: rgba(0,0,0,0.08); }
+.pricing-card h3,
+.pricing-card .price,
+.feature-item { color: #0a1628; }
+.feature-muted { color: #6b7280; }
