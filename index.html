@@ -179,6 +179,61 @@ input[type=range].roi-range::-webkit-slider-thumb {
 .hero-rotate.out { opacity: 0; transform: translateY(-14px); }
 .hero-rotate.in  { opacity: 0; transform: translateY(14px); }
 
+/* ─── Expert avatar parallax ─────────────────────────────────────── */
+.expert-avatar {
+  transition: transform 0.15s ease-out;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* ─── Availability badge ─────────────────────────────────────────── */
+.avail-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(46,232,211,0.08); border: 1px solid rgba(46,232,211,0.25);
+  border-radius: 100px; padding: 5px 14px;
+  font-size: 12px; font-weight: 600; color: #2ee8d3;
+  margin-top: 12px;
+}
+.avail-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #2ee8d3;
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* ─── How It Works ───────────────────────────────────────────────── */
+#how-it-works { padding: 80px 0; }
+.hiw-steps {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+  margin-top: 48px; position: relative;
+}
+.hiw-steps::before {
+  content: '';
+  position: absolute; top: 28px; left: calc(12.5%); right: calc(12.5%);
+  height: 1px; background: linear-gradient(90deg, transparent, rgba(46,232,211,0.3) 20%, rgba(46,232,211,0.3) 80%, transparent);
+  pointer-events: none;
+}
+.hiw-step { text-align: center; padding: 0 16px; }
+.hiw-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(8,15,28,1); border: 1px solid rgba(46,232,211,0.4);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 18px; font-weight: 800; color: #2ee8d3; font-family: 'Syne', sans-serif;
+  position: relative; z-index: 1;
+  box-shadow: 0 0 20px rgba(46,232,211,0.12);
+}
+.hiw-step-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.hiw-step-desc  { font-size: 12px; color: #7a91aa; line-height: 1.6; }
+.hiw-step-tag {
+  display: inline-block; margin-top: 12px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+  color: #2ee8d3; background: rgba(46,232,211,0.08); border: 1px solid rgba(46,232,211,0.2);
+  padding: 3px 10px; border-radius: 100px;
+}
+@media (max-width:700px) {
+  .hiw-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .hiw-steps::before { display: none; }
+}
+
 /* ─── Service card hover arrow ───────────────────────────────────── */
 a.topic-card, div.topic-card { position: relative; }
 .topic-card::after {
@@ -271,7 +326,7 @@ a.topic-card, div.topic-card { position: relative; }
     </p>
     <div class="hero-experts">
       <div class="expert-card">
-        <img src="/images/gaston-cruz.jpg?v=3" alt="Gastón Cruz" class="expert-avatar" width="64" height="64">
+        <img src="/images/gaston-cruz.jpg?v=3" alt="Gastón Cruz" class="expert-avatar" id="avatar-gaston" width="64" height="64">
         <div class="expert-info">
           <div class="expert-name">Gastón Cruz</div>
           <div class="expert-title">Microsoft Data & AI MVP</div>
@@ -282,7 +337,7 @@ a.topic-card, div.topic-card { position: relative; }
         </div>
       </div>
       <div class="expert-card">
-        <img src="/images/alex-rostan.jpg?v=4" alt="Alex Rostan" class="expert-avatar" width="64" height="64">
+        <img src="/images/alex-rostan.jpg?v=4" alt="Alex Rostan" class="expert-avatar" id="avatar-alex" width="64" height="64">
         <div class="expert-info">
           <div class="expert-name">Alex Rostan</div>
           <div class="expert-title">Co-Founder, PowerMates</div>
@@ -302,6 +357,10 @@ a.topic-card, div.topic-card { position: relative; }
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
         Watch Our Content
       </a>
+    </div>
+    <div class="avail-badge">
+      <span class="avail-dot"></span>
+      Now booking Q2 engagements — limited slots available
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -522,6 +581,49 @@ a.topic-card, div.topic-card { position: relative; }
       </div>
     </div>
   </section>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────────────────── -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title reveal">From <span class="gradient-text">Discovery</span> to Done</h2>
+      <p class="section-sub reveal reveal-d1">Every engagement follows the same proven playbook — fast to start, clear on outcome, zero ambiguity on scope.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step reveal reveal-d1">
+        <div class="hiw-num">01</div>
+        <div class="hiw-step-title">Discovery Call</div>
+        <div class="hiw-step-desc">30 minutes. We assess your Fabric environment, priorities, and timeline — no prep needed.</div>
+        <div class="hiw-step-tag">Free · 30 min</div>
+      </div>
+      <div class="hiw-step reveal reveal-d2">
+        <div class="hiw-num">02</div>
+        <div class="hiw-step-title">Scoped Proposal</div>
+        <div class="hiw-step-desc">Fixed price, clear deliverables, defined timeline. No retainers, no ambiguity.</div>
+        <div class="hiw-step-tag">Within 48h</div>
+      </div>
+      <div class="hiw-step reveal reveal-d3">
+        <div class="hiw-num">03</div>
+        <div class="hiw-step-title">Engagement</div>
+        <div class="hiw-step-desc">We execute. You get access to both MVPs, async Slack, and a live delivery tracker.</div>
+        <div class="hiw-step-tag">1–3 weeks</div>
+      </div>
+      <div class="hiw-step reveal reveal-d4">
+        <div class="hiw-num">04</div>
+        <div class="hiw-step-title">Handoff & Support</div>
+        <div class="hiw-step-desc">Full documentation, live walkthrough, and 2 weeks of post-delivery support included.</div>
+        <div class="hiw-step-tag">Always included</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal reveal-d4">
+      <a href="https://tally.so/r/xXd9lG" target="_blank" rel="noopener" class="btn-primary">
+        Book Your Discovery Call — Free
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ─── RECENT SPEAKING ──────────────────────────────────────────────── -->
 <section id="speaking" style="padding: 80px 0;">
@@ -1254,6 +1356,27 @@ a.topic-card, div.topic-card { position: relative; }
 
 <script src="/nav.js"></script>
 <script>
+/* ── Expert avatar mouse parallax ───────────────────────────────────── */
+(function() {
+  var avatars = [];
+  window.addEventListener('DOMContentLoaded', function() {
+    var g = document.getElementById('avatar-gaston');
+    var a = document.getElementById('avatar-alex');
+    if (g) avatars.push(g);
+    if (a) avatars.push(a);
+  });
+  window.addEventListener('mousemove', function(e) {
+    if (!avatars.length) return;
+    var cx = window.innerWidth / 2;
+    var cy = window.innerHeight / 2;
+    var dx = (e.clientX - cx) / cx;
+    var dy = (e.clientY - cy) / cy;
+    avatars.forEach(function(el) {
+      el.style.transform = 'translate(' + (dx * 5) + 'px, ' + (dy * 5) + 'px)';
+    });
+  });
+})();
+
 /* ── Hero rotating text ─────────────────────────────────────────────── */
 (function() {
   const words = ['Optimized.', 'Governed.', 'Accelerated.', 'Trusted.'];
