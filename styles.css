@@ -44,16 +44,16 @@
   --section-pad:  128px;
   --section-pad-mobile: 80px;
 
-  /* Radius */
-  --radius-sm:    8px;
-  --radius-md:    12px;
-  --radius-lg:    20px;
+  /* Radius — consulting: minimal rounding */
+  --radius-sm:    4px;
+  --radius-md:    4px;
+  --radius-lg:    6px;
   --radius-pill:  100px;
 
-  /* Shadows — crisp on white */
-  --shadow-card:  0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
-  --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
-  --shadow-glow:  0 0 32px rgba(54, 215, 183, 0.2);
+  /* Shadows — consulting: almost none */
+  --shadow-card:  none;
+  --shadow-hover: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-glow:  none;
 
   /* Transitions */
   --ease:         cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -97,16 +97,16 @@ h2 { font-size: clamp(32px, 5vw, 48px); }
 h3 { font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; }
 h4 { font-size: 16px; font-weight: 700; }
 
-.c { color: var(--cyan); }
+.c { color: var(--cyan-dim); }
 .w { color: #fff; }
 
 /* Gradient text effect for premium accent words */
 .gradient-text {
-  color: var(--cyan);
+  color: var(--cyan-dim);
 }
 
 .section-title .c {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--cyan-dim);
 }
 
 
@@ -567,21 +567,23 @@ li:focus-within > .nav-dropdown {
 }
 
 
-/* ─── CARDS ──────────────────────────────────────────────────────────────── */
+/* ─── CARDS — McKinsey style: no shadow, top accent border ─────────────── */
 .topic-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-top: 3px solid transparent;
+  border-radius: var(--radius-sm);
   padding: 36px;
-  transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+  transition: border-color var(--duration) var(--ease), border-top-color var(--duration) var(--ease);
   cursor: default;
   position: relative;
   overflow: hidden;
 }
 .topic-card:hover {
-  border-color: rgba(46, 232, 211, 0.15);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  border-top-color: var(--cyan-dim);
+  border-color: rgba(0,0,0,0.12);
+  transform: none;
+  box-shadow: none;
 }
 
 .topic-icon {
@@ -1346,10 +1348,10 @@ footer {
 }
 
 
-/* ─── ANIMATED GRADIENT BORDER (Featured cards) ─────────────────────────── */
+/* Featured card — McKinsey accent: solid dark top border */
 .tier-card.tier-featured {
-  border-color: rgba(46, 232, 211, 0.2);
-  background: linear-gradient(160deg, rgba(46, 232, 211, 0.04) 0%, var(--card) 60%);
+  border-top-color: var(--cyan-dim);
+  background: var(--card);
 }
 
 
@@ -1597,16 +1599,18 @@ section + div::before {
 .tier-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-top: 3px solid transparent;
+  border-radius: var(--radius-sm);
   padding: 48px 32px;
-  text-align: center;
+  text-align: left;
   position: relative;
-  transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+  transition: border-top-color var(--duration) var(--ease), border-color var(--duration) var(--ease);
 }
 .tier-card:hover {
-  border-color: rgba(46, 232, 211, 0.15);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0,0,0,0.12);
+  border-top-color: var(--cyan-dim);
+  transform: none;
+  box-shadow: none;
 }
 /* tier-featured styled via WOW section below */
 
@@ -1623,13 +1627,13 @@ section + div::before {
   font-family: 'Syne', sans-serif;
   font-size: 22px;
   font-weight: 800;
-  color: #fff;
+  color: var(--text);
   margin-bottom: 4px;
 }
 
 .tier-price {
   font-size: 14px;
-  color: var(--cyan);
+  color: var(--cyan-dim);
   font-weight: 600;
   margin-bottom: 16px;
 }
@@ -2087,7 +2091,7 @@ section + div::before {
       flex-shrink: 0;
     }
 .credential-badge {
-      background: rgba(46,232,211,0.08);
+      background: rgba(15,118,110,0.06);
       border: 1px solid var(--cyan-border);
       color: var(--cyan);
       padding: 0.3rem 0.85rem;
@@ -2121,7 +2125,7 @@ section + div::before {
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--cyan);
-      background: rgba(46,232,211,0.08);
+      background: rgba(15,118,110,0.06);
       border: 1px solid var(--cyan-border);
       padding: 0.4rem 1.25rem;
       border-radius: 100px;
@@ -2447,7 +2451,7 @@ section + div::before {
       color: var(--cyan);
       letter-spacing: -0.04em;
       margin-bottom: 1rem;
-      text-shadow: 0 0 80px rgba(46,232,211,0.2);
+      text-shadow: 0 0 80px rgba(15,118,110,0.2);
     }
 .error-content {
       position: relative;
@@ -4198,7 +4202,7 @@ section + div::before {
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #36d7b7, #4ae3c6, #e8d5b7);
+  background: linear-gradient(135deg, #0f766e, #14b8a6, #e8d5b7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -4401,25 +4405,37 @@ nav.scrolled {
   color: #6b7280;
 }
 
-/* Cards */
+/* Cards — McKinsey style */
 .topic-card {
   background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-top: 3px solid transparent;
+  box-shadow: none;
 }
 .topic-card:hover {
-  border-color: rgba(13,148,136,0.3);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.12);
+  border-top-color: #0f766e;
+  box-shadow: none;
+  transform: none;
 }
 .topic-card h3 { color: #0a1628; }
 .topic-card p { color: #6b7280; }
 
 /* Briefing */
-#briefing { background: #f7f9fc; }
+#briefing { background: #fff; border-top: 1px solid rgba(0,0,0,0.08); }
 #briefing::before { opacity: 0; }
-.briefing-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); box-shadow: var(--shadow-card); }
+.briefing-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-top: 3px solid transparent;
+  box-shadow: none;
+  border-radius: 4px;
+}
+.briefing-card:hover { border-top-color: #0f766e; }
 .briefing-card h3 { color: #0a1628; }
 .briefing-card p { color: #6b7280; }
+.tier-card { background: #fff; border-color: rgba(0,0,0,0.1); box-shadow: none; }
+.tier-card.tier-featured { border-top-color: #0f766e; }
 
 /* News articles (hidden on index.html but used on other pages) */
 .news-article { background: #fff; border: 1px solid rgba(0,0,0,0.08); }

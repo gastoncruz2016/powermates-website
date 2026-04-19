@@ -126,8 +126,8 @@
 
 /* ─── Announcement Bar ─────────────────────────────────────────── */
 .announce-bar {
-  background: linear-gradient(90deg, rgba(46,232,211,0.12) 0%, rgba(46,232,211,0.04) 50%, rgba(46,232,211,0.12) 100%);
-  border-bottom: 1px solid rgba(46,232,211,0.2);
+  background: #f7f9fc;
+  border-bottom: 1px solid rgba(15,118,110,0.2);
   text-align: center;
   padding: 10px 20px;
   font-size: 14px;
@@ -140,9 +140,9 @@
   z-index: 100;
 }
 .announce-bar .announce-badge {
-  background: rgba(46,232,211,0.15);
-  border: 1px solid rgba(46,232,211,0.35);
-  color: #2ee8d3;
+  background: rgba(15,118,110,0.2);
+  border: 1px solid rgba(15,118,110,0.3);
+  color: #0f766e;
   font-weight: 700;
   font-size: 11px;
   text-transform: uppercase;
@@ -152,7 +152,7 @@
   white-space: nowrap;
 }
 .announce-bar a {
-  color: #2ee8d3;
+  color: #0f766e;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
@@ -173,7 +173,7 @@
 /* ─── ROI Estimator ────────────────────────────────────────────── */
 #roi-estimator {
   background: linear-gradient(135deg, rgba(8,15,28,0.95) 0%, rgba(12,22,40,0.95) 100%);
-  border: 1px solid rgba(46,232,211,0.2);
+  border: 1px solid rgba(15,118,110,0.2);
   border-radius: 20px;
   padding: 48px;
   max-width: 760px;
@@ -186,14 +186,14 @@
   position: absolute;
   top: -60px; right: -60px;
   width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(46,232,211,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(15,118,110,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .roi-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(46,232,211,.1); border: 1px solid rgba(46,232,211,.3);
+  background: rgba(15,118,110,0.07); border: 1px solid rgba(15,118,110,0.25);
   border-radius: 100px; padding: 5px 16px; margin-bottom: 20px;
-  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #2ee8d3;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0f766e;
 }
 .roi-title { font-size: clamp(20px,2.4vw,28px); font-weight: 800; color: #fff; margin-bottom: 6px; }
 .roi-sub { font-size: 14px; color: #7a91aa; margin-bottom: 32px; }
@@ -202,16 +202,16 @@
   display: flex; justify-content: space-between; align-items: baseline;
   font-size: 13px; color: #b4c3d2; margin-bottom: 10px;
 }
-.roi-slider-label strong { font-size: 18px; font-weight: 700; color: #2ee8d3; }
+.roi-slider-label strong { font-size: 18px; font-weight: 700; color: #0f766e; }
 input[type=range].roi-range {
   -webkit-appearance: none; width: 100%; height: 4px;
-  background: linear-gradient(to right, #2ee8d3 var(--fill,50%), rgba(255,255,255,0.1) var(--fill,50%));
+  background: linear-gradient(to right, #0f766e var(--fill,50%), rgba(255,255,255,0.1) var(--fill,50%));
   border-radius: 4px; outline: none; cursor: pointer;
 }
 input[type=range].roi-range::-webkit-slider-thumb {
   -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
-  background: #2ee8d3; border: 2px solid #080f1c; cursor: pointer;
-  box-shadow: 0 0 8px rgba(46,232,211,0.5);
+  background: #0f766e; border: 2px solid #080f1c; cursor: pointer;
+  box-shadow: 0 0 8px rgba(15,118,110,0.4);
 }
 .roi-results {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 28px;
@@ -221,9 +221,9 @@ input[type=range].roi-range::-webkit-slider-thumb {
   border-radius: 12px; padding: 18px 14px; text-align: center;
 }
 .roi-result-card.highlight {
-  background: rgba(46,232,211,0.08); border-color: rgba(46,232,211,0.3);
+  background: rgba(15,118,110,0.06); border-color: rgba(15,118,110,0.25);
 }
-.roi-result-val { font-size: clamp(22px,2.8vw,32px); font-weight: 800; color: #2ee8d3; line-height: 1; margin-bottom: 4px; }
+.roi-result-val { font-size: clamp(22px,2.8vw,32px); font-weight: 800; color: #0f766e; line-height: 1; margin-bottom: 4px; }
 .roi-result-val.muted { color: #fff; }
 .roi-result-label { font-size: 11px; color: #7a91aa; text-transform: uppercase; letter-spacing: .06em; }
 .roi-disclaimer { font-size: 11px; color: #5a6a7a; margin-bottom: 24px; }
@@ -250,13 +250,13 @@ input[type=range].roi-range::-webkit-slider-thumb {
 /* ─── Availability badge ─────────────────────────────────────────── */
 .avail-badge {
   display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(46,232,211,0.08); border: 1px solid rgba(46,232,211,0.25);
+  background: rgba(15,118,110,0.06); border: 1px solid rgba(15,118,110,0.25);
   border-radius: 100px; padding: 5px 14px;
-  font-size: 12px; font-weight: 600; color: #2ee8d3;
+  font-size: 12px; font-weight: 600; color: #0f766e;
   margin-top: 12px;
 }
 .avail-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: #2ee8d3;
+  width: 6px; height: 6px; border-radius: 50%; background: #0f766e;
   animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
@@ -266,7 +266,7 @@ input[type=range].roi-range::-webkit-slider-thumb {
 .editorial-rule-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 .editorial-rule-label {
   font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: #2ee8d3; white-space: nowrap;
+  color: #0f766e; white-space: nowrap;
 }
 .editorial-title {
   font-family: 'Syne', sans-serif;
@@ -285,7 +285,7 @@ input[type=range].roi-range::-webkit-slider-thumb {
 .editorial-sidebar { padding-left: 48px; }
 .editorial-article-tag {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
-  color: #2ee8d3; margin-bottom: 10px;
+  color: #0f766e; margin-bottom: 10px;
 }
 .editorial-article-headline {
   font-size: clamp(22px, 2.5vw, 30px);
@@ -403,26 +403,27 @@ a.ent-service-item:hover { background: rgba(0,0,0,0.01); margin: 0 -24px; paddin
 }
 .hiw-steps::before {
   content: '';
-  position: absolute; top: 28px; left: calc(12.5%); right: calc(12.5%);
-  height: 1px; background: linear-gradient(90deg, transparent, rgba(46,232,211,0.3) 20%, rgba(46,232,211,0.3) 80%, transparent);
+  position: absolute; top: 34px; left: calc(12.5%); right: calc(12.5%);
+  height: 1px; background: rgba(0,0,0,0.08);
   pointer-events: none;
 }
-.hiw-step { text-align: center; padding: 0 16px; }
+.hiw-step { text-align: left; padding: 0 24px; }
 .hiw-num {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(8,15,28,1); border: 1px solid rgba(46,232,211,0.4);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 20px;
-  font-size: 18px; font-weight: 800; color: #2ee8d3; font-family: 'Syne', sans-serif;
+  width: auto; height: auto; border-radius: 0;
+  background: none; border: none;
+  display: block;
+  margin: 0 auto 16px;
+  font-size: 42px; font-weight: 800; color: #e5e7eb; font-family: 'Syne', sans-serif;
+  line-height: 1;
   position: relative; z-index: 1;
-  box-shadow: 0 0 20px rgba(46,232,211,0.12);
+  box-shadow: none;
 }
-.hiw-step-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-.hiw-step-desc  { font-size: 12px; color: #7a91aa; line-height: 1.6; }
+.hiw-step-title { font-size: 15px; font-weight: 700; color: #0a1628; margin-bottom: 8px; }
+.hiw-step-desc  { font-size: 13px; color: #6b7280; line-height: 1.6; }
 .hiw-step-tag {
   display: inline-block; margin-top: 12px;
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
-  color: #2ee8d3; background: rgba(46,232,211,0.08); border: 1px solid rgba(46,232,211,0.2);
+  color: #0f766e; background: rgba(15,118,110,0.06); border: 1px solid rgba(15,118,110,0.2);
   padding: 3px 10px; border-radius: 100px;
 }
 @media (max-width:700px) {
@@ -435,23 +436,24 @@ a.topic-card, div.topic-card { position: relative; }
 .topic-card::after {
   content: '→';
   position: absolute; bottom: 18px; right: 20px;
-  font-size: 18px; color: #2ee8d3;
+  font-size: 18px; color: #0f766e;
   opacity: 0; transform: translateX(-8px);
   transition: opacity 0.22s ease, transform 0.22s ease;
   pointer-events: none;
 }
 .topic-card:hover::after { opacity: 1; transform: translateX(0); }
 .topic-card:hover {
-  border-color: rgba(46,232,211,0.4) !important;
-  box-shadow: 0 8px 32px rgba(46,232,211,0.08);
-  transform: translateY(-2px);
+  border-top-color: #0f766e !important;
+  border-color: rgba(0,0,0,0.12) !important;
+  box-shadow: none;
+  transform: none;
 }
 
 /* ─── Case card — big metric redesign ───────────────────────────── */
 .case-metric {
   font-size: clamp(52px, 6vw, 76px);
   font-weight: 800; line-height: 1;
-  color: #2ee8d3; letter-spacing: -0.02em;
+  color: #0f766e; letter-spacing: -0.02em;
   font-family: 'Syne', sans-serif;
   margin-bottom: 2px;
 }
@@ -461,7 +463,7 @@ a.topic-card, div.topic-card { position: relative; }
   margin-bottom: 16px; padding-bottom: 16px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.case-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #2ee8d3; margin-bottom: 8px; }
+.case-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #0f766e; margin-bottom: 8px; }
 .case-description { font-size: 13px; color: #7a91aa; line-height: 1.65; margin-bottom: 14px; }
 .case-result { font-size: 11px; color: #5a6a7a; letter-spacing: .04em; }
 </style>
@@ -622,7 +624,7 @@ a.topic-card, div.topic-card { position: relative; }
     <div class="tier-grid">
       <div class="tier-card reveal reveal-d1">
         <div class="tier-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ee8d3" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
         </div>
         <div class="tier-name">Learn</div>
         <div class="tier-price">Free — YouTube &amp; Community</div>
@@ -634,13 +636,13 @@ a.topic-card, div.topic-card { position: relative; }
           <li>Conference session recordings</li>
         </ul>
         <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#2ee8d3"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#0f766e"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
           Subscribe on YouTube
         </a>
       </div>
       <div class="tier-card tier-featured reveal reveal-d2">
         <div class="tier-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ee8d3" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
         </div>
         <div class="tier-name">Audit &amp; Optimize</div>
         <div class="tier-price">From $2,500 — Targeted Engagements</div>
@@ -658,7 +660,7 @@ a.topic-card, div.topic-card { position: relative; }
       </div>
       <div class="tier-card reveal reveal-d3">
         <div class="tier-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ee8d3" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
         </div>
         <div class="tier-name">Transform</div>
         <div class="tier-price">Custom — Enterprise Engagements</div>
@@ -851,8 +853,8 @@ a.topic-card, div.topic-card { position: relative; }
 <section id="speaking" style="padding: 80px 0;">
   <div class="container">
     <div class="section-header">
-      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(46,232,211,.1);border:1px solid rgba(46,232,211,.3);border-radius:100px;padding:6px 18px;margin-bottom:20px;">
-        <span style="color:#2ee8d3;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Recent Speaking</span>
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(15,118,110,0.07);border:1px solid rgba(15,118,110,0.25);border-radius:100px;padding:6px 18px;margin-bottom:20px;">
+        <span style="color:#0f766e;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Recent Speaking</span>
       </div>
       <h2 class="section-title reveal">Power Mates at <span class="c">FabCon 2026 Atlanta</span></h2>
       <p class="section-sub reveal reveal-d1">March 16–20, 2026 · Two sessions delivered at Microsoft's flagship Fabric conference</p>
@@ -900,17 +902,17 @@ a.topic-card, div.topic-card { position: relative; }
     <!-- Hero Thumbnail -->
     <a href="https://www.youtube.com/watch?v=GORCiDj9YNA" target="_blank" class="featured-hero reveal" style="display:block; position:relative; border-radius:16px; overflow:hidden; margin-bottom:40px; aspect-ratio:16/7; cursor:pointer; text-decoration:none;">
       <img loading="lazy" width="1280" height="720" src="/images/yt/yt-GORCiDj9YNA.jpg" alt="Microsoft Fabric CDC Tutorial" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.6);" onerror="this.src='https://img.youtube.com/vi/GORCiDj9YNA/maxresdefault.jpg'">
-      <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(8,15,28,0.85) 0%, rgba(8,15,28,0.3) 50%, rgba(46,232,211,0.1) 100%);"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(8,15,28,0.85) 0%, rgba(8,15,28,0.5) 100%);"></div>
       <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:48px 56px;">
-        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(46,232,211,0.15); border:1px solid rgba(46,232,211,0.3); border-radius:20px; padding:6px 14px; margin-bottom:16px;">
-          <span style="width:8px; height:8px; background:#2ee8d3; border-radius:50%; animation: pulse-dot 2s infinite;"></span>
-          <span style="color:#2ee8d3; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Latest Video</span>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(15,118,110,0.2); border:1px solid rgba(15,118,110,0.25); border-radius:20px; padding:6px 14px; margin-bottom:16px;">
+          <span style="width:8px; height:8px; background:#0f766e; border-radius:50%; animation: pulse-dot 2s infinite;"></span>
+          <span style="color:#0f766e; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Latest Video</span>
         </div>
-        <h3 style="font-family:'Syne',sans-serif; font-size:clamp(24px,3.5vw,42px); font-weight:800; color:#fff; line-height:1.15; margin-bottom:12px;">Microsoft Fabric CDC Tutorial:<br><span style="color:#2ee8d3;">Real-Time Data from Azure SQL</span></h3>
+        <h3 style="font-family:'Syne',sans-serif; font-size:clamp(24px,3.5vw,42px); font-weight:800; color:#fff; line-height:1.15; margin-bottom:12px;">Microsoft Fabric CDC Tutorial:<br><span style="color:#0f766e;">Real-Time Data from Azure SQL</span></h3>
         <p style="color:rgba(255,255,255,0.7); font-size:15px; max-width:500px; margin-bottom:24px;">Learn how to set up Change Data Capture with Microsoft Fabric for real-time data streaming.</p>
         <div style="display:flex; align-items:center; gap:16px;">
-          <div style="width:56px; height:56px; background:rgba(46,232,211,0.2); border:2px solid #2ee8d3; border-radius:50%; display:flex; align-items:center; justify-content:center; transition: transform 0.3s, background 0.3s;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#2ee8d3"><polygon points="9.5 7.5 16.5 12 9.5 16.5"></polygon></svg>
+          <div style="width:56px; height:56px; background:rgba(15,118,110,0.2); border:2px solid #0f766e; border-radius:50%; display:flex; align-items:center; justify-content:center; transition: transform 0.3s, background 0.3s;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#0f766e"><polygon points="9.5 7.5 16.5 12 9.5 16.5"></polygon></svg>
           </div>
           <span style="color:#fff; font-weight:600; font-size:15px;">Watch Now</span>
         </div>
@@ -923,7 +925,7 @@ a.topic-card, div.topic-card { position: relative; }
         <div style="position:relative; border-radius:12px; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
           <img loading="lazy" width="1280" height="720" src="/images/yt/yt-O890phQYvEs.jpg" alt="Composite Models in Fabric" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s;" onerror="this.src='https://img.youtube.com/vi/O890phQYvEs/maxresdefault.jpg'">
           <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(8,15,28,0.7) 0%, transparent 50%); opacity:0; transition:opacity 0.3s;"></div>
-          <div style="position:absolute; top:10px; left:10px; background:rgba(46,232,211,0.2); border:1px solid rgba(46,232,211,0.3); border-radius:4px; padding:2px 8px; font-size:11px; color:#2ee8d3; font-weight:600;">NEW</div>
+          <div style="position:absolute; top:10px; left:10px; background:rgba(15,118,110,0.2); border:1px solid rgba(15,118,110,0.25); border-radius:4px; padding:2px 8px; font-size:11px; color:#0f766e; font-weight:600;">NEW</div>
         </div>
         <h4 style="font-size:14px; font-weight:600; line-height:1.3;">Composite Models in Microsoft Fabric</h4>
         <p style="color:var(--muted); font-size:12px; margin-top:4px;">9 days ago</p>
@@ -952,8 +954,8 @@ a.topic-card, div.topic-card { position: relative; }
     </div>
 
     <div style="text-align:center; margin-top:40px;" class="reveal">
-      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" style="display:inline-flex; align-items:center; gap:10px; color:#2ee8d3; font-weight:600; font-size:15px; text-decoration:none; padding:12px 28px; border:1px solid rgba(46,232,211,0.3); border-radius:10px; transition: background 0.3s, border-color 0.3s;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#2ee8d3"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
+      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" style="display:inline-flex; align-items:center; gap:10px; color:#0f766e; font-weight:600; font-size:15px; text-decoration:none; padding:12px 28px; border:1px solid rgba(15,118,110,0.25); border-radius:10px; transition: background 0.3s, border-color 0.3s;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
         View All Videos on YouTube →
       </a>
     </div>
@@ -1283,7 +1285,7 @@ a.topic-card, div.topic-card { position: relative; }
         <div class="reveal reveal-d3" style="margin-top:40px;">
           <div class="cta-newsletter">
             <div style="width:56px;height:56px;background:var(--cyan-bg);border:1px solid var(--cyan-border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ee8d3" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             </div>
             <h3>Free Fabric Governance Checklist</h3>
             <p>The same checklist we use for every Tenant Scan engagement. 40+ governance controls across security, capacity, and workspace management.</p>
@@ -1398,7 +1400,7 @@ a.topic-card, div.topic-card { position: relative; }
   let W, H, particles = [], mouse = { x: -9999, y: -9999 };
   const COUNT = 90;
   const MAX_DIST = 150;
-  const CYAN = '46,232,211';
+  const CYAN = '15,118,110';
 
   function resize() {
     W = canvas.width  = canvas.offsetWidth;
