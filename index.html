@@ -173,6 +173,46 @@ input[type=range].roi-range::-webkit-slider-thumb {
   .roi-results .roi-result-card:last-child { grid-column: span 2; }
   .roi-cta-row { flex-direction: column; }
 }
+
+/* ─── Rotating hero text ─────────────────────────────────────────── */
+.hero-rotate { display: inline-block; transition: opacity 0.35s ease, transform 0.35s ease; }
+.hero-rotate.out { opacity: 0; transform: translateY(-14px); }
+.hero-rotate.in  { opacity: 0; transform: translateY(14px); }
+
+/* ─── Service card hover arrow ───────────────────────────────────── */
+a.topic-card, div.topic-card { position: relative; }
+.topic-card::after {
+  content: '→';
+  position: absolute; bottom: 18px; right: 20px;
+  font-size: 18px; color: #2ee8d3;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+}
+.topic-card:hover::after { opacity: 1; transform: translateX(0); }
+.topic-card:hover {
+  border-color: rgba(46,232,211,0.4) !important;
+  box-shadow: 0 8px 32px rgba(46,232,211,0.08);
+  transform: translateY(-2px);
+}
+
+/* ─── Case card — big metric redesign ───────────────────────────── */
+.case-metric {
+  font-size: clamp(52px, 6vw, 76px);
+  font-weight: 800; line-height: 1;
+  color: #2ee8d3; letter-spacing: -0.02em;
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 2px;
+}
+.case-metric-label {
+  font-size: 12px; font-weight: 600;
+  color: #7a91aa; text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 16px; padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.case-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #2ee8d3; margin-bottom: 8px; }
+.case-description { font-size: 13px; color: #7a91aa; line-height: 1.65; margin-bottom: 14px; }
+.case-result { font-size: 11px; color: #5a6a7a; letter-spacing: .04em; }
 </style>
 <!-- Google Analytics 4 — replace G-P5LH45QCFC with your Measurement ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
@@ -224,7 +264,7 @@ input[type=range].roi-range::-webkit-slider-thumb {
   <div class="hero-content">
     <div class="hero-eyebrow">Enterprise Data &amp; AI Consulting</div>
     <h1 class="hero-title">
-      <span class="w">Your Fabric.</span><br><span class="gradient-text">Optimized.</span>
+      <span class="w">Your Fabric.</span><br><span class="gradient-text hero-rotate" id="hero-rotate">Optimized.</span>
     </h1>
     <p class="hero-sub">
       We audit, architect, and accelerate <strong>Microsoft Fabric</strong> and <strong>Power Platform</strong> environments for enterprise teams. Dual MVPs. 20+ years. Real implementations.
@@ -814,39 +854,45 @@ input[type=range].roi-range::-webkit-slider-thumb {
 
     <div class="case-grid">
       <div class="case-card reveal">
-        <div class="case-label">Mid-Market Retail</div>
-        <div class="case-headline">60% reduction in security risk</div>
-        <p class="case-description">Ungoverned Fabric tenant with 200+ workspaces. Tenant Scan revealed 47 overshared datasets and 12 workspaces with no admin. Full remediation completed in 30 days.</p>
-        <div class="case-result">Tenant Scan &rarr; 47 findings &rarr; 30-day remediation</div>
+        <div class="case-metric">60%</div>
+        <div class="case-metric-label">Reduction in security risk</div>
+        <div class="case-label">Mid-Market Retail · Tenant Scan</div>
+        <p class="case-description">Ungoverned Fabric tenant — 200+ workspaces, 47 overshared datasets, 12 workspaces with no admin owner. Full remediation in 30 days.</p>
+        <div class="case-result">47 findings identified &rarr; 30-day remediation</div>
       </div>
       <div class="case-card reveal">
-        <div class="case-label">Financial Services</div>
-        <div class="case-headline">$180K annual licensing saved</div>
-        <p class="case-description">Scan identified 34 unused Premium Per User licenses and 8 underutilized capacities. Right-sized to F64 with projected annual savings of $180K.</p>
-        <div class="case-result">Tenant Scan &rarr; 42 licenses optimized</div>
+        <div class="case-metric">$180K</div>
+        <div class="case-metric-label">Annual licensing reclaimed</div>
+        <div class="case-label">Financial Services · Tenant Scan</div>
+        <p class="case-description">34 unused PPU licenses and 8 underutilized capacities identified. Right-sized to F64 — savings realized within the first billing cycle.</p>
+        <div class="case-result">42 licenses optimized &rarr; zero disruption</div>
       </div>
       <div class="case-card reveal">
-        <div class="case-label">Healthcare</div>
-        <div class="case-headline">Migration-ready in 6 weeks</div>
-        <p class="case-description">400-workspace tenant assessed for Fabric migration. Scored 62/100 on readiness. Phased roadmap delivered — first 50 workspaces migrated within the quarter.</p>
-        <div class="case-result">Tenant Scan &rarr; 400 workspaces &rarr; phased roadmap</div>
+        <div class="case-metric">6 wks</div>
+        <div class="case-metric-label">To migration-ready</div>
+        <div class="case-label">Healthcare · Tenant Scan</div>
+        <p class="case-description">400-workspace tenant scored 62/100 on Fabric readiness. Phased roadmap delivered — first 50 workspaces migrated within the quarter.</p>
+        <div class="case-result">400 workspaces assessed &rarr; phased roadmap</div>
       </div>
       <div class="case-card reveal">
-        <div class="case-label">Insurance</div>
-        <div class="case-headline">Fabric architecture deployed in 5 days</div>
-        <p class="case-description">Greenfield Fabric implementation for a mid-size insurance company. Medallion lakehouse, workspace topology, and security model — production-ready in under a week.</p>
-        <div class="case-result">Architecture Accelerator &rarr; 5-day deployment</div>
+        <div class="case-metric">5 days</div>
+        <div class="case-metric-label">To production Fabric architecture</div>
+        <div class="case-label">Insurance · Architecture Accelerator</div>
+        <p class="case-description">Greenfield Fabric implementation — medallion lakehouse, workspace topology, and security model. Production-ready in under a week.</p>
+        <div class="case-result">Architecture Accelerator &rarr; day 5, production</div>
       </div>
       <div class="case-card reveal">
-        <div class="case-label">CPG Manufacturer</div>
-        <div class="case-headline">Spark jobs 3x faster, 40% less CU spend</div>
-        <p class="case-description">Audit of 25 Spark notebooks uncovered partition skew, redundant shuffles, and misconfigured Delta Lake settings. Average job runtime dropped from 45 to 15 minutes.</p>
-        <div class="case-result">Spark Optimization &rarr; 3x faster &rarr; 40% CU savings</div>
+        <div class="case-metric">3×</div>
+        <div class="case-metric-label">Faster Spark, 40% less CU spend</div>
+        <div class="case-label">CPG Manufacturer · Spark Optimization</div>
+        <p class="case-description">25 Spark notebooks audited — partition skew, redundant shuffles, misconfigured Delta Lake. Average runtime dropped from 45 to 15 minutes.</p>
+        <div class="case-result">40% CU savings &rarr; first month</div>
       </div>
       <div class="case-card reveal">
-        <div class="case-label">Government</div>
-        <div class="case-headline">SQL Warehouse migrated with zero downtime</div>
-        <p class="case-description">Legacy SQL Server data warehouse migrated to Fabric. Schema mapping, T-SQL conversion, and validation framework delivered — cutover executed over a weekend.</p>
+        <div class="case-metric">0</div>
+        <div class="case-metric-label">Downtime on full DW migration</div>
+        <div class="case-label">Government · Migration Playbook</div>
+        <p class="case-description">Legacy SQL Server warehouse moved to Fabric. Schema mapping, T-SQL conversion, and validation framework delivered — weekend cutover, no incidents.</p>
         <div class="case-result">Migration Playbook &rarr; zero-downtime cutover</div>
       </div>
     </div>
@@ -1208,6 +1254,27 @@ input[type=range].roi-range::-webkit-slider-thumb {
 
 <script src="/nav.js"></script>
 <script>
+/* ── Hero rotating text ─────────────────────────────────────────────── */
+(function() {
+  const words = ['Optimized.', 'Governed.', 'Accelerated.', 'Trusted.'];
+  let idx = 0;
+  function rotate() {
+    const el = document.getElementById('hero-rotate');
+    if (!el) return;
+    el.classList.add('out');
+    setTimeout(function() {
+      idx = (idx + 1) % words.length;
+      el.textContent = words[idx];
+      el.classList.remove('out');
+      el.classList.add('in');
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { el.classList.remove('in'); });
+      });
+    }, 360);
+  }
+  setInterval(rotate, 2800);
+})();
+
 /* ── Hero stat count-up ─────────────────────────────────────────────── */
 (function() {
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
