@@ -1173,6 +1173,59 @@ footer {
 
 .footer-socials { display: flex; gap: 12px; }
 
+/* ── Footer tagline + credentials (dark footer) ─────────────────── */
+.footer-tagline {
+  font-family: 'Inter', sans-serif;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 340px;
+}
+.footer-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.footer-credential {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2ee8d3;
+  padding: 4px 10px;
+  border: 1px solid rgba(46,232,211,0.35);
+  background: rgba(46,232,211,0.06);
+  white-space: nowrap;
+}
+/* Make ALL footer-socials anchors inherit .social-btn visual even without the class */
+.footer-socials a {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.footer-socials a:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.footer-socials a svg {
+  width: 18px; height: 18px;
+  display: block;
+}
+
+
 .social-btn {
   width: 40px; height: 40px;
   background: transparent;
@@ -2132,22 +2185,23 @@ section + div::before { display: none; }
       transition: transform 0.2s;
     }
 .cred-chip {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
       padding: 0.75rem 1.5rem;
       border-radius: 0;
       font-size: 0.85rem;
       font-weight: 600;
-      color: #e8edf3;
+      color: #0d1b2a;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s;
     }
+.cred-chip:hover { border-color: #0f766e; }
 .cred-dot {
       width: 8px;
       height: 8px;
-      background: var(--cyan);
+      background: #0f766e;
       border-radius: 50%;
       flex-shrink: 0;
     }
