@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css">
   <style>
     /* ── PAGE-SPECIFIC STYLES ── */
@@ -31,7 +31,7 @@
       gap: 1.25rem;
       flex-wrap: wrap;
       font-size: 0.8rem;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     .event-chip { display: flex; align-items: center; gap: 0.4rem; color: var(--muted); }
     .event-chip strong { color: var(--text); }
@@ -45,7 +45,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 3px 10px;
-      border-radius: 100px;
+      border-radius:0;
     }
 
     /* Two-column hero */
@@ -63,7 +63,7 @@
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
     .hero-meta { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
-    .hero-meta-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; font-family: 'Figtree', sans-serif; }
+    .hero-meta-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; font-family: 'Inter', system-ui, sans-serif; }
     .hero-meta-item strong { color: var(--text); }
     .hero-meta-item span { color: var(--muted); }
 
@@ -71,21 +71,21 @@
     .lead-card {
       background: var(--card);
       border: 1px solid var(--cyan-border);
-      border-radius: 16px;
+      border-radius:0;
       padding: 2rem;
       position: sticky;
       top: 84px;
     }
-    .lead-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
-    .lead-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; font-family: 'Figtree', sans-serif; }
+    .lead-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; font-weight: 700; color:#0d1b2a; margin-bottom: 0.5rem; }
+    .lead-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; font-family: 'Inter', system-ui, sans-serif; }
     .lead-form { display: flex; flex-direction: column; gap: 0.875rem; }
     .lead-form input, .lead-form select {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius:0;
       padding: 10px 14px;
       color: var(--text);
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: 0.875rem;
       transition: border-color 0.2s;
       width: 100%;
@@ -98,9 +98,9 @@
       background: var(--cyan);
       color: var(--bg);
       border: none;
-      border-radius: 8px;
+      border-radius:0;
       padding: 12px;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
@@ -108,7 +108,7 @@
       width: 100%;
     }
     .lead-form .submit-btn:hover { opacity: 0.85; }
-    .lead-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 0.5rem; font-family: 'Figtree', sans-serif; }
+    .lead-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 0.5rem; font-family: 'Inter', system-ui, sans-serif; }
 
     /* Pipeline diagram */
     .pipeline-steps {
@@ -123,17 +123,17 @@
       min-width: 170px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius:0;
       padding: 1.5rem 1.25rem;
       text-align: center;
       position: relative;
       transition: border-color 0.2s, transform 0.2s;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     .pipeline-step:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
     .pipeline-arrow { display: flex; align-items: center; padding: 0 0.4rem; color: var(--cyan); font-size: 1.1rem; flex-shrink: 0; }
     .pipeline-icon { font-size: 1.75rem; margin-bottom: 0.625rem; }
-    .pipeline-step h4 { font-family: 'Syne', sans-serif; font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 0.375rem; }
+    .pipeline-step h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 0.875rem; font-weight: 700; color:#0d1b2a; margin-bottom: 0.375rem; }
     .pipeline-step p { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
     .pipeline-chip {
       position: absolute;
@@ -147,9 +147,9 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 2px 10px;
-      border-radius: 100px;
+      border-radius:0;
       white-space: nowrap;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     @media(max-width: 700px) {
       .pipeline-steps { flex-direction: column; gap: 0.75rem; }
@@ -166,18 +166,18 @@
     .learning-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius:0;
       padding: 1.5rem;
       transition: border-color 0.2s, transform 0.2s;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     .learning-card:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
-    .learning-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--cyan); opacity: 0.3; line-height: 1; margin-bottom: 0.5rem; }
-    .learning-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .learning-num { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 800; color: var(--cyan); opacity: 0.3; line-height: 1; margin-bottom: 0.5rem; }
+    .learning-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 0.95rem; font-weight: 700; color:#0d1b2a; margin-bottom: 0.5rem; }
     .learning-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
     /* Demo table */
-    .demo-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; font-family: 'Figtree', sans-serif; }
+    .demo-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; font-family: 'Inter', system-ui, sans-serif; }
     .demo-table th {
       text-align: left;
       padding: 10px 16px;
@@ -211,17 +211,17 @@
     .resource-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius:0;
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
       transition: border-color 0.2s, transform 0.2s;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     .resource-card:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
     .resource-icon { font-size: 1.75rem; }
-    .resource-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .resource-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 0.95rem; font-weight: 700; color:#0d1b2a; }
     .resource-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; flex: 1; }
     .resource-link { font-size: 0.8rem; font-weight: 700; color: var(--cyan); display: flex; align-items: center; gap: 0.3rem; }
     .resource-link:hover { opacity: 0.8; }
@@ -233,10 +233,10 @@
       gap: 2rem;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius:0;
       padding: 2rem;
       max-width: 700px;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     .speaker-avatar {
       width: 80px; height: 80px;
@@ -249,7 +249,7 @@
       font-size: 2rem;
       flex-shrink: 0;
     }
-    .speaker-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+    .speaker-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; font-weight: 700; color:#0d1b2a; margin-bottom: 0.2rem; }
     .speaker-title { font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.75rem; }
     .speaker-bio { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
     @media(max-width: 560px) {
@@ -261,17 +261,17 @@
     .next-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius:0;
       padding: 1.75rem;
       transition: border-color 0.2s, transform 0.2s;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      font-family: 'Figtree', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     .next-card:hover { border-color: var(--cyan-border); transform: translateY(-2px); }
-    .next-card .price { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--cyan); }
-    .next-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .next-card .price { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 800; color: var(--cyan); }
+    .next-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; font-weight: 700; color:#0d1b2a; margin-bottom: 0.25rem; }
     .next-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; }
   </style>
   <!-- Google Analytics 4 -->
@@ -317,7 +317,7 @@
     </li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/blog/">Insights</a></li>
     <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">Content</a></li>
   </ul>
   <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
@@ -345,7 +345,7 @@
       <div>
         <div class="badge">FabCon 2026 · Session Resources</div>
         <h1>The Instant Insights<br /><span class="gradient-text">Pipeline</span></h1>
-        <p style="font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:540px;font-family:'Figtree',sans-serif;">OneLake shortcuts + Dataverse + Power Apps — from raw data to a working app in a single, connected Fabric pipeline. Everything from the session, plus next steps to build it in your tenant.</p>
+        <p style="font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:540px;font-family: 'Inter', system-ui, sans-serif;">OneLake shortcuts + Dataverse + Power Apps — from raw data to a working app in a single, connected Fabric pipeline. Everything from the session, plus next steps to build it in your tenant.</p>
         <div class="hero-meta">
           <div class="hero-meta-item">
             <span>🗓️</span>
@@ -432,7 +432,7 @@
           <p>SharePoint list captures session data and flows back into the pipeline for live metrics.</p>
         </div>
       </div>
-      <div class="reveal" style="margin-top:2rem;padding:1.25rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;align-items:flex-start;gap:1rem;max-width:780px;font-family:'Figtree',sans-serif;">
+      <div class="reveal" style="margin-top:2rem;padding:1.25rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:0;display:flex;align-items:flex-start;gap:1rem;max-width:780px;font-family: 'Inter', system-ui, sans-serif;">
         <span style="font-size:1.25rem;flex-shrink:0;">💡</span>
         <div>
           <strong style="color:var(--text);font-size:0.875rem;">Why this matters:</strong>
@@ -493,7 +493,7 @@
         <h2 class="section-title">What We Built Live</h2>
         <p class="section-sub">Three demos, 45 minutes, one unbroken Fabric pipeline.</p>
       </div>
-      <div class="reveal" style="border-radius:14px;overflow:hidden;border:1px solid var(--border);">
+      <div class="reveal" style="border-radius:0;overflow:hidden;border:1px solid var(--border);">
         <table class="demo-table">
           <thead>
             <tr>

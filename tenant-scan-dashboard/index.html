@@ -41,7 +41,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   background: var(--bg);
   color: var(--text);
@@ -72,7 +72,7 @@ body {
   color: var(--text);
 }
 .dash-nav-logo .logo-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;
   font-size: 18px;
   letter-spacing: -0.02em;
@@ -135,7 +135,7 @@ body {
   box-shadow: rgba(0,0,0,0.3) 0px 8px 24px;
 }
 .auth-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -164,7 +164,7 @@ body {
   border-radius: var(--radius-pill);
   background: var(--cyan);
   color: #080f1c;
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 15px;
   font-weight: 600;
   border: none;
@@ -183,7 +183,7 @@ body {
 .auth-error {
   margin-top: 20px;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius:0;
   background: rgba(220,38,38,0.1);
   border: 1px solid rgba(220,38,38,0.2);
   color: #f87171;
@@ -216,8 +216,8 @@ body {
 .dash-tab {
   flex: 1;
   padding: 12px 20px;
-  border-radius: 12px;
-  font-family: 'Figtree', sans-serif;
+  border-radius:0;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--muted);
@@ -249,7 +249,7 @@ body {
   background: var(--card2);
 }
 .card-header {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -312,13 +312,13 @@ body {
   margin-bottom: 10px;
 }
 .sub-score-value {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 10px;
 }
-.sub-score-value span { color: var(--muted); font-size: 16px; font-weight: 400; font-family: 'Figtree', sans-serif; }
+.sub-score-value span { color: var(--muted); font-size: 16px; font-weight: 400; font-family: 'Inter', system-ui, sans-serif; }
 .score-bar-track {
   width: 100%;
   height: 6px;
@@ -347,7 +347,7 @@ body {
   padding: 20px 16px;
 }
 .stat-pill-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -386,7 +386,7 @@ body {
   padding: 40px 28px;
 }
 .big-stat-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 48px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -442,7 +442,7 @@ body {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-pill);
   color: var(--text);
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 13px;
   outline: none;
   transition: border-color 0.2s;
@@ -507,10 +507,10 @@ body {
   background: linear-gradient(90deg, var(--card) 25%, var(--card2) 50%, var(--card) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
-  border-radius: 8px;
+  border-radius:0;
 }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-.skeleton-line { height: 16px; margin-bottom: 12px; border-radius: 8px; }
+.skeleton-line { height: 16px; margin-bottom: 12px; border-radius:0; }
 .skeleton-line.w60 { width: 60%; }
 .skeleton-line.w40 { width: 40%; }
 .skeleton-line.w80 { width: 80%; }
@@ -523,7 +523,7 @@ body {
   padding: 48px 32px;
 }
 .error-card h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 20px;
   font-weight: 800;
   margin-bottom: 12px;
@@ -538,7 +538,7 @@ body {
   border-radius: var(--radius-pill);
   background: var(--cyan);
   color: #080f1c;
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
   border: none;
@@ -553,7 +553,7 @@ body {
   padding: 48px 32px;
   color: var(--muted);
 }
-.empty-state h3 { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+.empty-state h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 800; color: var(--text); margin-bottom: 8px; }
 .empty-state p { font-size: 14px; }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
@@ -579,7 +579,7 @@ body {
   right: 32px;
   background: var(--cyan);
   color: #080f1c;
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-weight: 700;
   font-size: 14px;
   padding: 12px 20px;
@@ -605,7 +605,7 @@ body {
   height: 620px;
   background: var(--card);
   border: 1px solid var(--cyan-border);
-  border-radius: 20px;
+  border-radius:0;
   box-shadow: rgba(0,0,0,0.4) 0px 24px 48px;
   display: flex;
   flex-direction: column;
@@ -627,7 +627,7 @@ body {
 }
 .chat-header > div { display: flex; flex-direction: column; gap: 2px; }
 .chat-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;
   font-size: 15px;
   color: var(--cyan);
@@ -650,7 +650,7 @@ body {
 .chat-bubble {
   max-width: 90%;
   padding: 12px 16px;
-  border-radius: 14px;
+  border-radius:0;
   font-size: 14px;
   line-height: 1.55;
   word-wrap: break-word;
@@ -685,7 +685,7 @@ body {
   border: 1px solid var(--cyan-border);
   border-radius: 500px;
   padding: 6px 14px;
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -707,7 +707,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 500px;
   color: var(--text);
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
   padding: 10px 16px;
   outline: none;
@@ -755,7 +755,7 @@ body {
   border: 1px solid var(--cyan-border);
   border-radius: 500px;
   padding: 4px 10px;
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
@@ -784,7 +784,7 @@ body {
   color: var(--muted);
   cursor: pointer;
   padding: 4px;
-  border-radius: 6px;
+  border-radius:0;
   transition: color 0.15s, background 0.15s;
   display: flex;
   align-items: center;
@@ -829,7 +829,7 @@ body {
   color: var(--muted);
   cursor: pointer;
   padding: 4px;
-  border-radius: 6px;
+  border-radius:0;
   opacity: 0;
   transition: opacity 0.15s, color 0.15s, background 0.15s;
   flex-shrink: 0;
@@ -850,7 +850,7 @@ body {
 .chat-bubble.assistant h1,
 .chat-bubble.assistant h2,
 .chat-bubble.assistant h3 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   color: var(--cyan);
   font-size: 13px;
   font-weight: 700;
@@ -871,7 +871,7 @@ body {
 .chat-bubble.assistant pre {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius:0;
   padding: 8px 10px;
   overflow-x: auto;
   margin: 6px 0;
@@ -911,8 +911,8 @@ body {
 .agent-steps { margin: 6px 0 4px 0; }
 .steps-toggle {
   display: inline-flex; align-items: center; gap: 6px;
-  background: none; border: 1px solid var(--border-light); border-radius: 6px;
-  color: var(--muted); font-size: 11px; font-family: 'Figtree', sans-serif;
+  background: none; border: 1px solid var(--border-light); border-radius:0;
+  color: var(--muted); font-size: 11px; font-family: 'Inter', system-ui, sans-serif;
   padding: 4px 10px; cursor: pointer; transition: all 0.2s;
 }
 .steps-toggle:hover { color: var(--cyan); border-color: var(--cyan-border); }
@@ -921,7 +921,7 @@ body {
 .steps-body { display: flex; flex-direction: column; gap: 6px; padding-top: 6px; }
 .steps-body.collapsed { display: none; }
 .step-card {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border); border-radius:0;
   padding: 8px 10px; font-size: 12px;
 }
 .step-label {
@@ -930,7 +930,7 @@ body {
   text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;
 }
 .step-detail {
-  background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 6px;
+  background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius:0;
   padding: 6px 8px; font-size: 11px; color: var(--muted);
   overflow-x: auto; max-height: 120px; margin: 4px 0 0 0;
   white-space: pre-wrap; word-break: break-all;
@@ -943,7 +943,7 @@ body {
   border-top: 1px solid var(--border);
 }
 .remediation-card {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border); border-radius:0;
   padding: 8px 10px; transition: all 0.2s;
 }
 .remediation-card.done {
@@ -972,7 +972,7 @@ body {
   display: inline-flex; align-items: center; gap: 4px;
   background: rgba(46,232,211,0.08); border: 1px solid var(--cyan-border);
   border-radius: 5px; color: var(--cyan); font-size: 10px;
-  font-family: 'Figtree', sans-serif; padding: 3px 8px;
+  font-family: 'Inter', system-ui, sans-serif; padding: 3px 8px;
   cursor: pointer; margin-top: 6px; transition: all 0.15s;
 }
 .remediation-copy-cmd:hover {
@@ -987,7 +987,7 @@ body {
   display: inline-flex; align-items: center; gap: 4px;
   background: rgba(46,232,211,0.06); border: 1px solid var(--cyan-border);
   border-radius: 5px; color: var(--cyan); font-size: 10px;
-  font-family: 'Figtree', sans-serif; font-weight: 600;
+  font-family: 'Inter', system-ui, sans-serif; font-weight: 600;
   padding: 4px 10px; cursor: pointer; transition: all 0.15s;
 }
 .fabric-action-btn:hover {
@@ -1006,7 +1006,7 @@ body {
 .demo-banner {
   background: linear-gradient(90deg, rgba(46,232,211,0.15), rgba(46,232,211,0.05));
   border: 1px solid rgba(46,232,211,0.3);
-  border-radius: 8px;
+  border-radius:0;
   padding: 10px 20px;
   margin: 12px 24px 0;
   font-size: 0.85rem;
@@ -1030,14 +1030,14 @@ body {
 .action-modal-overlay.active { opacity: 1; }
 .action-modal {
   background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 14px; padding: 24px; max-width: 420px; width: 90%;
+  border-radius:0; padding: 24px; max-width: 420px; width: 90%;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   transform: scale(0.95); transition: transform 0.2s;
 }
 .action-modal-overlay.active .action-modal { transform: scale(1); }
 .action-modal-header {
   display: flex; align-items: center; gap: 8px;
-  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
   font-size: 16px; color: var(--text); margin-bottom: 8px;
 }
 .action-modal-icon { font-size: 20px; }
@@ -1045,7 +1045,7 @@ body {
   font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px;
 }
 .action-modal-params {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border); border-radius:0;
   padding: 10px 12px; margin-bottom: 12px; font-size: 11px; font-family: monospace;
 }
 .action-modal-param { margin-bottom: 4px; }
@@ -1059,15 +1059,15 @@ body {
   display: flex; gap: 8px; justify-content: flex-end;
 }
 .action-modal-cancel {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border); border-radius:0;
   color: var(--muted); font-size: 13px; padding: 8px 18px; cursor: pointer;
-  font-family: 'Figtree', sans-serif; transition: all 0.15s;
+  font-family: 'Inter', system-ui, sans-serif; transition: all 0.15s;
 }
 .action-modal-cancel:hover { border-color: var(--muted); color: var(--text); }
 .action-modal-confirm {
-  background: var(--cyan); border: none; border-radius: 8px;
+  background: var(--cyan); border: none; border-radius:0;
   color: var(--bg); font-size: 13px; font-weight: 700; padding: 8px 20px;
-  cursor: pointer; font-family: 'Figtree', sans-serif; transition: all 0.15s;
+  cursor: pointer; font-family: 'Inter', system-ui, sans-serif; transition: all 0.15s;
 }
 .action-modal-confirm:hover {
   background: #3df5e0; box-shadow: 0 2px 12px rgba(46,232,211,0.3);
@@ -1089,8 +1089,8 @@ body {
 .alert-action-btn {
   display: inline-flex; align-items: center; gap: 5px;
   background: rgba(46,232,211,0.1); border: 1px solid var(--cyan-border);
-  border-radius: 6px; color: var(--cyan); font-size: 11px;
-  font-family: 'Figtree', sans-serif; font-weight: 600;
+  border-radius:0; color: var(--cyan); font-size: 11px;
+  font-family: 'Inter', system-ui, sans-serif; font-weight: 600;
   padding: 5px 12px; cursor: pointer; transition: all 0.15s;
 }
 .alert-action-btn:hover {
@@ -1106,11 +1106,11 @@ body {
 .whatif-widget {
   margin-top: 10px; padding: 12px 14px;
   background: linear-gradient(135deg, rgba(46,232,211,0.06), rgba(46,232,211,0.02));
-  border: 1px solid var(--cyan-border); border-radius: 10px;
+  border: 1px solid var(--cyan-border); border-radius:0;
 }
 .whatif-header {
   display: flex; align-items: center; gap: 6px;
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px;
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 11px;
   text-transform: uppercase; letter-spacing: 0.06em; color: var(--cyan);
   margin-bottom: 12px;
 }
@@ -1137,7 +1137,7 @@ body {
 }
 .whatif-gauge-val {
   position: relative; z-index: 1;
-  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 800;
   font-size: 20px; color: var(--color);
 }
 .whatif-gauge-label {
@@ -1148,10 +1148,10 @@ body {
 .whatif-delta {
   display: flex; flex-direction: column; align-items: center;
   padding: 6px 12px; background: rgba(46,232,211,0.08);
-  border-radius: 8px; margin-left: 4px;
+  border-radius:0; margin-left: 4px;
 }
 .whatif-delta-num {
-  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 800;
   font-size: 22px; color: #4ade80; line-height: 1;
 }
 .whatif-delta-label {
@@ -1163,7 +1163,7 @@ body {
   flex-wrap: wrap;
 }
 .whatif-tag {
-  font-size: 10px; padding: 2px 8px; border-radius: 10px;
+  font-size: 10px; padding: 2px 8px; border-radius:0;
   font-weight: 600; letter-spacing: 0.02em;
 }
 .whatif-tag.critical { background: rgba(248,113,113,0.15); color: #f87171; }

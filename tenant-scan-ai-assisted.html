@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-tenant-scan-ai-assisted.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css">
 <!-- Google Analytics 4 — replace G-P5LH45QCFC with your Measurement ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
@@ -30,7 +30,7 @@
 </head>
 <body>
 <!-- Thank-you banner (shown on #thanks) -->
-<div id="thanks-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:10000;background:#2ee8d3;color:#080F1C;text-align:center;padding:1rem 1.5rem;font-family:'Figtree',sans-serif;font-weight:600;font-size:1.05rem;box-shadow:0 2px 12px rgba(46,232,211,0.3);transform:translateY(-100%);transition:transform 0.4s ease;">
+<div id="thanks-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:10000;background:#2ee8d3;color:#080F1C;text-align:center;padding:1rem 1.5rem;font-family: 'Inter', system-ui, sans-serif;font-weight:600;font-size:1.05rem;box-shadow:0 2px 12px rgba(46,232,211,0.3);transform:translateY(-100%);transition:transform 0.4s ease;">
   Thanks! We received your inquiry and will get back to you within 24 hours.
   <button onclick="document.getElementById('thanks-banner').style.transform='translateY(-100%)';setTimeout(function(){document.getElementById('thanks-banner').style.display='none'},400)" style="background:none;border:none;color:#080F1C;font-size:1.3rem;cursor:pointer;margin-left:1rem;vertical-align:middle;font-weight:700;line-height:1;" aria-label="Close">&times;</button>
 </div>
@@ -74,7 +74,7 @@
 
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/blog/">Insights</a></li>
     <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">Content</a></li>
   </ul>
   <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
@@ -288,17 +288,17 @@
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://www.thepowermates.com/tenant-scan-ai-assisted#thanks">
-          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
-          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
-          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
-          <select name="workspace_count" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="name" placeholder="Your name" required style="padding:12px 16px;border-radius:0;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="email" name="email" placeholder="Work email" required style="padding:12px 16px;border-radius:0;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <input type="text" name="company" placeholder="Company" required style="padding:12px 16px;border-radius:0;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <select name="workspace_count" style="padding:12px 16px;border-radius:0;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
             <option value="" disabled selected>Approximate workspace count?</option>
             <option value="1-10">1 – 10 workspaces</option>
             <option value="11-50">11 – 50 workspaces</option>
             <option value="51-100">51 – 100 workspaces</option>
             <option value="100+">100+ workspaces</option>
           </select>
-          <select name="main_concern" style="padding:12px 16px;border-radius:8px;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
+          <select name="main_concern" style="padding:12px 16px;border-radius:0;border:1px solid var(--border,#1a2332);background:var(--bg2,#0d1929);color:var(--text,#fff);font-size:.95rem;font-family:inherit;">
             <option value="" disabled selected>Primary concern?</option>
             <option value="governance">Governance & compliance gaps</option>
             <option value="licensing">License optimization / cost</option>
@@ -310,9 +310,9 @@
         </form>
       </div>
       </div>
-      <div id="thanks" style="display:none;background:var(--bg2,#0d1929);border:2px solid #2ee8d3;border-radius:12px;padding:2rem;margin:2rem auto;max-width:600px;text-align:center;">
+      <div id="thanks" style="display:none;background:var(--bg2,#0d1929);border:2px solid #2ee8d3;border-radius:0;padding:2rem;margin:2rem auto;max-width:600px;text-align:center;">
     <h3 style="color:#0f766e;margin-bottom:.5rem;">Request received!</h3>
-    <p style="color:#fff;">Gastón will reach out within 24 hours. Check your inbox.</p>
+    <p style="color:#0d1b2a;">Gastón will reach out within 24 hours. Check your inbox.</p>
   </div>
     </div>
   </section>

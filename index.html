@@ -26,7 +26,7 @@
 <meta name="twitter:image" content="https://www.thepowermates.com/images/og-default.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Figtree:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {
@@ -140,15 +140,16 @@
   z-index: 100;
 }
 .announce-bar .announce-badge {
-  background: rgba(15,118,110,0.2);
-  border: 1px solid rgba(15,118,110,0.3);
+  background: transparent;
+  border: none;
+  border-left: 2px solid #0f766e;
   color: #0f766e;
   font-weight: 700;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 3px 10px;
-  border-radius: 20px;
+  letter-spacing: 0.08em;
+  padding: 2px 10px;
+  border-radius: 0;
   white-space: nowrap;
 }
 .announce-bar a {
@@ -157,7 +158,7 @@
   text-decoration: none;
   transition: color 0.2s;
 }
-.announce-bar a:hover { color: #fff; }
+.announce-bar a:hover { color: #0d1b2a; }
 .announce-bar .announce-arrow {
   display: inline-block;
   transition: transform 0.2s;
@@ -172,9 +173,10 @@
 
 /* ─── ROI Estimator ────────────────────────────────────────────── */
 #roi-estimator {
-  background: linear-gradient(135deg, rgba(8,15,28,0.95) 0%, rgba(12,22,40,0.95) 100%);
-  border: 1px solid rgba(15,118,110,0.2);
-  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #0f766e;
+  border-radius: 0;
   padding: 48px;
   max-width: 760px;
   margin: 0 auto;
@@ -191,11 +193,12 @@
 }
 .roi-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(15,118,110,0.07); border: 1px solid rgba(15,118,110,0.25);
-  border-radius: 100px; padding: 5px 16px; margin-bottom: 20px;
-  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #0f766e;
+  background: transparent; border: none;
+  border-left: 2px solid #0f766e;
+  border-radius: 0; padding: 2px 10px; margin-bottom: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #0f766e;
 }
-.roi-title { font-size: clamp(20px,2.4vw,28px); font-weight: 800; color: #fff; margin-bottom: 6px; }
+.roi-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px,2.6vw,32px); font-weight: 700; color: #0d1b2a; margin-bottom: 8px; line-height: 1.2; }
 .roi-sub { font-size: 14px; color: #6b7280; margin-bottom: 32px; }
 .roi-slider-row { margin-bottom: 28px; }
 .roi-slider-label {
@@ -204,27 +207,27 @@
 }
 .roi-slider-label strong { font-size: 18px; font-weight: 700; color: #0f766e; }
 input[type=range].roi-range {
-  -webkit-appearance: none; width: 100%; height: 4px;
-  background: linear-gradient(to right, #0f766e var(--fill,50%), rgba(255,255,255,0.1) var(--fill,50%));
-  border-radius: 4px; outline: none; cursor: pointer;
+  -webkit-appearance: none; width: 100%; height: 3px;
+  background: linear-gradient(to right, #0f766e var(--fill,50%), #e2e8f0 var(--fill,50%));
+  border-radius: 0; outline: none; cursor: pointer;
 }
 input[type=range].roi-range::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
-  background: #0f766e; border: 2px solid #080f1c; cursor: pointer;
-  box-shadow: 0 0 8px rgba(15,118,110,0.4);
+  -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+  background: #0f766e; border: 2px solid #ffffff; cursor: pointer;
+  box-shadow: 0 0 0 1px #0f766e;
 }
 .roi-results {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 28px;
 }
 .roi-result-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px; padding: 18px 14px; text-align: center;
+  background: #f8f8f6; border: 1px solid #e2e8f0;
+  border-radius: 0; padding: 20px 16px; text-align: center;
 }
 .roi-result-card.highlight {
-  background: rgba(15,118,110,0.06); border-color: rgba(15,118,110,0.25);
+  background: #ffffff; border-color: #0f766e; border-top: 3px solid #0f766e;
 }
-.roi-result-val { font-size: clamp(22px,2.8vw,32px); font-weight: 800; color: #0f766e; line-height: 1; margin-bottom: 4px; }
-.roi-result-val.muted { color: #fff; }
+.roi-result-val { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px,3vw,36px); font-weight: 700; color: #0f766e; line-height: 1; margin-bottom: 4px; }
+.roi-result-val.muted { color: #0d1b2a; }
 .roi-result-label { font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: .06em; }
 .roi-disclaimer { font-size: 11px; color: #6b7280; margin-bottom: 24px; }
 .roi-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -249,10 +252,11 @@ input[type=range].roi-range::-webkit-slider-thumb {
 
 /* ─── Availability badge ─────────────────────────────────────────── */
 .avail-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(15,118,110,0.06); border: 1px solid rgba(15,118,110,0.25);
-  border-radius: 100px; padding: 5px 14px;
-  font-size: 12px; font-weight: 600; color: #0f766e;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; border: none;
+  border-left: 2px solid #0f766e;
+  border-radius: 0; padding: 2px 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0f766e;
   margin-top: 12px;
 }
 .avail-dot {
@@ -263,16 +267,16 @@ input[type=range].roi-range::-webkit-slider-thumb {
 /* ─── McKinsey editorial header ─────────────────────────────────── */
 .editorial-header { margin-bottom: 48px; }
 .editorial-rule { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
-.editorial-rule-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+.editorial-rule-line { flex: 1; height: 1px; background: #e2e8f0; }
 .editorial-rule-label {
   font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
   color: #0f766e; white-space: nowrap;
 }
 .editorial-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(32px, 4.5vw, 56px);
-  font-weight: 800; line-height: 1.1;
-  color: #fff; margin-bottom: 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -0.01em;
+  color: #0d1b2a; margin-bottom: 16px;
 }
 .editorial-lead { font-size: 16px; color: #374151; line-height: 1.7; max-width: 640px; }
 
@@ -280,7 +284,7 @@ input[type=range].roi-range::-webkit-slider-thumb {
 .editorial-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 0; margin-top: 0; }
 .editorial-featured {
   padding-right: 48px;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid #e2e8f0;
 }
 .editorial-sidebar { padding-left: 48px; }
 .editorial-article-tag {
@@ -288,16 +292,16 @@ input[type=range].roi-range::-webkit-slider-thumb {
   color: #0f766e; margin-bottom: 10px;
 }
 .editorial-article-headline {
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 800; line-height: 1.2;
-  color: #0a1628; margin-bottom: 14px;
-  font-family: 'Syne', sans-serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700; line-height: 1.25; letter-spacing: -0.005em;
+  color: #0d1b2a; margin-bottom: 14px;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 .editorial-article-headline-sm {
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 700; line-height: 1.3;
-  color: #0a1628; margin-bottom: 10px;
-  font-family: 'Syne', sans-serif;
+  color: #0d1b2a; margin-bottom: 10px;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 .editorial-article-body { font-size: 14px; color: #374151; line-height: 1.75; margin-bottom: 20px; }
 .editorial-article-body-sm { font-size: 13px; color: #374151; line-height: 1.65; margin-bottom: 16px; }
@@ -318,38 +322,38 @@ input[type=range].roi-range::-webkit-slider-thumb {
 }
 
 /* ─── Enterprise hero ────────────────────────────────────────────── */
-#hero { padding: 160px 0 100px; min-height: auto; background: #fff; }
+#hero { padding: 160px 0 120px; min-height: auto; background: #ffffff; }
 .hero-enterprise { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.hero-ent-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; margin-bottom: 24px; }
+.hero-ent-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #0f766e; margin-bottom: 24px; }
 .hero-ent-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(48px, 6.5vw, 84px);
-  font-weight: 800; line-height: 1.0; letter-spacing: -0.03em;
-  color: #0a1628; margin-bottom: 28px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(48px, 6.5vw, 72px);
+  font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
+  color: #0d1b2a; margin-bottom: 28px;
 }
-.hero-ent-accent { display: block; color: #0f766e; }
+.hero-ent-accent { display: block; color: #0f766e; font-style: italic; }
 .hero-ent-credits {
   display: flex; align-items: center; gap: 10px;
   font-size: 13px; color: #6b7280; margin-bottom: 36px; flex-wrap: wrap;
 }
 .expert-avatar-sm {
   width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
-  border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+  border: 2px solid #ffffff; box-shadow: 0 0 0 1px #e2e8f0;
   flex-shrink: 0;
 }
 .expert-avatar-sm + .expert-avatar-sm { margin-left: -10px; }
 .hero-ent-ctas { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
-.hero-ent-link { font-size: 14px; font-weight: 600; color: #0a1628; text-decoration: none; border-bottom: 1.5px solid rgba(0,0,0,0.25); padding-bottom: 2px; transition: border-color .2s, color .2s; }
+.hero-ent-link { font-size: 14px; font-weight: 600; color: #0d1b2a; text-decoration: none; border-bottom: 1.5px solid #0d1b2a; padding-bottom: 2px; transition: border-color .2s, color .2s; }
 .hero-ent-link:hover { color: #0f766e; border-color: #0f766e; }
-.hero-ent-panel { background: #f7f9fc; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 36px; }
-.hero-ent-panel-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #0f766e; margin-bottom: 10px; }
-.hero-ent-panel-title { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #0a1628; margin-bottom: 12px; }
-.hero-ent-panel-desc { font-size: 14px; color: #6b7280; line-height: 1.7; margin-bottom: 24px; border-left: 3px solid #36d7b7; padding-left: 14px; }
+.hero-ent-panel { background: #f8f8f6; border: 1px solid #e2e8f0; border-top: 3px solid #0f766e; border-radius: 0; padding: 40px; }
+.hero-ent-panel-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #0f766e; margin-bottom: 12px; }
+.hero-ent-panel-title { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #0d1b2a; margin-bottom: 12px; line-height: 1.2; }
+.hero-ent-panel-desc { font-size: 15px; color: #334155; line-height: 1.7; margin-bottom: 24px; border-left: 2px solid #0f766e; padding-left: 16px; }
 .hero-ent-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
-.hero-ent-stat { padding: 14px 16px; background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 10px; }
-.hero-ent-stat-num { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: #0f766e; line-height: 1; margin-bottom: 4px; }
-.hero-ent-stat-label { font-size: 11px; color: #6b7280; line-height: 1.4; }
-.hero-ent-panel-cta { font-size: 13px; font-weight: 700; color: #0a1628; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.2); padding-bottom: 1px; transition: color .2s, border-color .2s; }
+.hero-ent-stat { padding: 16px 18px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0; }
+.hero-ent-stat-num { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #0f766e; line-height: 1; margin-bottom: 6px; }
+.hero-ent-stat-label { font-size: 12px; color: #64748b; line-height: 1.4; }
+.hero-ent-panel-cta { font-size: 13px; font-weight: 700; color: #0d1b2a; text-decoration: none; border-bottom: 1.5px solid #0d1b2a; padding-bottom: 1px; transition: color .2s, border-color .2s; }
 .hero-ent-panel-cta:hover { color: #0f766e; border-color: #0f766e; }
 @media (max-width: 768px) {
   #hero { padding: 120px 0 60px; }
@@ -362,7 +366,7 @@ input[type=range].roi-range::-webkit-slider-thumb {
 .ent-stat-band-grid { display: grid; grid-template-columns: repeat(4,1fr); }
 .ent-band-stat { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.08); }
 .ent-band-stat:last-child { border-right: none; }
-.ent-band-num { font-family: 'Syne', sans-serif; font-size: clamp(36px,4vw,52px); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 8px; }
+.ent-band-num { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(36px,4vw,52px); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 8px; }
 .ent-band-label { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; max-width: 140px; margin: 0 auto; }
 @media (max-width: 640px) {
   .ent-stat-band-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -378,9 +382,9 @@ input[type=range].roi-range::-webkit-slider-thumb {
   transition: background .2s;
 }
 .ent-service-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
-.ent-service-num { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: #6b7280; padding-top: 3px; }
+.ent-service-num { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 700; color: #6b7280; padding-top: 3px; }
 .ent-service-body { }
-.ent-service-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: #0a1628; margin-bottom: 6px; }
+.ent-service-name { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: #0a1628; margin-bottom: 6px; }
 .ent-service-desc { font-size: 14px; color: #6b7280; line-height: 1.6; }
 .ent-service-price { font-size: 14px; font-weight: 700; color: #0f766e; white-space: nowrap; padding-top: 3px; }
 a.ent-service-item { text-decoration: none; cursor: pointer; }
@@ -413,7 +417,7 @@ a.ent-service-item:hover { background: rgba(0,0,0,0.01); margin: 0 -24px; paddin
   background: none; border: none;
   display: block;
   margin: 0 auto 16px;
-  font-size: 42px; font-weight: 800; color: #e5e7eb; font-family: 'Syne', sans-serif;
+  font-size: 42px; font-weight: 800; color: #e5e7eb; font-family: 'Playfair Display', Georgia, serif;
   line-height: 1;
   position: relative; z-index: 1;
   box-shadow: none;
@@ -422,9 +426,10 @@ a.ent-service-item:hover { background: rgba(0,0,0,0.01); margin: 0 -24px; paddin
 .hiw-step-desc  { font-size: 13px; color: #6b7280; line-height: 1.6; }
 .hiw-step-tag {
   display: inline-block; margin-top: 12px;
-  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
-  color: #0f766e; background: rgba(15,118,110,0.06); border: 1px solid rgba(15,118,110,0.2);
-  padding: 3px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  color: #0f766e; background: transparent;
+  border: none; border-left: 2px solid #0f766e;
+  padding: 2px 10px; border-radius: 0;
 }
 @media (max-width:700px) {
   .hiw-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -444,7 +449,7 @@ a.topic-card, div.topic-card { position: relative; }
 .topic-card:hover::after { opacity: 1; transform: translateX(0); }
 .topic-card:hover {
   border-top-color: #0f766e !important;
-  border-color: rgba(0,0,0,0.12) !important;
+  border-color: #0f766e !important;
   box-shadow: none;
   transform: none;
 }
@@ -454,7 +459,7 @@ a.topic-card, div.topic-card { position: relative; }
   font-size: clamp(52px, 6vw, 76px);
   font-weight: 800; line-height: 1;
   color: #0f766e; letter-spacing: -0.02em;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   margin-bottom: 2px;
 }
 .case-metric-label {
@@ -505,7 +510,7 @@ a.topic-card, div.topic-card { position: relative; }
     </li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/blog/">Insights</a></li>
     <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">Content</a></li>
   </ul>
   <a href="https://tally.so/r/xXd9lG" class="nav-cta" target="_blank" rel="noopener">Get Started &rarr;</a>
@@ -853,7 +858,7 @@ a.topic-card, div.topic-card { position: relative; }
 <section id="speaking" style="padding: 80px 0;">
   <div class="container">
     <div class="section-header">
-      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(15,118,110,0.07);border:1px solid rgba(15,118,110,0.25);border-radius:100px;padding:6px 18px;margin-bottom:20px;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(15,118,110,0.07);border:1px solid rgba(15,118,110,0.25);border-radius:0;padding:6px 18px;margin-bottom:20px;">
         <span style="color:#0f766e;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Recent Speaking</span>
       </div>
       <h2 class="section-title reveal">Power Mates at <span class="c">FabCon 2026 Atlanta</span></h2>
@@ -862,16 +867,16 @@ a.topic-card, div.topic-card { position: relative; }
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;" class="fabcon-grid">
       <div class="topic-card reveal reveal-d1">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-          <div style="width:40px;height:40px;background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🚀</div>
-          <div style="background:rgba(13,148,136,.08);color:var(--cyan-dim,#0f766e);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Session</div>
+          <div style="width:40px;height:40px;background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.2);border-radius:0;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🚀</div>
+          <div style="background:rgba(13,148,136,.08);color:var(--cyan-dim,#0f766e);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:0;">Session</div>
         </div>
         <h3 style="font-size:17px;line-height:1.4;margin-bottom:10px;">Building Next-Gen Apps with Power Platform and SQL Server 2025</h3>
         <p style="font-size:13px;line-height:1.6;">Combining Power Platform with SQL Server 2025 to build enterprise-grade next-generation applications. Delivered live at FabCon Atlanta.</p>
       </div>
       <a href="/fabcon-session" class="topic-card reveal reveal-d2" style="text-decoration:none;display:block;cursor:pointer;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-          <div style="width:40px;height:40px;background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">⚡</div>
-          <div style="background:rgba(13,148,136,.08);color:var(--cyan-dim,#0f766e);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;">Session</div>
+          <div style="width:40px;height:40px;background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.2);border-radius:0;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">⚡</div>
+          <div style="background:rgba(13,148,136,.08);color:var(--cyan-dim,#0f766e);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:0;">Session</div>
           <div style="margin-left:auto;color:var(--cyan-dim,#0f766e);font-size:13px;font-weight:600;">Resources →</div>
         </div>
         <h3 style="font-size:17px;line-height:1.4;margin-bottom:10px;">The Instant Insights Pipeline: OneLake Shortcuts + Dataverse + Power Apps</h3>
@@ -900,15 +905,15 @@ a.topic-card, div.topic-card { position: relative; }
     </div>
 
     <!-- Hero Thumbnail -->
-    <a href="https://www.youtube.com/watch?v=GORCiDj9YNA" target="_blank" class="featured-hero reveal" style="display:block; position:relative; border-radius:16px; overflow:hidden; margin-bottom:40px; aspect-ratio:16/7; cursor:pointer; text-decoration:none;">
+    <a href="https://www.youtube.com/watch?v=GORCiDj9YNA" target="_blank" class="featured-hero reveal" style="display:block; position:relative; border-radius:0; overflow:hidden; margin-bottom:40px; aspect-ratio:16/7; cursor:pointer; text-decoration:none;">
       <img loading="lazy" width="1280" height="720" src="/images/yt/yt-GORCiDj9YNA.jpg" alt="Microsoft Fabric CDC Tutorial" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.6);" onerror="this.src='https://img.youtube.com/vi/GORCiDj9YNA/maxresdefault.jpg'">
       <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(8,15,28,0.85) 0%, rgba(8,15,28,0.5) 100%);"></div>
       <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:48px 56px;">
-        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(15,118,110,0.2); border:1px solid rgba(15,118,110,0.25); border-radius:20px; padding:6px 14px; margin-bottom:16px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(15,118,110,0.2); border:1px solid rgba(15,118,110,0.25); border-radius:0; padding:6px 14px; margin-bottom:16px;">
           <span style="width:8px; height:8px; background:#0f766e; border-radius:50%; animation: pulse-dot 2s infinite;"></span>
           <span style="color:#0f766e; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Latest Video</span>
         </div>
-        <h3 style="font-family:'Syne',sans-serif; font-size:clamp(24px,3.5vw,42px); font-weight:800; color:#fff; line-height:1.15; margin-bottom:12px;">Microsoft Fabric CDC Tutorial:<br><span style="color:#0f766e;">Real-Time Data from Azure SQL</span></h3>
+        <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:clamp(24px,3.5vw,42px); font-weight:800; color:#fff; line-height:1.15; margin-bottom:12px;">Microsoft Fabric CDC Tutorial:<br><span style="color:#0f766e;">Real-Time Data from Azure SQL</span></h3>
         <p style="color:rgba(255,255,255,0.7); font-size:15px; max-width:500px; margin-bottom:24px;">Learn how to set up Change Data Capture with Microsoft Fabric for real-time data streaming.</p>
         <div style="display:flex; align-items:center; gap:16px;">
           <div style="width:56px; height:56px; background:rgba(15,118,110,0.2); border:2px solid #0f766e; border-radius:50%; display:flex; align-items:center; justify-content:center; transition: transform 0.3s, background 0.3s;">
@@ -922,7 +927,7 @@ a.topic-card, div.topic-card { position: relative; }
     <!-- Thumbnail Grid -->
     <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:20px;">
       <a href="https://www.youtube.com/watch?v=O890phQYvEs" target="_blank" class="reveal" style="text-decoration:none; display:block;">
-        <div style="position:relative; border-radius:12px; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
+        <div style="position:relative; border-radius:0; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
           <img loading="lazy" width="1280" height="720" src="/images/yt/yt-O890phQYvEs.jpg" alt="Composite Models in Fabric" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s;" onerror="this.src='https://img.youtube.com/vi/O890phQYvEs/maxresdefault.jpg'">
           <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(8,15,28,0.7) 0%, transparent 50%); opacity:0; transition:opacity 0.3s;"></div>
           <div style="position:absolute; top:10px; left:10px; background:rgba(15,118,110,0.2); border:1px solid rgba(15,118,110,0.25); border-radius:4px; padding:2px 8px; font-size:11px; color:#0f766e; font-weight:600;">NEW</div>
@@ -931,21 +936,21 @@ a.topic-card, div.topic-card { position: relative; }
         <p style="color:var(--muted); font-size:12px; margin-top:4px;">9 days ago</p>
       </a>
       <a href="https://www.youtube.com/watch?v=CCZOkXn8tI4" target="_blank" class="reveal reveal-d1" style="text-decoration:none; display:block;">
-        <div style="position:relative; border-radius:12px; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
+        <div style="position:relative; border-radius:0; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
           <img loading="lazy" width="1280" height="720" src="/images/yt/yt-CCZOkXn8tI4.jpg" alt="M365 Copilot to Copilot Studio" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s;" onerror="this.src='https://img.youtube.com/vi/CCZOkXn8tI4/maxresdefault.jpg'">
         </div>
         <h4 style="font-size:14px; font-weight:600; line-height:1.3;">Copy M365 Copilot to Copilot Studio</h4>
         <p style="color:var(--muted); font-size:12px; margin-top:4px;">2 weeks ago</p>
       </a>
       <a href="https://www.youtube.com/watch?v=ibVjASN_e-c" target="_blank" class="reveal reveal-d2" style="text-decoration:none; display:block;">
-        <div style="position:relative; border-radius:12px; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
+        <div style="position:relative; border-radius:0; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
           <img loading="lazy" width="1280" height="720" src="/images/yt/yt-ibVjASN_e-c.jpg" alt="New Power Apps Experience" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s;" onerror="this.src='https://img.youtube.com/vi/ibVjASN_e-c/maxresdefault.jpg'">
         </div>
         <h4 style="font-size:14px; font-weight:600; line-height:1.3;">New Power Apps Experience: Live Demo</h4>
         <p style="color:var(--muted); font-size:12px; margin-top:4px;">1 month ago</p>
       </a>
       <a href="https://www.youtube.com/watch?v=CL39q4ea7t4" target="_blank" class="reveal reveal-d3" style="text-decoration:none; display:block;">
-        <div style="position:relative; border-radius:12px; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
+        <div style="position:relative; border-radius:0; overflow:hidden; aspect-ratio:16/9; margin-bottom:10px;">
           <img loading="lazy" width="1280" height="720" src="/images/yt/yt-CL39q4ea7t4.jpg" alt="Everything We Built in 2025" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s;" onerror="this.src='https://img.youtube.com/vi/CL39q4ea7t4/maxresdefault.jpg'">
         </div>
         <h4 style="font-size:14px; font-weight:600; line-height:1.3;">Everything We Built in 2025 — Recap</h4>
@@ -954,7 +959,7 @@ a.topic-card, div.topic-card { position: relative; }
     </div>
 
     <div style="text-align:center; margin-top:40px;" class="reveal">
-      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" style="display:inline-flex; align-items:center; gap:10px; color:#0f766e; font-weight:600; font-size:15px; text-decoration:none; padding:12px 28px; border:1px solid rgba(15,118,110,0.25); border-radius:10px; transition: background 0.3s, border-color 0.3s;">
+      <a href="https://www.youtube.com/@PowerMatesMS" target="_blank" style="display:inline-flex; align-items:center; gap:10px; color:#0f766e; font-weight:600; font-size:15px; text-decoration:none; padding:12px 28px; border:1px solid rgba(15,118,110,0.25); border-radius:0; transition: background 0.3s, border-color 0.3s;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f766e"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg>
         View All Videos on YouTube →
       </a>
@@ -1277,10 +1282,10 @@ a.topic-card, div.topic-card { position: relative; }
         <h2 class="cta-title reveal">Ready to Optimize Your <span class="c">Data Platform?</span></h2>
         <p class="cta-sub reveal reveal-d1">Book a free 30-minute discovery call. We'll assess your Fabric environment and recommend the right engagement.</p>
         <div class="cta-checklist reveal reveal-d2">
-          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#36d7b7" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Free initial consultation</div>
-          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#36d7b7" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Custom solution recommendations</div>
-          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#36d7b7" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Clear pricing — no surprises</div>
-          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#36d7b7" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Response within 24 hours</div>
+          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Free initial consultation</div>
+          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Custom solution recommendations</div>
+          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Clear pricing — no surprises</div>
+          <div class="cta-check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>Response within 24 hours</div>
         </div>
         <div class="reveal reveal-d3" style="margin-top:40px;">
           <div class="cta-newsletter">
@@ -1393,8 +1398,11 @@ a.topic-card, div.topic-card { position: relative; }
 <!-- ─── SCRIPTS ────────────────────────────────────────────────────────── -->
 <script>
 // ── Particle / Neural-Network Canvas ──────────────────────────────────────
+// Retired in McKinsey/BCG rebump (2026-04-21). Kept as no-op so existing
+// references don't break. Will be fully removed in a later pass.
 (function () {
   const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
   let W, H, particles = [], mouse = { x: -9999, y: -9999 };
