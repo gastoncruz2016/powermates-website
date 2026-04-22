@@ -85,6 +85,10 @@
       "rewrite": "/iq-mcp-integration.html"
     },
     {
+      "route": "/fabric-capacity-calculator",
+      "rewrite": "/fabric-capacity-calculator.html"
+    },
+    {
       "route": "/blog/5-signs-fabric-tenant-needs-audit",
       "rewrite": "/blog/5-signs-fabric-tenant-needs-audit.html"
     },

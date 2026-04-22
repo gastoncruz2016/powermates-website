@@ -509,6 +509,7 @@ a.topic-card, div.topic-card { position: relative; }
         <a href="/services">View All Services &rarr;</a>
       </div>
     </li>
+    <li><a href="/fabric-capacity-calculator">Tools</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/blog/">Insights</a></li>
@@ -692,6 +693,47 @@ a.topic-card, div.topic-card { position: relative; }
   @media (max-width: 960px) {
     .outcomes-grid { grid-template-columns: 1fr !important; }
     #outcomes { padding: 80px 0 !important; }
+  }
+</style>
+
+<!-- ─── FABRIC CAPACITY CALCULATOR — TEASER ─────────────────────────── -->
+<section id="calc-teaser" style="padding: 96px 0; background:#0d1b2a; border-top:1px solid #0a1522; border-bottom:1px solid #0a1522; color:#ffffff;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:56px; align-items:center;" class="calc-teaser-grid">
+      <div class="reveal">
+        <div style="display:inline-block; padding:4px 12px; background:rgba(46,232,211,0.1); color:#2ee8d3; font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:20px;">New · Free Tool</div>
+        <h2 style="font-family:'Playfair Display', Georgia, serif; font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:700; color:#ffffff; margin:0 0 18px; line-height:1.2;">Most tenants buy the <span style="color:#2ee8d3; font-style:italic;">wrong Fabric SKU.</span></h2>
+        <p style="color:#94a3b8; font-size:1.05rem; line-height:1.65; margin:0 0 28px; max-width:580px;">Answer five questions, get the F-SKU that actually fits your workload, what it should cost, and the red flags most vendors won't mention until after you've signed. Built by Dual MVPs. No email required.</p>
+        <a href="/fabric-capacity-calculator" class="btn-primary" style="background:#2ee8d3; color:#0d1b2a; border-color:#2ee8d3; font-weight:700;">Open the calculator &rarr;</a>
+      </div>
+      <div class="reveal reveal-d1" style="background:rgba(255,255,255,0.03); border-top:3px solid #2ee8d3; padding:28px; display:flex; flex-direction:column; gap:16px;">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2ee8d3;">Sample result</div>
+        <div>
+          <div style="font-family:'Playfair Display', Georgia, serif; font-size:3.25rem; font-weight:700; line-height:1;">F64</div>
+          <div style="color:#94a3b8; font-size:0.9rem; margin-top:6px;">The Copilot line. Unlocks Power BI Free viewers.</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(46,232,211,0.15); padding:12px;">
+            <div style="font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:#94a3b8; margin-bottom:4px;">Pay-as-you-go</div>
+            <div style="font-family:'Playfair Display', Georgia, serif; font-size:1.5rem; font-weight:700;">$8,409<span style="font-size:0.75rem; color:#94a3b8; font-weight:400; margin-left:2px;">/mo</span></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(46,232,211,0.15); padding:12px;">
+            <div style="font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:#94a3b8; margin-bottom:4px;">Reserved</div>
+            <div style="font-family:'Playfair Display', Georgia, serif; font-size:1.5rem; font-weight:700;">$71,621<span style="font-size:0.75rem; color:#94a3b8; font-weight:400; margin-left:2px;">/yr</span></div>
+          </div>
+        </div>
+        <div style="font-size:0.8rem; color:#94a3b8; line-height:1.5; padding-top:4px; border-top:1px solid rgba(255,255,255,0.08);">
+          <span style="color:#fbbf24; font-weight:600;">&#9650; Red flag:</span> Copilot forces F64 floor — your raw workload only needs F16.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 960px) {
+    #calc-teaser .calc-teaser-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    #calc-teaser { padding: 72px 0 !important; }
   }
 </style>
 
@@ -1530,6 +1572,9 @@ a.topic-card, div.topic-card { position: relative; }
       <h4>Founders</h4>
       <a href="https://www.linkedin.com/in/gastoncruz/" target="_blank">Gaston Cruz — Co-Founder &amp; Managing Partner</a>
       <a href="https://www.linkedin.com/in/alexrostan/" target="_blank">Alex Rostan — Co-Founder &amp; Managing Partner</a>
+      <h4 style="margin-top:24px;">Free Tools</h4>
+      <a href="/fabric-capacity-calculator">Fabric Capacity Calculator</a>
+      <a href="/tenant-scan-dashboard/">Sample Tenant Scan Dashboard</a>
       <h4 style="margin-top:24px;">Content</h4>
       <a href="https://www.youtube.com/@PowerMatesMS" target="_blank">YouTube Channel</a>
       <a href="#fabric-news">Platform News</a>
@@ -2155,6 +2200,16 @@ body.sch-open { overflow: hidden; }
       e.preventDefault();
       openScheduler();
     }
+  });
+
+  // Auto-open when landing with #schedule or #book in the URL (e.g. from /#schedule elsewhere on site)
+  if (['#schedule', '#book'].includes(window.location.hash)) {
+    // wait a tick so the hero doesn't jump, then open
+    setTimeout(openScheduler, 120);
+  }
+  // Also respond to hashchange (internal SPA-style links)
+  window.addEventListener('hashchange', function() {
+    if (['#schedule', '#book'].includes(window.location.hash)) openScheduler();
   });
 
   closeEls.forEach(el => el.addEventListener('click', closeScheduler));

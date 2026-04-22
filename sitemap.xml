@@ -79,6 +79,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Tools -->
+  <url>
+    <loc>https://www.thepowermates.com/fabric-capacity-calculator</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Tenant Scan — Primary Offering -->
   <url>
     <loc>https://www.thepowermates.com/tenant-scan</loc>

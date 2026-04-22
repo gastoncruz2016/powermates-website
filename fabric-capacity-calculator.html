@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="canonical" href="https://www.thepowermates.com/fabric-capacity-calculator">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <title>Fabric Capacity Calculator — Right-Size Your F-SKU | PowerMates</title>
+  <meta name="description" content="Free Microsoft Fabric capacity calculator. Input your data volume, users, refresh cadence, and Copilot usage — get the recommended F-SKU, monthly cost, and red flags most vendors miss. Built by Dual Microsoft MVPs." />
+  <meta name="keywords" content="Fabric capacity calculator, Fabric SKU sizing, F64 Copilot, Fabric pricing, Fabric capacity planning, Microsoft Fabric cost" />
+  <meta property="og:title" content="Fabric Capacity Calculator — Right-Size Your F-SKU | PowerMates" />
+  <meta property="og:description" content="Most tenants buy the wrong Fabric SKU. Find out if yours is one of them — free calculator by Microsoft MVPs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thepowermates.com/fabric-capacity-calculator" />
+  <meta property="og:image" content="https://www.thepowermates.com/images/og/og-tenant-scan.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.thepowermates.com/images/og/og-tenant-scan.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       FABRIC CAPACITY CALCULATOR — page-specific styles
+       ═══════════════════════════════════════════════════════════════ */
+
+    .calc-hero {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      background: #fafbfc;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .calc-hero .badge {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+    }
+    .calc-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #0d1b2a;
+      max-width: 920px;
+      margin: 0 auto 1rem;
+      line-height: 1.1;
+    }
+    .calc-hero h1 .accent { color: #0f766e; font-style: italic; }
+    .calc-hero p.lede {
+      font-size: 1.15rem;
+      color: #334155;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .calc-hero .meta {
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: #64748b;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .calc-hero .meta strong { color: #0f766e; }
+
+    /* ── CALCULATOR SHELL ───────────────────────────────────────── */
+    .calc-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .calc-shell { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.25rem 3rem; }
+    }
+
+    .calc-inputs {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-top: 3px solid #0f766e;
+      padding: 2rem;
+    }
+    .calc-inputs h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      color: #0d1b2a;
+      margin: 0 0 0.25rem;
+    }
+    .calc-inputs .sub {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin: 0 0 1.75rem;
+    }
+
+    .field-group {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .field-group:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .field-group label.field-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #0d1b2a;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+    .field-group .hint {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .segmented.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .segmented.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .segmented input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+    .segmented label.seg {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+      padding: 0.6rem 0.5rem;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      line-height: 1.25;
+    }
+    .segmented label.seg:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .segmented input:checked + label.seg,
+    .segmented label.seg.selected {
+      background: #0f766e;
+      border-color: #0f766e;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .segmented input:focus-visible + label.seg {
+      outline: 2px solid #0f766e;
+      outline-offset: 2px;
+    }
+    @media (max-width: 520px) {
+      .segmented.cols-4 { grid-template-columns: repeat(2, 1fr); }
+      .segmented.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .segmented label.seg { padding: 0.55rem 0.4rem; font-size: 0.78rem; }
+    }
+
+    /* ── RESULT PANEL ──────────────────────────────────────────── */
+    .calc-result {
+      position: sticky;
+      top: 96px;
+    }
+    @media (max-width: 960px) {
+      .calc-result { position: static; }
+    }
+
+    .result-card {
+      background: #0d1b2a;
+      border-top: 3px solid #2ee8d3;
+      padding: 2rem;
+      color: #ffffff;
+    }
+    .result-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #2ee8d3;
+      margin-bottom: 0.75rem;
+    }
+    .result-sku {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+      margin: 0.25rem 0 0.75rem;
+    }
+    .result-sku-label {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+    .result-cost-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .result-cost {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(46,232,211,0.15);
+      padding: 1rem;
+    }
+    .result-cost .k {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .result-cost .v {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .result-cost .v .cents { font-size: 0.85rem; color: #94a3b8; font-weight: 400; margin-left: 2px; }
+
+    .cu-util {
+      margin-top: 0.5rem;
+    }
+    .cu-util-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-bottom: 0.5rem;
+    }
+    .cu-util-label strong { color: #ffffff; font-weight: 600; }
+    .cu-util-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      position: relative;
+    }
+    .cu-util-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2ee8d3, #5eead4);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .cu-util-fill.warn { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+    .cu-util-fill.danger { background: linear-gradient(90deg, #ef4444, #dc2626); }
+
+    /* ── RED FLAGS ─────────────────────────────────────────────── */
+    .flags-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    .flags-header {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.75rem;
+      color: #0d1b2a;
+      margin: 0 0 0.25rem;
+    }
+    .flags-sub {
+      color: #64748b;
+      margin: 0 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    .flags-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .flag-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-left: 3px solid #0f766e;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.2s ease;
+    }
+    .flag-card.severity-high { border-left-color: #dc2626; }
+    .flag-card.severity-med  { border-left-color: #b45309; }
+    .flag-card.severity-info { border-left-color: #0f766e; }
+    .flag-title {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #0d1b2a;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .flag-title .sev-dot {
+      width: 7px; height: 7px;
+      background: #0f766e;
+      flex-shrink: 0;
+    }
+    .flag-card.severity-high .sev-dot { background: #dc2626; }
+    .flag-card.severity-med  .sev-dot { background: #b45309; }
+    .flag-body {
+      color: #334155;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .flag-body strong { color: #0d1b2a; }
+    .flags-empty {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      padding: 2rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* ── METHODOLOGY ───────────────────────────────────────────── */
+    .method-section {
+      background: #fafbfc;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 3rem 2rem;
+    }
+    .method-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .method-wrap details {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      padding: 0;
+    }
+    .method-wrap summary {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: #0d1b2a;
+      font-size: 1.05rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .method-wrap summary::-webkit-details-marker { display: none; }
+    .method-wrap summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #0f766e;
+      font-weight: 400;
+      transition: transform 0.2s ease;
+    }
+    .method-wrap details[open] summary::after { content: '−'; }
+    .method-wrap .method-body {
+      padding: 0 1.5rem 1.5rem;
+      color: #334155;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .method-wrap .method-body p { margin: 0.75rem 0; }
+    .method-wrap .method-body ul { padding-left: 1.25rem; margin: 0.5rem 0 1rem; }
+    .method-wrap .method-body li { margin-bottom: 0.4rem; }
+    .method-wrap .method-body code {
+      background: #f1f5f9;
+      padding: 1px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85em;
+    }
+
+    /* ── CTA SECTION ───────────────────────────────────────────── */
+    .calc-cta-section {
+      background: #0d1b2a;
+      padding: 5rem 2rem;
+      text-align: center;
+      color: #ffffff;
+    }
+    .calc-cta-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      color: #ffffff;
+      max-width: 780px;
+      margin: 0 auto 1rem;
+      line-height: 1.2;
+    }
+    .calc-cta-section h2 .accent { color: #2ee8d3; }
+    .calc-cta-section p {
+      color: #94a3b8;
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .calc-cta-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .calc-cta-row .btn-primary {
+      background: #2ee8d3;
+      color: #0d1b2a;
+      border: 1px solid #2ee8d3;
+      font-weight: 700;
+    }
+    .calc-cta-row .btn-primary:hover {
+      background: #5eead4;
+      border-color: #5eead4;
+    }
+    .calc-cta-row .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .calc-cta-row .btn-secondary:hover {
+      border-color: #2ee8d3;
+      color: #2ee8d3;
+    }
+
+    /* ── DISCLAIMER ────────────────────────────────────────────── */
+    .disclaimer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────────── */
+    @keyframes result-pulse {
+      0% { opacity: 0.6; transform: translateY(4px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .result-card.recalculating .result-sku,
+    .result-card.recalculating .result-cost .v,
+    .result-card.recalculating .cu-util-label strong {
+      animation: result-pulse 0.35s ease-out;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Fabric Capacity Calculator",
+    "url": "https://www.thepowermates.com/fabric-capacity-calculator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free Microsoft Fabric capacity calculator. Estimate the right F-SKU for your tenant based on data volume, concurrent users, refresh cadence, Copilot usage, and mirroring workloads.",
+    "provider": {
+      "@type": "Organization",
+      "name": "The Power Mates",
+      "url": "https://www.thepowermates.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.thepowermates.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.thepowermates.com/fabric-capacity-calculator" },
+      { "@type": "ListItem", "position": 3, "name": "Fabric Capacity Calculator", "item": "https://www.thepowermates.com/fabric-capacity-calculator" }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5LH45QCFC"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P5LH45QCFC');</script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="/" class="logo"><span>POWER</span> <span>MATES</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li>
+        <a href="/services" class="nav-dropdown-trigger">Services</a>
+        <div class="nav-dropdown">
+          <a href="/tenant-scan">Tenant Scan <span class="dropdown-price">from $2,500</span></a>
+          <a href="/fabric-architecture-accelerator">Architecture Accelerator <span class="dropdown-price">$15,000</span></a>
+          <a href="/semantic-model-audit">Semantic Model Audit <span class="dropdown-price">$2,500</span></a>
+          <a href="/realtime-analytics-accelerator">Real-Time Analytics <span class="dropdown-price">$8,000</span></a>
+          <a href="/migration-playbook">Migration Playbook <span class="dropdown-price">$12,000</span></a>
+          <a href="/spark-optimization">Spark Optimization <span class="dropdown-price">$3,500</span></a>
+          <a href="/pipeline-health-check">Pipeline Health Check <span class="dropdown-price">$4,000</span></a>
+          <a href="/iq-mcp-integration">IQ MCP Integration <span class="dropdown-price">$18,000</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/services">View All Services &rarr;</a>
+        </div>
+      </li>
+      <li>
+        <a class="nav-dropdown-trigger">Bundles</a>
+        <div class="nav-dropdown">
+          <a href="/bi-performance-pack">BI Performance Pack <span class="dropdown-price">$9,500</span></a>
+          <a href="/data-engineering-pack">Data Engineering Pack <span class="dropdown-price">$6,500</span></a>
+          <a href="/governance-performance">Governance + Performance <span class="dropdown-price">$14,000</span></a>
+          <a href="/migration-governance">Migration + Governance <span class="dropdown-price">$23,500</span></a>
+          <a href="/architecture-realtime">Architecture + Real-Time <span class="dropdown-price">$22,000</span></a>
+          <a href="/full-data-platform-audit">Full Data Platform Audit <span class="dropdown-price">$21,500</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/enterprise-transformation">Enterprise Transformation &mdash; All 8 <span class="dropdown-price">$63,000</span></a>
+          <div class="dropdown-divider"></div>
+          <a href="/pricing">Compare All Pricing &rarr;</a>
+        </div>
+      </li>
+      <li><a href="/fabric-capacity-calculator" class="active">Tools</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog/">Insights</a></li>
+      <li><a href="https://www.youtube.com/@PowerMatesMS" target="_blank" rel="noopener">Content</a></li>
+    </ul>
+    <a href="/#schedule" class="nav-cta">Book a call &rarr;</a>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span>Tools<span>/</span>Fabric Capacity Calculator
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="calc-hero">
+    <div class="badge">Free Tool · No Email Required</div>
+    <h1>Most tenants buy the <span class="accent">wrong Fabric SKU.</span><br/>Find out if yours is one of them.</h1>
+    <p class="lede">Answer five questions. See the F-SKU that actually fits your workload, what it should cost per month, and the red flags most vendors won't mention until after you've signed.</p>
+    <div class="meta">Built by <strong>Dual Microsoft MVPs</strong> — Data Platform &amp; AI</div>
+  </section>
+
+  <!-- ── CALCULATOR ── -->
+  <section class="calc-shell">
+    <form class="calc-inputs" id="calc-form" autocomplete="off" novalidate>
+      <h2>Your workload</h2>
+      <p class="sub">Rule-of-thumb sizing. For a precise model, we run it in Tenant Scan.</p>
+
+      <!-- DATA VOLUME -->
+      <div class="field-group">
+        <label class="field-label" for="vol-under100">Data volume</label>
+        <div class="hint">Total size of your Lakehouses, Warehouses, and semantic models combined.</div>
+        <div class="segmented cols-4" role="radiogroup" aria-label="Data volume">
+          <input type="radio" name="volume" id="vol-under100" value="under100" checked>
+          <label for="vol-under100" class="seg">&lt; 100 GB</label>
+          <input type="radio" name="volume" id="vol-1tb" value="1tb">
+          <label for="vol-1tb" class="seg">100 GB &ndash; 1 TB</label>
+          <input type="radio" name="volume" id="vol-10tb" value="10tb">
+          <label for="vol-10tb" class="seg">1 &ndash; 10 TB</label>
+          <input type="radio" name="volume" id="vol-over10" value="over10">
+          <label for="vol-over10" class="seg">10 TB+</label>
+        </div>
+      </div>
+
+      <!-- CONCURRENT USERS -->
+      <div class="field-group">
+        <label class="field-label" for="usr-25">Concurrent users (peak)</label>
+        <div class="hint">People running reports/dashboards at the same time during your busiest hour.</div>
+        <div class="segmented cols-4" role="radiogroup" aria-label="Concurrent users">
+          <input type="radio" name="users" id="usr-25" value="under25" checked>
+          <label for="usr-25" class="seg">&lt; 25</label>
+          <input type="radio" name="users" id="usr-100" value="25to100">
+          <label for="usr-100" class="seg">25 &ndash; 100</label>
+          <input type="radio" name="users" id="usr-500" value="100to500">
+          <label for="usr-500" class="seg">100 &ndash; 500</label>
+          <input type="radio" name="users" id="usr-over500" value="over500">
+          <label for="usr-over500" class="seg">500+</label>
+        </div>
+      </div>
+
+      <!-- REFRESH CADENCE -->
+      <div class="field-group">
+        <label class="field-label" for="ref-daily">Refresh cadence</label>
+        <div class="hint">How often your heaviest pipelines and semantic models refresh.</div>
+        <div class="segmented cols-3" role="radiogroup" aria-label="Refresh cadence">
+          <input type="radio" name="refresh" id="ref-daily" value="daily" checked>
+          <label for="ref-daily" class="seg">Daily</label>
+          <input type="radio" name="refresh" id="ref-hourly" value="hourly">
+          <label for="ref-hourly" class="seg">Hourly</label>
+          <input type="radio" name="refresh" id="ref-stream" value="streaming">
+          <label for="ref-stream" class="seg">Sub-hourly / streaming</label>
+        </div>
+      </div>
+
+      <!-- COPILOT -->
+      <div class="field-group">
+        <label class="field-label" for="cop-none">Copilot &amp; AI workloads</label>
+        <div class="hint">Power BI Copilot, Data Agents, AI Skill. Forces an F64 floor when enabled.</div>
+        <div class="segmented cols-3" role="radiogroup" aria-label="Copilot usage">
+          <input type="radio" name="copilot" id="cop-none" value="none" checked>
+          <label for="cop-none" class="seg">None</label>
+          <input type="radio" name="copilot" id="cop-light" value="light">
+          <label for="cop-light" class="seg">Light / pilot</label>
+          <input type="radio" name="copilot" id="cop-heavy" value="heavy">
+          <label for="cop-heavy" class="seg">Production</label>
+        </div>
+      </div>
+
+      <!-- MIRRORING -->
+      <div class="field-group">
+        <label class="field-label" for="mir-none">Mirroring (Snowflake, Azure SQL, Cosmos DB)</label>
+        <div class="hint">Free to run but still consumes CUs on landing queries and replica reads.</div>
+        <div class="segmented cols-3" role="radiogroup" aria-label="Mirroring sources">
+          <input type="radio" name="mirroring" id="mir-none" value="none" checked>
+          <label for="mir-none" class="seg">None</label>
+          <input type="radio" name="mirroring" id="mir-one" value="one">
+          <label for="mir-one" class="seg">1 source</label>
+          <input type="radio" name="mirroring" id="mir-multi" value="multi">
+          <label for="mir-multi" class="seg">2+ sources</label>
+        </div>
+      </div>
+    </form>
+
+    <aside class="calc-result" aria-live="polite">
+      <div class="result-card" id="result-card">
+        <div class="result-eyebrow">Recommended SKU</div>
+        <div class="result-sku" id="r-sku">F2</div>
+        <div class="result-sku-label" id="r-sku-label">Fits most small tenants. Room to grow before you need to step up.</div>
+
+        <div class="result-cost-grid">
+          <div class="result-cost">
+            <div class="k">Pay-as-you-go</div>
+            <div class="v">$<span id="r-monthly">263</span><span class="cents">/mo</span></div>
+          </div>
+          <div class="result-cost">
+            <div class="k">Reserved (1 yr)</div>
+            <div class="v">$<span id="r-annual">2,239</span><span class="cents">/yr</span></div>
+          </div>
+        </div>
+
+        <div class="cu-util">
+          <div class="cu-util-label">
+            <span>Estimated CU demand</span>
+            <span><strong id="r-cu-used">1.2</strong> / <span id="r-cu-total">2</span> CU</span>
+          </div>
+          <div class="cu-util-bar">
+            <div class="cu-util-fill" id="r-cu-fill" style="width:60%;"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ── RED FLAGS ── -->
+  <section class="flags-section">
+    <h2 class="flags-header">Red flags in your sizing</h2>
+    <p class="flags-sub">Things most vendors won't flag until your bill shows up. Updates live as you change inputs.</p>
+    <div id="flags-grid" class="flags-grid">
+      <!-- Flag cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- ── METHODOLOGY ── -->
+  <section class="method-section">
+    <div class="method-wrap">
+      <details>
+        <summary>How we calculate this (and what we're not modeling)</summary>
+        <div class="method-body">
+          <p><strong>This is a rule-of-thumb sizing tool, not a Microsoft-endorsed calculator.</strong> We built it because every prospect asks the same question and no one wants to run the Microsoft capacity calculator themselves.</p>
+          <p>The CU demand estimate adds up:</p>
+          <ul>
+            <li><code>data volume CU</code> — ranges from 2 (under 100 GB) to 60 (10 TB+)</li>
+            <li><code>user CU</code> — ranges from 1 (&lt; 25) to 32 (500+)</li>
+            <li>Multiplied by a <code>refresh cadence</code> factor (1.0 daily, 1.6 hourly, 2.4 streaming)</li>
+            <li>Plus <code>Copilot CU</code> (0 / 8 / 24) and <code>mirroring CU</code> (0 / 3 / 8)</li>
+          </ul>
+          <p>We then apply a 20% safety buffer, match the result to the smallest Fabric SKU that covers it, and apply an <strong>F64 floor</strong> whenever Copilot is enabled (because Power BI Copilot requires F64+).</p>
+          <p><strong>What we're not modeling:</strong> Direct Lake vs Import mix, semantic model size per workspace, query complexity, Spark pool cold-starts, Eventhouse ingestion throughput, and cross-region egress. All of these matter — which is why the tool gives you a range, not a guarantee, and why we built <a href="/tenant-scan" style="color:#0f766e;font-weight:600;">Tenant Scan</a> to model them from your actual telemetry.</p>
+          <p>Prices are pay-as-you-go list prices in USD East US, April 2026. Reserved pricing assumes the standard 1-year commit (~29% off PAYG). Your actual negotiated rate may differ — Microsoft discounts are common above F128.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="calc-cta-section">
+    <h2>Want us to <span class="accent">audit whether you actually need that SKU?</span></h2>
+    <p>Your calculator result is an educated guess from five inputs. Tenant Scan is a 2-week deep scan of your real telemetry — workspace sprawl, refresh patterns, query hot spots, Copilot readiness. We tell you the SKU Microsoft won't, and the optimizations that pay for the audit ten times over.</p>
+    <div class="calc-cta-row">
+      <a href="/#schedule" class="btn-primary">Book a 20-min call →</a>
+      <a href="/tenant-scan" class="btn-secondary">See what Tenant Scan uncovers →</a>
+    </div>
+  </section>
+
+  <p class="disclaimer">Estimates are directional and based on published Microsoft SKU pricing as of April 2026. Final sizing should be validated against your actual Fabric telemetry. The Power Mates is a Microsoft partner and Dual MVP consultancy — not affiliated with or endorsed by Microsoft.</p>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">POWER <span>MATES</span></div>
+        <p class="footer-tagline">Microsoft Fabric &amp; Power Platform consultancy. Dual MVP-led. Built for tenants that refuse to guess.</p>
+        <div class="footer-credential">Dual Microsoft MVP · Data Platform &amp; AI</div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="/tenant-scan">Tenant Scan</a>
+        <a href="/fabric-architecture-accelerator">Architecture Accelerator</a>
+        <a href="/semantic-model-audit">Semantic Model Audit</a>
+        <a href="/pricing">All Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="/fabric-capacity-calculator">Fabric Capacity Calculator</a>
+        <a href="/tenant-scan-dashboard/">Sample Tenant Scan Dashboard</a>
+        <a href="/blog/">Insights</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/about">About</a>
+        <a href="/#schedule">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Power Mates. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="/nav.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FABRIC CAPACITY CALCULATOR — logic
+       ═══════════════════════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ── SKU catalog ────────────────────────────────────────────
+    // Prices: Microsoft list PAYG, USD East US, April 2026.
+    // Reserved is ~29% off (standard 1-yr commit).
+    const SKUS = [
+      { name: 'F2',    cu: 2,    monthly: 263     },
+      { name: 'F4',    cu: 4,    monthly: 526     },
+      { name: 'F8',    cu: 8,    monthly: 1051    },
+      { name: 'F16',   cu: 16,   monthly: 2102    },
+      { name: 'F32',   cu: 32,   monthly: 4204    },
+      { name: 'F64',   cu: 64,   monthly: 8409    },
+      { name: 'F128',  cu: 128,  monthly: 16818   },
+      { name: 'F256',  cu: 256,  monthly: 33636   },
+      { name: 'F512',  cu: 512,  monthly: 67273   },
+      { name: 'F1024', cu: 1024, monthly: 134546  },
+      { name: 'F2048', cu: 2048, monthly: 269091  }
+    ];
+    const RESERVED_DISCOUNT = 0.29; // ~29% off PAYG on 1-yr reserved
+
+    const SKU_LABELS = {
+      'F2':    'Fits most small tenants. Room to grow before you need to step up.',
+      'F4':    'Entry-tier. Good for small analytics teams without heavy refresh.',
+      'F8':    'Mid-small. Fine until you add Copilot or cross-100 concurrent users.',
+      'F16':   'Common starter for mid-market. Watch refresh cadence carefully.',
+      'F32':   'Mid-market workhorse. Sweet spot for 100+ user orgs without Copilot.',
+      'F64':   'The Copilot line. Unlocks Power BI Copilot + Free viewer licenses.',
+      'F128':  'Enterprise tier. Negotiate reserved pricing — list is rarely the price.',
+      'F256':  'Large enterprise. Multi-workspace, heavy refresh, full Copilot rollout.',
+      'F512':  'Very large tenant. Often over-provisioned — most F512 buyers could be on F256 with optimization.',
+      'F1024': 'Global enterprise scale. Expect Microsoft discount negotiation.',
+      'F2048': 'Mega-tenant. At this tier, Tenant Scan typically finds 25-40% waste.'
+    };
+
+    // ── Input → CU scoring ─────────────────────────────────────
+    const VOLUME_CU   = { under100: 1,    '1tb': 6,     '10tb': 20,     'over10': 60 };
+    const USER_CU     = { under25: 0.5,   '25to100': 4, '100to500': 12, 'over500': 32 };
+    const REFRESH_MUL = { daily: 1.0,     hourly: 1.6,  streaming: 2.4 };
+    const COPILOT_CU  = { none: 0,        light: 8,     heavy: 24 };
+    const MIRROR_CU   = { none: 0,        one: 3,       multi: 8 };
+
+    const SAFETY_BUFFER = 1.2;
+
+    function readInputs() {
+      const get = (n) => document.querySelector(`input[name="${n}"]:checked`).value;
+      return {
+        volume:    get('volume'),
+        users:     get('users'),
+        refresh:   get('refresh'),
+        copilot:   get('copilot'),
+        mirroring: get('mirroring')
+      };
+    }
+
+    function computeCu(inputs) {
+      const base     = VOLUME_CU[inputs.volume] + USER_CU[inputs.users];
+      const withRef  = base * REFRESH_MUL[inputs.refresh];
+      const copilot  = COPILOT_CU[inputs.copilot];
+      const mirror   = MIRROR_CU[inputs.mirroring];
+      return withRef + copilot + mirror;
+    }
+
+    function pickSku(cuDemand, inputs) {
+      const target = cuDemand * SAFETY_BUFFER;
+      // Copilot enabled → force F64 floor
+      const copilotFloor = inputs.copilot !== 'none';
+      const minSkuIndex = copilotFloor
+        ? SKUS.findIndex(s => s.name === 'F64')
+        : 0;
+      for (let i = Math.max(0, minSkuIndex); i < SKUS.length; i++) {
+        if (SKUS[i].cu >= target) return SKUS[i];
+      }
+      return SKUS[SKUS.length - 1];
+    }
+
+    function generateFlags(inputs, cuDemand, sku) {
+      const flags = [];
+
+      // Copilot floor override
+      if (inputs.copilot !== 'none') {
+        const rawSku = (function() {
+          const target = cuDemand * SAFETY_BUFFER;
+          for (let i = 0; i < SKUS.length; i++) if (SKUS[i].cu >= target) return SKUS[i];
+          return SKUS[SKUS.length - 1];
+        })();
+        if (rawSku.cu < 64) {
+          flags.push({
+            severity: 'high',
+            title: 'Copilot forces an F64 floor',
+            body: `Your raw workload only needs <strong>${rawSku.name}</strong>, but Power BI Copilot requires <strong>F64+</strong>. You're effectively paying <strong>${Math.round((sku.monthly - rawSku.monthly) / rawSku.monthly * 100)}% more</strong> for a feature most vendors fold into the quote without explaining.`
+          });
+        }
+      }
+
+      // Heavy refresh on large data
+      if (inputs.refresh !== 'daily' && (inputs.volume === '10tb' || inputs.volume === 'over10')) {
+        flags.push({
+          severity: 'high',
+          title: `${inputs.refresh === 'streaming' ? 'Streaming' : 'Hourly'} refresh on multi-TB data`,
+          body: 'Refresh frequency is typically <strong>40&ndash;70% of your total CU consumption</strong> at this volume. Incremental refresh, Direct Lake, or a mirrored pattern almost always cuts the SKU by one tier. Ask us before you commit.'
+        });
+      }
+
+      // 500+ users without thinking through licensing
+      if (inputs.users === 'over500') {
+        flags.push({
+          severity: 'med',
+          title: '500+ concurrent users — licensing is where money is made or lost',
+          body: 'At F64+ you get unlimited <strong>Power BI Free viewers</strong>. If you&rsquo;re still on per-user Pro licenses at this scale, you&rsquo;re overpaying by <strong>$10&ndash;$100 per user per month</strong>. We find this in ~60% of audits.'
+        });
+      }
+
+      // Heavy Copilot without planning
+      if (inputs.copilot === 'heavy') {
+        flags.push({
+          severity: 'med',
+          title: 'Production Copilot needs an AI-unit budget',
+          body: 'Copilot consumption is <strong>bursty</strong>. A single user asking 20 questions in a row can push you over your CU ceiling and into throttling. We model AI-unit burst patterns in Tenant Scan — it&rsquo;s the difference between a happy rollout and a furious CFO.'
+        });
+      }
+
+      // Large bill = audit-worthy
+      if (sku.monthly >= 16818) {
+        flags.push({
+          severity: 'info',
+          title: `$${(sku.monthly * 12).toLocaleString()}/yr is audit territory`,
+          body: `At this capacity, we typically uncover <strong>20&ndash;35% waste</strong> &mdash; that&rsquo;s ${'$' + Math.round(sku.monthly * 12 * 0.25).toLocaleString()}/yr back to your budget. Tenant Scan pays for itself on day one.`
+        });
+      }
+
+      // Mirroring on without governance
+      if (inputs.mirroring === 'multi') {
+        flags.push({
+          severity: 'info',
+          title: 'Multi-source mirroring looks free, isn\u2019t',
+          body: 'Mirroring ingestion is free; the replica reads, transforms, and cross-source joins are not. Budget for <strong>8&ndash;15 additional CUs</strong> per active mirrored source under real workloads.'
+        });
+      }
+
+      // Streaming without RTI
+      if (inputs.refresh === 'streaming') {
+        flags.push({
+          severity: 'info',
+          title: 'Streaming refresh &mdash; check Real-Time Intelligence fit',
+          body: 'If your streaming need is actually observability, telemetry, or IoT, <strong>Eventhouse + KQL</strong> is 3&ndash;5&times; cheaper than spinning up a general-purpose capacity for it. Ask.'
+        });
+      }
+
+      // Everything small
+      if (inputs.volume === 'under100' && inputs.users === 'under25' && inputs.copilot === 'none' && inputs.refresh === 'daily') {
+        flags.push({
+          severity: 'info',
+          title: 'You\u2019re in the &ldquo;small tenant&rdquo; sweet spot',
+          body: 'At this profile, F2 is genuinely enough. Watch out for vendors quoting F8 or F16 &ldquo;for headroom&rdquo; &mdash; at this volume that&rsquo;s 4&ndash;8&times; overpayment. <strong>Pause capacities nightly</strong> and you&rsquo;ll cut the bill another 60%.'
+        });
+      }
+
+      return flags;
+    }
+
+    // ── Render ────────────────────────────────────────────────
+    const elSku     = document.getElementById('r-sku');
+    const elLabel   = document.getElementById('r-sku-label');
+    const elMonthly = document.getElementById('r-monthly');
+    const elAnnual  = document.getElementById('r-annual');
+    const elCuUsed  = document.getElementById('r-cu-used');
+    const elCuTotal = document.getElementById('r-cu-total');
+    const elCuFill  = document.getElementById('r-cu-fill');
+    const elCard    = document.getElementById('result-card');
+    const elFlags   = document.getElementById('flags-grid');
+
+    function render() {
+      const inputs   = readInputs();
+      const cuDemand = computeCu(inputs);
+      const sku      = pickSku(cuDemand, inputs);
+      const flags    = generateFlags(inputs, cuDemand, sku);
+
+      // Bump result card for the "changed" pulse
+      elCard.classList.remove('recalculating');
+      // Force reflow then re-add
+      void elCard.offsetWidth;
+      elCard.classList.add('recalculating');
+
+      elSku.textContent     = sku.name;
+      elLabel.textContent   = SKU_LABELS[sku.name];
+      elMonthly.textContent = sku.monthly.toLocaleString();
+      const reserved = Math.round(sku.monthly * 12 * (1 - RESERVED_DISCOUNT));
+      elAnnual.textContent  = reserved.toLocaleString();
+      elCuUsed.textContent  = (Math.round(cuDemand * 10) / 10).toString();
+      elCuTotal.textContent = sku.cu.toString();
+
+      const utilPct = Math.min(100, Math.round((cuDemand / sku.cu) * 100));
+      elCuFill.style.width = utilPct + '%';
+      elCuFill.classList.remove('warn', 'danger');
+      if (utilPct > 85) elCuFill.classList.add('danger');
+      else if (utilPct > 65) elCuFill.classList.add('warn');
+
+      // Render flags
+      if (flags.length === 0) {
+        elFlags.innerHTML = '<div class="flags-empty">No red flags &mdash; your inputs describe a clean, well-sized workload. Nice.</div>';
+      } else {
+        elFlags.innerHTML = flags.map(f => `
+          <div class="flag-card severity-${f.severity}">
+            <div class="flag-title"><span class="sev-dot"></span>${f.title}</div>
+            <p class="flag-body">${f.body}</p>
+          </div>
+        `).join('');
+      }
+
+      // Analytics ping (fire-and-forget, no identifying info)
+      if (window.gtag) {
+        gtag('event', 'calculator_recalc', {
+          sku: sku.name,
+          cu_demand: Math.round(cuDemand),
+          volume: inputs.volume,
+          users: inputs.users,
+          refresh: inputs.refresh,
+          copilot: inputs.copilot,
+          mirroring: inputs.mirroring
+        });
+      }
+    }
+
+    // ── Wire up events ─────────────────────────────────────────
+    document.getElementById('calc-form').addEventListener('change', render);
+
+    // Initial render
+    render();
+  })();
+  </script>
+</body>
+</html>
