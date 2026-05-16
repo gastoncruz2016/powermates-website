@@ -97,6 +97,26 @@
       "rewrite": "/blog/two-types-of-power-bi-admins.html"
     },
     {
+      "route": "/blog/fabric-medallion-architecture-guide",
+      "rewrite": "/blog/fabric-medallion-architecture-guide.html"
+    },
+    {
+      "route": "/blog/fabcon-2026-recap",
+      "rewrite": "/blog/fabcon-2026-recap.html"
+    },
+    {
+      "route": "/blog/fabric-readiness-score-explained",
+      "rewrite": "/blog/fabric-readiness-score-explained.html"
+    },
+    {
+      "route": "/blog/fabric-vs-databricks",
+      "rewrite": "/blog/fabric-vs-databricks.html"
+    },
+    {
+      "route": "/blog/publish-to-web-risk",
+      "rewrite": "/blog/publish-to-web-risk.html"
+    },
+    {
       "route": "/services",
       "rewrite": "/services.html"
     },
