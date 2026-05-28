@@ -2336,10 +2336,12 @@ section + div::before { display: none; }
 .section-alt { background: var(--bg2); }
 .section-full { max-width: none; }
 .site-footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
+      background: #0d1b2a;
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding: 4rem 2rem 2rem;
     }
+.site-footer .logo-power { color: #ffffff; }
+.site-footer .logo-mates { color: #2ee8d3; }
 .site-nav {
       position: fixed;
       top: 0;
