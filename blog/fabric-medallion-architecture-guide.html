@@ -5,8 +5,8 @@
   <link rel="canonical" href="https://www.thepowermates.com/blog/fabric-medallion-architecture-guide">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <title>Medallion Architecture in Microsoft Fabric: Reduce Costs 50-70% & Eliminate Governance Chaos | PowerMates</title>
-  <meta name="description" content="Eliminate data fragmentation and governance chaos: Enterprise medallion architecture for 50+ team Fabric deployments with proven Slalom patterns and workspace isolation strategies." />
+  <title>Medallion Architecture in Microsoft Fabric: Reduce Costs 50-70%, Eliminate 30-40% Data Duplication | PowerMates</title>
+  <meta name="description" content="Enterprise medallion architecture reduces storage costs 50-70% and eliminates 30-40% data duplication across 50+ team Fabric deployments. Workspace isolation strategies proven at Fortune 500 scale." />
   <meta name="keywords" content="medallion architecture Microsoft Fabric, fabric lakehouse bronze silver gold, fabric medallion lakehouse, OneLake architecture, data lakehouse Fabric, fabric architecture guide" />
   <meta property="og:title" content="Medallion Architecture in Microsoft Fabric: The Complete Guide" />
   <meta property="og:description" content="Reduce storage costs 50-70% and eliminate governance delays: Enterprise medallion architecture from Slalom's Fortune 500 engagements—workspace isolation, OneLake patterns, and what breaks at scale." />
@@ -93,8 +93,8 @@
         <span class="blog-read-time">8 min read</span>
       </div>
     </div>
-    <h1>Enterprise Medallion Architecture: Reduce Storage Costs 50-70% and Scale Across Teams</h1>
-    <p class="blog-post-subtitle">Most medallion implementations fail at workspace isolation. Here's how to architect for 50+ teams without query performance collapse—what Slalom actually builds at Fortune 500 scale.</p>
+    <h1>Enterprise Medallion Architecture: Reduce Storage Costs 50-70% and Eliminate 30-40% Data Duplication</h1>
+    <p class="blog-post-subtitle">Workspace isolation eliminates the 30-40% storage duplication that breaks most medallion implementations. Here's how to architect for 50+ teams without query performance collapse—proven patterns from Slalom's Fortune 500 engagements.</p>
     <div class="blog-post-author">
       <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-author-img" loading="lazy" width="48" height="48" />
       <div>
@@ -106,7 +106,7 @@
 
   <div class="blog-post-body">
 
-    <p>Medallion architecture is the most common pattern we implement for enterprise Fabric deployments. But most of what's written about it stops at the concept level: ingest raw data into Bronze, clean it in Silver, aggregate it in Gold. That's true, but it's not useful.</p>
+    <p>Most medallion guides stop at Bronze/Silver/Gold. But enterprise implementations fail at workspace isolation—adding 30-40% storage duplication and doubling governance delays. This guide covers what actually breaks at scale and how to fix it.</p>
 
     <p>What's missing is the nuance — how to structure lakehouses, when to use shortcuts vs. pipelines, how Delta handles schema evolution, and what breaks when you have 50 teams writing to the same lakehouse. That's what this guide covers.</p>
 
