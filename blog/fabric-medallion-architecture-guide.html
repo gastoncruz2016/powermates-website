@@ -106,7 +106,7 @@
 
   <div class="blog-post-body">
 
-    <p>Most medallion guides stop at Bronze/Silver/Gold. But enterprise implementations fail at workspace isolation—adding 30-40% storage duplication and doubling governance delays. This guide covers what actually breaks at scale and how to fix it.</p>
+    <p>Most medallion guides stop at Bronze/Silver/Gold. But enterprise implementations fail at workspace isolation—adding 30-40% storage duplication and extending governance audit cycles by 2-3x. This guide covers what actually breaks at scale and how to fix it.</p>
 
     <p>What's missing is the nuance — how to structure lakehouses, when to use shortcuts vs. pipelines, how Delta handles schema evolution, and what breaks when you have 50 teams writing to the same lakehouse. That's what this guide covers.</p>
 
@@ -165,7 +165,7 @@
 
     <p>One important decision: managed tables vs. unmanaged (external) tables in your lakehouse. Managed tables live under the <code>Tables/</code> path and are fully controlled by Fabric — easy to work with, show up in the SQL analytics endpoint automatically. External tables point to files in <code>Files/</code> or in external storage. We use managed tables for Gold (final serving layer, well-defined schema) and external tables for Bronze (preserving raw files exactly as received).</p>
 
-    <h2>Ingestion Patterns for Bronze</h2>
+    <h2>Bronze Layer: Landing Patterns for Raw Data Ingestion at Scale</h2>
 
     <p>Bronze should be append-only whenever possible. You're creating an audit trail. If a source system sends bad data, you still want the bad data in Bronze — so you can debug the Silver transformation logic later.</p>
 
@@ -180,7 +180,7 @@
 
     <p>Add metadata to every Bronze table: <code>ingested_at</code> timestamp, <code>source_system</code> string, <code>batch_id</code> for traceability. This costs almost nothing but saves enormous debugging time.</p>
 
-    <h2>Silver: Where Real Engineering Happens</h2>
+    <h2>Silver Layer: Data Quality Transformation at Enterprise Scale</h2>
 
     <p>Silver is where most of the engineering work lives. You're going from "raw data that arrived" to "data we can trust."</p>
 
@@ -196,7 +196,7 @@
 
     <p>Organize Silver notebooks into reusable patterns. We use a base transform class that handles logging, error quarantine, and Delta MERGE boilerplate — domain-specific notebooks just define the transformation logic. This pays off enormously when you have 50+ Silver tables to maintain.</p>
 
-    <h2>Gold: Purpose-Built for Consumers</h2>
+    <h2>Gold Layer: Domain-Specific Analytics for Self-Service Discovery</h2>
 
     <p>Gold layers are not generic. Each Gold table exists for a specific consumer: a Power BI semantic model, an ML feature store, an operational API. Optimize accordingly.</p>
 
@@ -221,7 +221,7 @@
       <li><strong>No monitoring on pipelines</strong> — Notebooks and pipelines fail silently. By the time someone notices a report is stale, the pipeline has been failing for a week. Use Fabric's built-in monitoring + alerts, or wire failures to a Slack/Teams channel via Power Automate.</li>
     </ul>
 
-    <h2>Where to Start</h2>
+    <h2>Phase 1: Building Your Central Bronze and Silver Foundation</h2>
 
     <p>If you're building a Fabric medallion architecture from scratch, start with a single domain — not the whole enterprise. Pick one business process with a clear consumer (a report, a dashboard, an application). Build Bronze → Silver → Gold for that domain. Get it working, monitored, and trusted. Then expand.</p>
 
