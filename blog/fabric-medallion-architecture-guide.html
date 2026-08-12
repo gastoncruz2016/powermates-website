@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <title>Medallion Architecture for Enterprise Fabric: Cut Storage Costs 50-70%, Accelerate Governance 2-3x | PowerMates</title>
-  <meta name="description" content="Cut storage costs 50-70% and accelerate governance cycles 2-3x with enterprise medallion architecture. Workspace isolation patterns eliminate data duplication across 50+ teams—proven at Fortune 500 scale." />
+  <meta name="description" content="Reduce storage costs 50-70% and governance cycles 2-3x with workspace isolation patterns. Eliminates 30-40% duplication across 50+ teams. Proven at Fortune 500 scale." />
   <meta name="keywords" content="medallion architecture Microsoft Fabric, fabric lakehouse bronze silver gold, fabric medallion lakehouse, OneLake architecture, data lakehouse Fabric, fabric architecture guide" />
   <meta property="og:title" content="Medallion Architecture in Microsoft Fabric: The Complete Guide" />
   <meta property="og:description" content="Reduce storage costs 50-70% and eliminate governance delays: Enterprise medallion architecture from Slalom's Fortune 500 engagements—workspace isolation, OneLake patterns, and what breaks at scale." />
@@ -95,7 +95,7 @@
         <span class="blog-read-time">8 min read</span>
       </div>
     </div>
-    <h1>Enterprise Medallion Architecture: Cut Storage Costs 50-70%, Accelerate Governance 2-3x, Eliminate Data Duplication</h1>
+    <h1>Reduce Storage Costs 50-70% & Governance Cycles 2-3x: Workspace Isolation Eliminates 30-40% Data Duplication</h1>
     <p class="blog-post-subtitle">Workspace isolation eliminates the 30-40% storage duplication that breaks most medallion implementations. Here's how to architect for 50+ teams without query performance collapse—proven patterns from Slalom's Fortune 500 engagements.</p>
     <div class="blog-post-author">
       <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-author-img" loading="lazy" width="48" height="48" />
@@ -126,7 +126,7 @@
 
     <h2>Workspace Design: Central Isolation Prevents 30-40% Storage Duplication</h2>
 
-    <p>This is the first decision most teams get wrong. The common mistake is creating one workspace per team or department, then trying to share data across workspaces via exports—a pattern that typically increases storage costs 30-40% and lengthens governance audits 2-3x. The result: data duplication, consistency problems, and no single source of truth.</p>
+    <p>Most teams get this wrong: one workspace per team increases storage costs 30-40%, lengthens governance audits 2-3x, and breaks data consistency. Centralized Bronze/Silver with workspace-isolated Gold layers prevents this.</p>
 
     <p>The pattern we use at enterprise scale:</p>
 
@@ -136,7 +136,7 @@
       <li><strong>Development/Staging workspaces</strong> — Mirror of production for testing. Git-integrated for Fabric items via deployment pipelines.</li>
     </ul>
 
-    <p>This architecture centralizes governance (single Bronze/Silver source of truth) while enabling team velocity (autonomous Gold layers per domain). Result: 2-3x faster governance cycles and no central team bottlenecks.</p>
+    <p>This architecture delivers 2-3x faster governance cycles and eliminates central bottlenecks: centralized governance (single Bronze/Silver source of truth) paired with workspace-isolated Gold layers for team autonomy.</p>
 
     <h2>OneLake Shortcuts: Reduce Storage Costs 50-70% Without Copying Data</h2>
 
