@@ -110,7 +110,7 @@
 
     <p>Enterprise medallion implementations fail without workspace isolation: 30-40% storage cost increases and 2-3x longer governance cycles. This guide covers what breaks at scale and how to architect correctly.</p>
 
-    <p>What's missing is the nuance — how to structure lakehouses, when to use shortcuts vs. pipelines, how Delta handles schema evolution, and what breaks when you have 50 teams writing to the same lakehouse. That's what this guide covers.</p>
+    <p>Here's what determines success at 50+ teams: workspace isolation prevents schema conflicts in shared Bronze/Silver, OneLake Shortcuts replace data copying, and Delta Lake preserves schema evolution without breaking downstream analytics.</p>
 
     <h2>What Medallion Architecture Actually Is</h2>
 
@@ -126,7 +126,7 @@
 
     <h2>Workspace Design: Central Isolation Prevents 30-40% Storage Duplication</h2>
 
-    <p>Most teams get this wrong: one workspace per team increases storage costs 30-40%, lengthens governance audits 2-3x, and breaks data consistency. Centralized Bronze/Silver with workspace-isolated Gold layers prevents this.</p>
+    <p>At scale, one workspace per team increases storage costs 30-40%, lengthens governance audits 2-3x, and breaks data consistency. Centralized Bronze/Silver with workspace-isolated Gold layers prevents this. Centralized Bronze/Silver with workspace-isolated Gold layers prevents this.</p>
 
     <p>The pattern we use at enterprise scale:</p>
 
@@ -211,7 +211,7 @@
       <li><strong>Aggregated summary tables</strong> — Weekly/monthly rollups for executive reporting. Materialized in Gold rather than computed at query time — much faster for large tenants.</li>
     </ul>
 
-    <h2>The 3 Design Patterns That Fail at 50+ Workspaces</h2>
+    <h2>3 Design Patterns That Break at Scale—And Increase Costs 30-40%</h2>
 
     <p>After implementing this pattern across retail, banking, oil &amp; gas, and media organizations, here's what breaks:</p>
 
@@ -223,7 +223,7 @@
       <li><strong>No monitoring on pipelines</strong> — Notebooks and pipelines fail silently. By the time someone notices a report is stale, the pipeline has been failing for a week. Use Fabric's built-in monitoring + alerts, or wire failures to a Slack/Teams channel via Power Automate.</li>
     </ul>
 
-    <h2>Where to Start</h2>
+    <h2>Where to Start: Centralize Bronze/Silver, Isolate Gold Layers</h2>
 
     <p>If you're building a Fabric medallion architecture from scratch, start with a single domain — not the whole enterprise. Pick one business process with a clear consumer (a report, a dashboard, an application). Build Bronze → Silver → Gold for that domain. Get it working, monitored, and trusted. Then expand.</p>
 
