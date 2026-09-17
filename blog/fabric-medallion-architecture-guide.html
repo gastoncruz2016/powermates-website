@@ -108,9 +108,9 @@
 
   <div class="blog-post-body">
 
-    <p>Enterprise medallion implementations fail without workspace isolation: 30-40% storage cost increases and 2-3x longer governance cycles. This guide covers what breaks at scale and how to architect correctly.</p>
+    <p>Enterprise medallion implementations fail without workspace isolation—creating 30-40% storage cost increases and 2-3x longer governance cycles. This guide shows what breaks at scale and how to architect for half the cost and timelines.</p>
 
-    <p>Here's what determines success at 50+ teams: workspace isolation prevents schema conflicts in shared Bronze/Silver, OneLake Shortcuts replace data copying, and Delta Lake preserves schema evolution without breaking downstream analytics.</p>
+    <p>Three decisions determine success at 50+ teams: workspace isolation prevents schema conflicts in shared Bronze/Silver, OneLake Shortcuts cut storage costs 50-70% by replacing data copying, and Delta Lake preserves schema evolution without breaking downstream analytics.</p>
 
     <h2>What Medallion Architecture Actually Is</h2>
 
@@ -126,7 +126,7 @@
 
     <h2>Workspace Design: Central Isolation Prevents 30-40% Storage Duplication</h2>
 
-    <p>At scale, one workspace per team increases storage costs 30-40%, lengthens governance audits 2-3x, and breaks data consistency. Centralized Bronze/Silver with workspace-isolated Gold layers prevents this. Centralized Bronze/Silver with workspace-isolated Gold layers prevents this.</p>
+    <p>At scale, one workspace per team increases storage costs 30-40%, lengthens governance audits 2-3x, and breaks data consistency. Centralized Bronze/Silver with workspace-isolated Gold layers reverses all three without sacrificing team autonomy.</p>
 
     <p>The pattern we use at enterprise scale:</p>
 
@@ -247,7 +247,7 @@
 <!-- ============ CTA ============ -->
 <section class="cta-section">
   <div class="reveal">
-    <h2>Need a Fabric Architecture Built the Right Way?</h2>
+    <h2>Ready to Cut Storage Costs 50%+ and Compress Governance Timelines?</h2>
     <p>We design your medallion lakehouse architecture in a day — Bronze to Gold, with your actual data sources, reporting requirements, and governance constraints baked in from the start.</p>
     <a href="/fabric-architecture-accelerator" class="btn-primary">See the Architecture Accelerator &rarr;</a>
   </div>
