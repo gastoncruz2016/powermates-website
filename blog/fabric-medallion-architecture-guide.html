@@ -108,7 +108,7 @@
 
   <div class="blog-post-body">
 
-    <p>Enterprise medallion implementations fail without workspace isolation—creating 30-40% storage cost increases and 2-3x longer governance cycles. This guide shows what breaks at scale and how to architect for half the cost and timelines.</p>
+    <p>Enterprise medallion implementations fail without workspace isolation—creating 30-40% storage cost increases and 2-3x longer governance cycles. This guide shows what breaks at scale and how to architect for 50-70% cost reductions and 2-3x faster governance cycles.</p>
 
     <p>Three decisions determine success at 50+ teams: workspace isolation prevents schema conflicts in shared Bronze/Silver, OneLake Shortcuts cut storage costs 50-70% by replacing data copying, and Delta Lake preserves schema evolution without breaking downstream analytics.</p>
 
@@ -140,7 +140,7 @@
 
     <h2>OneLake Shortcuts: Reduce Storage Costs 50-70% Without Copying Data</h2>
 
-    <p>OneLake Shortcuts eliminate data duplication across lakehouses—reducing storage costs 50-70% while cutting ETL pipeline complexity. Reference data in another lakehouse, storage account, or external source like S3 or ADLS Gen2 without copying it; Fabric reads it as if it's local.</p>
+    <p>OneLake Shortcuts eliminate data duplication across lakehouses—reducing storage costs 50-70% by replacing data copying with virtual references. Reference data in another lakehouse, storage account, or external source like S3 or ADLS Gen2 without copying it; Fabric reads it as if it's local.</p>
 
     <p>This changes the medallion pattern significantly:</p>
 
@@ -167,7 +167,7 @@
 
     <p>One important decision: managed tables vs. unmanaged (external) tables in your lakehouse. Managed tables live under the <code>Tables/</code> path and are fully controlled by Fabric — easy to work with, show up in the SQL analytics endpoint automatically. External tables point to files in <code>Files/</code> or in external storage. We use managed tables for Gold (final serving layer, well-defined schema) and external tables for Bronze (preserving raw files exactly as received).</p>
 
-    <h2>Bronze Layer: Auto-Ingest Raw Data at Scale Without Manual Schema Work</h2>
+    <h2>Bronze Layer: Automate Raw Data Ingestion—Eliminate Manual Schema Work Across 50+ Sources</h2>
 
     <p>Bronze should be append-only whenever possible. You're creating an audit trail. If a source system sends bad data, you still want the bad data in Bronze — so you can debug the Silver transformation logic later.</p>
 
@@ -182,7 +182,7 @@
 
     <p>Add metadata to every Bronze table: <code>ingested_at</code> timestamp, <code>source_system</code> string, <code>batch_id</code> for traceability. This costs almost nothing but saves enormous debugging time.</p>
 
-    <h2>Silver Layer: Where Data Quality Scales Across 50+ Teams</h2>
+    <h2>Silver Layer: Establish Quality Standards Once—Enforce Across 50+ Teams</h2>
 
     <p>Silver is where most of the engineering work lives. You're going from "raw data that arrived" to "data we can trust."</p>
 
@@ -198,7 +198,7 @@
 
     <p>Organize Silver notebooks into reusable patterns. We use a base transform class that handles logging, error quarantine, and Delta MERGE boilerplate — domain-specific notebooks just define the transformation logic. This pays off enormously when you have 50+ Silver tables to maintain.</p>
 
-    <h2>Gold: Purpose-Built for Consumers</h2>
+    <h2>Gold Layer: Workspace-Isolated Analytics—Enable Team Autonomy Without Central Bottlenecks</h2>
 
     <p>Gold layers are not generic. Each Gold table exists for a specific consumer: a Power BI semantic model, an ML feature store, an operational API. Optimize accordingly.</p>
 
