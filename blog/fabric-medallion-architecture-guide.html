@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <title>Medallion Architecture for Enterprise Fabric: Cut Storage Costs 50-70%, Accelerate Governance Cycles 2-3x | PowerMates</title>
-  <meta name="description" content="Cut storage costs 50-70% and governance cycles 2-3x with workspace isolation patterns. Eliminates 30-40% duplication across 50+ teams. Fortune 500-proven from dual MVPs." />
+  <meta name="description" content="Eliminate 30-40% storage duplication without sacrificing team autonomy. Cut costs 50-70%, compress governance cycles 2-3x—proven architecture from Slalom's Fortune 500 Fabric engagements with 50+ teams." />
   <meta name="keywords" content="medallion architecture Microsoft Fabric, fabric lakehouse bronze silver gold, fabric medallion lakehouse, OneLake architecture, data lakehouse Fabric, fabric architecture guide" />
   <meta property="og:title" content="Microsoft Fabric Medallion: Reduce Storage 50-70%, Accelerate Governance 2-3x" />
   <meta property="og:description" content="Reduce storage costs 50-70% and eliminate governance delays: Enterprise medallion architecture from Slalom's Fortune 500 engagements—workspace isolation, OneLake patterns, and what breaks at scale." />
@@ -96,7 +96,7 @@
       </div>
     </div>
     <h1>Reduce Storage Costs 50-70% and Governance Cycles 2-3x: Workspace Isolation Eliminates 30-40% Data Duplication Across 50+ Teams</h1>
-    <p class="blog-post-subtitle">Workspace isolation eliminates the 30-40% storage duplication that breaks most medallion implementations. Here's how to architect for 50+ teams without query performance collapse—proven patterns from Slalom's Fortune 500 engagements.</p>
+    <p class="blog-post-subtitle">Workspace isolation eliminates the 30-40% storage duplication that breaks most medallion implementations—delivering 50-70% cost savings and 2-3x faster governance without sacrificing team autonomy. Architect your 50+ team Fabric estate for proven results from Slalom's Fortune 500 engagements.</p>
     <div class="blog-post-author">
       <img src="/images/gaston-cruz.jpg" alt="Gastón Cruz" class="blog-author-img" loading="lazy" width="48" height="48" />
       <div>
@@ -108,7 +108,7 @@
 
   <div class="blog-post-body">
 
-    <p>At 50+ teams, medallion implementations without workspace isolation create 30-40% storage cost increases and 2-3x governance delays. This guide shows what breaks at scale and how to architect for 50-70% cost reductions and 2-3x faster governance cycles.</p>
+    <p>Most medallion implementations fail at 50+ teams on three fronts: 30-40% storage cost increases, 2-3x governance delays, or centralized bottlenecks that kill team autonomy. This guide maps each failure mode and shows how three architecture decisions—workspace isolation, OneLake Shortcuts, and Delta Lake—deliver 50-70% cost reductions and 2-3x faster governance without central bottlenecks.</p>
 
     <p>Three decisions determine success at 50+ teams: workspace isolation prevents schema conflicts in shared Bronze/Silver, OneLake Shortcuts cut storage costs 50-70% by replacing data copying, and Delta Lake preserves schema evolution without breaking downstream analytics.</p>
 
@@ -140,7 +140,7 @@
 
     <h2>OneLake Shortcuts: Reduce Storage Costs 50-70% Without Copying Data</h2>
 
-    <p>OneLake Shortcuts eliminate data duplication across lakehouses—reducing storage costs 50-70% by replacing data copying with virtual references. Reference data in another lakehouse, storage account, or external source like S3 or ADLS Gen2 without copying it; Fabric reads it as if it's local.</p>
+    <p>OneLake Shortcuts deliver 50-70% storage cost reductions by replacing data copying with virtual references. Reference data from another lakehouse, storage account, or external source (S3, ADLS Gen2) without moving it—Fabric reads it as if it's local, compressing storage bills and governance overhead simultaneously.</p>
 
     <p>This changes the medallion pattern significantly:</p>
 
